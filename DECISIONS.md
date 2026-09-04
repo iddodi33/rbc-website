@@ -6,6 +6,8 @@ Format: `YYYY-MM-DD — who — what was decided — why`
 
 ## Log
 
+- 2026-09-04 — Iddo — Roster structure corrected to three senior squads, one team per division: men's D4, men's D6, women's D2. D6 replaces D7 throughout, because the men's team was promoted. There are no separate men's and women's teams within a division — supersedes the "D4 and D7" and "men's and women's" wording in CLAUDE.md, ARCHITECTURE.md and ROADMAP.md, all three now corrected, including the `roster` table's division field which holds D4, D6 and D2. The earlier "Team & Roster covers D4 and D7" entry below is left untouched as the historical record
+
 - 2026-09-04 — Iddo — Typefaces are Archivo (display: headings, nav, buttons) and Source Serif 4 (body), loaded from Google Fonts via `<link>` — no typeface was specified anywhere in the docs; Archivo gives the tight athletic "chalk" half and Source Serif the warm "leather" half. Google Fonts keeps the no-build-step constraint. Revisit if a cookie/GDPR banner becomes necessary, since it is a third-party request — self-hosting the two `.woff2` files is the fallback and needs no other change
 - 2026-09-04 — Iddo — Added a fifth colour token, `--accent-ink` #8F4A1E, for small text and links on paper only — #C1682D on #F7F4EF is 3.62:1, which fails the WCAG AA 4.5:1 body-text threshold. #8F4A1E is 6.05:1. It is a text-only darkening of the accent, not a new brand colour: nothing visual (fills, rules, borders, display type) may use it, and on #141414 the plain accent is 4.64:1 and passes, so this token is not needed there
 - 2026-09-04 — Iddo — Nav label for roster.html is "Roster", not "Team" — matches the filename, so there is no ambiguity for Phil or for a later find-and-replace

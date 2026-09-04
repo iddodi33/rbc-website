@@ -13,7 +13,7 @@ Supabase project, owned by RBC, not a personal account.
 Starting tables, extend as needed:
 - `orders`: buyer name, email, items (jsonb: item, size, quantity), pickup or delivery, status, created_at
 - `sponsors`: name, logo_url, tier (internal only, not rendered publicly until tiers are priced), blurb
-- `roster`: name, division (D4 or D7), team (men's or women's)
+- `roster`: name, division (D4, D6 or D2), team (men's for D4 and D6, women's for D2 — one team per division, so team is implied by division)
 
 ## Payments
 - Stripe Checkout, hosted page, card data never touches our own code

@@ -36,7 +36,7 @@ VS Code users: the Live Server extension works and gives you auto-reload.
 /
   index.html      Home
   story.html      Our Story
-  roster.html     Team & Roster (D4, D7)
+  roster.html     Team & Roster (men's D4, men's D6, women's D2)
   sponsors.html   Sponsors
   shop.html       Shop
   contact.html    Contact

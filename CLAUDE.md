@@ -23,7 +23,7 @@ Leather and Chalk. Black `#141414`, paper `#F7F4EF`, accent `#C1682D`, accent ti
 | Area | Owner |
 |---|---|
 | Shell: layout, nav, design system, home, deploy config | Iddo |
-| Team & Roster (D4 and D7), Our Story | Iddo |
+| Team & Roster (men's D4, men's D6, women's D2), Our Story | Iddo |
 | Shop, Instagram/social embed | Phil |
 | Sponsors page | Shared, ask before editing |
 
@@ -34,7 +34,7 @@ Shell is built and merged solo by Iddo before Roster or Shop branches start.
 - Never auto-email teamwear.ie. Orders go to Supabase, the buyer, and Iddo plus Phil only. Bulk ordering with teamwear.ie is manual.
 - No blog or news feed, nothing that needs ongoing content upkeep beyond social media
 - Sponsor tiers are not priced or published yet, three tiers exist internally only
-- No underage teams involved, roster data for D4 and D7, men's and women's, is fine to publish as-is
+- No underage teams involved. Three senior squads, one team per division: men's D4, men's D6, women's D2. Roster data for all three is fine to publish as-is
 
 ## Process
 - Branch per feature, small PRs, merge daily
