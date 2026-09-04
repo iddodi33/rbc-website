@@ -73,28 +73,44 @@
     <section class="hero">
 
       <div class="hero__media">
-        <!-- TODO: HERO PHOTOGRAPH — the single remaining image placeholder.
-             Drop the file in as assets/img/hero.jpg and replace this <div>
-             with:
-               <img class="hero__img" src="assets/img/hero.jpg" alt=""
-                    width="2400" height="1350">
-             Landscape, at least 2000px wide. The media box is already sized
-             and cropped exactly as the real photo will be, so nothing around
-             it needs to move.
+        <!-- TODO: HERO PHOTOGRAPHS. Two exports, and it matters which is which:
 
-             THEN DO TWO THINGS:
-             1. Measure the photo's LIGHTEST region behind the headline, and
-                behind the nav. If either falls below 4.5:1 against --paper,
-                add class `hero--scrim` to the <section> above. The scrim is
-                already written and sits idle until then. Do not add it blind:
-                a well-exposed dark photo will not need it.
-             2. Check the portrait crop. At 360px the media box shows only the
-                middle slice of a 16:9 source — the exact figure is measured
-                and noted in layout.css. Anything important near the left or
-                right edge is lost on a phone. -->
-        <div class="hero__placeholder">
-          <span class="hero__placeholder-label">Photograph to come</span>
-        </div>
+               assets/img/hero-landscape-16x9.png   wide viewports, 768px and up
+               assets/img/hero-portrait-4x5.png     phones, below 768px
+
+             Both files are placeholders right now — flat black at the correct
+             aspect ratio, so the layout and the scrim behave exactly as they
+             will with the real thing. Overwrite them in place and nothing here
+             needs to change. If you export JPGs instead, update the three
+             filenames below as well as the files.
+
+             The 4:5 phone crop exists because a landscape photo loses its ends
+             on a phone: object-fit: cover on a 16:9 source at 360px shows only
+             the middle 33% of its width. Crop the phone version yourself
+             rather than letting the browser do it.
+
+             THEN: measure the LIGHTEST region of each export, behind the
+             headline and behind the nav. If either falls below 4.5:1 against
+             --paper, add class `hero--scrim` to the <section> above. The scrim
+             sits on the media box, so it covers whichever source is active.
+             Do not add it blind.
+
+             And delete the "Photograph to come" label below. -->
+        <picture>
+          <source
+            media="(min-width: 768px)"
+            srcset="assets/img/hero-landscape-16x9.png"
+            width="1600" height="900">
+          <source
+            media="(max-width: 767px)"
+            srcset="assets/img/hero-portrait-4x5.png"
+            width="1080" height="1350">
+          <!-- Fallback for anything that does not understand <picture>. -->
+          <img class="hero__img" src="assets/img/hero-landscape-16x9.png"
+               alt="" width="1600" height="900">
+        </picture>
+
+        <span class="hero__placeholder-label">Photograph to come</span>
       </div>
 
       <div class="hero__content">

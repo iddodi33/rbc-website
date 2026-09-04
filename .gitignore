@@ -9,6 +9,9 @@ node_modules/
 # Vercel
 .vercel
 
+# Tooling scratch output. The folder stays on disk, it just is not tracked.
+Claude outputs/
+
 # OS cruft
 .DS_Store
 Thumbs.db

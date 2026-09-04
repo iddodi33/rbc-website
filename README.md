@@ -24,9 +24,13 @@ php -S localhost:8000
 
 Then open <http://localhost:8000>.
 
-You can also open `index.html` directly in a browser by double-clicking it.
-Everything on the shell works that way today. Use a server once Supabase or
-Stripe are wired in, because `file://` breaks fetch and CORS.
+**You need the server. Do not open `index.html` by double-clicking it.**
+
+The home page reads the fixture list from `fixtures.json` with `fetch`, and
+browsers block `fetch` over `file://`. Opening the file directly does not throw
+anything you would notice — the fixtures block quietly falls back to its "dates
+are not confirmed yet" sentence and the rest of the page looks completely
+normal. It is a silent failure, which is exactly why it is worth knowing about.
 
 VS Code users: the Live Server extension works and gives you auto-reload.
 

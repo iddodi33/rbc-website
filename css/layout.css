@@ -359,31 +359,35 @@ body[data-page="contact"]  .site-nav__link[data-nav="contact"] {
   height: 100%;
 }
 
+/* <picture> is not a replaced element and defaults to inline, so it needs to
+   be told to fill the media box before the <img> inside it can. */
+.hero__media picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .hero__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 
   /* Biased slightly above centre: in a team or game photo the subject is
-     usually in the upper half, and this is the part a portrait crop keeps. */
+     usually in the upper half, and this is the part a crop keeps. Applies to
+     whichever <source> is active — the 4:5 phone export needs far less of it
+     than the 16:9 one, which is the reason the phone export exists. */
   object-position: 50% 40%;
 }
 
-/* Placeholder for the photograph that has not arrived yet. Black rather than
-   the loud accent tint used elsewhere, for one reason: the headline sits on
-   top of it, and paper on black is 16.79:1. A tint block would fail. The
-   label is parked bottom-right, clear of the headline, so the page still
-   reads as unfinished without a dashed frame around the hero. */
-.hero__placeholder {
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  height: 100%;
-  padding: var(--space-5);
-  background-color: var(--black);
-}
-
+/* Marker while both hero exports are still flat-black placeholders. Parked
+   bottom-right, clear of the headline, and deliberately not a dashed frame:
+   the hero is never boxed. z-index keeps it above the scrim, which is an
+   ::after on the same element. Delete this with the placeholder files. */
 .hero__placeholder-label {
+  position: absolute;
+  z-index: 1;
+  inset-block-end: var(--space-5);
+  inset-inline-end: var(--space-5);
   font-family: var(--font-display);
   font-size: var(--step--2);
   font-weight: var(--weight-semibold);
