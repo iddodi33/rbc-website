@@ -155,11 +155,15 @@ small { font-size: var(--step--1); }
   margin-block-end: var(--space-3);
 }
 
-/* Larger intro paragraph. Still body copy, so it stays on --text. */
+/* Larger intro paragraph. Still body copy despite the size, so it never gets
+   treated as large text for contrast purposes.
+
+   Colour is INHERITED on purpose. It used to hard-set --text, which was fine
+   while .lede only ever sat on paper — but on a --surface-ink band that paints
+   black text on a black block, a 1:1 ratio. Let the surface decide. */
 .lede {
   font-size: var(--step-1);
   line-height: var(--leading-normal);
-  color: var(--text);
   max-width: var(--measure);
 }
 
@@ -339,6 +343,15 @@ a:hover {
 
 .placeholder--wide {
   aspect-ratio: 16 / 9;
+}
+
+/* Inline variant, sized to sit in a run of text rather than as a block.
+   Square, because the home page carries no rounded corners. */
+.placeholder--inline {
+  display: inline-flex;
+  padding: var(--space-3) var(--space-4);
+  border-radius: 0;
+  font-size: var(--step--2);
 }
 
 

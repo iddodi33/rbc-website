@@ -302,16 +302,8 @@ body[data-page="contact"]  .site-nav__link[data-nav="contact"] {
   padding-block: var(--space-section);
 }
 
-.section + .section {
-  border-block-start: var(--border-hairline) solid var(--rule);
-}
-
-/* Ink bands butt against each other without a hairline. */
-.section.surface-ink + .section.surface-ink,
-.section.surface-ink + .section,
-.section + .section.surface-ink {
-  border-block-start: none;
-}
+/* No hairlines between sections. The page is now full-width colour blocks
+   alternating paper and black, and the colour change is the divider. */
 
 .section__head {
   max-width: var(--measure);
@@ -332,171 +324,432 @@ body[data-page="contact"]  .site-nav__link[data-nav="contact"] {
 
 /* -----------------------------------------------------------------------------
    5. Home — hero
+   --------------------------------------------------------------------------
+   Full bleed, edge to edge. No container, no border, no frame. The media and
+   the content are stacked in the same grid cell so the headline sits OVER the
+   photograph rather than beside it.
+
+   The negative top margin pulls the hero up underneath the sticky header, so
+   the photo reaches the very top of the viewport. It must equal the header's
+   real height: --header-height (the inner min-height) plus its bottom border.
+   Measured at 75px against a 75px header. If you change either, re-measure.
    -------------------------------------------------------------------------- */
 
 .hero {
-  padding-block: var(--space-8) var(--space-9);
-}
-
-.hero__inner {
   display: grid;
-  gap: var(--space-7);
+  grid-template-areas: "stack";
+  align-items: end;
+  isolation: isolate;
+
+  min-height: clamp(30rem, 78vh, 46rem);
+  margin-block-start: calc((var(--header-height) + var(--border-thick)) * -1);
+
+  background-color: var(--black);   /* under-paint while the photo loads */
+  color: var(--text-invert);
 }
 
-@media (min-width: 1024px) {
-  .hero__inner {
-    grid-template-columns: 1.15fr 1fr;
-    align-items: center;
-    gap: var(--space-8);
-  }
+.hero__media,
+.hero__content {
+  grid-area: stack;
 }
 
-.hero__title {
-  font-size: var(--step-5);
-  text-transform: uppercase;
-  margin-block-end: var(--space-5);
+.hero__media {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
 }
 
-/* The accent line inside the hero heading. --accent on --black is 4.64:1,
-   so it clears AA even at body size, never mind display size. */
-.hero__title-accent {
-  color: var(--accent);
-  display: block;
+.hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  /* Biased slightly above centre: in a team or game photo the subject is
+     usually in the upper half, and this is the part a portrait crop keeps. */
+  object-position: 50% 40%;
 }
 
-.hero__text {
-  max-width: var(--measure);
-  color: var(--text-invert-muted);
-  font-size: var(--step-1);
-  line-height: var(--leading-normal);
-}
-
-.hero__actions {
+/* Placeholder for the photograph that has not arrived yet. Black rather than
+   the loud accent tint used elsewhere, for one reason: the headline sits on
+   top of it, and paper on black is 16.79:1. A tint block would fail. The
+   label is parked bottom-right, clear of the headline, so the page still
+   reads as unfinished without a dashed frame around the hero. */
+.hero__placeholder {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-4);
-  margin-block-start: var(--space-7);
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 100%;
+  padding: var(--space-5);
+  background-color: var(--black);
 }
 
-/* Facts strip under the hero copy. auto-fit rather than a fixed three
-   columns, so the row reflows cleanly instead of dropping a single orphan
-   fact onto a second line. */
-.hero__facts {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
-  gap: var(--space-5);
-  margin-block-start: var(--space-7);
-  padding-block-start: var(--space-5);
-  border-block-start: var(--border-hairline) solid var(--rule-invert);
-}
-
-.fact__value {
-  display: block;
-  font-family: var(--font-display);
-  font-size: var(--step-2);
-  font-weight: var(--weight-bold);
-  line-height: var(--leading-tight);
-  color: var(--accent);
-}
-
-.fact__label {
-  display: block;
+.hero__placeholder-label {
   font-family: var(--font-display);
   font-size: var(--step--2);
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
   color: var(--text-invert-muted);
-  margin-block-start: var(--space-1);
+}
+
+/* Scrim — IDLE BY DESIGN. Not applied. Add the class `hero--scrim` to the
+   <section> only if the real photograph measures under 4.5:1 behind the
+   headline or behind the nav. Weighted top and bottom because that is where
+   the nav and the headline sit; the middle stays lighter so the photo is
+   still a photo. */
+.hero--scrim .hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgb(20 20 20 / 0.78) 0%,
+    rgb(20 20 20 / 0.30) 42%,
+    rgb(20 20 20 / 0.72) 100%
+  );
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-block: calc(var(--header-height) + var(--space-7)) var(--space-8);
+}
+
+.hero__eyebrow {
+  color: var(--accent);
+}
+
+.hero__title {
+  font-size: var(--step-5);
+  text-transform: uppercase;
+  color: var(--text-invert);
+  max-width: 18ch;
+}
+
+.hero__title-accent {
+  display: block;
+  color: var(--accent);
+}
+
+/* Header transparent over the hero. Solid is the default above; this class is
+   only ever ADDED by the inline observer in index.html, so with no JS the
+   header stays solid and legible. */
+.site-header.is-over-hero {
+  background-color: transparent;
+  border-block-end-color: transparent;
+}
+
+/* The club mark is white artwork on an OPAQUE BLACK background, and the
+   screen blend that normally knocks that black out cannot work here.
+   `position: sticky` always creates a stacking context, so the blend group is
+   sealed inside the header and never reaches the hero behind it — with a
+   transparent header it blends against nothing and returns the source
+   unchanged. Rather than leave that as an accident, state it: over the hero
+   the mark is a deliberate solid badge. Square, no radius, consistent with
+   the rest of the page.
+
+   THE REAL FIX IS AN ASSET, NOT CSS: a logo with a genuinely transparent
+   background removes this rule and the blend hack in section 2 together.
+   Flagged for Iddo. */
+.site-header.is-over-hero .brand__logo {
+  mix-blend-mode: normal;
 }
 
 
 /* -----------------------------------------------------------------------------
-   6. Home — intro
+   6. Home — promotion, club, venue
    -------------------------------------------------------------------------- */
 
-.intro__grid {
+.section--tight {
+  padding-block: var(--space-6);
+}
+
+.promotion {
+  max-width: 44rem;
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  margin: 0;
+}
+
+.promotion strong {
+  color: var(--accent);        /* 4.64:1 on --black */
+  font-weight: var(--weight-bold);
+}
+
+.split {
   display: grid;
   gap: var(--space-7);
 }
 
-@media (min-width: 1024px) {
-  .intro__grid {
-    grid-template-columns: 1fr 1fr;
+@media (min-width: 768px) {
+  .split {
+    grid-template-columns: 1.2fr 1fr;
     gap: var(--space-8);
     align-items: start;
   }
 }
 
+/* Venue block. A rule, not a card — no background, no radius, no shadow. */
+.venue {
+  border-inline-start: var(--border-thick) solid var(--accent);
+  padding-inline-start: var(--space-5);
+}
+
+.venue__label {
+  font-family: var(--font-display);
+  font-size: var(--step--1);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--accent-ink);
+  margin-block-end: var(--space-3);
+}
+
+.venue__address {
+  font-style: normal;
+  font-size: var(--step-1);
+  line-height: 1.5;
+}
+
+.venue__eircode {
+  display: inline-block;
+  margin-block-start: var(--space-2);
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wide);
+}
+
+.way-in__note {
+  margin-block-start: var(--space-4);
+}
+
 
 /* -----------------------------------------------------------------------------
-   7. Home — sponsors strip
+   7. Home — fixtures
+   --------------------------------------------------------------------------
+   Rendered from fixtures.json by the inline script in index.html.
+
+   18 fixtures per squad across three squads is far too much vertical space on
+   a phone, so home games show by default and away games sit behind a toggle.
+   That is not only a space fix: home games are the ones people can actually
+   come to, which is the whole point of the block.
    -------------------------------------------------------------------------- */
 
-.sponsors-strip__head {
+.fixtures__fallback {
+  max-width: var(--measure);
+  color: var(--text-muted);
+}
+
+.squad-fixtures + .squad-fixtures {
+  margin-block-start: var(--space-8);
+  padding-block-start: var(--space-7);
+  border-block-start: var(--border-hairline) solid var(--rule);
+}
+
+.squad-fixtures__title {
+  font-size: var(--step-2);
+  text-transform: uppercase;
+}
+
+.squad-fixtures__meta,
+.squad-fixtures__none {
+  margin-block-start: var(--space-2);
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.fixtures-toggle {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  margin-block-start: var(--space-4);
+  padding: var(--space-2) var(--space-4);
+
+  background: transparent;
+  border: var(--border-hairline) solid var(--rule-strong);
+  color: var(--text);
+  cursor: pointer;
+
+  font-family: var(--font-display);
+  font-size: var(--step--1);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+}
+
+.fixtures-toggle:hover {
+  background-color: var(--black);
+  border-color: var(--black);
+  color: var(--paper);
+}
+
+.fixture-list {
+  margin: 0;
+  margin-block-start: var(--space-5);
+  border-block-start: var(--border-hairline) solid var(--rule);
+}
+
+/* Default view: home games only. The script toggles this class. */
+.fixture-list.is-home-only .fixture--away {
+  display: none;
+}
+
+.fixture {
+  display: grid;
+  padding-block: var(--space-4);
+  border-block-end: var(--border-hairline) solid var(--rule);
+
+  /* Two lines on a phone, not four. Stacking tag/opponent/venue/date as
+     separate rows cost ~130px per fixture, which put a single squad at 1.7
+     screens even showing home games only. Pairing them halves it. */
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "tag   opponent opponent"
+    "venue venue    date";
+  column-gap: var(--space-3);
+  row-gap: var(--space-1);
+  align-items: baseline;
+}
+
+.fixture__tag      { grid-area: tag; }
+.fixture__opponent { grid-area: opponent; }
+.fixture__venue    { grid-area: venue; min-width: 0; }
+.fixture__date     { grid-area: date; text-align: end; }
+
+/* Home games are visually distinct: an accent edge and an accent tag. */
+.fixture--home {
+  border-inline-start: var(--border-thick) solid var(--accent);
+  padding-inline-start: var(--space-4);
+}
+
+.fixture--away {
+  /* Matching inset so home and away rows stay on the same left edge. */
+  padding-inline-start: calc(var(--space-4) + var(--border-thick));
+}
+
+.fixture__tag {
+  font-family: var(--font-display);
+  font-size: var(--step--2);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+}
+
+.fixture--home .fixture__tag {
+  color: var(--accent-ink);    /* 6.05:1 on paper */
+}
+
+.fixture--away .fixture__tag {
+  color: var(--text-muted);
+}
+
+.fixture__opponent {
+  font-size: var(--step-0);
+  font-weight: var(--weight-semibold);
+}
+
+.fixture__venue,
+.fixture__date {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+/* One away fixture has no venue on the source page. Said plainly. */
+.fixture__venue--unknown {
+  font-style: italic;
+}
+
+@media (min-width: 768px) {
+  .fixture {
+    grid-template-columns: 4.5rem minmax(0, 1.1fr) minmax(0, 1.3fr) 4.5rem;
+    grid-template-areas: "tag opponent venue date";
+    gap: var(--space-4);
+  }
+
+  .fixture__date {
+    text-align: start;
+  }
+}
+
+
+/* -----------------------------------------------------------------------------
+   8. Home — sponsors and shop
+   --------------------------------------------------------------------------
+   Logos sit on the solid block itself. No cards, no radius, no shadow.
+   -------------------------------------------------------------------------- */
+
+.sponsors__head {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
   gap: var(--space-4);
-  margin-block-end: var(--space-6);
+  margin-block-end: var(--space-7);
 }
 
-.sponsors-strip__list {
+.sponsors__list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-4);
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  margin: 0;
 }
 
-@media (min-width: 480px) {
-  .sponsors-strip__list {
+@media (min-width: 768px) {
+  .sponsors__list {
     grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+
+  /* Hairline separators rather than card edges. */
+  .sponsors__item + .sponsors__item {
+    border-inline-start: var(--border-hairline) solid var(--rule-invert);
   }
 }
 
-@media (min-width: 768px) {
-  .sponsors-strip__list {
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-5);
-  }
+.sponsors__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 6rem;
+  padding: var(--space-5);
+  text-align: center;
 }
 
-.sponsors-strip__item .placeholder {
-  aspect-ratio: 3 / 2;
-  padding: var(--space-3);
+.sponsors__wordmark {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  line-height: var(--leading-snug);
+  color: var(--text-invert);
+  text-wrap: balance;
 }
 
+/* The one remaining dashed box on the page, and it is deliberate: the empty
+   slot is the pitch. */
+.sponsors__slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 4.5rem;
+  padding: var(--space-4);
 
-/* -----------------------------------------------------------------------------
-   8. Home — shop call to action
-   -------------------------------------------------------------------------- */
+  border: var(--border-thick) dashed var(--accent);
+  color: var(--accent);        /* 4.64:1 on --black */
 
-.cta {
-  padding-block: var(--space-8);
-}
-
-.cta__inner {
-  display: grid;
-  gap: var(--space-6);
-}
-
-@media (min-width: 768px) {
-  .cta__inner {
-    grid-template-columns: 1.3fr 1fr;
-    align-items: center;
-    gap: var(--space-8);
-  }
-}
-
-.cta__title {
-  font-size: var(--step-3);
+  font-family: var(--font-display);
+  font-size: var(--step--1);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
 }
 
-.cta__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-4);
+.shop__actions {
   margin-block-start: var(--space-6);
 }
 

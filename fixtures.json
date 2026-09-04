@@ -1,0 +1,258 @@
+{
+  "source": "DMBB competition pages, transcribed from screenshots supplied by Iddo, 2026-09-04",
+  "notes": [
+    "Dates are not published yet. Every date is null and must render as TBC until the league confirms.",
+    "The D4 list is confirmed as Division 4, competition 3659. The second list is assumed to be D6 because Iddo said so; the division header was cropped in the screenshot and is not independently verified.",
+    "One D6 away fixture, at Adamstown Grafters, has no venue listed on the source page.",
+    "No fixtures supplied yet for the women's D2 team.",
+    "Home venue for both squads is St Mary's College Rathmines.",
+    "Women's D2 added as a division with an empty fixtures array so the renderer can show 'fixtures to follow' from the data rather than special-casing it in code. No fixtures have been supplied for this squad."
+  ],
+  "homeVenue": {
+    "name": "St. Mary's College C.S.Sp.",
+    "shortName": "St Mary's College Rathmines",
+    "address": "73-79 Lower Rathmines Road, Dublin 6",
+    "eircode": "D06 HP38"
+  },
+  "divisions": [
+    {
+      "id": "d4",
+      "label": "Men's Division 4",
+      "competitionId": "3659",
+      "verified": true,
+      "fixtures": [
+        {
+          "opponent": "Barrow Rovers",
+          "home": false,
+          "venue": "St Catherine's Marrowbone Lane",
+          "date": null
+        },
+        {
+          "opponent": "Ballinteer Bulls BC",
+          "home": true,
+          "venue": "St Mary's College Rathmines",
+          "date": null
+        },
+        {
+          "opponent": "UCD Marian BC",
+          "home": true,
+          "venue": "St Mary's College Rathmines",
+          "date": null
+        },
+        {
+          "opponent": "Oblate BC",
+          "home": false,
+          "venue": "Oblate Hall Inchicore",
+          "date": null
+        },
+        {
+          "opponent": "Naas BC",
+          "home": true,
+          "venue": "St Mary's College Rathmines",
+          "date": null
+        },
+        {
+          "opponent": "Glasnevin BC",
+          "home": false,
+          "venue": "St Aidan's CBS Collins Ave",
+          "date": null
+        },
+        {
+          "opponent": "Ekouxian Super Pandas",
+          "home": true,
+          "venue": "St Mary's College Rathmines",
+          "date": null
+        },
+        {
+          "opponent": "Dublin Raiders",
+          "home": false,
+          "venue": "Presentation College Bray",
+          "date": null
+        },
+        {
+          "opponent": "Dublin Lions",
+          "home": true,
+          "venue": "St Mary's College Rathmines",
+          "date": null
+        },
+        {
+          "opponent": "Barrow Rovers",
+          "home": true,
+          "venue": "St Mary's College Rathmines",
+          "date": null
+        },
+        {
+          "opponent": "Ballinteer Bulls BC",
+          "home": false,
+          "venue": "Wesley College Ballinteer",
+          "date": null
+        },
+        {
+          "opponent": "UCD Marian BC",
+          "home": false,
+          "venue": "Marian College, Ballsbridge",
+          "date": null
+        },
+        {
+          "opponent": "Oblate BC",
+          "home": true,
+          "venue": "St Mary's College Rathmines",
+          "date": null
+        },
+        {
+          "opponent": "Naas BC",
+          "home": false,
+          "venue": "St Mary's Naas",
+          "date": null
+        },
+        {
+          "opponent": "Glasnevin BC",
+          "home": true,
+          "venue": "St Mary's College Rathmines",
+          "date": null
+        },
+        {
+          "opponent": "Ekouxian Super Pandas",
+          "home": false,
+          "venue": "Benevin College",
+          "date": null
+        },
+        {
+          "opponent": "Dublin Raiders",
+          "home": true,
+          "venue": "St Mary's College Rathmines",
+          "date": null
+        },
+        {
+          "opponent": "Dublin Lions",
+          "home": false,
+          "venue": "Colaiste Bride",
+          "date": null
+        }
+      ]
+    },
+    {
+      "id": "d6",
+      "label": "Men's Division 6",
+      "competitionId": null,
+      "verified": false,
+      "fixtures": [
+        {
+          "opponent": "Dublin Sonics",
+          "home": false,
+          "venue": "Tyrrellstown Community Cnt",
+          "date": null
+        },
+        {
+          "opponent": "BC Lietkabelis",
+          "home": true,
+          "venue": "St Mary's College Rathmines",
+          "date": null
+        },
+        {
+          "opponent": "Adamstown Grafters",
+          "home": false,
+          "venue": null,
+          "date": null
+        },
+        {
+          "opponent": "Tolka Rovers Eclipse",
+          "home": true,
+          "venue": "St Mary's College Rathmines",
+          "date": null
+        },
+        {
+          "opponent": "UCD Marian BC",
+          "home": true,
+          "venue": "St Mary's College Rathmines",
+          "date": null
+        },
+        {
+          "opponent": "Lusk Ravens BC",
+          "home": false,
+          "venue": "Lusk National School",
+          "date": null
+        },
+        {
+          "opponent": "Killester BC",
+          "home": true,
+          "venue": "St Mary's College Rathmines",
+          "date": null
+        },
+        {
+          "opponent": "Glasnevin BC",
+          "home": false,
+          "venue": "St Aidan's CBS Collins Ave",
+          "date": null
+        },
+        {
+          "opponent": "Eanna BC",
+          "home": true,
+          "venue": "St Mary's College Rathmines",
+          "date": null
+        },
+        {
+          "opponent": "Dublin Sonics",
+          "home": true,
+          "venue": "St Mary's College Rathmines",
+          "date": null
+        },
+        {
+          "opponent": "BC Lietkabelis",
+          "home": false,
+          "venue": "Liam Rodgers CS Swords",
+          "date": null
+        },
+        {
+          "opponent": "Adamstown Grafters",
+          "home": true,
+          "venue": "St Mary's College Rathmines",
+          "date": null
+        },
+        {
+          "opponent": "Tolka Rovers Eclipse",
+          "home": false,
+          "venue": "Tolka Rovers SC, Dublin",
+          "date": null
+        },
+        {
+          "opponent": "UCD Marian BC",
+          "home": false,
+          "venue": "Marian College, Ballsbridge",
+          "date": null
+        },
+        {
+          "opponent": "Lusk Ravens BC",
+          "home": true,
+          "venue": "St Mary's College Rathmines",
+          "date": null
+        },
+        {
+          "opponent": "Killester BC",
+          "home": false,
+          "venue": "Irish Wheelchair Centre",
+          "date": null
+        },
+        {
+          "opponent": "Glasnevin BC",
+          "home": true,
+          "venue": "St Mary's College Rathmines",
+          "date": null
+        },
+        {
+          "opponent": "Eanna BC",
+          "home": false,
+          "venue": "Colaiste Eanna",
+          "date": null
+        }
+      ]
+    },
+    {
+      "id": "d2w",
+      "label": "Women's Division 2",
+      "competitionId": null,
+      "verified": false,
+      "fixtures": []
+    }
+  ]
+}

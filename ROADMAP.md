@@ -5,6 +5,7 @@
 - [ ] Shell: layout, nav, Leather and Chalk design system, home page, deploy pipeline. Iddo, solo, first.
 - [ ] Our Story / Community page. Iddo, after shell is merged.
 - [ ] Team and Roster, D4, D6 and D2 shown as three separate rosters. Iddo, after shell is merged.
+- [ ] Fixtures block on the home page. Built and live, rendered from `fixtures.json`. PENDING: the league has not published dates, so every fixture shows TBC. Drop the dates into `fixtures.json` when they land, nothing else needs to change. Also pending: confirmation that the second list really is Division 6, its header was cropped in the source screenshot. Iddo.
 - [ ] Sponsors page: current sponsors (Blackbird, Neighborhood Threat Barber) shown properly, open "partner with us" contact path, no tier pricing published. Shared.
 - [ ] Shop: jersey and tee, cart-style flow (item, size, quantity, multiple items per order), Stripe Checkout, order written to Supabase, confirmation email to buyer, summary email to Iddo and Phil, manual relay to teamwear.ie for bulk fulfillment, pickup or delivery captured on the form. Phil, after shell is merged.
 - [ ] Instagram feed, RBC's own account only. Phil, after shell is merged.

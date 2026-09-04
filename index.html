@@ -66,89 +66,139 @@
 
   <main class="main" id="main">
 
-    <!-- ---------------------------------------------------------------- -->
-    <!-- Hero                                                             -->
-    <!-- ---------------------------------------------------------------- -->
-    <section class="section hero surface-ink">
-      <div class="container hero__inner">
+    <!-- ==================================================================
+         HERO — full bleed, edge to edge. No container, no border, no frame.
+         Headline and eyebrow sit over the image.
+         ================================================================== -->
+    <section class="hero">
 
-        <div>
-          <p class="eyebrow">Rathmines, Dublin 6</p>
+      <div class="hero__media">
+        <!-- TODO: HERO PHOTOGRAPH — the single remaining image placeholder.
+             Drop the file in as assets/img/hero.jpg and replace this <div>
+             with:
+               <img class="hero__img" src="assets/img/hero.jpg" alt=""
+                    width="2400" height="1350">
+             Landscape, at least 2000px wide. The media box is already sized
+             and cropped exactly as the real photo will be, so nothing around
+             it needs to move.
+
+             THEN DO TWO THINGS:
+             1. Measure the photo's LIGHTEST region behind the headline, and
+                behind the nav. If either falls below 4.5:1 against --paper,
+                add class `hero--scrim` to the <section> above. The scrim is
+                already written and sits idle until then. Do not add it blind:
+                a well-exposed dark photo will not need it.
+             2. Check the portrait crop. At 360px the media box shows only the
+                middle slice of a 16:9 source — the exact figure is measured
+                and noted in layout.css. Anything important near the left or
+                right edge is lost on a phone. -->
+        <div class="hero__placeholder">
+          <span class="hero__placeholder-label">Photograph to come</span>
+        </div>
+      </div>
+
+      <div class="hero__content">
+        <div class="container">
+          <p class="eyebrow hero__eyebrow">Rathmines, Dublin 6</p>
           <h1 class="hero__title">
             Community first.
             <span class="hero__title-accent">Basketball second.</span>
           </h1>
-
-          <!-- TODO: placeholder copy. Replace with the real club pitch,
-               agreed with Phil. Two or three sentences, no more. -->
-          <p class="hero__text">
-            We are a senior club built around the people who turn up. Two
-            divisions, one hall, and a standing invitation to anyone in the
-            neighbourhood who wants a game.
-          </p>
-
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="shop.html">Shop the kit</a>
-            <a class="btn btn--secondary" href="story.html">Our story</a>
-          </div>
-
-          <ul class="hero__facts">
-            <li class="fact">
-              <span class="fact__value">D4 &amp; D7</span>
-              <span class="fact__label">Divisions we play</span>
-            </li>
-            <li class="fact">
-              <span class="fact__value">Dublin 6</span>
-              <span class="fact__label">Where we are from</span>
-            </li>
-            <li class="fact">
-              <!-- TODO: get the real number from Phil. Placeholder until then. -->
-              <span class="fact__value">00</span>
-              <span class="fact__label">Players on the books</span>
-            </li>
-          </ul>
         </div>
+      </div>
 
-        <!-- TODO: replace with a real hero photograph. Wants a wide team or
-             game shot, landscape, minimum 1600px wide. -->
-        <div class="placeholder placeholder--wide">
-          Hero photograph
-        </div>
+    </section>
 
+
+    <!-- ==================================================================
+         PROMOTION — one line, plainly stated. Replaces the three stat tiles,
+         which are deleted. No counter, no tile grid.
+         ================================================================== -->
+    <section class="section section--tight surface-ink">
+      <div class="container">
+        <p class="promotion">
+          The men&rsquo;s team went up last season. They play
+          <strong>Division 6</strong> this year.
+        </p>
       </div>
     </section>
 
 
-    <!-- ---------------------------------------------------------------- -->
-    <!-- Club intro                                                       -->
-    <!-- ---------------------------------------------------------------- -->
-    <section class="section intro">
+    <!-- ==================================================================
+         THE CLUB
+         ================================================================== -->
+    <section class="section">
       <div class="container">
 
-        <div class="intro__grid">
-          <div>
-            <p class="eyebrow">Who we are</p>
-            <h2>A club that is easy to join and hard to leave</h2>
-          </div>
+        <div class="section__head">
+          <p class="eyebrow">The club</p>
+          <h2>Three senior squads</h2>
+        </div>
 
-          <!-- TODO: placeholder copy throughout this block. Iddo to replace,
-               and the long version belongs on story.html, not here. -->
+        <div class="split">
           <div class="prose">
             <p>
-              Rathmines Basketball Club runs senior teams in two divisions.
-              Training is weekly, games are at the weekend, and the standard
-              ranges from people who played underage to people who picked a
-              ball up last year.
+              Rathmines Basketball Club runs three senior teams: men&rsquo;s
+              Division 4, men&rsquo;s Division 6 and women&rsquo;s Division 2.
+              Seniors only, no underage sides.
             </p>
             <p>
-              There is no trial gauntlet and no membership committee. If you
-              live locally and want a run, come down. The club exists because
-              a group of people wanted somewhere to play that felt like the
-              area it is named after.
+              Nine home games per squad this season.
+              <a href="roster.html">See who plays</a>.
             </p>
-            <p>
-              <a href="story.html">Read the longer version</a> or
-              <a href="roster.html">meet the squads</a>.
+          </div>
+
+          <!-- Venue stated as fact, the way the reference site states its
+               addresses. No persuasion around it. -->
+          <div class="venue">
+            <h3 class="venue__label">Home venue</h3>
+            <address class="venue__address">
+              St. Mary&rsquo;s College C.S.Sp.<br>
+              73&ndash;79 Lower Rathmines Road<br>
+              Dublin 6<br>
+              <span class="venue__eircode">D06 HP38</span>
+            </address>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ==================================================================
+         THE WAY IN
+         Training is closed. Nothing on this page invites anyone to a session,
+         lists a training time, or reads as an open door. See DECISIONS.md.
+         ================================================================== -->
+    <section class="section surface-ink">
+      <div class="container">
+
+        <div class="section__head">
+          <p class="eyebrow">New here?</p>
+          <h2>Come and watch</h2>
+        </div>
+
+        <div class="split">
+          <div>
+            <p class="lede">
+              Message the club on Instagram. Come and watch a game. Stay for a
+              chat and a beer with the team afterwards.
+            </p>
+            <p class="text-muted way-in__note">
+              That is the whole of it.
+            </p>
+          </div>
+
+          <div>
+            <!-- TODO: INSTAGRAM HANDLE. The channel is confirmed as Instagram
+                 DM, but the handle was not supplied, so this is deliberately
+                 NOT a link — a guessed or dead href must not ship. Replace
+                 this whole block with:
+                   <a class="btn btn--primary" href="https://www.instagram.com/HANDLE/">Message us on Instagram</a>
+                 Note for Phil: a plain outbound link, not the Instagram
+                 embed, which stays yours. -->
+            <p class="placeholder placeholder--inline">
+              Instagram handle needed &mdash; link not live
             </p>
           </div>
         </div>
@@ -157,14 +207,54 @@
     </section>
 
 
-    <!-- ---------------------------------------------------------------- -->
-    <!-- Sponsors strip                                                   -->
-    <!-- Shared ownership: coordinate with Phil before changing.          -->
-    <!-- ---------------------------------------------------------------- -->
-    <section class="section sponsors-strip">
+    <!-- ==================================================================
+         FIXTURES
+         Rendered at runtime from fixtures.json by the inline script at the
+         foot of this page. No build step.
+
+         Every date in the source is null and renders as TBC. Dates are not
+         published by the league yet — nothing here may imply one, and the
+         list is deliberately NOT sorted by date.
+
+         Home games are shown first and by default, because they are the ones
+         people can actually come to. Away games are behind a per-squad
+         toggle, which is what keeps 18 rows per squad from running away at
+         360px.
+
+         The paragraph below is the no-JS fallback. It is visible by default
+         and the script hides it only once it has rendered something, so a
+         failed fetch or a missing script leaves a real sentence rather than
+         an empty container.
+         ================================================================== -->
+    <section class="section">
       <div class="container">
 
-        <div class="sponsors-strip__head">
+        <div class="section__head">
+          <p class="eyebrow">This season</p>
+          <h2>Fixtures</h2>
+        </div>
+
+        <!-- TODO: INSTAGRAM HANDLE, second of two. Same handle as above.
+             Once known, link the word Instagram here. -->
+        <p class="fixtures__fallback" id="fixtures-fallback">
+          Dates are not confirmed by the league yet. The full fixture list is
+          posted on the club&rsquo;s Instagram.
+        </p>
+
+        <div class="fixtures" id="fixtures-mount"></div>
+
+      </div>
+    </section>
+
+
+    <!-- ==================================================================
+         SPONSORS — logos on a solid block.
+         Shared ownership: coordinate with Phil before changing.
+         ================================================================== -->
+    <section class="section surface-ink">
+      <div class="container">
+
+        <div class="sponsors__head">
           <div>
             <p class="eyebrow">Backed by</p>
             <h2>Our sponsors</h2>
@@ -172,24 +262,21 @@
           <a class="btn btn--secondary" href="sponsors.html">Partner with us</a>
         </div>
 
-        <!-- TODO: replace all four with real assets.
-             Blackbird and Neighborhood Threat Barber are confirmed sponsors
-             per ROADMAP.md but we do not have their logo files yet.
-             The two open slots are deliberate — the strip should look like
-             there is room, since the point of this page is to land 4-5 more.
-             Sponsor tiers are internal only, do not label or price them. -->
-        <ul class="sponsors-strip__list">
-          <li class="sponsors-strip__item">
-            <div class="placeholder">Blackbird</div>
+        <!-- TODO: SPONSOR LOGO FILES. Blackbird and Neighborhood Threat
+             Barber are confirmed sponsors per ROADMAP.md but we have no logo
+             files, so they are set as wordmarks — real and shippable — rather
+             than as dashed boxes. Swap each <span> for an <img> when the
+             files arrive. Sponsor tiers are internal only: do not label,
+             order or rank them here. -->
+        <ul class="sponsors__list">
+          <li class="sponsors__item">
+            <span class="sponsors__wordmark">Blackbird</span>
           </li>
-          <li class="sponsors-strip__item">
-            <div class="placeholder">Neighborhood Threat Barber</div>
+          <li class="sponsors__item">
+            <span class="sponsors__wordmark">Neighborhood Threat Barber</span>
           </li>
-          <li class="sponsors-strip__item">
-            <div class="placeholder">Your logo here</div>
-          </li>
-          <li class="sponsors-strip__item">
-            <div class="placeholder">Your logo here</div>
+          <li class="sponsors__item">
+            <span class="sponsors__slot">Your logo here</span>
           </li>
         </ul>
 
@@ -197,31 +284,27 @@
     </section>
 
 
-    <!-- ---------------------------------------------------------------- -->
-    <!-- Shop call to action                                              -->
-    <!-- Links to Phil's shop page. Do not build shop UI here.            -->
-    <!-- ---------------------------------------------------------------- -->
-    <section class="section cta surface-ink">
-      <div class="container cta__inner">
+    <!-- ==================================================================
+         SHOP — links to Phil's page. No shop UI is built here.
+         ================================================================== -->
+    <section class="section">
+      <div class="container">
 
-        <div>
+        <div class="section__head">
           <p class="eyebrow">Club merch</p>
-          <h2 class="cta__title">Wear the club</h2>
-          <!-- TODO: placeholder copy. Phil to confirm the range, the sizes
-               and whether pickup or delivery is the default before launch. -->
-          <p class="text-muted">
-            A short run of jerseys and tees, ordered together and picked up in
-            Rathmines. Small batch, so when it is gone it is gone.
-          </p>
-          <div class="cta__actions">
-            <a class="btn btn--primary" href="shop.html">Go to the shop</a>
-          </div>
+          <h2>Wear the club</h2>
         </div>
 
-        <!-- TODO: replace with a product photograph once the kit is shot. -->
-        <div class="placeholder placeholder--photo">
-          Merch photograph
-        </div>
+        <!-- TODO: placeholder copy. Phil to confirm the range, the sizes and
+             whether pickup or delivery is the default before launch. -->
+        <p class="lede">
+          A short run of jerseys and tees, ordered together and picked up in
+          Rathmines. Small batch, so when it is gone it is gone.
+        </p>
+
+        <p class="shop__actions">
+          <a class="btn btn--primary" href="shop.html">Go to the shop</a>
+        </p>
 
       </div>
     </section>
@@ -272,6 +355,211 @@
     </div>
   </footer>
   <!-- ===================== END SHARED FOOTER ============================ -->
+
+  <script>
+    /* ====================================================================
+       Header: transparent over the hero, solid everywhere else.
+
+       Inline because this belongs to index.html alone — putting it in the
+       shared js/nav.js would ship it to all six pages, including Phil's.
+
+       Solid is the CSS default and this only ever ADDS a class, so with no
+       JS, no IntersectionObserver, or a thrown error, the header simply
+       stays solid and legible.
+       ==================================================================== */
+    (function () {
+      "use strict";
+
+      var header = document.querySelector(".site-header");
+      var hero = document.querySelector(".hero");
+
+      if (!header || !hero || !("IntersectionObserver" in window)) {
+        return;
+      }
+
+      var observer = null;
+
+      /* Shrink the observation root down from the top by the header's own
+         height, so "intersecting" means "the hero is still underneath the
+         header". Re-attached on resize because the header height changes at
+         the 480px breakpoint. */
+      function attach() {
+        if (observer) {
+          observer.disconnect();
+        }
+
+        observer = new IntersectionObserver(function (entries) {
+          header.classList.toggle("is-over-hero", entries[0].isIntersecting);
+        }, {
+          rootMargin: "-" + Math.round(header.offsetHeight) + "px 0px 0px 0px",
+          threshold: 0
+        });
+
+        observer.observe(hero);
+      }
+
+      attach();
+
+      var resizeTimer = null;
+      window.addEventListener("resize", function () {
+        window.clearTimeout(resizeTimer);
+        resizeTimer = window.setTimeout(attach, 150);
+      });
+    })();
+
+
+    /* ====================================================================
+       Fixtures, rendered from fixtures.json.
+
+       Built with createElement rather than innerHTML: the JSON is our own
+       repo data, but it is still data and it is not going to be pasted into
+       markup unescaped.
+
+       Note the fetch means this needs a server — opening index.html straight
+       off the filesystem will show the fallback line instead, because
+       file:// blocks the request. That is the intended failure mode.
+       ==================================================================== */
+    (function () {
+      "use strict";
+
+      var mount = document.getElementById("fixtures-mount");
+      var fallback = document.getElementById("fixtures-fallback");
+
+      if (!mount || !window.fetch) {
+        return;
+      }
+
+      fetch("fixtures.json", { cache: "no-cache" })
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error("HTTP " + response.status);
+          }
+          return response.json();
+        })
+        .then(render)
+        .catch(function () {
+          /* Leave the fallback sentence exactly where it is. */
+        });
+
+      function el(tag, className, text) {
+        var node = document.createElement(tag);
+        if (className) {
+          node.className = className;
+        }
+        if (text !== undefined && text !== null) {
+          node.appendChild(document.createTextNode(text));
+        }
+        return node;
+      }
+
+      function label(text) {
+        return el("span", "visually-hidden", text);
+      }
+
+      function row(fixture) {
+        var isHome = fixture.home === true;
+        var li = el("li", "fixture " + (isHome ? "fixture--home" : "fixture--away"));
+
+        li.appendChild(el("span", "fixture__tag", isHome ? "Home" : "Away"));
+
+        var opponent = el("span", "fixture__opponent");
+        opponent.appendChild(label(isHome ? "At home to " : "Away to "));
+        opponent.appendChild(document.createTextNode(fixture.opponent || "Opponent TBC"));
+        li.appendChild(opponent);
+
+        /* One away fixture genuinely has no venue on the source page. Say so
+           rather than leaving a blank cell. */
+        var venue = el("span", "fixture__venue");
+        venue.appendChild(label("Venue: "));
+        if (fixture.venue) {
+          venue.appendChild(document.createTextNode(fixture.venue));
+        } else {
+          venue.className = "fixture__venue fixture__venue--unknown";
+          venue.appendChild(document.createTextNode("Venue not listed"));
+        }
+        li.appendChild(venue);
+
+        /* Every date is null. Never fabricate or infer one. */
+        var date = el("span", "fixture__date");
+        date.appendChild(label("Date: "));
+        date.appendChild(document.createTextNode(fixture.date ? String(fixture.date) : "TBC"));
+        li.appendChild(date);
+
+        return li;
+      }
+
+      function squad(division, venueName) {
+        var section = el("section", "squad-fixtures");
+        var fixtures = Array.isArray(division.fixtures) ? division.fixtures : [];
+
+        var titleId = "fx-" + (division.id || Math.random().toString(36).slice(2));
+        var title = el("h3", "squad-fixtures__title", division.label || "Squad");
+        title.id = titleId;
+        section.setAttribute("aria-labelledby", titleId);
+        section.appendChild(title);
+
+        if (!fixtures.length) {
+          section.appendChild(el("p", "squad-fixtures__none", "Fixtures to follow."));
+          return section;
+        }
+
+        var home = fixtures.filter(function (f) { return f.home === true; });
+        var away = fixtures.filter(function (f) { return f.home !== true; });
+
+        section.appendChild(el(
+          "p",
+          "squad-fixtures__meta",
+          home.length + " home games" + (venueName ? " at " + venueName : "") + ". Dates TBC."
+        ));
+
+        /* Home first, then away. Deliberately not sorted by date — there are
+           no dates, and any ordering would imply one. */
+        var list = el("ul", "fixture-list is-home-only");
+        list.id = titleId + "-list";
+        home.concat(away).forEach(function (f) { list.appendChild(row(f)); });
+
+        var toggle = el("button", "fixtures-toggle");
+        toggle.type = "button";
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-controls", list.id);
+        toggle.appendChild(document.createTextNode("Show all " + fixtures.length + " fixtures"));
+
+        toggle.addEventListener("click", function () {
+          var showingAll = list.classList.toggle("is-home-only") === false;
+          toggle.setAttribute("aria-expanded", showingAll ? "true" : "false");
+          toggle.textContent = showingAll
+            ? "Show home games only"
+            : "Show all " + fixtures.length + " fixtures";
+        });
+
+        section.appendChild(toggle);
+        section.appendChild(list);
+        return section;
+      }
+
+      function render(data) {
+        var divisions = (data && Array.isArray(data.divisions)) ? data.divisions : [];
+
+        if (!divisions.length) {
+          return;   /* keep the fallback sentence */
+        }
+
+        var venueName = (data.homeVenue && data.homeVenue.shortName) || "";
+        var frag = document.createDocumentFragment();
+
+        divisions.forEach(function (division) {
+          frag.appendChild(squad(division, venueName));
+        });
+
+        mount.appendChild(frag);
+
+        if (fallback) {
+          fallback.hidden = true;
+        }
+      }
+    })();
+  </script>
+
 
 </body>
 </html>
