@@ -1,0 +1,10 @@
+# Normalise line endings. The shared header and footer blocks are meant to be
+# byte-identical across all six HTML pages, and a find-and-replace across them
+# only stays reliable if both machines check out the same bytes.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.webp binary
+*.woff2 binary
+*.mp4 binary

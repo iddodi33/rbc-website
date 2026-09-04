@@ -1,0 +1,569 @@
+/* =============================================================================
+   Rathmines BC — layout
+   =============================================================================
+   Page furniture: container, header, nav, footer, and the home page sections.
+   Depends on tokens.css and base.css. Load third.
+
+   Breakpoint literals used in this file (kept in sync by hand with the
+   documented values in tokens.css):
+     480px   large phone
+     768px   nav flips from drawer to inline
+     1024px  laptop
+   ========================================================================== */
+
+/* -----------------------------------------------------------------------------
+   1. Container
+   -------------------------------------------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+}
+
+
+/* -----------------------------------------------------------------------------
+   2. Site header
+   --------------------------------------------------------------------------
+   The header is a black bar by design, not decoration. The club mark is white
+   artwork on an opaque black background, so it needs a dark surface to sit on.
+   mix-blend-mode: screen on the image knocks that black box out against the
+   bar. isolation: isolate keeps the blend inside the header.
+   -------------------------------------------------------------------------- */
+
+.site-header {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: var(--z-header);
+  isolation: isolate;
+
+  background-color: var(--surface-invert);
+  color: var(--text-invert);
+  border-block-end: var(--border-thick) solid var(--accent);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: var(--header-height);
+}
+
+/* --- Brand ---------------------------------------------------------------- */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  color: var(--text-invert);
+  padding-block: var(--space-2);
+}
+
+.site-header .brand:hover {
+  color: var(--text-invert);
+}
+
+.brand__logo {
+  width: auto;
+  height: 2.5rem;
+  mix-blend-mode: screen;
+}
+
+.brand__name {
+  font-family: var(--font-display);
+  font-size: var(--step-0);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+/* "Basketball Club" is supporting text — dropped below 480px so the brand
+   never competes with the menu button for width. */
+.brand__name-sub {
+  display: none;
+  font-weight: var(--weight-regular);
+  color: var(--text-invert-muted);
+}
+
+@media (min-width: 480px) {
+  .brand__logo {
+    height: 2.875rem;
+  }
+
+  .brand__name-sub {
+    display: block;
+  }
+}
+
+
+/* -----------------------------------------------------------------------------
+   3. Navigation
+   --------------------------------------------------------------------------
+   Progressive enhancement. Without JS the .js class is never added, the
+   toggle button stays hidden and the nav renders as a plain stacked list
+   that is always visible and fully usable. With JS the list collapses into
+   a drawer below 768px. Above 768px the drawer rules do not apply at all.
+   -------------------------------------------------------------------------- */
+
+.nav-toggle {
+  display: none;                 /* shown only by the .js rule below */
+  align-items: center;
+  gap: var(--space-2);
+
+  min-height: 3rem;
+  padding: var(--space-2) var(--space-3);
+
+  background: transparent;
+  border: var(--border-hairline) solid var(--rule-invert);
+  border-radius: var(--radius-md);
+  color: var(--text-invert);
+  cursor: pointer;
+
+  font-family: var(--font-display);
+  font-size: var(--step--1);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+}
+
+.nav-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Three bars, drawn in CSS. The middle bar is the element itself. */
+.nav-toggle__bars {
+  position: relative;
+  display: block;
+  width: 1.25rem;
+  height: 2px;
+  background-color: currentColor;
+}
+
+.nav-toggle__bars::before,
+.nav-toggle__bars::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  transition: transform var(--transition-fast),
+              opacity var(--transition-fast);
+}
+
+.nav-toggle__bars::before { inset-block-start: -6px; }
+.nav-toggle__bars::after  { inset-block-start:  6px; }
+
+/* Open state — bars become an X. */
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars {
+  background-color: transparent;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.site-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-5);
+  margin: 0;
+}
+
+.site-nav__link {
+  display: block;
+  padding: var(--space-3) 0;
+
+  font-family: var(--font-display);
+  font-size: var(--step--1);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-invert);
+
+  border-block-end: var(--border-thick) solid transparent;
+}
+
+.site-header .site-nav__link:hover {
+  color: var(--accent);
+  border-block-end-color: var(--accent);
+}
+
+/* Current page. Driven by the data-page attribute on <body> so that the
+   header markup stays byte-identical across all six pages and the marker
+   works without JS. nav.js additionally sets aria-current for screen
+   readers. Keep the two in step. */
+body[data-page="index"]    .site-nav__link[data-nav="index"],
+body[data-page="story"]    .site-nav__link[data-nav="story"],
+body[data-page="roster"]   .site-nav__link[data-nav="roster"],
+body[data-page="sponsors"] .site-nav__link[data-nav="sponsors"],
+body[data-page="shop"]     .site-nav__link[data-nav="shop"],
+body[data-page="contact"]  .site-nav__link[data-nav="contact"] {
+  color: var(--accent);
+  border-block-end-color: var(--accent);
+}
+
+/* --- Mobile drawer, JS only ---------------------------------------------- */
+
+@media (max-width: 767px) {
+  .js .nav-toggle {
+    display: inline-flex;
+  }
+
+  .js .site-nav {
+    position: absolute;
+    inset-inline: 0;
+    inset-block-start: 100%;
+    z-index: var(--z-nav);
+
+    background-color: var(--surface-invert);
+    border-block-end: var(--border-thick) solid var(--accent);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Hidden via the hidden attribute that nav.js manages, so the links are
+     removed from the tab order and the accessibility tree when closed. */
+  .js .site-nav[hidden] {
+    display: none;
+  }
+
+  .js .site-nav__list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: var(--space-2) var(--gutter) var(--space-5);
+  }
+
+  .js .site-nav__link {
+    padding: var(--space-4) 0;
+    font-size: var(--step-0);
+    border-block-end: var(--border-hairline) solid var(--rule-invert);
+  }
+
+  .js .site-nav__list li:last-child .site-nav__link {
+    border-block-end: none;
+  }
+
+  /* The 3px current-page underline would fight the hairline separators, so
+     inside the drawer the marker moves to a left bar instead. */
+  .js body[data-page] .site-nav__link {
+    border-inline-start: var(--border-thick) solid transparent;
+    padding-inline-start: var(--space-4);
+  }
+
+  .js body[data-page="index"]    .site-nav__link[data-nav="index"],
+  .js body[data-page="story"]    .site-nav__link[data-nav="story"],
+  .js body[data-page="roster"]   .site-nav__link[data-nav="roster"],
+  .js body[data-page="sponsors"] .site-nav__link[data-nav="sponsors"],
+  .js body[data-page="shop"]     .site-nav__link[data-nav="shop"],
+  .js body[data-page="contact"]  .site-nav__link[data-nav="contact"] {
+    border-inline-start-color: var(--accent);
+    border-block-end-color: var(--rule-invert);
+  }
+}
+
+/* Without JS below 768px the header stacks so the always-visible nav has room. */
+@media (max-width: 767px) {
+  html:not(.js) .site-header__inner {
+    flex-wrap: wrap;
+    padding-block: var(--space-3);
+  }
+
+  html:not(.js) .site-nav {
+    flex-basis: 100%;
+  }
+}
+
+
+/* -----------------------------------------------------------------------------
+   4. Main and page furniture
+   -------------------------------------------------------------------------- */
+
+.main {
+  flex: 1 0 auto;   /* pins the footer to the bottom on short pages */
+}
+
+.section {
+  padding-block: var(--space-section);
+}
+
+.section + .section {
+  border-block-start: var(--border-hairline) solid var(--rule);
+}
+
+/* Ink bands butt against each other without a hairline. */
+.section.surface-ink + .section.surface-ink,
+.section.surface-ink + .section,
+.section + .section.surface-ink {
+  border-block-start: none;
+}
+
+.section__head {
+  max-width: var(--measure);
+  margin-block-end: var(--space-6);
+}
+
+/* Page header for the five inner pages. */
+.page-head {
+  padding-block: var(--space-7) var(--space-6);
+  border-block-end: var(--border-thick) solid var(--accent);
+}
+
+.page-head__title {
+  font-size: var(--step-4);
+  text-transform: uppercase;
+}
+
+
+/* -----------------------------------------------------------------------------
+   5. Home — hero
+   -------------------------------------------------------------------------- */
+
+.hero {
+  padding-block: var(--space-8) var(--space-9);
+}
+
+.hero__inner {
+  display: grid;
+  gap: var(--space-7);
+}
+
+@media (min-width: 1024px) {
+  .hero__inner {
+    grid-template-columns: 1.15fr 1fr;
+    align-items: center;
+    gap: var(--space-8);
+  }
+}
+
+.hero__title {
+  font-size: var(--step-5);
+  text-transform: uppercase;
+  margin-block-end: var(--space-5);
+}
+
+/* The accent line inside the hero heading. --accent on --black is 4.64:1,
+   so it clears AA even at body size, never mind display size. */
+.hero__title-accent {
+  color: var(--accent);
+  display: block;
+}
+
+.hero__text {
+  max-width: var(--measure);
+  color: var(--text-invert-muted);
+  font-size: var(--step-1);
+  line-height: var(--leading-normal);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-block-start: var(--space-7);
+}
+
+/* Facts strip under the hero copy. auto-fit rather than a fixed three
+   columns, so the row reflows cleanly instead of dropping a single orphan
+   fact onto a second line. */
+.hero__facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: var(--space-5);
+  margin-block-start: var(--space-7);
+  padding-block-start: var(--space-5);
+  border-block-start: var(--border-hairline) solid var(--rule-invert);
+}
+
+.fact__value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  color: var(--accent);
+}
+
+.fact__label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--step--2);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--text-invert-muted);
+  margin-block-start: var(--space-1);
+}
+
+
+/* -----------------------------------------------------------------------------
+   6. Home — intro
+   -------------------------------------------------------------------------- */
+
+.intro__grid {
+  display: grid;
+  gap: var(--space-7);
+}
+
+@media (min-width: 1024px) {
+  .intro__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+    align-items: start;
+  }
+}
+
+
+/* -----------------------------------------------------------------------------
+   7. Home — sponsors strip
+   -------------------------------------------------------------------------- */
+
+.sponsors-strip__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-block-end: var(--space-6);
+}
+
+.sponsors-strip__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+@media (min-width: 480px) {
+  .sponsors-strip__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .sponsors-strip__list {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-5);
+  }
+}
+
+.sponsors-strip__item .placeholder {
+  aspect-ratio: 3 / 2;
+  padding: var(--space-3);
+}
+
+
+/* -----------------------------------------------------------------------------
+   8. Home — shop call to action
+   -------------------------------------------------------------------------- */
+
+.cta {
+  padding-block: var(--space-8);
+}
+
+.cta__inner {
+  display: grid;
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .cta__inner {
+    grid-template-columns: 1.3fr 1fr;
+    align-items: center;
+    gap: var(--space-8);
+  }
+}
+
+.cta__title {
+  font-size: var(--step-3);
+  text-transform: uppercase;
+}
+
+.cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-block-start: var(--space-6);
+}
+
+
+/* -----------------------------------------------------------------------------
+   9. Site footer
+   -------------------------------------------------------------------------- */
+
+.site-footer {
+  isolation: isolate;   /* keeps the logo blend inside the footer */
+
+  background-color: var(--surface-invert);
+  color: var(--text-invert);
+  border-block-start: var(--border-thick) solid var(--accent);
+  padding-block: var(--space-7) var(--space-6);
+  margin-block-start: auto;
+}
+
+.site-footer__inner {
+  display: grid;
+  gap: var(--space-7);
+}
+
+@media (min-width: 768px) {
+  .site-footer__inner {
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: var(--space-7);
+  }
+}
+
+.site-footer__tagline {
+  max-width: 24rem;
+  margin-block-start: var(--space-4);
+  color: var(--text-invert-muted);
+}
+
+.site-footer__heading {
+  font-family: var(--font-display);
+  font-size: var(--step--1);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-block-end: var(--space-4);
+}
+
+.site-footer__list {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+}
+
+.site-footer__list a {
+  color: var(--text-invert);
+  text-decoration: none;
+  border-block-end: var(--border-hairline) solid transparent;
+}
+
+.site-footer .site-footer__list a:hover {
+  color: var(--accent);
+  border-block-end-color: var(--accent);
+}
+
+.site-footer__legal {
+  grid-column: 1 / -1;
+  padding-block-start: var(--space-5);
+  border-block-start: var(--border-hairline) solid var(--rule-invert);
+  font-size: var(--step--1);
+  color: var(--text-invert-muted);
+}

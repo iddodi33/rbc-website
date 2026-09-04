@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en-IE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Rathmines Basketball Club — Dublin 6</title>
+  <meta name="description" content="Senior basketball club in Rathmines, Dublin 6. Community first, basketball second. Two divisions, club merch, and room for a few more sponsors.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+
+  <!-- Load order matters: tokens, then base, then layout. -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+
+  <!-- TODO: replace with a proper favicon set. Currently reusing the club
+       mark, which is a 114x107 raster and will look soft as a favicon. -->
+  <link rel="icon" href="assets/img/logo.png">
+
+  <script src="js/nav.js" defer></script>
+</head>
+
+<body data-page="index">
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ======================================================================
+       SHARED HEADER — byte-identical across all six pages.
+       No templating engine by design. If you edit this block, edit it in
+       index.html, story.html, roster.html, sponsors.html, shop.html and
+       contact.html in the same commit. Do not re-indent it.
+       ====================================================================== -->
+  <header class="site-header">
+    <div class="site-header__inner container">
+
+      <a class="brand" href="index.html">
+        <img class="brand__logo" src="assets/img/logo.png" alt="" width="114" height="107">
+        <span class="brand__name">
+          Rathmines
+          <span class="brand__name-sub">Basketball Club</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span>Menu</span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" data-nav="index" href="index.html">Home</a></li>
+          <li><a class="site-nav__link" data-nav="story" href="story.html">Our Story</a></li>
+          <li><a class="site-nav__link" data-nav="roster" href="roster.html">Roster</a></li>
+          <li><a class="site-nav__link" data-nav="sponsors" href="sponsors.html">Sponsors</a></li>
+          <li><a class="site-nav__link" data-nav="shop" href="shop.html">Shop</a></li>
+          <li><a class="site-nav__link" data-nav="contact" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+  <!-- ===================== END SHARED HEADER ============================ -->
+
+  <main class="main" id="main">
+
+    <!-- ---------------------------------------------------------------- -->
+    <!-- Hero                                                             -->
+    <!-- ---------------------------------------------------------------- -->
+    <section class="section hero surface-ink">
+      <div class="container hero__inner">
+
+        <div>
+          <p class="eyebrow">Rathmines, Dublin 6</p>
+          <h1 class="hero__title">
+            Community first.
+            <span class="hero__title-accent">Basketball second.</span>
+          </h1>
+
+          <!-- TODO: placeholder copy. Replace with the real club pitch,
+               agreed with Phil. Two or three sentences, no more. -->
+          <p class="hero__text">
+            We are a senior club built around the people who turn up. Two
+            divisions, one hall, and a standing invitation to anyone in the
+            neighbourhood who wants a game.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="shop.html">Shop the kit</a>
+            <a class="btn btn--secondary" href="story.html">Our story</a>
+          </div>
+
+          <ul class="hero__facts">
+            <li class="fact">
+              <span class="fact__value">D4 &amp; D7</span>
+              <span class="fact__label">Divisions we play</span>
+            </li>
+            <li class="fact">
+              <span class="fact__value">Dublin 6</span>
+              <span class="fact__label">Where we are from</span>
+            </li>
+            <li class="fact">
+              <!-- TODO: get the real number from Phil. Placeholder until then. -->
+              <span class="fact__value">00</span>
+              <span class="fact__label">Players on the books</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- TODO: replace with a real hero photograph. Wants a wide team or
+             game shot, landscape, minimum 1600px wide. -->
+        <div class="placeholder placeholder--wide">
+          Hero photograph
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ---------------------------------------------------------------- -->
+    <!-- Club intro                                                       -->
+    <!-- ---------------------------------------------------------------- -->
+    <section class="section intro">
+      <div class="container">
+
+        <div class="intro__grid">
+          <div>
+            <p class="eyebrow">Who we are</p>
+            <h2>A club that is easy to join and hard to leave</h2>
+          </div>
+
+          <!-- TODO: placeholder copy throughout this block. Iddo to replace,
+               and the long version belongs on story.html, not here. -->
+          <div class="prose">
+            <p>
+              Rathmines Basketball Club runs senior teams in two divisions.
+              Training is weekly, games are at the weekend, and the standard
+              ranges from people who played underage to people who picked a
+              ball up last year.
+            </p>
+            <p>
+              There is no trial gauntlet and no membership committee. If you
+              live locally and want a run, come down. The club exists because
+              a group of people wanted somewhere to play that felt like the
+              area it is named after.
+            </p>
+            <p>
+              <a href="story.html">Read the longer version</a> or
+              <a href="roster.html">meet the squads</a>.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ---------------------------------------------------------------- -->
+    <!-- Sponsors strip                                                   -->
+    <!-- Shared ownership: coordinate with Phil before changing.          -->
+    <!-- ---------------------------------------------------------------- -->
+    <section class="section sponsors-strip">
+      <div class="container">
+
+        <div class="sponsors-strip__head">
+          <div>
+            <p class="eyebrow">Backed by</p>
+            <h2>Our sponsors</h2>
+          </div>
+          <a class="btn btn--secondary" href="sponsors.html">Partner with us</a>
+        </div>
+
+        <!-- TODO: replace all four with real assets.
+             Blackbird and Neighborhood Threat Barber are confirmed sponsors
+             per ROADMAP.md but we do not have their logo files yet.
+             The two open slots are deliberate — the strip should look like
+             there is room, since the point of this page is to land 4-5 more.
+             Sponsor tiers are internal only, do not label or price them. -->
+        <ul class="sponsors-strip__list">
+          <li class="sponsors-strip__item">
+            <div class="placeholder">Blackbird</div>
+          </li>
+          <li class="sponsors-strip__item">
+            <div class="placeholder">Neighborhood Threat Barber</div>
+          </li>
+          <li class="sponsors-strip__item">
+            <div class="placeholder">Your logo here</div>
+          </li>
+          <li class="sponsors-strip__item">
+            <div class="placeholder">Your logo here</div>
+          </li>
+        </ul>
+
+      </div>
+    </section>
+
+
+    <!-- ---------------------------------------------------------------- -->
+    <!-- Shop call to action                                              -->
+    <!-- Links to Phil's shop page. Do not build shop UI here.            -->
+    <!-- ---------------------------------------------------------------- -->
+    <section class="section cta surface-ink">
+      <div class="container cta__inner">
+
+        <div>
+          <p class="eyebrow">Club merch</p>
+          <h2 class="cta__title">Wear the club</h2>
+          <!-- TODO: placeholder copy. Phil to confirm the range, the sizes
+               and whether pickup or delivery is the default before launch. -->
+          <p class="text-muted">
+            A short run of jerseys and tees, ordered together and picked up in
+            Rathmines. Small batch, so when it is gone it is gone.
+          </p>
+          <div class="cta__actions">
+            <a class="btn btn--primary" href="shop.html">Go to the shop</a>
+          </div>
+        </div>
+
+        <!-- TODO: replace with a product photograph once the kit is shot. -->
+        <div class="placeholder placeholder--photo">
+          Merch photograph
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================================
+       SHARED FOOTER — byte-identical across all six pages. Same rule as the
+       header: edit all six together, do not re-indent.
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="site-footer__inner container">
+
+      <div>
+        <img class="brand__logo" src="assets/img/logo.png" alt="Rathmines Basketball Club" width="114" height="107">
+        <!-- TODO: confirm the tagline with Phil before launch. -->
+        <p class="site-footer__tagline">
+          Community first, basketball second. A senior club playing out of
+          Rathmines, Dublin 6.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="site-footer__heading">The club</h2>
+        <ul class="site-footer__list">
+          <li><a href="story.html">Our Story</a></li>
+          <li><a href="roster.html">Roster</a></li>
+          <li><a href="sponsors.html">Sponsors</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="site-footer__heading">Get involved</h2>
+        <ul class="site-footer__list">
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <!-- TODO: Phil owns the social links and the Instagram embed. Left
+               out deliberately rather than stubbed. -->
+        </ul>
+      </div>
+
+      <p class="site-footer__legal">
+        <!-- TODO: confirm the registered club name and whether a governing
+             body line (Basketball Ireland / DMBB) is required here. -->
+        &copy; 2026 Rathmines Basketball Club. Dublin, Ireland.
+      </p>
+
+    </div>
+  </footer>
+  <!-- ===================== END SHARED FOOTER ============================ -->
+
+</body>
+</html>

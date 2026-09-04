@@ -1,0 +1,176 @@
+/* =============================================================================
+   Rathmines BC — design tokens
+   =============================================================================
+   The single source of truth for colour, type, space and layout measurements.
+   Nothing in base.css or layout.css should contain a raw hex value, a raw
+   font stack, or a magic pixel number. If you need a new value, add a token
+   here first.
+
+   Palette is locked — see DECISIONS.md. Four brand colours, plus one
+   text-only derivative of the accent that exists purely to clear WCAG AA.
+   Do not add a fifth colour.
+   ========================================================================== */
+
+:root {
+
+  /* ---------------------------------------------------------------------
+     1. Brand palette — "Leather and Chalk"
+     --------------------------------------------------------------------- */
+
+  --black:        #141414;
+  --paper:        #F7F4EF;
+  --accent:       #C1682D;
+  --accent-tint:  #EFD3B4;
+
+  /* Text-only derivative. Measured contrast ratios against --paper:
+       --accent      #C1682D → 3.62:1  ✗ AA body text, ✓ AA large text (18.66px
+                                          bold / 24px+), ✓ non-text UI (3:1)
+       --accent-ink  #8F4A1E → 6.05:1  ✓ AA body text, ✓ AA large text
+
+     So: --accent is for fills, rules, borders and large display type.
+         --accent-ink is for links and small text ON PAPER ONLY.
+     On --black, --accent is 4.64:1 and passes AA for body text, so
+     --accent-ink is not needed there. */
+  --accent-ink:   #8F4A1E;
+
+
+  /* ---------------------------------------------------------------------
+     2. Semantic colour — use these in components, not the raw names above
+     --------------------------------------------------------------------- */
+
+  /* Paper surface (the default) */
+  --surface:            var(--paper);
+  --surface-raised:     #FFFFFF;              /* cards lifted off the paper */
+  --text:               var(--black);
+  --text-muted:         rgb(20 20 20 / 0.72); /* 6.9:1 on paper */
+  --link:               var(--accent-ink);
+  --rule:               rgb(20 20 20 / 0.14); /* hairlines and dividers */
+  --rule-strong:        rgb(20 20 20 / 0.28);
+
+  /* Ink surface (header, footer, feature bands) */
+  --surface-invert:     var(--black);
+  --text-invert:        var(--paper);
+  --text-invert-muted:  rgb(247 244 239 / 0.72);
+  --link-invert:        var(--accent);         /* 4.64:1 on black ✓ */
+  --rule-invert:        rgb(247 244 239 / 0.18);
+
+  /* Focus. --accent clears 3:1 against both --paper (3.62) and --black
+     (4.64), so one focus colour works on every surface. */
+  --focus:              var(--accent);
+  --focus-width:        3px;
+  --focus-offset:       2px;
+
+
+  /* ---------------------------------------------------------------------
+     3. Typography
+     ---------------------------------------------------------------------
+     Archivo    — headings, nav, buttons. Tight, athletic, chalk-on-board.
+     Source Serif 4 — body copy. The warm, "leather" half of the palette.
+     Loaded from Google Fonts in each page's <head>. See DECISIONS.md.
+     Both stacks end in a system fallback so the site is readable if the
+     font request fails. */
+
+  --font-display: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body:    "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono:    ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --weight-regular:  400;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  /* Fluid type scale. Minor third (1.2) at 360px, perfect fourth (1.333)
+     at 1280px, so headings gain hierarchy as the viewport grows without a
+     single media query. Step 0 is body copy. */
+  --step--2: clamp(0.694rem, 0.68rem + 0.07vw, 0.750rem);
+  --step--1: clamp(0.833rem, 0.81rem + 0.12vw, 0.938rem);
+  --step-0:  clamp(1.000rem, 0.96rem + 0.19vw, 1.125rem);
+  --step-1:  clamp(1.200rem, 1.13rem + 0.34vw, 1.500rem);
+  --step-2:  clamp(1.440rem, 1.32rem + 0.57vw, 2.000rem);
+  --step-3:  clamp(1.728rem, 1.53rem + 0.94vw, 2.567rem);
+  --step-4:  clamp(2.074rem, 1.76rem + 1.49vw, 3.442rem);
+  --step-5:  clamp(2.488rem, 2.01rem + 2.28vw, 4.578rem);
+
+  --leading-tight:  1.08;   /* display headings */
+  --leading-snug:   1.25;   /* sub-headings, nav */
+  --leading-normal: 1.6;    /* body copy */
+  --leading-loose:  1.75;   /* long-form paragraphs */
+
+  --tracking-tight:  -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.06em;
+  --tracking-caps:   0.12em;  /* small caps labels need the air */
+
+  /* Comfortable reading measure, ~65 characters */
+  --measure: 34rem;
+
+
+  /* ---------------------------------------------------------------------
+     4. Spacing scale
+     ---------------------------------------------------------------------
+     Roughly 1.5x steps off a 0.25rem base. Use these for margin, padding
+     and gap. Do not hand-roll in-between values. */
+
+  --space-1:  0.25rem;   /*  4px */
+  --space-2:  0.5rem;    /*  8px */
+  --space-3:  0.75rem;   /* 12px */
+  --space-4:  1rem;      /* 16px */
+  --space-5:  1.5rem;    /* 24px */
+  --space-6:  2rem;      /* 32px */
+  --space-7:  3rem;      /* 48px */
+  --space-8:  4rem;      /* 64px */
+  --space-9:  6rem;      /* 96px */
+  --space-10: 8rem;      /* 128px */
+
+  /* Fluid section rhythm — the vertical gap between page bands */
+  --space-section: clamp(var(--space-7), 6vw, var(--space-9));
+
+
+  /* ---------------------------------------------------------------------
+     5. Layout
+     --------------------------------------------------------------------- */
+
+  --container-max:    75rem;   /* 1200px */
+  --container-narrow: 48rem;   /*  768px, for prose-led pages */
+  --gutter:           clamp(var(--space-4), 4vw, var(--space-7));
+
+  --header-height: 4.5rem;
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  /* Leather and Chalk is a squared-off identity. Anything rounder than
+     --radius-lg is off-brand. */
+
+  --border-hairline: 1px;
+  --border-thick:    3px;
+
+  --shadow-sm: 0 1px 2px rgb(20 20 20 / 0.06);
+  --shadow-md: 0 2px 4px rgb(20 20 20 / 0.06), 0 8px 24px rgb(20 20 20 / 0.08);
+
+  --transition-fast: 120ms ease;
+  --transition-base: 200ms ease;
+
+  --z-header:   100;
+  --z-nav:      200;
+  --z-skiplink: 300;
+
+
+  /* ---------------------------------------------------------------------
+     6. Breakpoints
+     ---------------------------------------------------------------------
+     Media queries cannot read custom properties, so these are documentation
+     and must be kept in sync by hand with the literals in layout.css.
+     Grep for the pixel value when you change one.
+
+       --bp-sm   480px   large phone
+       --bp-md   768px   tablet / nav flips from drawer to inline
+       --bp-lg  1024px   laptop
+       --bp-xl  1280px   desktop
+
+     Smallest supported viewport is 360px. Everything must work there. */
+
+  --bp-sm:  480px;
+  --bp-md:  768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+}
