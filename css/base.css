@@ -354,6 +354,26 @@ a:hover {
   font-size: var(--step--2);
 }
 
+/* ---------------------------------------------------------------------------
+   DRAFT SCAFFOLDING — DELETE THIS RULE WITH THE LOREM
+   ---------------------------------------------------------------------------
+   The only style added for the placeholder scaffold, and it is spacing and
+   nothing else: the per-page "placeholder copy" note is a .placeholder sitting
+   directly above a .section__head, which has a bottom margin but no top one,
+   so without this the dashed box butts straight into the eyebrow beneath it.
+
+   No colour, no new component, no variant. Every visual in the scaffold comes
+   from the .placeholder kit above, which already existed and was unused.
+   The per-block markers need nothing at all — they are the first child of a
+   .prose block, so the owl selector already spaces the paragraph after them.
+
+   When the real copy lands: delete the markers, delete the .draft-note
+   paragraphs, delete this rule. Nothing else in the page depends on it.
+   ------------------------------------------------------------------------ */
+.draft-note {
+  margin-block-end: var(--space-6);
+}
+
 
 /* -----------------------------------------------------------------------------
    8. Utilities

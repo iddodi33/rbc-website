@@ -659,8 +659,9 @@ body[data-page="contact"]  .site-header.is-over-hero .site-nav__link[data-nav="c
   letter-spacing: var(--tracking-wide);
 }
 
-/* Rathmines, the place — the two Creative Commons photographs under the club
-   copy. Stacked on a phone, side by side from the tablet breakpoint.
+/* Rathmines, the place — the two Creative Commons photographs. Used twice now,
+   under the club copy on the home page and in the neighbourhood section of
+   Our Story. Stacked on a phone, side by side from the tablet breakpoint.
 
    4fr / 9fr is arithmetic, not taste: the clock is 2:3 and the street is 3:2,
    and 4:9 is those two ratios in proportion. Column gap is subtracted before

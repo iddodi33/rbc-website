@@ -93,23 +93,49 @@
     </section>
 
     <!-- ===================================================================
-         STILL A STUB, but no longer empty. Owner: Phil.
+         STRUCTURE ONLY. Owner: Phil.
 
-         Front and back of the SAME jersey, which is why they are a pair and
-         not two separate images: the front carries Neighbourhood Threat and
-         the back carries Blackbird Rathmines, so between them they show the
-         whole garment a buyer is choosing a size for. Build the product, size
-         and quantity controls around this pair.
+         Headings and empty shells, and deliberately NO placeholder prose —
+         this is Phil's area and lorem written here is copy he has to delete.
 
-         Added by Iddo's agent on the `heroes` branch, inside Phil's area, on
-         Iddo's explicit instruction — logged in DECISIONS.md. Nothing else on
-         this page was touched and no cart, Stripe or Supabase code was added.
+         NOTHING BELOW TOUCHES THE ORDER FLOW. There is no form, no input,
+         no size or quantity control, no cart markup and no price anywhere on
+         this page, nor any reference to the payment or backend services named
+         in ARCHITECTURE.md — not even a commented-out one. That whole surface,
+         and the two Edge Functions behind it, are Phil's to build and nothing
+         here should constrain how. The two product sections are the ones
+         already agreed in ROADMAP.md, jersey and tee, so the page has a
+         visible shape and nothing more.
 
-         Do not edit the shared header or footer blocks unless you are
-         changing them in all six pages at once.
+         Added by Iddo's agent on the `scaffold` branch, inside Phil's area,
+         on Iddo's explicit instruction — logged in DECISIONS.md.
          =================================================================== -->
+
     <section class="section">
       <div class="container">
+
+        <!-- DRAFT MARKER. Temporary scaffolding, removed when the page is built. -->
+        <p class="placeholder placeholder--inline draft-note">
+          Structure only &mdash; this page has no content yet
+        </p>
+
+        <div class="section__head">
+          <p class="eyebrow">The kit</p>
+          <h2>Club merchandise</h2>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="section">
+      <div class="container">
+
+        <div class="section__head">
+          <p class="eyebrow">Product</p>
+          <h2>The jersey</h2>
+        </div>
+
         <div class="jersey-pair">
           <img class="photo" src="assets/img/jersey-front.jpg"
                alt="Front of the Rathmines jersey, worn, with the
@@ -120,6 +146,35 @@
                     Rathmines across the shoulders and the number 1."
                width="1600" height="1563" loading="lazy" decoding="async">
         </div>
+
+      </div>
+    </section>
+
+
+    <section class="section surface-ink">
+      <div class="container">
+
+        <div class="section__head">
+          <p class="eyebrow">Product</p>
+          <h2>The tee</h2>
+        </div>
+
+        <p class="placeholder">Photograph to come</p>
+
+      </div>
+    </section>
+
+
+    <section class="section">
+      <div class="container">
+
+        <div class="section__head">
+          <p class="eyebrow">Ordering</p>
+          <h2>How ordering works</h2>
+        </div>
+
+        <p class="placeholder">Phil&rsquo;s area &mdash; nothing scaffolded here on purpose</p>
+
       </div>
     </section>
 
