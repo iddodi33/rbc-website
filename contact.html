@@ -7,6 +7,31 @@
   <title>Contact — Rathmines Basketball Club</title>
   <meta name="description" content="Get in touch with Rathmines Basketball Club about playing, sponsoring or merch.">
 
+  <!-- Social preview. Absolute URLs are required — a relative og:image is
+       simply dropped by every scraper. Titles and descriptions are per page,
+       not one shared set, so a shared link says which page it is.
+
+       The image is the home hero on every page. It is 1600x900, and the
+       platforms want 1200x630, so they letterbox it slightly; a dedicated
+       1200x630 crop would be better and is not worth a second file until
+       there is a photograph chosen for it. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Rathmines Basketball Club">
+  <meta property="og:locale" content="en_IE">
+  <meta property="og:url" content="https://rathminesbc.ie/contact.html">
+  <meta property="og:title" content="Contact — Rathmines Basketball Club">
+  <meta property="og:description" content="Get in touch with Rathmines Basketball Club about playing, sponsoring or merch.">
+  <meta property="og:image" content="https://rathminesbc.ie/assets/img/hero-landscape-16x9.jpg">
+  <meta property="og:image:width" content="1600">
+  <meta property="og:image:height" content="900">
+  <meta property="og:image:alt" content="The Rathmines squad in a huddle before tip-off, hands in at the centre.">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact — Rathmines Basketball Club">
+  <meta name="twitter:description" content="Get in touch with Rathmines Basketball Club about playing, sponsoring or merch.">
+  <meta name="twitter:image" content="https://rathminesbc.ie/assets/img/hero-landscape-16x9.jpg">
+  <meta name="twitter:image:alt" content="The Rathmines squad in a huddle before tip-off, hands in at the centre.">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
@@ -28,7 +53,7 @@
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- ======================================================================
-       SHARED HEADER — byte-identical across all six pages.
+       SHARED HEADER — byte-identical across all seven pages.
        No templating engine by design. If you edit this block, edit it in
        index.html, story.html, roster.html, sponsors.html, shop.html and
        contact.html in the same commit. Do not re-indent it.
@@ -186,7 +211,7 @@
           <img class="photo photo--portrait" src="assets/img/contact-portrait.jpg"
                alt="A Rathmines player in the black club jersey looking up the
                     court during a game."
-               width="1066" height="1600" loading="lazy" decoding="async">
+               width="800" height="1201" loading="lazy" decoding="async">
         </div>
 
       </div>
@@ -195,7 +220,7 @@
   </main>
 
   <!-- ======================================================================
-       SHARED FOOTER — byte-identical across all six pages. Same rule as the
+       SHARED FOOTER — byte-identical across all seven pages. Same rule as the
        header: edit all six together, do not re-indent.
        ====================================================================== -->
   <footer class="site-footer">
@@ -222,7 +247,7 @@
           <img class="sponsor-mark__img"
                src="assets/img/sponsor-neighbourhood-threat.png"
                alt="Neighbourhood Threat Barber Shop"
-               width="1245" height="496">
+               width="1245" height="496" loading="lazy" decoding="async">
         </a>
 
         <a class="sponsor-mark" href="sponsors.html">
@@ -231,7 +256,7 @@
       </div>
 
       <div>
-        <img class="brand__logo" src="assets/img/logo.png" alt="Rathmines Basketball Club" width="114" height="107">
+        <img class="brand__logo" src="assets/img/logo.png" alt="Rathmines Basketball Club" width="114" height="107" loading="lazy" decoding="async">
         <!-- TODO: confirm the tagline with Phil before launch. -->
         <p class="site-footer__tagline">
           Community first, basketball second. A senior club playing out of

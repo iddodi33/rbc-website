@@ -30,7 +30,7 @@
      ---------------------------------------------------------------------
      The visible marker is CSS, driven by the data-page attribute on <body>,
      so that it survives without JS and the header markup can stay identical
-     across all six pages. This adds the part CSS cannot: the announcement
+     across all seven pages. This adds the part CSS cannot: the announcement
      for screen reader users.
      --------------------------------------------------------------------- */
 

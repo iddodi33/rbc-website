@@ -437,7 +437,19 @@ body[data-page="contact"]  .site-nav__link[data-nav="contact"] {
   height: 100%;
 }
 
+/* Absolutely positioned, the same fix the page band got and for the same
+   reason. Left in flow the <img> contributes its own intrinsic height to the
+   grid row — 1265 / 1.778 = 711.6px at desktop — and the min-height above
+   never gets a say, so the hero's height came from the photograph's aspect
+   ratio rather than from its clamp. Out of flow the row is exactly the
+   clamp and object-fit does the cropping at every width.
+
+   This changes the hero's height at wide viewports, which moves the headline
+   within the scrim gradient, so the contrast figures in index.html were
+   re-measured after the change and not carried over. */
 .hero__img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
