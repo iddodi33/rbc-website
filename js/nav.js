@@ -133,3 +133,57 @@
     mobile.addListener(sync);
   }
 })();
+
+/* =============================================================================
+   Header: transparent over a full-bleed media band, solid everywhere else.
+   =============================================================================
+   This used to be an inline IIFE on index.html, deliberately kept out of this
+   shared file because only the home page had a hero. Every page now opens with
+   a full-bleed photograph — the home hero on index.html, the narrow `.page-band`
+   on the other five — so the reason it was inline is gone and duplicating it
+   six times would be worse. See DECISIONS.md.
+
+   Solid is the CSS default and this only ever ADDS a class, so with no JS, no
+   IntersectionObserver, or a thrown error, the header simply stays solid and
+   legible. A page with neither element is a no-op.
+   ========================================================================== */
+
+(function () {
+  "use strict";
+
+  var header = document.querySelector(".site-header");
+  var band = document.querySelector(".hero, .page-band");
+
+  if (!header || !band || !("IntersectionObserver" in window)) {
+    return;
+  }
+
+  var observer = null;
+
+  /* Shrink the observation root down from the top by the header's own height,
+     so "intersecting" means "the band is still underneath the header".
+     Re-attached on resize because the header height changes at the 480px
+     breakpoint. */
+  function attach() {
+    if (observer) {
+      observer.disconnect();
+    }
+
+    observer = new IntersectionObserver(function (entries) {
+      header.classList.toggle("is-over-hero", entries[0].isIntersecting);
+    }, {
+      rootMargin: "-" + Math.round(header.offsetHeight) + "px 0px 0px 0px",
+      threshold: 0
+    });
+
+    observer.observe(band);
+  }
+
+  attach();
+
+  var resizeTimer = null;
+  window.addEventListener("resize", function () {
+    window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(attach, 150);
+  });
+})();

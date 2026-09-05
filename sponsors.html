@@ -66,20 +66,61 @@
 
   <main class="main" id="main">
 
-    <div class="container">
-      <div class="page-head">
-        <h1 class="page-head__title">Sponsors</h1>
+    <!-- ==================================================================
+         PAGE BAND — the narrow hero. Full bleed, sits under the transparent
+         header, carries the page title. Deliberately about 40% of the home
+         hero's height: this is a strip, not a second hero.
+
+         The scrim is a per-page decision, never global. `page-band--scrim`
+         is on this section only if the title measured under 4.5:1 against
+         this page's own photograph. Numbers are in DECISIONS.md.
+         ================================================================== -->
+    <section class="page-band page-band--scrim">
+
+      <div class="page-band__media">
+        <img class="page-band__img" src="assets/img/band-sponsors.jpg"
+             alt="A Rathmines player going up for a lay-up under the basket in a
+                    floodlit hall."
+             width="1600" height="500" fetchpriority="high">
       </div>
-    </div>
+
+      <div class="page-band__content">
+        <div class="container">
+          <h1 class="page-band__title">Sponsors</h1>
+        </div>
+      </div>
+
+    </section>
 
     <!-- ===================================================================
-         INTENTIONALLY EMPTY.
-         Owner: Shared — Iddo and Phil, ask before editing
-         This page is a shell stub so that it can be branched without a merge
-         conflict against the header, footer or design system. Build the page
-         content here. Do not edit the shared header or footer blocks unless
-         you are changing them in all six pages at once.
+         STILL A STUB, but no longer empty.
+         Owner: Shared — Iddo and Phil, ask before editing.
+
+         This photograph is the single most useful asset on the site for the
+         sponsorship pitch, which is why it is on this page and no other: the
+         Neighbourhood Threat wordmark is fully legible on the jersey. It is
+         what a sponsor's money actually buys, photographed, rather than
+         described in a tier table. Build the current-sponsor list and the
+         "partner with us" path around it.
+
+         No tier pricing here — the three tiers exist internally and are not
+         published.
+
+         Added by Iddo's agent on the `heroes` branch, in a shared area, on
+         Iddo's explicit instruction — logged in DECISIONS.md.
+
+         Do not edit the shared header or footer blocks unless you are
+         changing them in all six pages at once.
          =================================================================== -->
+    <section class="section">
+      <div class="container">
+        <img class="photo photo--landscape" src="assets/img/sponsor-portrait.jpg"
+             alt="A Rathmines player in the club jersey, the Neighbourhood
+                  Threat Barber Shop sponsor wordmark clearly readable across
+                  the front."
+             width="1600" height="1066" loading="lazy" decoding="async">
+      </div>
+    </section>
 
   </main>
 
@@ -113,8 +154,13 @@
         <ul class="site-footer__list">
           <li><a href="shop.html">Shop</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <!-- TODO: Phil owns the social links and the Instagram embed. Left
-               out deliberately rather than stubbed. -->
+          <!-- The handle is confirmed, so it is a plain outbound link on every
+               page. Phil still owns the Instagram EMBED and the rest of the
+               social links; this is only the club's own account. -->
+          <li>
+            <a href="https://www.instagram.com/rathmines_bc/"
+               target="_blank" rel="noopener">Instagram &mdash; @rathmines_bc</a>
+          </li>
         </ul>
       </div>
 

@@ -81,28 +81,41 @@
              The 4:5 phone crop exists because a landscape photo loses its ends
              on a phone: object-fit: cover on a 16:9 source at 360px shows only
              the middle 33% of its width. The phone export is cropped by hand
-             rather than by the browser, and keeps the player and the ball.
+             rather than by the browser, and keeps the hands at the centre of
+             the huddle, which is the whole subject.
 
              Both are club photographs, not Creative Commons — the footer
              credit covers the two Rathmines street photographs only.
 
-             MEASURED on the real exports, worst 8px tile behind each element,
-             scrim composited in. `hero--scrim` IS applied on the <section>
-             above because the white headline line failed without it:
+             MEASURED on the huddle exports, worst 8px tile behind each
+             element, scrim composited in. `hero--scrim` IS still applied —
+             the headline fails badly without it. All figures against the
+             4.5:1 bar, and all of them now clear it:
 
-                                        no scrim   with scrim   needs
-               "Community first."  1280    2.21       5.41       4.5  ok
-               "Community first."   360    2.06       4.85       4.5  ok
-               nav / header strip         2.11-3.85  9.01-10.48  4.5  ok
-               "Basketball second."       1.04-1.05  1.86-1.87   4.5  FAILS
-               eyebrow                    1.71-1.88  2.64-2.89   4.5  FAILS
+                                            bare   scrimmed
+               "Community first."   paper 1280   2.61     7.46
+               "Community first."   paper  360   2.94     7.61
+               "Basketball second." 72%   1280   4.41     7.67
+               "Basketball second." 72%    360   4.53     7.51
+               eyebrow              paper 1280  13.67    15.41
+               eyebrow              paper  360   2.00     5.57
+               nav + marker         paper 1280   1.73     9.57
+               header strip         paper  360   1.79     8.78
 
-             The two accent-coloured elements CANNOT be fixed with a scrim.
-             #C1682D is a mid orange and so is this gym; to reach 4.5:1 the
-             backdrop would have to be within a hair of pure black, which
-             means a ~90% scrim and no photograph left. It needs either a
-             different hero photograph or paper-coloured type on the hero.
-             Flagged for Iddo, not decided here — see DECISIONS.md.
+             Worst case anywhere on the hero: 5.57:1.
+
+             Two type changes made this possible and both are measured, not
+             preferences. The headline's second line was --accent and is now
+             --paper at 600 weight and 0.72 opacity, which is where the
+             two-tone split now lives. The eyebrow was --accent too: over this
+             photograph accent reaches only 4.26:1 at 1280 and 1.54:1 at 360,
+             and even --accent-tint stops at 4.26:1 at 360, so it is --paper
+             as well. There is no accent anywhere on the hero now.
+
+             The scrim curve also changed, from 0.30 at 42% to 0.45 at 45%.
+             The huddle has a pale wall across the top and on the phone crop
+             the eyebrow lands in the old dip at 4.28:1. Curves up to 0.62
+             were tested; 0.45 is the gentlest that clears 4.5:1 everywhere.
 
              If either export is replaced, measure again. The scrim comes off
              if the new photograph passes without it. -->
@@ -117,8 +130,8 @@
             width="1080" height="1350">
           <!-- Fallback for anything that does not understand <picture>. -->
           <img class="hero__img" src="assets/img/hero-landscape-16x9.jpg"
-               alt="A Rathmines player in the black club jersey calling a play,
-                    bringing the ball up the court."
+               alt="The Rathmines squad in a huddle before tip-off, hands in
+                    at the centre."
                width="1600" height="900">
         </picture>
       </div>
@@ -244,11 +257,11 @@
              ratio, finish at exactly the same height, and neither is cropped.
              Change one photograph and the ratio has to be recalculated. -->
         <div class="place">
-          <img class="place__img" src="assets/img/rathmines-clock.jpg"
+          <img class="photo" src="assets/img/rathmines-clock.jpg"
                alt="The red-brick clock tower of Rathmines Town Hall, now
                     Rathmines College, on Lower Rathmines Road."
                width="683" height="1024" loading="lazy" decoding="async">
-          <img class="place__img" src="assets/img/rathmines-street.jpg"
+          <img class="photo" src="assets/img/rathmines-street.jpg"
                alt="Red-brick Victorian houses behind low garden walls on a
                     Rathmines street."
                width="1600" height="1067" loading="lazy" decoding="async">
@@ -262,6 +275,21 @@
          THE WAY IN
          Training is closed. Nothing on this page invites anyone to a session,
          lists a training time, or reads as an open door. See DECISIONS.md.
+
+         NO PHOTOGRAPH HERE, ON PURPOSE. `home come and watch.jpg` was the
+         obvious candidate and turned out to be the same huddle as the hero,
+         just a wider 3:2 crop of it, so using it would have repeated the top
+         of the page a third of the way down. The file is deleted rather than
+         left in assets/img/ as a near-duplicate.
+
+         Nothing else was substituted either. This band is the one place on
+         the site that asks the reader to do a single specific thing, and the
+         button is that thing; a photograph beside it competes for the same
+         attention and pushes the link down the page on a phone. The home page
+         already carries the hero and the two Rathmines photographs. If a
+         photograph is ever wanted here, it should be spectators or the bar
+         afterwards — the thing the copy actually describes — not more
+         basketball. See DECISIONS.md.
          ================================================================== -->
     <section class="section surface-ink">
       <div class="container">
@@ -283,15 +311,16 @@
           </div>
 
           <div>
-            <!-- TODO: INSTAGRAM HANDLE. The channel is confirmed as Instagram
-                 DM, but the handle was not supplied, so this is deliberately
-                 NOT a link — a guessed or dead href must not ship. Replace
-                 this whole block with:
-                   <a class="btn btn--primary" href="https://www.instagram.com/HANDLE/">Message us on Instagram</a>
-                 Note for Phil: a plain outbound link, not the Instagram
-                 embed, which stays yours. -->
-            <p class="placeholder placeholder--inline">
-              Instagram handle needed &mdash; link not live
+            <!-- Handle confirmed: @rathmines_bc. A plain outbound link, not
+                 the Instagram embed — the embed is still Phil's and belongs
+                 to him. The handle is visible as text rather than hidden
+                 behind "Message us", so it can be read, remembered and
+                 searched for by anyone who would rather not follow a link. -->
+            <a class="btn btn--primary" href="https://www.instagram.com/rathmines_bc/"
+               target="_blank" rel="noopener">Message us on Instagram</a>
+            <p class="text-muted way-in__note">
+              <a href="https://www.instagram.com/rathmines_bc/"
+                 target="_blank" rel="noopener">@rathmines_bc</a>
             </p>
           </div>
         </div>
@@ -327,11 +356,11 @@
           <h2>Fixtures</h2>
         </div>
 
-        <!-- TODO: INSTAGRAM HANDLE, second of two. Same handle as above.
-             Once known, link the word Instagram here. -->
         <p class="fixtures__fallback" id="fixtures-fallback">
           Dates are not confirmed by the league yet. The full fixture list is
-          posted on the club&rsquo;s Instagram.
+          posted on the club&rsquo;s Instagram,
+          <a href="https://www.instagram.com/rathmines_bc/"
+             target="_blank" rel="noopener">@rathmines_bc</a>.
         </p>
 
         <div class="fixtures" id="fixtures-mount"></div>
@@ -434,8 +463,13 @@
         <ul class="site-footer__list">
           <li><a href="shop.html">Shop</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <!-- TODO: Phil owns the social links and the Instagram embed. Left
-               out deliberately rather than stubbed. -->
+          <!-- The handle is confirmed, so it is a plain outbound link on every
+               page. Phil still owns the Instagram EMBED and the rest of the
+               social links; this is only the club's own account. -->
+          <li>
+            <a href="https://www.instagram.com/rathmines_bc/"
+               target="_blank" rel="noopener">Instagram &mdash; @rathmines_bc</a>
+          </li>
         </ul>
       </div>
 
@@ -467,57 +501,6 @@
   <!-- ===================== END SHARED FOOTER ============================ -->
 
   <script>
-    /* ====================================================================
-       Header: transparent over the hero, solid everywhere else.
-
-       Inline because this belongs to index.html alone — putting it in the
-       shared js/nav.js would ship it to all six pages, including Phil's.
-
-       Solid is the CSS default and this only ever ADDS a class, so with no
-       JS, no IntersectionObserver, or a thrown error, the header simply
-       stays solid and legible.
-       ==================================================================== */
-    (function () {
-      "use strict";
-
-      var header = document.querySelector(".site-header");
-      var hero = document.querySelector(".hero");
-
-      if (!header || !hero || !("IntersectionObserver" in window)) {
-        return;
-      }
-
-      var observer = null;
-
-      /* Shrink the observation root down from the top by the header's own
-         height, so "intersecting" means "the hero is still underneath the
-         header". Re-attached on resize because the header height changes at
-         the 480px breakpoint. */
-      function attach() {
-        if (observer) {
-          observer.disconnect();
-        }
-
-        observer = new IntersectionObserver(function (entries) {
-          header.classList.toggle("is-over-hero", entries[0].isIntersecting);
-        }, {
-          rootMargin: "-" + Math.round(header.offsetHeight) + "px 0px 0px 0px",
-          threshold: 0
-        });
-
-        observer.observe(hero);
-      }
-
-      attach();
-
-      var resizeTimer = null;
-      window.addEventListener("resize", function () {
-        window.clearTimeout(resizeTimer);
-        resizeTimer = window.setTimeout(attach, 150);
-      });
-    })();
-
-
     /* ====================================================================
        Fixtures, rendered from fixtures.json.
 

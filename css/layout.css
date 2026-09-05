@@ -310,15 +310,85 @@ body[data-page="contact"]  .site-nav__link[data-nav="contact"] {
   margin-block-end: var(--space-6);
 }
 
-/* Page header for the five inner pages. */
-.page-head {
-  padding-block: var(--space-7) var(--space-6);
-  border-block-end: var(--border-thick) solid var(--accent);
+/* -----------------------------------------------------------------------------
+   Page band — the narrow hero on the five inner pages
+   --------------------------------------------------------------------------
+   Replaces `.page-head`, which was a title on paper with an accent rule under
+   it. A strip, NOT a second hero: the home hero is clamp(30rem, 78vh, 46rem)
+   and this is clamp(14rem, 32vh, 20rem), so it lands at roughly 40% of the
+   height at any viewport and never reads as competing with it.
+
+   Same full-bleed treatment and the same negative top margin as the hero, so
+   it slides under the transparent header and the header behaves identically
+   on all six pages. The sources are 1600x500.
+   -------------------------------------------------------------------------- */
+
+.page-band {
+  display: grid;
+  grid-template-areas: "stack";
+  align-items: end;
+  isolation: isolate;
+
+  min-height: clamp(14rem, 32vh, 20rem);
+  margin-block-start: calc((var(--header-height) + var(--border-thick)) * -1);
+
+  background-color: var(--black);   /* under-paint while the photo loads */
+  color: var(--text-invert);
 }
 
-.page-head__title {
+.page-band__media,
+.page-band__content {
+  grid-area: stack;
+}
+
+.page-band__media {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* Absolutely positioned ON PURPOSE. Left in flow, the <img> contributes its
+   own intrinsic height to the grid row — 1280 / 3.2 = 400px at desktop — and
+   the min-height above never gets a say, so the "strip" quietly grows to 56%
+   of the hero instead of the 40% it is supposed to be. Out of flow, the row
+   is exactly the min-height and object-fit does the cropping at every width.
+   (The home hero has the same in-flow arrangement and the same quirk; it is
+   left alone here because this branch does not touch the hero's geometry.) */
+.page-band__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 45%;
+}
+
+/* Per page, never global. Each band carries a different photograph and three
+   of the five are bright halls; the two dark ones do not need this and should
+   not get it. Measured numbers are in DECISIONS.md. */
+.page-band--scrim .page-band__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgb(20 20 20 / 0.78) 0%,
+    rgb(20 20 20 / 0.42) 45%,
+    rgb(20 20 20 / 0.76) 100%
+  );
+}
+
+.page-band__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-block: calc(var(--header-height) + var(--space-6)) var(--space-6);
+}
+
+.page-band__title {
   font-size: var(--step-4);
   text-transform: uppercase;
+  color: var(--text-invert);
 }
 
 
@@ -379,11 +449,17 @@ body[data-page="contact"]  .site-nav__link[data-nav="contact"] {
   object-position: 50% 40%;
 }
 
-/* Scrim — IDLE BY DESIGN. Not applied. Add the class `hero--scrim` to the
-   <section> only if the real photograph measures under 4.5:1 behind the
-   headline or behind the nav. Weighted top and bottom because that is where
-   the nav and the headline sit; the middle stays lighter so the photo is
-   still a photo. */
+/* Scrim — APPLIED, and the curve is measured, not eyeballed. Weighted top and
+   bottom because that is where the nav and the headline sit; the middle stays
+   lighter so the photo is still a photo.
+
+   The middle used to dip to 0.30 at 42%. The huddle photograph has a pale wall
+   across the top of the frame, and on the 4:5 phone crop the eyebrow lands at
+   about 53% of the box — right in that dip — where it measured 4.28:1 and
+   failed. Curves from 0.30 to 0.62 at the midpoint were tested; 0.45 at 45% is
+   the GENTLEST one that clears 4.5:1 everywhere on both exports, worst case
+   5.57:1, so it is the one that darkens the photograph least. Do not raise it
+   further without a reason, and re-run the sweep if the photograph changes. */
 .hero--scrim .hero__media::after {
   content: "";
   position: absolute;
@@ -391,8 +467,8 @@ body[data-page="contact"]  .site-nav__link[data-nav="contact"] {
   background: linear-gradient(
     to bottom,
     rgb(20 20 20 / 0.78) 0%,
-    rgb(20 20 20 / 0.30) 42%,
-    rgb(20 20 20 / 0.72) 100%
+    rgb(20 20 20 / 0.45) 45%,
+    rgb(20 20 20 / 0.76) 100%
   );
 }
 
@@ -403,8 +479,14 @@ body[data-page="contact"]  .site-nav__link[data-nav="contact"] {
   padding-block: calc(var(--header-height) + var(--space-7)) var(--space-8);
 }
 
+/* Paper, not accent. Same finding as the headline's second line: over this
+   photograph --accent measures 4.26:1 at 1280 and 1.54:1 at 360, and even
+   --accent-tint only reaches 4.26:1 at 360. Both fail. Paper is 15.41:1 and
+   5.57:1. There is therefore no accent anywhere on the hero, which is a
+   consequence of the measurement rather than a design preference — the accent
+   still carries every other surface on the site, where it passes. */
 .hero__eyebrow {
-  color: var(--accent);
+  color: var(--text-invert);
 }
 
 .hero__title {
@@ -414,17 +496,50 @@ body[data-page="contact"]  .site-nav__link[data-nav="contact"] {
   max-width: 18ch;
 }
 
+/* The second line was --accent until the real photographs went in. Accent
+   orange cannot reach 4.5:1 over a warm gym photograph and no scrim fixes it
+   without killing the picture — measured, see DECISIONS.md. The two-tone split
+   the colour was carrying is now done with weight and opacity instead, both
+   lines in --paper, so the contrast is the paper figure minus the opacity.
+
+   0.72 is the same value --text-invert-muted already uses for secondary text
+   on ink, so this is the site's existing quiet-text step, not a new one. */
 .hero__title-accent {
   display: block;
-  color: var(--accent);
+  color: var(--text-invert);
+  font-weight: var(--weight-semibold);
+  opacity: 0.72;
 }
 
-/* Header transparent over the hero. Solid is the default above; this class is
-   only ever ADDED by the inline observer in index.html, so with no JS the
-   header stays solid and legible. */
+/* Header transparent over the hero or the page band. Solid is the default
+   above; this class is only ever ADDED by the observer in js/nav.js, so with
+   no JS the header stays solid and legible. */
 .site-header.is-over-hero {
   background-color: transparent;
   border-block-end-color: transparent;
+}
+
+/* --- Current-page marker while the header sits over a photograph ---------
+   The marker is --accent on every solid surface, where it passes. Over a
+   photograph it does not: measured against the five band images it reaches
+   only 1.42:1 to 2.11:1 WITH the scrim, and 1.00 to 1.08 without. That is the
+   same finding as the hero headline — #C1682D is a mid orange and so is every
+   one of these halls — and it takes the same remedy the headline took, paper
+   instead of accent. The underline goes with it: as a state indicator it owes
+   3:1 under WCAG 1.4.11 and accent misses that too.
+
+   Written out per page rather than keyed on aria-current, because aria-current
+   is set by nav.js and the visible marker is required to survive without JS,
+   exactly as the solid-surface rule above it does. Keep the two in step. */
+body[data-page="index"]    .site-header.is-over-hero .site-nav__link[data-nav="index"],
+body[data-page="story"]    .site-header.is-over-hero .site-nav__link[data-nav="story"],
+body[data-page="roster"]   .site-header.is-over-hero .site-nav__link[data-nav="roster"],
+body[data-page="sponsors"] .site-header.is-over-hero .site-nav__link[data-nav="sponsors"],
+body[data-page="shop"]     .site-header.is-over-hero .site-nav__link[data-nav="shop"],
+body[data-page="contact"]  .site-header.is-over-hero .site-nav__link[data-nav="contact"],
+.site-header.is-over-hero .site-nav__link:hover {
+  color: var(--text-invert);
+  border-block-end-color: var(--text-invert);
 }
 
 /* The club mark is white artwork on an OPAQUE BLACK background, and the
@@ -568,11 +683,42 @@ body[data-page="contact"]  .site-nav__link[data-nav="contact"] {
 
 /* Square corners, no frame and no shadow — Leather and Chalk does not box a
    photograph. height: auto keeps the intrinsic ratio from the width/height
-   attributes, which are there to hold the space before the file arrives. */
-.place__img {
+   attributes, which are there to hold the space before the file arrives.
+   Shared by every in-page photograph on the site, not just this pair. */
+.photo {
   display: block;
   width: 100%;
   height: auto;
+}
+
+/* A single photograph inside a page body. Portraits are the reason the cap
+   exists: at 1280 an uncapped 2:3 portrait in a 1200px container renders
+   1800px tall and turns into a second hero, which is exactly what these are
+   not. Landscape gets the wider cap. */
+.photo--portrait {
+  max-width: 24rem;
+}
+
+.photo--landscape {
+  max-width: 40rem;
+}
+
+/* Shop: the front and back of the same jersey, so they belong side by side.
+   Same arithmetic as .place — the front is 1066x1600 and the back 1600x1563,
+   and column widths in the ratio 666:1024 are those two aspect ratios in
+   proportion, so both finish at the same height with neither cropped. */
+.jersey-pair {
+  display: grid;
+  gap: var(--space-5);
+  margin-block-start: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .jersey-pair {
+    grid-template-columns: 666fr 1024fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
 }
 
 .way-in__note {

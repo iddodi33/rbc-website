@@ -66,20 +66,53 @@
 
   <main class="main" id="main">
 
-    <div class="container">
-      <div class="page-head">
-        <h1 class="page-head__title">Roster</h1>
+    <!-- ==================================================================
+         PAGE BAND — the narrow hero. Full bleed, sits under the transparent
+         header, carries the page title. Deliberately about 40% of the home
+         hero's height: this is a strip, not a second hero.
+
+         The scrim is a per-page decision, never global. `page-band--scrim`
+         is on this section only if the title measured under 4.5:1 against
+         this page's own photograph. Numbers are in DECISIONS.md.
+         ================================================================== -->
+    <section class="page-band page-band--scrim">
+
+      <div class="page-band__media">
+        <img class="page-band__img" src="assets/img/band-roster.jpg"
+             alt="Three Rathmines players in the black club jersey moving up the court
+                    against a team in red."
+             width="1600" height="500" fetchpriority="high">
       </div>
-    </div>
+
+      <div class="page-band__content">
+        <div class="container">
+          <h1 class="page-band__title">Roster</h1>
+        </div>
+      </div>
+
+    </section>
 
     <!-- ===================================================================
-         INTENTIONALLY EMPTY.
-         Owner: Iddo
-         This page is a shell stub so that it can be branched without a merge
-         conflict against the header, footer or design system. Build the page
-         content here. Do not edit the shared header or footer blocks unless
-         you are changing them in all six pages at once.
+         STILL A STUB, but no longer empty. Owner: Iddo.
+
+         The photograph is parked here on purpose, in the page body rather
+         than at the top: the band above is the page's picture, and a second
+         full-bleed image would make the roster a gallery instead of a list.
+         Build the three squad rosters around it — D4, D6, D2 — and it can
+         move to sit beside whichever squad this player belongs to once the
+         roster data is in.
+
+         Do not edit the shared header or footer blocks unless you are
+         changing them in all six pages at once.
          =================================================================== -->
+    <section class="section">
+      <div class="container">
+        <img class="photo photo--portrait" src="assets/img/player-portrait.jpg"
+             alt="A Rathmines player in the number 14 jersey lining up a free
+                  throw."
+             width="1067" height="1600" loading="lazy" decoding="async">
+      </div>
+    </section>
 
   </main>
 
@@ -113,8 +146,13 @@
         <ul class="site-footer__list">
           <li><a href="shop.html">Shop</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <!-- TODO: Phil owns the social links and the Instagram embed. Left
-               out deliberately rather than stubbed. -->
+          <!-- The handle is confirmed, so it is a plain outbound link on every
+               page. Phil still owns the Instagram EMBED and the rest of the
+               social links; this is only the club's own account. -->
+          <li>
+            <a href="https://www.instagram.com/rathmines_bc/"
+               target="_blank" rel="noopener">Instagram &mdash; @rathmines_bc</a>
+          </li>
         </ul>
       </div>
 
