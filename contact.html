@@ -201,6 +201,35 @@
   <footer class="site-footer">
     <div class="site-footer__inner container">
 
+      <!-- SPONSOR STRIP. A credit, not an advert — see DECISIONS.md.
+           Both marks point at sponsors.html and NOT at the sponsors' own
+           sites: the club controls what its sponsors page says, and an
+           outbound link here would push traffic away from the pitch.
+
+           TODO: BLACKBIRD LOGO. No logo file exists for Blackbird, so the
+           name is set as a wordmark in the display face at roughly the
+           optical weight of the Neighbourhood Threat artwork beside it.
+           Nothing has been fabricated and the photograph of the pub is NOT
+           used as a stand-in mark — it is a photograph of a building, not a
+           logo, and using it here would misrepresent their identity. Ask
+           Blackbird for artwork; ideally white on transparency like the NT
+           file, so it needs no treatment on this black bar. When it lands,
+           swap the <span> below for an <img class="sponsor-mark__img">. -->
+      <div class="site-footer__sponsors">
+        <p class="site-footer__sponsors-label">Our sponsors</p>
+
+        <a class="sponsor-mark" href="sponsors.html">
+          <img class="sponsor-mark__img"
+               src="assets/img/sponsor-neighbourhood-threat.png"
+               alt="Neighbourhood Threat Barber Shop"
+               width="1245" height="496">
+        </a>
+
+        <a class="sponsor-mark" href="sponsors.html">
+          <span class="sponsor-mark__wordmark">Blackbird <br>Rathmines</span>
+        </a>
+      </div>
+
       <div>
         <img class="brand__logo" src="assets/img/logo.png" alt="Rathmines Basketball Club" width="114" height="107">
         <!-- TODO: confirm the tagline with Phil before launch. -->

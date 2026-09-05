@@ -140,6 +140,31 @@
                width="1600" height="1066" loading="lazy" decoding="async">
         </div>
 
+        <!-- THE SPONSORS THEMSELVES, photographs rather than logos, per Iddo.
+             The jersey shot above stays where it is: between them, one frame
+             shows the sponsor's name on the club's back and these two show
+             the businesses it belongs to.
+
+             The Blackbird file is only 548px wide, which is why it carries
+             `.photo--lowres` — the normal landscape cap would enlarge it.
+             Worth re-shooting or asking the pub for a full-size copy.
+
+             MISSING: there is no Neighbourhood Threat shopfront photograph in
+             the Drive folder. Every candidate in there was checked and they
+             are all Rathmines and Portobello street scenes, none of them the
+             barber shop, so the slot is left visibly empty rather than filled
+             with a photograph of the wrong building. -->
+        <div class="split">
+          <img class="photo photo--lowres" src="assets/img/sponsor-blackbird-night.jpg"
+               alt="The Blackbird pub on Rathmines Road at night, its neon sign
+                    lit above the front windows."
+               width="548" height="364" loading="lazy" decoding="async">
+
+          <p class="placeholder placeholder--photo">
+            Neighbourhood Threat shopfront &mdash; photograph needed
+          </p>
+        </div>
+
       </div>
     </section>
 
@@ -228,6 +253,35 @@
        ====================================================================== -->
   <footer class="site-footer">
     <div class="site-footer__inner container">
+
+      <!-- SPONSOR STRIP. A credit, not an advert — see DECISIONS.md.
+           Both marks point at sponsors.html and NOT at the sponsors' own
+           sites: the club controls what its sponsors page says, and an
+           outbound link here would push traffic away from the pitch.
+
+           TODO: BLACKBIRD LOGO. No logo file exists for Blackbird, so the
+           name is set as a wordmark in the display face at roughly the
+           optical weight of the Neighbourhood Threat artwork beside it.
+           Nothing has been fabricated and the photograph of the pub is NOT
+           used as a stand-in mark — it is a photograph of a building, not a
+           logo, and using it here would misrepresent their identity. Ask
+           Blackbird for artwork; ideally white on transparency like the NT
+           file, so it needs no treatment on this black bar. When it lands,
+           swap the <span> below for an <img class="sponsor-mark__img">. -->
+      <div class="site-footer__sponsors">
+        <p class="site-footer__sponsors-label">Our sponsors</p>
+
+        <a class="sponsor-mark" href="sponsors.html">
+          <img class="sponsor-mark__img"
+               src="assets/img/sponsor-neighbourhood-threat.png"
+               alt="Neighbourhood Threat Barber Shop"
+               width="1245" height="496">
+        </a>
+
+        <a class="sponsor-mark" href="sponsors.html">
+          <span class="sponsor-mark__wordmark">Blackbird <br>Rathmines</span>
+        </a>
+      </div>
 
       <div>
         <img class="brand__logo" src="assets/img/logo.png" alt="Rathmines Basketball Club" width="114" height="107">

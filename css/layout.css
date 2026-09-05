@@ -705,6 +705,15 @@ body[data-page="contact"]  .site-header.is-over-hero .site-nav__link[data-nav="c
   max-width: 40rem;
 }
 
+/* Tighter cap for a low-resolution source. The Blackbird night shot is only
+   548px wide, so the 40rem landscape cap would upscale it by 17% and the
+   noise in the dark half of the frame would show. 34rem is 544px, just inside
+   its native width, so it is never enlarged. Delete this and use
+   .photo--landscape if a full-size file ever arrives. */
+.photo--lowres {
+  max-width: 34rem;
+}
+
 /* Shop: the front and back of the same jersey, so they belong side by side.
    Same arithmetic as .place — the front is 1066x1600 and the back 1600x1563,
    and column widths in the ratio 666:1024 are those two aspect ratios in
@@ -979,6 +988,82 @@ body[data-page="contact"]  .site-header.is-over-hero .site-nav__link[data-nav="c
     grid-template-columns: 1.4fr 1fr 1fr;
     gap: var(--space-7);
   }
+}
+
+/* --- Sponsor strip -------------------------------------------------------
+   A credit, not an advert. It sits above the footer's own content as a full
+   width row and is deliberately quieter than the nav headings beside it: the
+   label is muted paper rather than --accent, so the two orange "The club" and
+   "Get involved" headings stay the loudest thing in the footer.
+
+   Both marks link to sponsors.html, NOT to the sponsors' own sites — the club
+   controls what its sponsors page says and an outbound link here would send
+   traffic away from the pitch rather than into it. */
+.site-footer__sponsors {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4) var(--space-6);
+
+  padding-block-end: var(--space-5);
+  border-block-end: var(--border-hairline) solid var(--rule-invert);
+}
+
+.site-footer__sponsors-label {
+  font-family: var(--font-display);
+  font-size: var(--step--2);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--text-invert-muted);   /* 9.03:1 on --black */
+}
+
+/* The 44px floor is the TOUCH TARGET, not the artwork. The mark itself stays
+   2.25rem tall and the rest is centring space, so the strip does not grow to
+   look like a banner just to be tappable. */
+.sponsor-mark {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--text-invert);
+  text-decoration: none;
+}
+
+/* height with width:auto, never both — the marks keep their own proportions.
+   The NT file is 1245x496 white-on-transparent artwork, so it needs no
+   treatment to sit on the black bar. */
+.sponsor-mark__img {
+  display: block;
+  height: 2.25rem;
+  width: auto;
+  transition: opacity var(--transition-fast);
+}
+
+/* Blackbird has no logo file — see the TODO in the shared footer. Set in the
+   display face, and set on TWO LINES on purpose: the NT artwork is a two-line
+   brush mark about 90x36, and a single line of Archivo beside it came out
+   roughly two and a half times wider and visibly heavier, which is not what
+   "the same optical weight" means. Broken over two lines at --step--1 it
+   measures about 90x34, so the two marks carry the same mass in the strip.
+   It also matches how the name is set on the back of the jersey.
+
+   If a real Blackbird logo ever arrives this whole rule goes with the span. */
+.sponsor-mark__wordmark {
+  font-family: var(--font-display);
+  font-size: var(--step--1);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  line-height: 1.15;
+}
+
+.site-footer .sponsor-mark:hover .sponsor-mark__wordmark {
+  color: var(--accent);
+}
+
+.site-footer .sponsor-mark:hover .sponsor-mark__img {
+  opacity: 0.72;
 }
 
 .site-footer__tagline {
