@@ -843,6 +843,7 @@ body[data-page="contact"]  .site-header.is-over-hero .site-nav__link[data-nav="c
   grid-template-columns: auto minmax(0, 1fr) auto;
   grid-template-areas:
     "tag   opponent opponent"
+    "status status  status"
     "venue venue    date";
   column-gap: var(--space-3);
   row-gap: var(--space-1);
@@ -851,8 +852,29 @@ body[data-page="contact"]  .site-header.is-over-hero .site-nav__link[data-nav="c
 
 .fixture__tag      { grid-area: tag; }
 .fixture__opponent { grid-area: opponent; }
+.fixture__status   { grid-area: status; }
 .fixture__venue    { grid-area: venue; min-width: 0; }
 .fixture__date     { grid-area: date; text-align: end; }
+
+/* A fixture with no date has no time and no venue either, so it gets one
+   line across the whole row instead of two cells both saying "to be
+   confirmed". It takes the `venue` area, which is the bottom row at both
+   breakpoints, and spans every column. */
+.fixture__pending {
+  grid-area: venue;
+  grid-column: 1 / -1;
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+/* On one row, it may only take the columns venue, date and status would have
+   used. Spanning 1 / -1 there would put it straight through the tag and the
+   opponent name. */
+@media (min-width: 768px) {
+  .fixture__pending {
+    grid-column: 3 / -1;
+  }
+}
 
 /* Home games are visually distinct: an accent edge and an accent tag. */
 .fixture--home {
@@ -892,15 +914,50 @@ body[data-page="contact"]  .site-header.is-over-hero .site-nav__link[data-nav="c
   color: var(--text-muted);
 }
 
-/* One away fixture has no venue on the source page. Said plainly. */
-.fixture__venue--unknown {
+/* STATUS. Only a handful of dates are agreed with the opponent; every other
+   dated fixture is a slot the club offered and has not heard back on. A date
+   that looks settled and then moves is worse than no date at all, so the
+   distinction is carried on the row itself and not left to the note above
+   the list.
+
+   Provisional is the loud one deliberately — it is the majority case and the
+   one that misleads if missed. It borrows the dashed border already used by
+   the placeholder kit, which is the site's existing "not final" signal.
+   Confirmed is quieter: it is the good news and needs no emphasis. */
+.fixture__status {
+  justify-self: start;
+  font-family: var(--font-display);
+  font-size: var(--step--2);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.fixture--provisional .fixture__status {
+  padding: 0 var(--space-2);
+  border: var(--border-hairline) dashed var(--accent-ink);
+  color: var(--accent-ink);        /* 6.05:1 on paper */
+}
+
+.fixture--confirmed .fixture__status {
+  color: var(--text-muted);        /* 6.9:1 on paper */
+}
+
+/* The date of an offered slot is not a fact yet, so it does not get to look
+   like one. Same muted weight as the venue beside it, never bolder. */
+.fixture--provisional .fixture__date {
   font-style: italic;
 }
 
+/* One row from the tablet breakpoint up, where there is width for it. The
+   date column was 4.5rem when every date was the word "TBC"; a real date and
+   time needs about 8rem, so both it and the status sit on `auto` and take
+   exactly what they need. */
 @media (min-width: 768px) {
   .fixture {
-    grid-template-columns: 4.5rem minmax(0, 1.1fr) minmax(0, 1.3fr) 4.5rem;
-    grid-template-areas: "tag opponent venue date";
+    grid-template-columns: 4.5rem minmax(0, 1.1fr) minmax(0, 1.3fr) auto auto;
+    grid-template-areas: "tag opponent venue date status";
     gap: var(--space-4);
   }
 

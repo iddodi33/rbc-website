@@ -1,16 +1,15 @@
 {
-  "source": "DMBB competition pages, transcribed from screenshots supplied by Iddo, 2026-09-04",
+  "source": "Rathmines BC season calendar 2026/27, supplied by Iddo 2026-09-05. Supersedes the earlier DMBB screenshot transcription.",
   "notes": [
-    "Dates are not published yet. Every date is null and must render as TBC until the league confirms.",
-    "The D4 list is confirmed as Division 4, competition 3659. The second list is assumed to be D6 because Iddo said so; the division header was cropped in the screenshot and is not independently verified.",
-    "One D6 away fixture, at Adamstown Grafters, has no venue listed on the source page.",
-    "No fixtures supplied yet for the women's D2 team.",
-    "Home venue for both squads is St Mary's College Rathmines.",
-    "Women's D2 added as a division with an empty fixtures array so the renderer can show 'fixtures to follow' from the data rather than special-casing it in code. No fixtures have been supplied for this squad."
+    "Division 6 is now CONFIRMED by Iddo. The earlier verified:false caveat is resolved.",
+    "status values: 'confirmed' = date agreed with the opponent. 'slot_offered' = our slot, opponent has not replied yet, the date can still move. 'awaiting_opponent_date' = away fixture, opponent has not set a date, so date, time and venue are all null.",
+    "Only four fixtures are confirmed. Every other dated fixture is a slot we offered and must be shown as provisional, never as settled.",
+    "Away venues are null until the opponent sets the fixture; do not infer a venue from last season.",
+    "No fixtures supplied yet for the women's D2 team."
   ],
   "homeVenue": {
     "name": "St. Mary's College C.S.Sp.",
-    "shortName": "St Mary's College Rathmines",
+    "short": "St Mary's College Rathmines",
     "address": "73-79 Lower Rathmines Road, Dublin 6",
     "eircode": "D06 HP38"
   },
@@ -22,112 +21,166 @@
       "verified": true,
       "fixtures": [
         {
+          "round": 1,
           "opponent": "Barrow Rovers",
           "home": false,
-          "venue": "St Catherine's Marrowbone Lane",
-          "date": null
+          "date": null,
+          "time": null,
+          "venue": null,
+          "status": "awaiting_opponent_date"
         },
         {
+          "round": 2,
           "opponent": "Ballinteer Bulls BC",
           "home": true,
+          "date": "2026-10-16",
+          "time": "20:40",
           "venue": "St Mary's College Rathmines",
-          "date": null
+          "status": "slot_offered"
         },
         {
+          "round": 3,
           "opponent": "UCD Marian BC",
           "home": true,
+          "date": "2026-10-23",
+          "time": "20:40",
           "venue": "St Mary's College Rathmines",
-          "date": null
+          "status": "slot_offered"
         },
         {
+          "round": 4,
           "opponent": "Oblate BC",
           "home": false,
-          "venue": "Oblate Hall Inchicore",
-          "date": null
+          "date": "2026-11-04",
+          "time": "21:10",
+          "venue": "Oblate Hall, Inchicore",
+          "status": "confirmed"
         },
         {
+          "round": 5,
           "opponent": "Naas BC",
           "home": true,
+          "date": "2026-11-13",
+          "time": "19:10",
           "venue": "St Mary's College Rathmines",
-          "date": null
+          "status": "slot_offered"
         },
         {
+          "round": 6,
           "opponent": "Glasnevin BC",
           "home": false,
-          "venue": "St Aidan's CBS Collins Ave",
-          "date": null
+          "date": null,
+          "time": null,
+          "venue": null,
+          "status": "awaiting_opponent_date"
         },
         {
+          "round": 7,
           "opponent": "Ekouxian Super Pandas",
           "home": true,
+          "date": "2026-11-27",
+          "time": "20:40",
           "venue": "St Mary's College Rathmines",
-          "date": null
+          "status": "slot_offered"
         },
         {
+          "round": 8,
           "opponent": "Dublin Raiders",
           "home": false,
-          "venue": "Presentation College Bray",
-          "date": null
+          "date": "2026-12-09",
+          "time": "20:45",
+          "venue": "St Laurence College, Glenageary",
+          "status": "confirmed"
         },
         {
+          "round": 9,
           "opponent": "Dublin Lions",
           "home": true,
+          "date": "2026-12-18",
+          "time": "19:10",
           "venue": "St Mary's College Rathmines",
-          "date": null
+          "status": "slot_offered"
         },
         {
+          "round": 10,
           "opponent": "Barrow Rovers",
           "home": true,
+          "date": "2027-01-08",
+          "time": "20:40",
           "venue": "St Mary's College Rathmines",
-          "date": null
+          "status": "slot_offered"
         },
         {
+          "round": 11,
           "opponent": "Ballinteer Bulls BC",
           "home": false,
-          "venue": "Wesley College Ballinteer",
-          "date": null
+          "date": "2027-01-21",
+          "time": "21:05",
+          "venue": "Wesley College, Ballinteer, D16",
+          "status": "confirmed"
         },
         {
+          "round": 12,
           "opponent": "UCD Marian BC",
           "home": false,
-          "venue": "Marian College, Ballsbridge",
-          "date": null
+          "date": null,
+          "time": null,
+          "venue": null,
+          "status": "awaiting_opponent_date"
         },
         {
+          "round": 13,
           "opponent": "Oblate BC",
           "home": true,
+          "date": "2027-02-05",
+          "time": "20:40",
           "venue": "St Mary's College Rathmines",
-          "date": null
+          "status": "slot_offered"
         },
         {
+          "round": 14,
           "opponent": "Naas BC",
           "home": false,
-          "venue": "St Mary's Naas",
-          "date": null
+          "date": null,
+          "time": null,
+          "venue": null,
+          "status": "awaiting_opponent_date"
         },
         {
+          "round": 15,
           "opponent": "Glasnevin BC",
           "home": true,
+          "date": "2027-02-19",
+          "time": "19:10",
           "venue": "St Mary's College Rathmines",
-          "date": null
+          "status": "confirmed"
         },
         {
+          "round": 16,
           "opponent": "Ekouxian Super Pandas",
           "home": false,
-          "venue": "Benevin College",
-          "date": null
+          "date": null,
+          "time": null,
+          "venue": null,
+          "status": "awaiting_opponent_date"
         },
         {
+          "round": 17,
           "opponent": "Dublin Raiders",
           "home": true,
+          "date": "2027-03-05",
+          "time": "20:40",
           "venue": "St Mary's College Rathmines",
-          "date": null
+          "status": "slot_offered"
         },
         {
+          "round": 18,
           "opponent": "Dublin Lions",
           "home": false,
-          "venue": "Colaiste Bride",
-          "date": null
+          "date": null,
+          "time": null,
+          "venue": null,
+          "status": "awaiting_opponent_date"
         }
       ]
     },
@@ -135,115 +188,169 @@
       "id": "d6",
       "label": "Men's Division 6",
       "competitionId": null,
-      "verified": false,
+      "verified": true,
       "fixtures": [
         {
+          "round": 1,
           "opponent": "Dublin Sonics",
           "home": false,
-          "venue": "Tyrrellstown Community Cnt",
-          "date": null
-        },
-        {
-          "opponent": "BC Lietkabelis",
-          "home": true,
-          "venue": "St Mary's College Rathmines",
-          "date": null
-        },
-        {
-          "opponent": "Adamstown Grafters",
-          "home": false,
+          "date": null,
+          "time": null,
           "venue": null,
-          "date": null
+          "status": "awaiting_opponent_date"
         },
         {
+          "round": 2,
+          "opponent": "BC Lietkabelis",
+          "home": true,
+          "date": "2026-10-16",
+          "time": "19:10",
+          "venue": "St Mary's College Rathmines",
+          "status": "slot_offered"
+        },
+        {
+          "round": 3,
+          "opponent": "Adamstown Grafters",
+          "home": false,
+          "date": null,
+          "time": null,
+          "venue": null,
+          "status": "awaiting_opponent_date"
+        },
+        {
+          "round": 4,
           "opponent": "Tolka Rovers Eclipse",
           "home": true,
+          "date": "2026-11-06",
+          "time": "20:40",
           "venue": "St Mary's College Rathmines",
-          "date": null
+          "status": "slot_offered"
         },
         {
+          "round": 5,
           "opponent": "UCD Marian BC",
           "home": true,
+          "date": "2026-11-13",
+          "time": "20:40",
           "venue": "St Mary's College Rathmines",
-          "date": null
+          "status": "slot_offered"
         },
         {
+          "round": 6,
           "opponent": "Lusk Ravens BC",
           "home": false,
-          "venue": "Lusk National School",
-          "date": null
+          "date": null,
+          "time": null,
+          "venue": null,
+          "status": "awaiting_opponent_date"
         },
         {
+          "round": 7,
           "opponent": "Killester BC",
           "home": true,
+          "date": "2026-11-27",
+          "time": "19:10",
           "venue": "St Mary's College Rathmines",
-          "date": null
+          "status": "slot_offered"
         },
         {
+          "round": 8,
           "opponent": "Glasnevin BC",
           "home": false,
-          "venue": "St Aidan's CBS Collins Ave",
-          "date": null
+          "date": null,
+          "time": null,
+          "venue": null,
+          "status": "awaiting_opponent_date"
         },
         {
+          "round": 9,
           "opponent": "Eanna BC",
           "home": true,
+          "date": "2026-12-18",
+          "time": "20:40",
           "venue": "St Mary's College Rathmines",
-          "date": null
+          "status": "slot_offered"
         },
         {
+          "round": 10,
           "opponent": "Dublin Sonics",
           "home": true,
+          "date": "2027-01-08",
+          "time": "19:10",
           "venue": "St Mary's College Rathmines",
-          "date": null
+          "status": "slot_offered"
         },
         {
+          "round": 11,
           "opponent": "BC Lietkabelis",
           "home": false,
-          "venue": "Liam Rodgers CS Swords",
-          "date": null
+          "date": null,
+          "time": null,
+          "venue": null,
+          "status": "awaiting_opponent_date"
         },
         {
+          "round": 12,
           "opponent": "Adamstown Grafters",
           "home": true,
+          "date": "2027-01-29",
+          "time": "20:40",
           "venue": "St Mary's College Rathmines",
-          "date": null
+          "status": "slot_offered"
         },
         {
+          "round": 13,
           "opponent": "Tolka Rovers Eclipse",
           "home": false,
-          "venue": "Tolka Rovers SC, Dublin",
-          "date": null
+          "date": null,
+          "time": null,
+          "venue": null,
+          "status": "awaiting_opponent_date"
         },
         {
+          "round": 14,
           "opponent": "UCD Marian BC",
           "home": false,
-          "venue": "Marian College, Ballsbridge",
-          "date": null
+          "date": null,
+          "time": null,
+          "venue": null,
+          "status": "awaiting_opponent_date"
         },
         {
+          "round": 15,
           "opponent": "Lusk Ravens BC",
           "home": true,
+          "date": "2027-02-19",
+          "time": "20:40",
           "venue": "St Mary's College Rathmines",
-          "date": null
+          "status": "slot_offered"
         },
         {
+          "round": 16,
           "opponent": "Killester BC",
           "home": false,
-          "venue": "Irish Wheelchair Centre",
-          "date": null
+          "date": null,
+          "time": null,
+          "venue": null,
+          "status": "awaiting_opponent_date"
         },
         {
+          "round": 17,
           "opponent": "Glasnevin BC",
           "home": true,
+          "date": "2027-03-05",
+          "time": "19:10",
           "venue": "St Mary's College Rathmines",
-          "date": null
+          "status": "confirmed"
         },
         {
+          "round": 18,
           "opponent": "Eanna BC",
           "home": false,
-          "venue": "Colaiste Eanna",
-          "date": null
+          "date": null,
+          "time": null,
+          "venue": null,
+          "status": "awaiting_opponent_date"
         }
       ]
     },
@@ -251,7 +358,7 @@
       "id": "d2w",
       "label": "Women's Division 2",
       "competitionId": null,
-      "verified": false,
+      "verified": true,
       "fixtures": []
     }
   ]

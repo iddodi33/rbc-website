@@ -337,9 +337,19 @@
          Rendered at runtime from fixtures.json by the inline script at the
          foot of this page. No build step.
 
-         Every date in the source is null and renders as TBC. Dates are not
-         published by the league yet — nothing here may imply one, and the
-         list is deliberately NOT sorted by date.
+         SORTED BY ROUND, NEVER BY DATE. Fifteen of the thirty-six fixtures
+         have no date at all, so a date sort would be meaningless; round is
+         the only ordering the season actually has.
+
+         STATUS IS THE LOAD-BEARING FIELD. Only a handful of dates are agreed
+         with the opponent. Everything else dated is a slot the club offered
+         and the opponent has not answered, and it is marked Provisional on
+         the row and explained in the line above each squad. A date shown as
+         settled that then moves is worse than showing no date, so nothing
+         here may present an offered slot as fixed.
+
+         Undated fixtures are all away games the opponent has not set. Their
+         time and venue are null too, and no venue is inferred from anywhere.
 
          Home games are shown first and by default, because they are the ones
          people can actually come to. Away games are behind a per-squad
@@ -360,8 +370,8 @@
         </div>
 
         <p class="fixtures__fallback" id="fixtures-fallback">
-          Dates are not confirmed by the league yet. The full fixture list is
-          posted on the club&rsquo;s Instagram,
+          Most dates are still being agreed with the opponents. The season
+          calendar is posted on the club&rsquo;s Instagram,
           <a href="https://www.instagram.com/rathmines_bc/"
              target="_blank" rel="noopener">@rathmines_bc</a>.
         </p>
@@ -581,8 +591,39 @@
         return el("span", "visually-hidden", text);
       }
 
+      /* Dates are formatted by hand rather than with toLocaleDateString, and
+         parsed with Date.UTC rather than new Date(string). Passing a bare
+         "2026-11-04" to the Date constructor parses it as UTC midnight and
+         then prints it in the reader's own zone, which west of Greenwich
+         silently shows the previous day. These are match dates; being a day
+         out is the one thing they cannot be. */
+      var DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+      function formatDate(iso) {
+        var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso));
+        if (!m) {
+          return null;
+        }
+        var y = Number(m[1]), mo = Number(m[2]), d = Number(m[3]);
+        var dt = new Date(Date.UTC(y, mo - 1, d));
+        /* Rejects 2026-02-31 and friends rather than rolling them forward. */
+        if (dt.getUTCFullYear() !== y || dt.getUTCMonth() !== mo - 1 || dt.getUTCDate() !== d) {
+          return null;
+        }
+        return DAYS[dt.getUTCDay()] + " " + d + " " + MONTHS[mo - 1] + " " + y;
+      }
+
+      function formatTime(t) {
+        return /^\d{2}:\d{2}$/.test(String(t)) ? String(t) : null;
+      }
+
       function row(fixture) {
         var isHome = fixture.home === true;
+        var dateText = fixture.date ? formatDate(fixture.date) : null;
+        var timeText = fixture.time ? formatTime(fixture.time) : null;
+
         var li = el("li", "fixture " + (isHome ? "fixture--home" : "fixture--away"));
 
         li.appendChild(el("span", "fixture__tag", isHome ? "Home" : "Away"));
@@ -592,25 +633,78 @@
         opponent.appendChild(document.createTextNode(fixture.opponent || "Opponent TBC"));
         li.appendChild(opponent);
 
-        /* One away fixture genuinely has no venue on the source page. Say so
-           rather than leaving a blank cell. */
+        /* No date means the opponent has not set the fixture, and time and
+           venue are null with it. One honest line across the row beats two
+           cells both saying "to be confirmed", and there is nothing here to
+           infer a venue from. */
+        if (!dateText) {
+          var pending = el("span", "fixture__pending");
+          pending.appendChild(label("Status: "));
+          pending.appendChild(document.createTextNode("Date and venue to be confirmed"));
+          li.appendChild(pending);
+          return li;
+        }
+
+        /* Confirmed is agreed with the opponent. Anything else dated is a
+           slot the club offered that has not been answered, so it is marked
+           on the row itself and not only in the note above the list. */
+        var isConfirmed = fixture.status === "confirmed";
+        li.className += isConfirmed ? " fixture--confirmed" : " fixture--provisional";
+
+        var badge = el("span", "fixture__status");
+        badge.appendChild(label("Status: "));
+        badge.appendChild(document.createTextNode(isConfirmed ? "Confirmed" : "Provisional"));
+        li.appendChild(badge);
+
         var venue = el("span", "fixture__venue");
         venue.appendChild(label("Venue: "));
-        if (fixture.venue) {
-          venue.appendChild(document.createTextNode(fixture.venue));
-        } else {
-          venue.className = "fixture__venue fixture__venue--unknown";
-          venue.appendChild(document.createTextNode("Venue not listed"));
-        }
+        venue.appendChild(document.createTextNode(fixture.venue || "Venue to be confirmed"));
         li.appendChild(venue);
 
-        /* Every date is null. Never fabricate or infer one. */
         var date = el("span", "fixture__date");
         date.appendChild(label("Date: "));
-        date.appendChild(document.createTextNode(fixture.date ? String(fixture.date) : "TBC"));
+        date.appendChild(document.createTextNode(dateText + (timeText ? ", " + timeText : "")));
         li.appendChild(date);
 
         return li;
+      }
+
+      /* By round. Never by date — fifteen fixtures have none, and the agreed
+         ones are scattered through the season, so any date ordering would
+         push the undated fixtures into an arbitrary block and imply a
+         sequence the club has not got. */
+      function byRound(a, b) {
+        var ra = typeof a.round === "number" ? a.round : Infinity;
+        var rb = typeof b.round === "number" ? b.round : Infinity;
+        return ra - rb;
+      }
+
+      function countBy(fixtures, status) {
+        return fixtures.filter(function (f) { return f.status === status; }).length;
+      }
+
+      /* Counted from the data, never hardcoded. If a slot gets agreed the
+         sentence follows it without anyone remembering to edit this file. */
+      function summary(fixtures, homeCount, venueName) {
+        var confirmed = countBy(fixtures, "confirmed");
+        var offered = countBy(fixtures, "slot_offered");
+        var unset = fixtures.length - confirmed - offered;
+
+        var parts = [homeCount + " home games" + (venueName ? " at " + venueName : "") + "."];
+
+        if (confirmed) {
+          parts.push(confirmed + (confirmed === 1 ? " date is" : " dates are") +
+                     " agreed with the opponent.");
+        }
+        if (offered) {
+          parts.push(offered + (offered === 1 ? " is a slot" : " are slots") +
+                     " the club has offered and the opponent has not confirmed, so " +
+                     (offered === 1 ? "it can" : "they can") + " still move.");
+        }
+        if (unset) {
+          parts.push(unset + (unset === 1 ? " has" : " have") + " no date yet.");
+        }
+        return parts.join(" ");
       }
 
       function squad(division, venueName) {
@@ -628,17 +722,13 @@
           return section;
         }
 
-        var home = fixtures.filter(function (f) { return f.home === true; });
-        var away = fixtures.filter(function (f) { return f.home !== true; });
+        var home = fixtures.filter(function (f) { return f.home === true; }).sort(byRound);
+        var away = fixtures.filter(function (f) { return f.home !== true; }).sort(byRound);
 
-        section.appendChild(el(
-          "p",
-          "squad-fixtures__meta",
-          home.length + " home games" + (venueName ? " at " + venueName : "") + ". Dates TBC."
-        ));
+        section.appendChild(el("p", "squad-fixtures__meta",
+          summary(fixtures, home.length, venueName)));
 
-        /* Home first, then away. Deliberately not sorted by date — there are
-           no dates, and any ordering would imply one. */
+        /* Home first, then away, each block in round order. */
         var list = el("ul", "fixture-list is-home-only");
         list.id = titleId + "-list";
         home.concat(away).forEach(function (f) { list.appendChild(row(f)); });
@@ -669,7 +759,9 @@
           return;   /* keep the fallback sentence */
         }
 
-        var venueName = (data.homeVenue && data.homeVenue.shortName) || "";
+        /* The season calendar file calls this `short`; the older DMBB
+           transcription called it `shortName`. */
+        var venueName = (data.homeVenue && data.homeVenue.short) || "";
         var frag = document.createDocumentFragment();
 
         divisions.forEach(function (division) {
