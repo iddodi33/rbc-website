@@ -1,0 +1,6 @@
+# Pre-launch. The site is on a public URL and still carries placeholder
+# copy, so nothing is to be indexed yet. Paired with the noindex meta tag
+# in the <head> of every page; remove both together on launch day.
+# Tracked in ROADMAP.md as "Remove noindex and robots.txt".
+User-agent: *
+Disallow: /
