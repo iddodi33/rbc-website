@@ -3,7 +3,7 @@
   "notes": [
     "Division 6 is now CONFIRMED by Iddo. The earlier verified:false caveat is resolved.",
     "status values: 'confirmed' = date agreed with the opponent. 'slot_offered' = our slot, opponent has not replied yet, the date can still move. 'awaiting_opponent_date' = away fixture, opponent has not set a date, so date, time and venue are all null.",
-    "Only four fixtures are confirmed. Every other dated fixture is a slot we offered and must be shown as provisional, never as settled.",
+    "Only five fixtures are confirmed, four in D4 and one in D6. Every other dated fixture is a slot we offered and must be shown as provisional, never as settled.",
     "Away venues are null until the opponent sets the fixture; do not infer a venue from last season.",
     "No fixtures supplied yet for the women's D2 team."
   ],
