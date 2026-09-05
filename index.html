@@ -70,47 +70,57 @@
          HERO — full bleed, edge to edge. No container, no border, no frame.
          Headline and eyebrow sit over the image.
          ================================================================== -->
-    <section class="hero">
+    <section class="hero hero--scrim">
 
       <div class="hero__media">
-        <!-- TODO: HERO PHOTOGRAPHS. Two exports, and it matters which is which:
+        <!-- HERO PHOTOGRAPHS. Two exports, and it matters which is which:
 
-               assets/img/hero-landscape-16x9.png   wide viewports, 768px and up
-               assets/img/hero-portrait-4x5.png     phones, below 768px
-
-             Both files are placeholders right now — flat black at the correct
-             aspect ratio, so the layout and the scrim behave exactly as they
-             will with the real thing. Overwrite them in place and nothing here
-             needs to change. If you export JPGs instead, update the three
-             filenames below as well as the files.
+               assets/img/hero-landscape-16x9.jpg   wide viewports, 768px and up
+               assets/img/hero-portrait-4x5.jpg     phones, below 768px
 
              The 4:5 phone crop exists because a landscape photo loses its ends
              on a phone: object-fit: cover on a 16:9 source at 360px shows only
-             the middle 33% of its width. Crop the phone version yourself
-             rather than letting the browser do it.
+             the middle 33% of its width. The phone export is cropped by hand
+             rather than by the browser, and keeps the player and the ball.
 
-             THEN: measure the LIGHTEST region of each export, behind the
-             headline and behind the nav. If either falls below 4.5:1 against
-             --paper, add class `hero--scrim` to the <section> above. The scrim
-             sits on the media box, so it covers whichever source is active.
-             Do not add it blind.
+             Both are club photographs, not Creative Commons — the footer
+             credit covers the two Rathmines street photographs only.
 
-             And delete the "Photograph to come" label below. -->
+             MEASURED on the real exports, worst 8px tile behind each element,
+             scrim composited in. `hero--scrim` IS applied on the <section>
+             above because the white headline line failed without it:
+
+                                        no scrim   with scrim   needs
+               "Community first."  1280    2.21       5.41       4.5  ok
+               "Community first."   360    2.06       4.85       4.5  ok
+               nav / header strip         2.11-3.85  9.01-10.48  4.5  ok
+               "Basketball second."       1.04-1.05  1.86-1.87   4.5  FAILS
+               eyebrow                    1.71-1.88  2.64-2.89   4.5  FAILS
+
+             The two accent-coloured elements CANNOT be fixed with a scrim.
+             #C1682D is a mid orange and so is this gym; to reach 4.5:1 the
+             backdrop would have to be within a hair of pure black, which
+             means a ~90% scrim and no photograph left. It needs either a
+             different hero photograph or paper-coloured type on the hero.
+             Flagged for Iddo, not decided here — see DECISIONS.md.
+
+             If either export is replaced, measure again. The scrim comes off
+             if the new photograph passes without it. -->
         <picture>
           <source
             media="(min-width: 768px)"
-            srcset="assets/img/hero-landscape-16x9.png"
+            srcset="assets/img/hero-landscape-16x9.jpg"
             width="1600" height="900">
           <source
             media="(max-width: 767px)"
-            srcset="assets/img/hero-portrait-4x5.png"
+            srcset="assets/img/hero-portrait-4x5.jpg"
             width="1080" height="1350">
           <!-- Fallback for anything that does not understand <picture>. -->
-          <img class="hero__img" src="assets/img/hero-landscape-16x9.png"
-               alt="" width="1600" height="900">
+          <img class="hero__img" src="assets/img/hero-landscape-16x9.jpg"
+               alt="A Rathmines player in the black club jersey calling a play,
+                    bringing the ball up the court."
+               width="1600" height="900">
         </picture>
-
-        <span class="hero__placeholder-label">Photograph to come</span>
       </div>
 
       <div class="hero__content">
@@ -214,6 +224,34 @@
               <span class="venue__eircode">D06 HP38</span>
             </address>
           </div>
+        </div>
+
+        <!-- RATHMINES, THE PLACE. These two sit here, under the venue address,
+             and deliberately not in the hero. The hero has to say "this club
+             plays games"; a landmark and a terrace of houses say "this is a
+             neighbourhood", which is the wrong first thing and would push the
+             player photograph off the page. Down here they do the job the
+             address alone cannot: the clock tower is on the same Lower
+             Rathmines Road as the venue, and the houses are the Rathmines the
+             members actually live in, so "Rathmines, Dublin 6" stops being a
+             line of type and becomes a place.
+
+             Creative Commons, credited in the footer — see DECISIONS.md.
+
+             The 4fr / 9fr split is not arbitrary. The clock is 2:3 and the
+             street is 3:2, and those column widths are in the same proportion
+             as the two ratios, so both photographs run at their native aspect
+             ratio, finish at exactly the same height, and neither is cropped.
+             Change one photograph and the ratio has to be recalculated. -->
+        <div class="place">
+          <img class="place__img" src="assets/img/rathmines-clock.jpg"
+               alt="The red-brick clock tower of Rathmines Town Hall, now
+                    Rathmines College, on Lower Rathmines Road."
+               width="683" height="1024" loading="lazy" decoding="async">
+          <img class="place__img" src="assets/img/rathmines-street.jpg"
+               alt="Red-brick Victorian houses behind low garden walls on a
+                    Rathmines street."
+               width="1600" height="1067" loading="lazy" decoding="async">
         </div>
 
       </div>
@@ -405,6 +443,23 @@
         <!-- TODO: confirm the registered club name and whether a governing
              body line (Basketball Ireland / DMBB) is required here. -->
         &copy; 2026 Rathmines Basketball Club. Dublin, Ireland.
+
+        <!-- REQUIRED BY LICENCE, NOT DECORATION. The two Rathmines street
+             photographs on the home page are Creative Commons and CC BY-SA 2.0
+             obliges us to name the photographer and the licence, visibly, on
+             the page that shows them. Both links are part of that obligation:
+             stripping either one, or moving this into a comment or into alt
+             text, puts the club out of compliance. It lives in the shared
+             footer rather than under the photographs so it survives the
+             photographs moving. Do not remove it while those files are in
+             assets/img/. -->
+        <span class="site-footer__credit">
+          Rathmines photographs by
+          <a href="https://www.flickr.com/photos/infomatique/"
+             rel="noopener">William Murphy</a>,
+          <a href="https://creativecommons.org/licenses/by-sa/2.0/"
+             rel="license noopener">CC BY-SA 2.0</a>
+        </span>
       </p>
 
     </div>

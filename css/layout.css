@@ -379,23 +379,6 @@ body[data-page="contact"]  .site-nav__link[data-nav="contact"] {
   object-position: 50% 40%;
 }
 
-/* Marker while both hero exports are still flat-black placeholders. Parked
-   bottom-right, clear of the headline, and deliberately not a dashed frame:
-   the hero is never boxed. z-index keeps it above the scrim, which is an
-   ::after on the same element. Delete this with the placeholder files. */
-.hero__placeholder-label {
-  position: absolute;
-  z-index: 1;
-  inset-block-end: var(--space-5);
-  inset-inline-end: var(--space-5);
-  font-family: var(--font-display);
-  font-size: var(--step--2);
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-caps);
-  text-transform: uppercase;
-  color: var(--text-invert-muted);
-}
-
 /* Scrim — IDLE BY DESIGN. Not applied. Add the class `hero--scrim` to the
    <section> only if the real photograph measures under 4.5:1 behind the
    headline or behind the nav. Weighted top and bottom because that is where
@@ -559,6 +542,37 @@ body[data-page="contact"]  .site-nav__link[data-nav="contact"] {
   font-family: var(--font-display);
   font-weight: var(--weight-bold);
   letter-spacing: var(--tracking-wide);
+}
+
+/* Rathmines, the place — the two Creative Commons photographs under the club
+   copy. Stacked on a phone, side by side from the tablet breakpoint.
+
+   4fr / 9fr is arithmetic, not taste: the clock is 2:3 and the street is 3:2,
+   and 4:9 is those two ratios in proportion. Column gap is subtracted before
+   the fr units are resolved, so both images land at exactly the same height
+   while each keeps its own aspect ratio and neither is cropped. If either
+   photograph is swapped for a different shape, redo the ratio — do not just
+   nudge the numbers. */
+.place {
+  display: grid;
+  gap: var(--space-5);
+  margin-block-start: var(--space-7);
+}
+
+@media (min-width: 768px) {
+  .place {
+    grid-template-columns: 4fr 9fr;
+    gap: var(--space-6);
+  }
+}
+
+/* Square corners, no frame and no shadow — Leather and Chalk does not box a
+   photograph. height: auto keeps the intrinsic ratio from the width/height
+   attributes, which are there to hold the space before the file arrives. */
+.place__img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .way-in__note {
@@ -858,4 +872,28 @@ body[data-page="contact"]  .site-nav__link[data-nav="contact"] {
   border-block-start: var(--border-hairline) solid var(--rule-invert);
   font-size: var(--step--1);
   color: var(--text-invert-muted);
+}
+
+/* Photo credit. Required by CC BY-SA 2.0, so it is a sibling of the copyright
+   line rather than a footnote to it, and it is never display: none. Its own
+   line from 480px up; on the narrowest phones it simply wraps after the
+   copyright sentence. */
+.site-footer__credit {
+  display: block;
+  margin-block-start: var(--space-2);
+}
+
+/* The two links have to read AS links or the attribution is not really an
+   attribution. Underlined rather than coloured: --accent on --black is 4.64:1
+   and passes, but the surrounding credit text is deliberately muted, and an
+   underline carries the affordance without pulling the eye off the club's own
+   footer navigation. */
+.site-footer__credit a {
+  color: var(--text-invert);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.site-footer .site-footer__credit a:hover {
+  color: var(--accent);
 }
