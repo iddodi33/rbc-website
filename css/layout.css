@@ -705,13 +705,26 @@ body[data-page="contact"]  .site-header.is-over-hero .site-nav__link[data-nav="c
   max-width: 40rem;
 }
 
-/* Tighter cap for a low-resolution source. The Blackbird night shot is only
-   548px wide, so the 40rem landscape cap would upscale it by 17% and the
-   noise in the dark half of the frame would show. 34rem is 544px, just inside
-   its native width, so it is never enlarged. Delete this and use
-   .photo--landscape if a full-size file ever arrives. */
+/* Low-resolution sources, which must never be enlarged. Both sponsor
+   photographs are small — the Blackbird night shot is 548px wide and the
+   Neighbourhood Threat shopfront only 443 — and at the normal 40rem cap both
+   would be blown up: the night shot by 17%, where the noise in its dark half
+   starts to show.
+
+   This began as a fixed 34rem cap, which was wrong as soon as there were two
+   of them. 34rem is 544px, which suits the 548px file and still upscales the
+   443px one by about 7% in the column it sits in. So the cap is not a number
+   at all: `.photo` sets `width: 100%`, and it is that, not the max-width, that
+   forces an image past its own pixels. Overriding it with `width: auto` lets
+   each file stop at its own intrinsic width, whatever that is, while
+   `max-width: 100%` still lets it shrink into a narrow column on a phone.
+   Self-limiting, so a third small file needs no new number.
+
+   Drop the modifier entirely once full-size replacements arrive — see
+   ROADMAP.md. */
 .photo--lowres {
-  max-width: 34rem;
+  width: auto;
+  max-width: 100%;
 }
 
 /* Shop: the front and back of the same jersey, so they belong side by side.

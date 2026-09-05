@@ -145,24 +145,26 @@
              shows the sponsor's name on the club's back and these two show
              the businesses it belongs to.
 
-             The Blackbird file is only 548px wide, which is why it carries
-             `.photo--lowres` — the normal landscape cap would enlarge it.
-             Worth re-shooting or asking the pub for a full-size copy.
+             BOTH FILES ARE LOW RESOLUTION, which is why both carry
+             `.photo--lowres`: the Blackbird night shot is 548px wide and the
+             shopfront only 443, and the normal landscape cap would enlarge
+             either one. The modifier stops each at its own intrinsic width
+             rather than at a fixed number, so neither is ever upscaled.
 
-             MISSING: there is no Neighbourhood Threat shopfront photograph in
-             the Drive folder. Every candidate in there was checked and they
-             are all Rathmines and Portobello street scenes, none of them the
-             barber shop, so the slot is left visibly empty rather than filled
-             with a photograph of the wrong building. -->
+             Both are worth re-requesting at full size — the shopfront in
+             particular is nearly square, 443x451, and reads as a phone
+             snapshot next to the club's own photography. Tracked in
+             ROADMAP.md. Drop `.photo--lowres` when replacements land. -->
         <div class="split">
           <img class="photo photo--lowres" src="assets/img/sponsor-blackbird-night.jpg"
                alt="The Blackbird pub on Rathmines Road at night, its neon sign
                     lit above the front windows."
                width="548" height="364" loading="lazy" decoding="async">
 
-          <p class="placeholder placeholder--photo">
-            Neighbourhood Threat shopfront &mdash; photograph needed
-          </p>
+          <img class="photo photo--lowres" src="assets/img/sponsor-neighbourhood-threat-shopfront.jpg"
+               alt="The Neighbourhood Threat barber shop on a Rathmines street,
+                    its name painted in green across the red-brick shopfront."
+               width="443" height="451" loading="lazy" decoding="async">
         </div>
 
       </div>

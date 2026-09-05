@@ -10,6 +10,8 @@
 - [ ] Shop: jersey and tee, cart-style flow (item, size, quantity, multiple items per order), Stripe Checkout, order written to Supabase, confirmation email to buyer, summary email to Iddo and Phil, manual relay to teamwear.ie for bulk fulfillment, pickup or delivery captured on the form. Phil, after shell is merged.
 - [ ] Instagram feed, RBC's own account only. Phil, after shell is merged.
 - [ ] Contact page. Whoever finishes their vertical first.
+- [ ] ASK BOTH SPONSORS FOR FULL-SIZE PHOTOGRAPHS. Both files currently on the sponsors page are too small: the Blackbird night shot is 548x364 and the Neighbourhood Threat shopfront is 443x451, and both are held at their own intrinsic width by `.photo--lowres` so they are never upscaled. The cost is that neither can fill its column, and the shopfront in particular is nearly square and reads as a phone snapshot beside the club's own photography. Ask Blackbird and Neighbourhood Threat for originals, or re-shoot both — a landscape frame of each would sit properly in the layout. Drop `.photo--lowres` when they land. Shared.
+- [ ] Blackbird logo artwork, ideally white on transparency like the Neighbourhood Threat file, so it needs no treatment on the black footer bar. Until it arrives the footer strip sets the name as a wordmark. Shared.
 
 ## Explicitly not in v1
 - Season record tracking (photo plus scores form)
