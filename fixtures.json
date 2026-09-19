@@ -1,10 +1,10 @@
 {
-  "source": "DMBB fixture lists, competitions 3659 (D4) and 3661 (D6), supplied by Iddo 2026-09-19. Supersedes the 2026-09-05 calendar.",
+  "source": "DMBB fixture lists, competitions 3659 (D4) and 3661 (D6), supplied by Iddo 2026-09-19. plus DLBB competition 3705 (Division 3 Women). Supersedes the 2026-09-05 calendar.",
   "notes": [
     "Dated fixtures come from the DMBB published fixture list and are shown as confirmed. 'awaiting_opponent_date' = DMBB has no date yet, so date and time are null.",
     "venue is the short display name, venueAddress the line used for the Google Maps link in mapUrl. Away addresses beyond the venue name are best-effort and unverified and their map links are searches, not pinned places. St Mary's uses a shortlink to the pinned place, supplied by Iddo 2026-09-19.",
-    "No fixtures supplied yet for the women's D2 team.",
-    "clubs maps opponent name to the club's own site, or its Facebook/Instagram page where no site exists (found by web search 2026-09-19, unverified beyond the page existing). null = nothing found."
+    "clubs maps opponent name to the club's own site, or its Facebook/Instagram page where no site exists (found by web search 2026-09-19, unverified beyond the page existing). null = nothing found.",
+    "Women's fixtures from the DLBB Division 3 Women list (competition 3705), supplied by Iddo 2026-09-19. 20 games, 10 home. Division id stays d2w for the page script; label says Division 3."
   ],
   "homeVenue": {
     "name": "St. Mary's College C.S.Sp.",
@@ -407,10 +407,232 @@
     },
     {
       "id": "d2w",
-      "label": "Women's Division 2",
-      "competitionId": null,
+      "label": "Women's Division 3",
+      "competitionId": "3705",
       "verified": true,
-      "fixtures": []
+      "fixtures": [
+        {
+          "round": 1,
+          "opponent": "UCD Ladies BC",
+          "home": false,
+          "date": "2026-10-05",
+          "time": "20:15",
+          "venue": "UCD Sports Centre",
+          "venueAddress": "UCD Sports Centre, Belfield, Dublin 4",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=UCD%20Sports%20Centre%2C%20Belfield%2C%20Dublin%204",
+          "status": "confirmed"
+        },
+        {
+          "round": 2,
+          "opponent": "Swords BC",
+          "home": false,
+          "date": "2026-10-15",
+          "time": "20:30",
+          "venue": "Artane Beaumont Recreation Centre",
+          "venueAddress": "Artane Beaumont Family Recreation Centre, Kilmore Road, Artane, Dublin 5",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Artane%20Beaumont%20Family%20Recreation%20Centre%2C%20Kilmore%20Road%2C%20Artane%2C%20Dublin%205",
+          "status": "confirmed"
+        },
+        {
+          "round": 3,
+          "opponent": "Ongar Chasers",
+          "home": false,
+          "date": "2026-10-19",
+          "time": "20:10",
+          "venue": "Luttrellstown Community Centre",
+          "venueAddress": "Luttrellstown Community Centre, Castleknock, Dublin 15",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Luttrellstown%20Community%20Centre%2C%20Castleknock%2C%20Dublin%2015",
+          "status": "confirmed"
+        },
+        {
+          "round": 4,
+          "opponent": "Eanna",
+          "home": false,
+          "date": "2026-11-03",
+          "time": "20:40",
+          "venue": "Firhouse Community Centre",
+          "venueAddress": "Firhouse Community Centre, Firhouse, Dublin 24",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Firhouse%20Community%20Centre%2C%20Firhouse%2C%20Dublin%2024",
+          "status": "confirmed"
+        },
+        {
+          "round": 5,
+          "opponent": "Tridents",
+          "home": false,
+          "date": "2026-11-09",
+          "time": "20:40",
+          "venue": "Edmund Rice College",
+          "venueAddress": "Edmund Rice College, Carrigaline Road, Blanchardstown, Dublin 15",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Edmund%20Rice%20College%2C%20Carrigaline%20Road%2C%20Blanchardstown%2C%20Dublin%2015",
+          "status": "confirmed"
+        },
+        {
+          "round": 6,
+          "opponent": "KUBS",
+          "home": false,
+          "date": "2026-11-26",
+          "time": "21:00",
+          "venue": "Carroll Arena, Greendale",
+          "venueAddress": "Carroll Arena, Greendale Community School, Kilbarrack, Dublin 5",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Carroll%20Arena%2C%20Greendale%20Community%20School%2C%20Kilbarrack%2C%20Dublin%205",
+          "status": "confirmed"
+        },
+        {
+          "round": 7,
+          "opponent": "Tigers",
+          "home": false,
+          "date": "2026-12-01",
+          "time": "20:15",
+          "venue": "Stepping Stones School, Kilcock",
+          "venueAddress": "Stepping Stones Special School, Kilcock, Co. Kildare, W23 HC66",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Stepping%20Stones%20Special%20School%2C%20Kilcock%2C%20Co.%20Kildare%2C%20W23%20HC66",
+          "status": "confirmed"
+        },
+        {
+          "round": 8,
+          "opponent": "Dublin Raiders",
+          "home": true,
+          "date": "2026-12-07",
+          "time": "20:10",
+          "venue": "St Mary's College Rathmines",
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "status": "confirmed"
+        },
+        {
+          "round": 9,
+          "opponent": "Aer Lingus",
+          "home": false,
+          "date": "2026-12-11",
+          "time": "19:10",
+          "venue": "ALSAA, Dublin Airport",
+          "venueAddress": "ALSAA Sports Complex, Old Airport Road, Dublin Airport, Co. Dublin",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=ALSAA%20Sports%20Complex%2C%20Old%20Airport%20Road%2C%20Dublin%20Airport%2C%20Co.%20Dublin",
+          "status": "confirmed"
+        },
+        {
+          "round": 10,
+          "opponent": "Naas Serpents",
+          "home": false,
+          "date": "2026-12-14",
+          "time": "20:30",
+          "venue": "Naas CBS",
+          "venueAddress": "Naas CBS, Naas, Co. Kildare",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Naas%20CBS%2C%20Naas%2C%20Co.%20Kildare",
+          "status": "confirmed"
+        },
+        {
+          "round": 11,
+          "opponent": "Tigers",
+          "home": true,
+          "date": "2027-01-11",
+          "time": "20:10",
+          "venue": "St Mary's College Rathmines",
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "status": "confirmed"
+        },
+        {
+          "round": 12,
+          "opponent": "Ongar Chasers",
+          "home": true,
+          "date": "2027-01-18",
+          "time": "20:10",
+          "venue": "St Mary's College Rathmines",
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "status": "confirmed"
+        },
+        {
+          "round": 13,
+          "opponent": "Eanna",
+          "home": true,
+          "date": "2027-01-25",
+          "time": "20:10",
+          "venue": "St Mary's College Rathmines",
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "status": "confirmed"
+        },
+        {
+          "round": 14,
+          "opponent": "Naas Serpents",
+          "home": true,
+          "date": "2027-02-08",
+          "time": "20:10",
+          "venue": "St Mary's College Rathmines",
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "status": "confirmed"
+        },
+        {
+          "round": 15,
+          "opponent": "Dublin Raiders",
+          "home": false,
+          "date": "2027-02-18",
+          "time": "19:45",
+          "venue": "St Laurence College, Loughlinstown",
+          "venueAddress": "St Laurence College, Loughlinstown, Dublin 18",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Laurence%20College%2C%20Loughlinstown%2C%20Dublin%2018",
+          "status": "confirmed"
+        },
+        {
+          "round": 16,
+          "opponent": "Tridents",
+          "home": true,
+          "date": "2027-02-22",
+          "time": "20:10",
+          "venue": "St Mary's College Rathmines",
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "status": "confirmed"
+        },
+        {
+          "round": 17,
+          "opponent": "Swords BC",
+          "home": true,
+          "date": "2027-03-01",
+          "time": "20:10",
+          "venue": "St Mary's College Rathmines",
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "status": "confirmed"
+        },
+        {
+          "round": 18,
+          "opponent": "UCD Ladies BC",
+          "home": true,
+          "date": "2027-03-08",
+          "time": "20:10",
+          "venue": "St Mary's College Rathmines",
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "status": "confirmed"
+        },
+        {
+          "round": 19,
+          "opponent": "KUBS",
+          "home": true,
+          "date": "2027-03-15",
+          "time": "20:10",
+          "venue": "St Mary's College Rathmines",
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "status": "confirmed"
+        },
+        {
+          "round": 20,
+          "opponent": "Aer Lingus",
+          "home": true,
+          "date": "2027-03-22",
+          "time": "20:10",
+          "venue": "St Mary's College Rathmines",
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "status": "confirmed"
+        }
+      ],
+      "board": "DLBB"
     }
   ],
   "clubs": {
@@ -428,6 +650,15 @@
     "Lusk Ravens BC": "https://luskravens.com/",
     "Killester BC": "https://killester.com/",
     "Eanna BC": "https://eannabasketball.ie/",
-    "Dublin Sonics": "https://www.facebook.com/dublinsonics/"
+    "Dublin Sonics": "https://www.facebook.com/dublinsonics/",
+    "UCD Ladies BC": "https://www.ucdmarian.com/",
+    "Swords BC": "https://www.facebook.com/SwordsBasketballClub/",
+    "Ongar Chasers": "https://www.ongarchasers.com/",
+    "Eanna": "https://eannabasketball.ie/",
+    "Tridents": "https://www.tridents.ie/",
+    "KUBS": "https://kubs.ie/",
+    "Tigers": "https://www.facebook.com/kilcockbasketball/",
+    "Aer Lingus": "https://www.facebook.com/p/Aer-Lingus-Ladies-Basketball-Club-100057377922290/",
+    "Naas Serpents": "https://www.facebook.com/naasserpents/"
   }
 }

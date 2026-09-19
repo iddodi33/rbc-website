@@ -23,7 +23,7 @@ END:DAYLIGHT
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:rbc-2026-10-06-barrow-rovers@rathminesbc.ie
-DTSTAMP:20260919T183747Z
+DTSTAMP:20260919T203131Z
 DTSTART;TZID=Europe/Dublin:20261006T201500
 DTEND;TZID=Europe/Dublin:20261006T214500
 SUMMARY:Barrow Rovers v Rathmines BC (Men's Division 4)
@@ -32,7 +32,7 @@ DESCRIPTION:Away game\, Men's Division 4. Map: https://www.google.com/maps/searc
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2026-10-16-ballinteer-bulls-bc@rathminesbc.ie
-DTSTAMP:20260919T183747Z
+DTSTAMP:20260919T203131Z
 DTSTART;TZID=Europe/Dublin:20261016T204000
 DTEND;TZID=Europe/Dublin:20261016T221000
 SUMMARY:Rathmines BC v Ballinteer Bulls BC (Men's Division 4)
@@ -41,7 +41,7 @@ DESCRIPTION:Home game\, Men's Division 4. Map: https://maps.app.goo.gl/93bRULk4b
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2026-10-23-ucd-marian-bc@rathminesbc.ie
-DTSTAMP:20260919T183747Z
+DTSTAMP:20260919T203131Z
 DTSTART;TZID=Europe/Dublin:20261023T204000
 DTEND;TZID=Europe/Dublin:20261023T221000
 SUMMARY:Rathmines BC v UCD Marian BC (Men's Division 4)
@@ -50,7 +50,7 @@ DESCRIPTION:Home game\, Men's Division 4. Map: https://maps.app.goo.gl/93bRULk4b
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2026-11-04-oblate-bc@rathminesbc.ie
-DTSTAMP:20260919T183747Z
+DTSTAMP:20260919T203131Z
 DTSTART;TZID=Europe/Dublin:20261104T211000
 DTEND;TZID=Europe/Dublin:20261104T224000
 SUMMARY:Oblate BC v Rathmines BC (Men's Division 4)
@@ -59,7 +59,7 @@ DESCRIPTION:Away game\, Men's Division 4. Map: https://www.google.com/maps/searc
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2026-11-13-naas-bc@rathminesbc.ie
-DTSTAMP:20260919T183747Z
+DTSTAMP:20260919T203131Z
 DTSTART;TZID=Europe/Dublin:20261113T191000
 DTEND;TZID=Europe/Dublin:20261113T204000
 SUMMARY:Rathmines BC v Naas BC (Men's Division 4)
@@ -68,7 +68,7 @@ DESCRIPTION:Home game\, Men's Division 4. Map: https://maps.app.goo.gl/93bRULk4b
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2026-11-19-glasnevin-bc@rathminesbc.ie
-DTSTAMP:20260919T183747Z
+DTSTAMP:20260919T203131Z
 DTSTART;TZID=Europe/Dublin:20261119T194000
 DTEND;TZID=Europe/Dublin:20261119T211000
 SUMMARY:Glasnevin BC v Rathmines BC (Men's Division 4)
@@ -77,7 +77,7 @@ DESCRIPTION:Away game\, Men's Division 4. Map: https://www.google.com/maps/searc
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2026-11-27-dublin-lions@rathminesbc.ie
-DTSTAMP:20260919T183747Z
+DTSTAMP:20260919T203131Z
 DTSTART;TZID=Europe/Dublin:20261127T191000
 DTEND;TZID=Europe/Dublin:20261127T204000
 SUMMARY:Rathmines BC v Dublin Lions (Men's Division 4)
@@ -86,7 +86,7 @@ DESCRIPTION:Home game\, Men's Division 4. Map: https://maps.app.goo.gl/93bRULk4b
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2026-12-09-dublin-raiders@rathminesbc.ie
-DTSTAMP:20260919T183747Z
+DTSTAMP:20260919T203131Z
 DTSTART;TZID=Europe/Dublin:20261209T204500
 DTEND;TZID=Europe/Dublin:20261209T221500
 SUMMARY:Dublin Raiders v Rathmines BC (Men's Division 4)
@@ -95,7 +95,7 @@ DESCRIPTION:Away game\, Men's Division 4. Map: https://www.google.com/maps/searc
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2027-01-08-barrow-rovers@rathminesbc.ie
-DTSTAMP:20260919T183747Z
+DTSTAMP:20260919T203131Z
 DTSTART;TZID=Europe/Dublin:20270108T204000
 DTEND;TZID=Europe/Dublin:20270108T221000
 SUMMARY:Rathmines BC v Barrow Rovers (Men's Division 4)
@@ -104,7 +104,7 @@ DESCRIPTION:Home game\, Men's Division 4. Map: https://maps.app.goo.gl/93bRULk4b
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2027-01-21-ballinteer-bulls-bc@rathminesbc.ie
-DTSTAMP:20260919T183747Z
+DTSTAMP:20260919T203131Z
 DTSTART;TZID=Europe/Dublin:20270121T210500
 DTEND;TZID=Europe/Dublin:20270121T223500
 SUMMARY:Ballinteer Bulls BC v Rathmines BC (Men's Division 4)
@@ -113,7 +113,7 @@ DESCRIPTION:Away game\, Men's Division 4. Map: https://www.google.com/maps/searc
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2027-01-27-ucd-marian-bc@rathminesbc.ie
-DTSTAMP:20260919T183747Z
+DTSTAMP:20260919T203131Z
 DTSTART;TZID=Europe/Dublin:20270127T211000
 DTEND;TZID=Europe/Dublin:20270127T224000
 SUMMARY:UCD Marian BC v Rathmines BC (Men's Division 4)
@@ -122,7 +122,7 @@ DESCRIPTION:Away game\, Men's Division 4. Map: https://www.google.com/maps/searc
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2027-02-05-oblate-bc@rathminesbc.ie
-DTSTAMP:20260919T183747Z
+DTSTAMP:20260919T203131Z
 DTSTART;TZID=Europe/Dublin:20270205T204000
 DTEND;TZID=Europe/Dublin:20270205T221000
 SUMMARY:Rathmines BC v Oblate BC (Men's Division 4)
@@ -131,7 +131,7 @@ DESCRIPTION:Home game\, Men's Division 4. Map: https://maps.app.goo.gl/93bRULk4b
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2027-02-11-naas-bc@rathminesbc.ie
-DTSTAMP:20260919T183747Z
+DTSTAMP:20260919T203131Z
 DTSTART;TZID=Europe/Dublin:20270211T201000
 DTEND;TZID=Europe/Dublin:20270211T214000
 SUMMARY:Naas BC v Rathmines BC (Men's Division 4)
@@ -140,7 +140,7 @@ DESCRIPTION:Away game\, Men's Division 4. Map: https://www.google.com/maps/searc
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2027-02-19-glasnevin-bc@rathminesbc.ie
-DTSTAMP:20260919T183747Z
+DTSTAMP:20260919T203131Z
 DTSTART;TZID=Europe/Dublin:20270219T191000
 DTEND;TZID=Europe/Dublin:20270219T204000
 SUMMARY:Rathmines BC v Glasnevin BC (Men's Division 4)
@@ -149,7 +149,7 @@ DESCRIPTION:Home game\, Men's Division 4. Map: https://maps.app.goo.gl/93bRULk4b
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2027-03-05-dublin-raiders@rathminesbc.ie
-DTSTAMP:20260919T183747Z
+DTSTAMP:20260919T203131Z
 DTSTART;TZID=Europe/Dublin:20270305T204000
 DTEND;TZID=Europe/Dublin:20270305T221000
 SUMMARY:Rathmines BC v Dublin Raiders (Men's Division 4)
@@ -158,7 +158,7 @@ DESCRIPTION:Home game\, Men's Division 4. Map: https://maps.app.goo.gl/93bRULk4b
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2027-03-11-dublin-lions@rathminesbc.ie
-DTSTAMP:20260919T183747Z
+DTSTAMP:20260919T203131Z
 DTSTART;TZID=Europe/Dublin:20270311T204000
 DTEND;TZID=Europe/Dublin:20270311T221000
 SUMMARY:Dublin Lions v Rathmines BC (Men's Division 4)
