@@ -1212,3 +1212,56 @@ body[data-page="contact"]  .site-header.is-over-hero .site-nav__link[data-nav="c
 .site-footer .site-footer__credit a:hover {
   color: var(--accent);
 }
+
+/* -----------------------------------------------------------------------------
+   Ambient background — a Rathmines photograph behind the paper sections
+   -------------------------------------------------------------------------- */
+
+/* One fixed, greyscale photograph per page, under a 70% paper wash. It shows
+   only through the paper sections; the ink sections and the header paint over
+   it. body has a transparent background for this reason (base.css). The wash
+   is the tuning knob: 0.70 shows the photograph, 0.80 is texture, 0.90 is
+   barely there. Anchors are chosen per photograph so the landmark survives the
+   cover crop on a wide screen: the clock tower, the dome, the shopfront. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(rgba(247, 244, 239, 0.70), rgba(247, 244, 239, 0.70)),
+    var(--ambient-photo, none);
+  background-position: var(--ambient-anchor, center);
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: grayscale(1);
+}
+
+body[data-page="index"] {
+  --ambient-photo: url("../assets/img/rathmines-clock.jpg");
+  --ambient-anchor: center top;
+}
+
+body[data-page="story"] {
+  --ambient-photo: url("../assets/img/rathminesbus.jpg");
+  --ambient-anchor: center 45%;
+}
+
+body[data-page="roster"] {
+  --ambient-photo: url("../assets/img/rathminespitch.jpg");
+  --ambient-anchor: center 45%;
+}
+
+body[data-page="contact"] {
+  --ambient-photo: url("../assets/img/rathmineschurch.jpg");
+  --ambient-anchor: center 25%;
+}
+
+body[data-page="sponsors"],
+body[data-page="shop"] {
+  --ambient-photo: url("../assets/img/sponsor-blackbird-night.jpg");
+  --ambient-anchor: center 40%;
+}

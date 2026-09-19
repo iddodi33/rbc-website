@@ -73,12 +73,20 @@ select {
    2. Document
    -------------------------------------------------------------------------- */
 
+/* The paper colour lives on <html>, not <body>. body::before (the ambient
+   neighbourhood photograph, see layout.css "Ambient background") sits at
+   z-index -1, and an opaque body background would paint over it. The root
+   background still fills the canvas, so nothing visible changes without it. */
+html {
+  background-color: var(--surface);
+}
+
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 
-  background-color: var(--surface);
+  background-color: transparent;
   color: var(--text);
 
   font-family: var(--font-body);
