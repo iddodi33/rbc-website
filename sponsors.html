@@ -139,63 +139,51 @@
     <section class="section">
       <div class="container">
 
-        <!-- DRAFT MARKER. Temporary scaffolding, removed with the lorem. -->
-        <p class="placeholder placeholder--inline draft-note">
-          Placeholder copy &mdash; wording on this page is not final
-        </p>
-
         <div class="section__head">
           <p class="eyebrow">Who backs us</p>
           <h2>Current sponsors</h2>
         </div>
 
-        <div class="split">
-          <div class="prose">
-            <p class="placeholder placeholder--inline">Lorem ipsum &mdash; placeholder</p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </p>
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-          </div>
-
-          <img class="photo photo--landscape" src="assets/img/sponsor-portrait.jpg"
-               alt="A Rathmines player in the club jersey, the Neighbourhood
-                    Threat Barber Shop sponsor wordmark clearly readable across
-                    the front."
-               width="950" height="633" loading="lazy" decoding="async">
+        <div class="prose">
+          <p>Two local businesses back the club this season.</p>
         </div>
 
-        <!-- THE SPONSORS THEMSELVES, photographs rather than logos, per Iddo.
-             The jersey shot above stays where it is: between them, one frame
-             shows the sponsor's name on the club's back and these two show
-             the businesses it belongs to.
-
-             BOTH FILES ARE LOW RESOLUTION, which is why both carry
-             `.photo--lowres`: the Blackbird night shot is 548px wide and the
-             shopfront only 443, and the normal landscape cap would enlarge
-             either one. The modifier stops each at its own intrinsic width
-             rather than at a fixed number, so neither is ever upscaled.
-
-             Both are worth re-requesting at full size — the shopfront in
-             particular is nearly square, 443x451, and reads as a phone
-             snapshot next to the club's own photography. Tracked in
-             ROADMAP.md. Drop `.photo--lowres` when replacements land. -->
-        <div class="split">
-          <img class="photo photo--lowres" src="assets/img/sponsor-blackbird-night.jpg"
-               alt="The Blackbird pub on Rathmines Road at night, its neon sign
-                    lit above the front windows."
-               width="548" height="364" loading="lazy" decoding="async">
-
-          <img class="photo photo--lowres" src="assets/img/sponsor-neighbourhood-threat-shopfront.jpg"
-               alt="The Neighbourhood Threat barber shop on a Rathmines street,
-                    its name painted in green across the red-brick shopfront."
-               width="443" height="451" loading="lazy" decoding="async">
+        <!-- SPONSOR CARDS. One card per backer plus an open slot aimed at the
+             next one. Photographs are the two low-resolution shopfront shots,
+             cropped to 4:3 and greyscale until hover so their quality does not
+             fight the club photography; both are worth re-requesting at full
+             size. TODO: real links on the two buttons. -->
+        <div class="sponsor-cards">
+          <article class="sponsor-card">
+            <img class="sponsor-card__img" src="assets/img/sponsor-neighbourhood-threat-shopfront.jpg"
+                 alt="The Neighbourhood Threat barber shop on a Rathmines street, its name painted across the red-brick shopfront."
+                 width="443" height="451" loading="lazy" decoding="async">
+            <div class="sponsor-card__body">
+              <p class="eyebrow">Jersey sponsor</p>
+              <h3>Neighbourhood Threat</h3>
+              <p>Barber shop, Rathmines. The name on the front of every club jersey.</p>
+              <a class="btn btn--secondary" href="#">Visit the shop</a>
+            </div>
+          </article>
+          <article class="sponsor-card">
+            <img class="sponsor-card__img" src="assets/img/sponsor-blackbird-night.jpg"
+                 alt="The Blackbird pub on Rathmines Road at night, its sign lit above the front windows."
+                 width="548" height="364" loading="lazy" decoding="async">
+            <div class="sponsor-card__body">
+              <p class="eyebrow">Club partner</p>
+              <h3>Blackbird</h3>
+              <p>Pub, Rathmines Road. On the back of the jersey.</p>
+              <a class="btn btn--secondary" href="#">Visit the pub</a>
+            </div>
+          </article>
+          <article class="sponsor-card sponsor-card--open">
+            <div class="sponsor-card__body">
+              <p class="eyebrow">Open</p>
+              <h3>Your business here</h3>
+              <p>Three senior squads, nine home games each, and a neighbourhood that turns up. The offer is below.</p>
+              <a class="btn btn--primary" href="#talk">Talk to us</a>
+            </div>
+          </article>
         </div>
 
       </div>
@@ -212,7 +200,6 @@
 
         <div class="split">
           <div class="prose">
-            <p class="placeholder placeholder--inline">Lorem ipsum &mdash; placeholder</p>
             <p>
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
               doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
@@ -239,7 +226,6 @@
 
         <div class="split">
           <div class="prose">
-            <p class="placeholder placeholder--inline">Lorem ipsum &mdash; placeholder</p>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
               incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
@@ -260,13 +246,12 @@
       <div class="container">
 
         <div class="section__head">
-          <p class="eyebrow">Next step</p>
+          <p class="eyebrow" id="talk">Next step</p>
           <h2>Talk to us</h2>
         </div>
 
         <div class="split">
           <div class="prose">
-            <p class="placeholder placeholder--inline">Lorem ipsum &mdash; placeholder</p>
             <p>
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
               fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
