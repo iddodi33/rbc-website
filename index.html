@@ -59,10 +59,11 @@
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- ======================================================================
-       SHARED HEADER — byte-identical across all seven pages.
+       SHARED HEADER — byte-identical across all eight pages.
        No templating engine by design. If you edit this block, edit it in
-       index.html, story.html, roster.html, sponsors.html, shop.html and
-       contact.html in the same commit. Do not re-indent it.
+       index.html, story.html, roster.html, fixtures.html, sponsors.html,
+       shop.html, contact.html and 404.html in the same commit. Do not
+       re-indent it.
        ====================================================================== -->
   <header class="site-header">
     <div class="site-header__inner container">
@@ -85,6 +86,7 @@
           <li><a class="site-nav__link" data-nav="index" href="index.html">Home</a></li>
           <li><a class="site-nav__link" data-nav="story" href="story.html">Our Story</a></li>
           <li><a class="site-nav__link" data-nav="roster" href="roster.html">Roster</a></li>
+          <li><a class="site-nav__link" data-nav="fixtures" href="fixtures.html">Fixtures &amp; Results</a></li>
           <li><a class="site-nav__link" data-nav="sponsors" href="sponsors.html">Sponsors</a></li>
           <li><a class="site-nav__link" data-nav="shop" href="shop.html">Shop</a></li>
           <li><a class="site-nav__link" data-nav="contact" href="contact.html">Contact</a></li>
@@ -339,50 +341,52 @@
 
 
     <!-- ==================================================================
-         FIXTURES
-         Rendered at runtime from fixtures.json by the inline script at the
-         foot of this page. No build step.
+         NEXT FIXTURES
+         One card per squad, each showing that squad's next game, rendered at
+         runtime from fixtures.json by the inline script at the foot of this
+         page. No build step.
 
-         SORTED BY ROUND, NEVER BY DATE. Fifteen of the thirty-six fixtures
-         have no date at all, so a date sort would be meaningless; round is
-         the only ordering the season actually has.
+         THE WHOLE LIST LIVES ON fixtures.html. This strip is a glance, not a
+         calendar: three cards, the next game each, and three buttons into the
+         full page. Every fixture, every date, the per-row calendar links and
+         the per-squad subscribe lines are all on fixtures.html and are not
+         duplicated here.
 
-         STATUS IS THE LOAD-BEARING FIELD. Only a handful of dates are agreed
-         with the opponent. Everything else dated is a slot the club offered
-         and the opponent has not answered, and it is marked Provisional on
-         the row and explained in the line above each squad. A date shown as
-         settled that then moves is worse than showing no date, so nothing
-         here may present an offered slot as fixed.
+         "NEXT" IS COMPUTED, NEVER PINNED. The script compares each fixture's
+         YYYY-MM-DD against today's local date and takes the earliest one still
+         to come; a game on today's date stays up until 90 minutes after
+         tip-off, which is roughly when it ends. Nothing needs editing as the
+         season runs.
 
-         Undated fixtures are all away games the opponent has not set. Their
-         time and venue are null too, and no venue is inferred from anywhere.
-
-         Home games are shown first and by default, because they are the ones
-         people can actually come to. Away games are behind a per-squad
-         toggle, which is what keeps 18 rows per squad from running away at
-         360px.
+         A squad whose next game has no date yet shows the same card with the
+         club mark alone and says so. Fifteen of the thirty-six fixtures have
+         no date at all, so this is a normal state, not an error.
 
          The paragraph below is the no-JS fallback. It is visible by default
          and the script hides it only once it has rendered something, so a
-         failed fetch or a missing script leaves a real sentence rather than
-         an empty container.
+         failed fetch or a missing script leaves a real sentence pointing at
+         the fixtures page rather than an empty container.
          ================================================================== -->
     <section class="section">
       <div class="container">
 
         <div class="section__head">
-          <p class="eyebrow">This season</p>
-          <h2>Fixtures</h2>
+          <p class="eyebrow">Next up</p>
+          <h2>Next fixtures</h2>
         </div>
 
-        <p class="fixtures__fallback" id="fixtures-fallback">
-          Most dates are still being agreed with the opponents. The season
-          calendar is posted on the club&rsquo;s Instagram,
-          <a href="https://www.instagram.com/rathmines_bc/"
-             target="_blank" rel="noopener">@rathmines_bc</a>.
+        <p class="fixtures__fallback" id="next-fallback">
+          Fixtures are on the
+          <a href="fixtures.html">Fixtures &amp; Results page</a>.
         </p>
 
-        <div class="fixtures" id="fixtures-mount"></div>
+        <div class="next-strip" id="next-strip"></div>
+
+        <p class="next__actions">
+          <a class="btn btn--secondary" href="fixtures.html#d4">All Division 4 fixtures</a>
+          <a class="btn btn--secondary" href="fixtures.html#d6">All Division 6 fixtures</a>
+          <a class="btn btn--secondary" href="fixtures.html#d2w">All women&rsquo;s fixtures</a>
+        </p>
 
       </div>
     </section>
@@ -453,8 +457,8 @@
   </main>
 
   <!-- ======================================================================
-       SHARED FOOTER — byte-identical across all seven pages. Same rule as the
-       header: edit all six together, do not re-indent.
+       SHARED FOOTER — byte-identical across all eight pages. Same rule as the
+       header: edit all eight together, do not re-indent.
        ====================================================================== -->
   <footer class="site-footer">
     <div class="site-footer__inner container">
@@ -502,6 +506,7 @@
         <ul class="site-footer__list">
           <li><a href="story.html">Our Story</a></li>
           <li><a href="roster.html">Roster</a></li>
+          <li><a href="fixtures.html">Fixtures &amp; Results</a></li>
           <li><a href="sponsors.html">Sponsors</a></li>
         </ul>
       </div>
@@ -550,25 +555,38 @@
 
   <script>
     /* ====================================================================
-       Fixtures, rendered from fixtures.json.
+       Next fixtures, rendered from fixtures.json.
+
+       One card per squad in the order d4, d6, d2w, each showing that squad's
+       next game. The full list, the per-row calendar links and the per-squad
+       subscribe lines all live on fixtures.html; nothing here duplicates them.
 
        Built with createElement rather than innerHTML: the JSON is our own
        repo data, but it is still data and it is not going to be pasted into
        markup unescaped.
 
-       Note the fetch means this needs a server — opening index.html straight
+       Note the fetch means this needs a server — opening this page straight
        off the filesystem will show the fallback line instead, because
        file:// blocks the request. That is the intended failure mode.
        ==================================================================== */
     (function () {
       "use strict";
 
-      var mount = document.getElementById("fixtures-mount");
-      var fallback = document.getElementById("fixtures-fallback");
+      var mount = document.getElementById("next-strip");
+      var fallback = document.getElementById("next-fallback");
 
       if (!mount || !window.fetch) {
         return;
       }
+
+      /* The order the cards appear in, and the order the buttons under them
+         are written in. A division in the JSON that is not listed here is not
+         shown on the home page; three cards is the strip. */
+      var ORDER = ["d4", "d6", "d2w"];
+
+      /* A game is over about 90 minutes after tip-off, the same length the
+         calendar events use. Until then today's game is still the next one. */
+      var GAME_MINUTES = 90;
 
       fetch("fixtures.json", { cache: "no-cache" })
         .then(function (response) {
@@ -591,10 +609,6 @@
           node.appendChild(document.createTextNode(text));
         }
         return node;
-      }
-
-      function label(text) {
-        return el("span", "visually-hidden", text);
       }
 
       /* Dates are formatted by hand rather than with toLocaleDateString, and
@@ -625,81 +639,134 @@
         return /^\d{2}:\d{2}$/.test(String(t)) ? String(t) : null;
       }
 
-      function row(fixture, divisionLabel) {
+      /* Today as YYYY-MM-DD in the reader's own zone, so "upcoming" is decided
+         against their calendar day and not against UTC. Built from the local
+         getters for the same reason formatDate avoids the string parser. */
+      function todayLocal(now) {
+        function two(n) { return (n < 10 ? "0" : "") + n; }
+        return now.getFullYear() + "-" + two(now.getMonth() + 1) + "-" + two(now.getDate());
+      }
+
+      /* Still to come: a later date always, today's date until 90 minutes
+         after tip-off. A fixture today with no time stays up all day — there
+         is no tip-off to count from, and dropping it early would hide a game
+         that has not been played. Undated fixtures are never the next one:
+         there is nothing to compare and nothing to tell anyone. */
+      function isUpcoming(fixture, today, now) {
+        var date = fixture && fixture.date ? String(fixture.date) : "";
+        if (!formatDate(date)) {
+          return false;
+        }
+        if (date > today) {
+          return true;
+        }
+        if (date < today) {
+          return false;
+        }
+        var time = formatTime(fixture.time);
+        if (!time) {
+          return true;
+        }
+        var end = new Date(now.getFullYear(), now.getMonth(), now.getDate(),
+                           Number(time.slice(0, 2)), Number(time.slice(3, 5)) + GAME_MINUTES);
+        return now < end;
+      }
+
+      /* Earliest first, by date then time. Fixtures are stored in round order
+         and the rounds are not in date order, so this cannot lean on the order
+         they arrive in. */
+      function byDate(a, b) {
+        var da = String(a.date) + " " + String(a.time || "");
+        var db = String(b.date) + " " + String(b.time || "");
+        return da < db ? -1 : da > db ? 1 : 0;
+      }
+
+      function nextFixture(division, today, now) {
+        var fixtures = Array.isArray(division.fixtures) ? division.fixtures : [];
+        return fixtures.filter(function (f) { return isUpcoming(f, today, now); })
+                       .sort(byDate)[0] || null;
+      }
+
+      /* Initials for a club with no crest file: the first letter of each word,
+         up to three. Better than an empty tile, and better than inventing a
+         mark for someone else's club. */
+      function initials(name) {
+        return String(name || "")
+          .split(/\s+/)
+          .filter(Boolean)
+          .map(function (word) { return word.charAt(0).toUpperCase(); })
+          .join("")
+          .slice(0, 3);
+      }
+
+      function rbcMark() {
+        var span = el("span", "next__mark next__mark--rbc");
+        var img = document.createElement("img");
+        img.src = "assets/img/logo.png";
+        img.alt = "Rathmines BC";
+        span.appendChild(img);
+        return span;
+      }
+
+      /* Crest files are our own, under assets/img/clubs/, and the path is
+         checked against that prefix before it goes into an attribute — the
+         same habit as the https check on the map links. Anything else, and
+         anything with no entry at all, falls through to initials. */
+      function opponentMark(name, logos) {
+        var src = logos && name ? logos[name] : null;
+        if (src && /^assets\/img\/clubs\/[a-z0-9._-]+$/i.test(String(src))) {
+          var span = el("span", "next__mark next__mark--opp");
+          var img = document.createElement("img");
+          img.src = String(src);
+          img.alt = String(name);
+          img.loading = "lazy";
+          img.decoding = "async";
+          span.appendChild(img);
+          return span;
+        }
+        return el("span", "next__mark next__mark--initials", initials(name));
+      }
+
+      function card(division, fixture, logos) {
+        var article = el("article", "next");
+        article.appendChild(el("p", "next__squad", division.label || "Squad"));
+
+        var marks = el("div", "next__marks");
+
+        /* No date yet. The club mark stands alone rather than pairing it with
+           an opponent the fixture list has not settled. Fifteen of the
+           thirty-six fixtures have no date, so this is a normal state. */
+        if (!fixture) {
+          marks.appendChild(rbcMark());
+          article.appendChild(marks);
+          article.appendChild(el("p", "next__opp", "Next fixture to be announced"));
+          return article;
+        }
+
         var isHome = fixture.home === true;
-        var dateText = fixture.date ? formatDate(fixture.date) : null;
-        var timeText = fixture.time ? formatTime(fixture.time) : null;
+        var opponent = fixture.opponent || "Opponent TBC";
 
-        var li = el("li", "fixture " + (isHome ? "fixture--home" : "fixture--away"));
+        /* Home team on the left, the way a scoreboard reads. */
+        marks.appendChild(isHome ? rbcMark() : opponentMark(opponent, logos));
+        marks.appendChild(el("span", "next__v", "v"));
+        marks.appendChild(isHome ? opponentMark(opponent, logos) : rbcMark());
+        article.appendChild(marks);
 
-        li.appendChild(el("span", "fixture__tag", isHome ? "Home" : "Away"));
+        article.appendChild(el("p", "next__tag", isHome ? "Home" : "Away"));
+        article.appendChild(el("p", "next__opp", opponent));
 
-        var opponent = el("span", "fixture__opponent");
-        opponent.appendChild(label(isHome ? "At home to " : "Away to "));
-        /* Opponent links to the club's own site or social page when the
-           JSON `clubs` map has one. https only, same check as the map link. */
-        var clubUrl = CLUBS && fixture.opponent ? CLUBS[fixture.opponent] : null;
-        if (clubUrl && /^https:\/\//.test(String(clubUrl))) {
-          var ca = el("a", "fixture__club", fixture.opponent);
-          ca.href = clubUrl;
-          ca.target = "_blank";
-          ca.rel = "noopener";
-          opponent.appendChild(ca);
-        } else {
-          opponent.appendChild(document.createTextNode(fixture.opponent || "Opponent TBC"));
-        }
-        li.appendChild(opponent);
+        var dateText = formatDate(fixture.date);
+        var timeText = formatTime(fixture.time);
+        article.appendChild(el("p", "next__when",
+          dateText + (timeText ? ", " + timeText : "")));
 
-        /* No date means the opponent has not set the fixture, and time and
-           venue are null with it. One honest line across the row beats two
-           cells both saying "to be confirmed", and there is nothing here to
-           infer a venue from. */
-        if (!dateText) {
-          var pending = el("span", "fixture__pending");
-          pending.appendChild(label("Status: "));
-          pending.appendChild(document.createTextNode(fixture.venueNote ? "Date to be confirmed. " + fixture.venueNote : "Date and venue to be confirmed"));
-          li.appendChild(pending);
-          return li;
-        }
-
-        /* Confirmed is agreed with the opponent. Anything else dated is a
-           slot the club offered that has not been answered, so it is marked
-           on the row itself and not only in the note above the list. */
-        var isConfirmed = fixture.status === "confirmed";
-        li.className += isConfirmed ? " fixture--confirmed" : " fixture--provisional";
-
-        /* A confirmed fixture offers itself as a calendar event in the status
-           slot; a provisional one still says so, since a date that moves is
-           worse in a calendar than on a page. */
-        var ev = isConfirmed ? icsEvent(fixture, divisionLabel) : null;
-        if (ev) {
-          /* Two ways in: Google opens a pre-filled event in one tap; the
-             .ics file is what Apple Calendar and Outlook open natively. */
-          var cal = el("span", "fixture__status fixture__cal");
-          cal.appendChild(label("Add " + (fixture.opponent || "") + " on " + dateText + " to your calendar: "));
-          var g = el("a", "fixture__cal-link", "Google");
-          g.href = googleUrl(fixture, divisionLabel);
-          g.target = "_blank";
-          g.rel = "noopener";
-          cal.appendChild(g);
-          cal.appendChild(el("span", "fixture__cal-sep", "\u00b7"));
-          cal.appendChild(icsLink("Apple / Outlook", "fixture__cal-link", [ev],
-            "rathmines" + String(fixture.date).replace(/-/g, "") + ".ics"));
-          li.appendChild(cal);
-        } else {
-          var badge = el("span", "fixture__status");
-          badge.appendChild(label("Status: "));
-          badge.appendChild(document.createTextNode(isConfirmed ? "Confirmed" : "Provisional"));
-          li.appendChild(badge);
-        }
-
-        var venue = el("span", "fixture__venue");
-        venue.appendChild(label("Venue: "));
-        /* Venue is a Google Maps search link when the JSON carries one. The
-           href is our own data, but it is still checked for the one scheme
-           we expect before it goes into an attribute. */
-        if (fixture.mapUrl && /^https:\/\/www\.google\.com\/maps\//.test(String(fixture.mapUrl))) {
-          var a = el("a", "fixture__map", fixture.venue || "Venue");
+        var venue = el("p", "next__venue");
+        /* Venue is a Google Maps link when the JSON carries one. The href is
+           our own data, but it is still checked for the two forms we expect
+           before it goes into an attribute: the search URL the away venues
+           use, and the pinned shortlink St Mary's uses. */
+        if (fixture.mapUrl && /^https:\/\/(www\.google\.com\/maps\/|maps\.app\.goo\.gl\/)/.test(String(fixture.mapUrl))) {
+          var a = el("a", null, fixture.venue || "Venue");
           a.href = fixture.mapUrl;
           a.target = "_blank";
           a.rel = "noopener";
@@ -708,262 +775,43 @@
         } else {
           venue.appendChild(document.createTextNode(fixture.venue || "Venue to be confirmed"));
         }
-        li.appendChild(venue);
+        article.appendChild(venue);
 
-        var date = el("span", "fixture__date");
-        date.appendChild(label("Date: "));
-        date.appendChild(document.createTextNode(dateText + (timeText ? ", " + timeText : "")));
-        li.appendChild(date);
-
-        return li;
+        return article;
       }
 
-      /* By round. Never by date — fifteen fixtures have none, and the agreed
-         ones are scattered through the season, so any date ordering would
-         push the undated fixtures into an arbitrary block and imply a
-         sequence the club has not got. */
-      function byDate(a, b) {
-        var da = a.date ? String(a.date) + " " + String(a.time || "") : "9999";
-        var db = b.date ? String(b.date) + " " + String(b.time || "") : "9999";
-        return da < db ? -1 : da > db ? 1 : byRound(a, b);
-      }
-      function byRound(a, b) {
-        var ra = typeof a.round === "number" ? a.round : Infinity;
-        var rb = typeof b.round === "number" ? b.round : Infinity;
-        return ra - rb;
-      }
-
-      function countBy(fixtures, status) {
-        return fixtures.filter(function (f) { return f.status === status; }).length;
-      }
-
-      /* Counted from the data, never hardcoded. If a slot gets agreed the
-         sentence follows it without anyone remembering to edit this file. */
-      function summary(fixtures, homeCount, venueName) {
-        var confirmed = countBy(fixtures, "confirmed");
-        var offered = countBy(fixtures, "slot_offered");
-        var unset = fixtures.length - confirmed - offered;
-
-        var parts = [homeCount + " home games" + (venueName ? " at " + venueName : "") + "."];
-
-        if (confirmed) {
-          parts.push(confirmed + (confirmed === 1 ? " date is" : " dates are") +
-                     " agreed with the opponent.");
-        }
-        if (offered) {
-          parts.push(offered + (offered === 1 ? " is a slot" : " are slots") +
-                     " the club has offered and the opponent has not confirmed, so " +
-                     (offered === 1 ? "it can" : "they can") + " still move.");
-        }
-        if (unset) {
-          parts.push(unset + (unset === 1 ? " has" : " have") + " no date yet.");
-        }
-        return parts.join(" ");
-      }
-
-      function squad(division, venueName) {
-        var section = el("section", "squad-fixtures");
-        var fixtures = Array.isArray(division.fixtures) ? division.fixtures : [];
-
-        var titleId = "fx-" + (division.id || Math.random().toString(36).slice(2));
-        var title = el("h3", "squad-fixtures__title", division.label || "Squad");
-        title.id = titleId;
-        section.setAttribute("aria-labelledby", titleId);
-        section.appendChild(title);
-
-        if (!fixtures.length) {
-          section.appendChild(el("p", "squad-fixtures__none", "Fixtures to follow."));
-          return section;
-        }
-
-        var home = fixtures.filter(function (f) { return f.home === true; }).sort(byRound);
-        var away = fixtures.filter(function (f) { return f.home !== true; }).sort(byRound);
-
-        section.appendChild(el("p", "squad-fixtures__meta",
-          summary(fixtures, home.length, venueName)));
-
-        /* One list in date order, home and away interleaved as the season
-           runs; undated fixtures go last. The home-only toggle still works,
-           it hides the away rows in place. */
-        var list = el("ul", "fixture-list is-home-only");
-        list.id = titleId + "-list";
-        fixtures.slice().sort(byDate).forEach(function (f) { list.appendChild(row(f, division.label || "")); });
-
-        var toggle = el("button", "fixtures-toggle");
-        toggle.type = "button";
-        toggle.setAttribute("aria-expanded", "false");
-        toggle.setAttribute("aria-controls", list.id);
-        toggle.appendChild(document.createTextNode("Show all " + fixtures.length + " fixtures"));
-
-        toggle.addEventListener("click", function () {
-          var showingAll = list.classList.toggle("is-home-only") === false;
-          toggle.setAttribute("aria-expanded", showingAll ? "true" : "false");
-          toggle.textContent = showingAll
-            ? "Show home games only"
-            : "Show all " + fixtures.length + " fixtures";
-        });
-
-        var events = fixtures.filter(function (f) { return f.status === "confirmed"; })
-          .map(function (f) { return icsEvent(f, division.label || ""); })
-          .filter(Boolean);
-        var actions = el("p", "fixtures-actions");
-        actions.appendChild(toggle);
-        if (events.length && division.id) {
-          var sub = el("span", "fixtures-subscribe");
-          sub.appendChild(el("span", "fixtures-subscribe__label",
-            "Follow all " + events.length + " fixtures in your calendar:"));
-          var apple = el("a", "fixtures-subscribe__link", "Apple / Outlook");
-          apple.href = "webcal://" + feedUrl(division.id);
-          sub.appendChild(apple);
-          sub.appendChild(el("span", "fixture__cal-sep", "\u00b7"));
-          var google = el("a", "fixtures-subscribe__link", "Google");
-          /* Google's add-by-URL deep link wants the webcal:// form; the https
-             form comes back "Unable to add calendar" (seen 2026-09-19). */
-          google.href = "https://calendar.google.com/calendar/r?cid=" +
-                        encodeURIComponent("webcal://" + feedUrl(division.id));
-          google.title = "Adds the feed to Google Calendar. If that fails, paste https://" +
-                         feedUrl(division.id) + " into Google Calendar, Other calendars, From URL.";
-          google.target = "_blank";
-          google.rel = "noopener";
-          sub.appendChild(google);
-          sub.appendChild(el("span", "fixture__cal-sep", "\u00b7"));
-          sub.appendChild(icsLink("Download .ics", "fixtures-subscribe__link", events,
-            "rathmines" + String(division.id).replace(/[^a-z0-9]/g, "") + "fixtures.ics"));
-          sub.appendChild(el("span", "fixture__cal-sep", "\u00b7"));
-          var feed = el("a", "fixtures-subscribe__link", "Feed URL");
-          feed.href = "https://" + feedUrl(division.id);
-          feed.title = "The calendar feed address, for any app's add-by-URL option";
-          sub.appendChild(feed);
-          actions.appendChild(sub);
-        }
-        section.appendChild(actions);
-        section.appendChild(list);
-        return section;
-      }
-
-      /* ---- Calendar export. Each dated fixture becomes a VEVENT, 90 minutes
-         long, in Europe/Dublin time. One .ics per row, and one per squad with
-         every dated fixture. Built as Blob URLs, nothing leaves the browser. */
-      var ICS_TZ = [
-        "BEGIN:VTIMEZONE",
-        "TZID:Europe/Dublin",
-        "BEGIN:STANDARD",
-        "DTSTART:19701025T020000",
-        "RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU",
-        "TZOFFSETFROM:+0100",
-        "TZOFFSETTO:+0000",
-        "END:STANDARD",
-        "BEGIN:DAYLIGHT",
-        "DTSTART:19700329T010000",
-        "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU",
-        "TZOFFSETFROM:+0000",
-        "TZOFFSETTO:+0100",
-        "END:DAYLIGHT",
-        "END:VTIMEZONE"
-      ].join("\r\n");
-
-      function icsEscape(text) {
-        return String(text).replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,").replace(/\r?\n/g, "\\n");
-      }
-      function icsStamp(iso, time) {
-        return String(iso).replace(/-/g, "") + "T" + String(time || "00:00").replace(":", "") + "00";
-      }
-      function addMinutes(iso, time, minutes) {
-        var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso));
-        var t = /^(\d{2}):(\d{2})$/.exec(String(time || "00:00"));
-        if (!m || !t) { return null; }
-        var d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3], +t[1], +t[2] + minutes));
-        function two(n) { return (n < 10 ? "0" : "") + n; }
-        return d.getUTCFullYear() + two(d.getUTCMonth() + 1) + two(d.getUTCDate()) +
-               "T" + two(d.getUTCHours()) + two(d.getUTCMinutes()) + "00";
-      }
-      function icsEvent(fixture, divisionLabel) {
-        if (!fixture.date || !/^\d{2}:\d{2}$/.test(String(fixture.time || ""))) { return null; }
-        var isHome = fixture.home === true;
-        var title = isHome
-          ? "Rathmines BC v " + fixture.opponent
-          : fixture.opponent + " v Rathmines BC";
-        var where = fixture.venueAddress || fixture.venue || "";
-        var uid = "rbc-" + String(fixture.date) + "-" + String(fixture.opponent).toLowerCase().replace(/[^a-z0-9]+/g, "-") + "@rathminesbc.ie";
-        return [
-          "BEGIN:VEVENT",
-          "UID:" + uid,
-          "DTSTAMP:" + icsStamp(fixture.date, fixture.time) + "Z",
-          "DTSTART;TZID=Europe/Dublin:" + icsStamp(fixture.date, fixture.time),
-          "DTEND;TZID=Europe/Dublin:" + addMinutes(fixture.date, fixture.time, 90),
-          "SUMMARY:" + icsEscape(title + " (" + divisionLabel + ")"),
-          "LOCATION:" + icsEscape(where),
-          "DESCRIPTION:" + icsEscape((isHome ? "Home" : "Away") + " game, " + divisionLabel + "." +
-            (fixture.mapUrl ? " Map: " + fixture.mapUrl : "")),
-          "END:VEVENT"
-        ].join("\r\n");
-      }
-      function icsFile(events) {
-        return [
-          "BEGIN:VCALENDAR",
-          "VERSION:2.0",
-          "PRODID:-//Rathmines Basketball Club//Fixtures//EN",
-          "CALSCALE:GREGORIAN",
-          "METHOD:PUBLISH",
-          ICS_TZ,
-          events.join("\r\n"),
-          "END:VCALENDAR",
-          ""
-        ].join("\r\n");
-      }
-      function icsLink(text, className, events, filename) {
-        var a = el("a", className, text);
-        if (window.URL && window.Blob) {
-          a.href = URL.createObjectURL(new Blob([icsFile(events)], { type: "text/calendar;charset=utf-8" }));
-        } else {
-          a.href = "data:text/calendar;charset=utf-8," + encodeURIComponent(icsFile(events));
-        }
-        a.download = filename;
-        return a;
-      }
-
-      function googleUrl(fixture, divisionLabel) {
-        var isHome = fixture.home === true;
-        var title = (isHome ? "Rathmines BC v " + fixture.opponent : fixture.opponent + " v Rathmines BC") +
-                    " (" + divisionLabel + ")";
-        var q = [
-          "action=TEMPLATE",
-          "text=" + encodeURIComponent(title),
-          "dates=" + icsStamp(fixture.date, fixture.time) + "/" + addMinutes(fixture.date, fixture.time, 90),
-          "ctz=Europe%2FDublin",
-          "location=" + encodeURIComponent(fixture.venueAddress || fixture.venue || ""),
-          "details=" + encodeURIComponent((isHome ? "Home" : "Away") + " game, " + divisionLabel + "." +
-            (fixture.mapUrl ? " Map: " + fixture.mapUrl : ""))
-        ];
-        return "https://calendar.google.com/calendar/render?" + q.join("&");
-      }
-
-      /* Subscribable feeds, built by scripts/buildcalendars.js and committed
-         under /calendars/. Apple and Outlook take webcal://, Google takes the
-         https URL through its add-by-URL screen. The host is read at runtime
-         so the links work on the preview URL and on rathminesbc.ie alike. */
-      function feedUrl(divisionId) {
-        return location.host + "/calendars/rathmines" +
-               String(divisionId || "").replace(/[^a-z0-9]/g, "") + "fixtures.ics";
-      }
-
-      var CLUBS = null;
       function render(data) {
-        CLUBS = data && data.clubs && typeof data.clubs === "object" ? data.clubs : null;
         var divisions = (data && Array.isArray(data.divisions)) ? data.divisions : [];
+        var logos = (data && data.logos && typeof data.logos === "object") ? data.logos : null;
 
         if (!divisions.length) {
           return;   /* keep the fallback sentence */
         }
 
-        /* The season calendar file calls this `short`; the older DMBB
-           transcription called it `shortName`. */
-        var venueName = (data.homeVenue && data.homeVenue.short) || "";
-        var frag = document.createDocumentFragment();
-
+        var byId = {};
         divisions.forEach(function (division) {
-          frag.appendChild(squad(division, venueName));
+          if (division && division.id) {
+            byId[String(division.id)] = division;
+          }
         });
+
+        var now = new Date();
+        var today = todayLocal(now);
+        var frag = document.createDocumentFragment();
+        var rendered = 0;
+
+        ORDER.forEach(function (id) {
+          var division = byId[id];
+          if (!division) {
+            return;
+          }
+          frag.appendChild(card(division, nextFixture(division, today, now), logos));
+          rendered += 1;
+        });
+
+        if (!rendered) {
+          return;   /* keep the fallback sentence */
+        }
 
         mount.appendChild(frag);
 

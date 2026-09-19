@@ -205,12 +205,13 @@
 }
 
 /* Current page. Driven by the data-page attribute on <body> so that the
-   header markup stays byte-identical across all six pages and the marker
+   header markup stays byte-identical across all eight pages and the marker
    works without JS. nav.js additionally sets aria-current for screen
    readers. Keep the two in step. */
 body[data-page="index"]    .site-nav__link[data-nav="index"],
 body[data-page="story"]    .site-nav__link[data-nav="story"],
 body[data-page="roster"]   .site-nav__link[data-nav="roster"],
+body[data-page="fixtures"] .site-nav__link[data-nav="fixtures"],
 body[data-page="sponsors"] .site-nav__link[data-nav="sponsors"],
 body[data-page="shop"]     .site-nav__link[data-nav="shop"],
 body[data-page="contact"]  .site-nav__link[data-nav="contact"] {
@@ -269,6 +270,7 @@ body[data-page="contact"]  .site-nav__link[data-nav="contact"] {
   .js body[data-page="index"]    .site-nav__link[data-nav="index"],
   .js body[data-page="story"]    .site-nav__link[data-nav="story"],
   .js body[data-page="roster"]   .site-nav__link[data-nav="roster"],
+  .js body[data-page="fixtures"] .site-nav__link[data-nav="fixtures"],
   .js body[data-page="sponsors"] .site-nav__link[data-nav="sponsors"],
   .js body[data-page="shop"]     .site-nav__link[data-nav="shop"],
   .js body[data-page="contact"]  .site-nav__link[data-nav="contact"] {
@@ -546,6 +548,7 @@ body[data-page="contact"]  .site-nav__link[data-nav="contact"] {
 body[data-page="index"]    .site-header.is-over-hero .site-nav__link[data-nav="index"],
 body[data-page="story"]    .site-header.is-over-hero .site-nav__link[data-nav="story"],
 body[data-page="roster"]   .site-header.is-over-hero .site-nav__link[data-nav="roster"],
+body[data-page="fixtures"] .site-header.is-over-hero .site-nav__link[data-nav="fixtures"],
 body[data-page="sponsors"] .site-header.is-over-hero .site-nav__link[data-nav="sponsors"],
 body[data-page="shop"]     .site-header.is-over-hero .site-nav__link[data-nav="shop"],
 body[data-page="contact"]  .site-header.is-over-hero .site-nav__link[data-nav="contact"],
@@ -763,9 +766,179 @@ body[data-page="contact"]  .site-header.is-over-hero .site-nav__link[data-nav="c
 
 
 /* -----------------------------------------------------------------------------
-   7. Home — fixtures
+   7. Home — next fixtures strip
    --------------------------------------------------------------------------
-   Rendered from fixtures.json by the inline script in index.html.
+   Three cards, one per squad, each the next game that squad has. Rendered from
+   fixtures.json by the inline script in index.html; the full season list lives
+   on fixtures.html and section 8 styles it.
+
+   One column on a phone, three from 768px. The buttons under the strip sit on
+   the same grid so each one lines up under its own card.
+   -------------------------------------------------------------------------- */
+
+.next-strip {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .next-strip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* A white card lifted off the ambient paper, with the same 3px ink rule across
+   the top that the rest of the site uses to mark a block. */
+.next {
+  background-color: var(--surface-raised);
+  border-block-start: var(--border-thick) solid var(--black);
+  padding: var(--space-5);
+  text-align: center;
+}
+
+.next__marks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-block: var(--space-4);
+}
+
+/* Both marks are the same 5.5rem square whatever is inside them, so the "v"
+   stays on the centre line and the three cards stay level. */
+.next__mark {
+  display: inline-grid;
+  place-items: center;
+  inline-size: 5.5rem;
+  block-size: 5.5rem;
+}
+
+/* The club mark is white artwork on an OPAQUE BLACK background, so it needs a
+   black tile under it rather than a knockout. Same fact as the header bar,
+   different remedy: here the tile is the design. */
+.next__mark--rbc {
+  background-color: var(--black);
+}
+
+.next__mark--rbc img {
+  inline-size: 4rem;
+  block-size: auto;
+}
+
+/* Opponent crests are other clubs' artwork on white, at mixed aspect ratios and
+   mixed amounts of built-in padding. A white tile with a hairline and `contain`
+   is the only treatment that takes all of them without cropping or recolouring
+   anyone's mark. */
+.next__mark--opp {
+  background-color: var(--surface-raised);
+  border: var(--border-hairline) solid var(--rule);
+  padding: 0.3rem;
+}
+
+.next__mark--opp img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: contain;
+}
+
+/* No crest file. Initials on the tint tile, rather than an empty square or a
+   mark invented for someone else's club. */
+.next__mark--initials {
+  background-color: var(--accent-tint);
+
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-caps);
+  color: var(--black);
+}
+
+.next__v {
+  font-family: var(--font-display);
+  font-size: var(--step--1);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* The eyebrow treatment, and --accent-ink for the same reason .eyebrow uses it:
+   plain --accent is 3.62:1 on paper and fails AA at this size. See DECISIONS.md. */
+.next__squad {
+  font-family: var(--font-display);
+  font-size: var(--step--1);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--accent-ink);
+}
+
+.next__tag {
+  font-family: var(--font-display);
+  font-size: var(--step--1);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.next__opp {
+  margin-block-start: var(--space-2);
+
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-snug);
+}
+
+.next__when {
+  margin-block-start: var(--space-2);
+}
+
+.next__venue {
+  margin-block-start: var(--space-2);
+  font-size: var(--step--1);
+}
+
+.next__venue a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 0.15em;
+}
+
+.next__venue a:hover {
+  color: var(--accent-ink);
+}
+
+/* One button per card, on the same grid as the strip so each lands under the
+   squad it belongs to. Full width inside its cell — three centred pills of
+   three different widths would not read as a set. */
+.next__actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  margin-block-start: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .next__actions {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.next__actions .btn {
+  inline-size: 100%;
+}
+
+
+/* -----------------------------------------------------------------------------
+   8. Fixtures page — the season list
+   --------------------------------------------------------------------------
+   Rendered from fixtures.json by the inline script in fixtures.html. The home
+   page carries the three-card strip in section 7 instead; this is the full
+   list, and it is not duplicated there.
 
    18 fixtures per squad across three squads is far too much vertical space on
    a phone, so home games show by default and away games sit behind a toggle.
@@ -773,9 +946,18 @@ body[data-page="contact"]  .site-header.is-over-hero .site-nav__link[data-nav="c
    come to, which is the whole point of the block.
    -------------------------------------------------------------------------- */
 
+/* Used on both pages: the no-JS / failed-fetch line under the heading, here and
+   under the home page's strip. */
 .fixtures__fallback {
   max-width: var(--measure);
   color: var(--text-muted);
+}
+
+/* Each squad section carries its division id (d4, d6, d2w) so the home page's
+   buttons can link straight to it. The header is sticky, so without this the
+   heading lands underneath it. */
+.squad-fixtures {
+  scroll-margin-block-start: calc(var(--header-height) + var(--border-thick));
 }
 
 .squad-fixtures + .squad-fixtures {
@@ -1047,7 +1229,7 @@ body[data-page="contact"]  .site-header.is-over-hero .site-nav__link[data-nav="c
 
 
 /* -----------------------------------------------------------------------------
-   8. Home — sponsors and shop
+   9. Home — sponsors and shop
    --------------------------------------------------------------------------
    Logos sit on the solid block itself. No cards, no radius, no shadow.
    -------------------------------------------------------------------------- */
@@ -1126,7 +1308,7 @@ body[data-page="contact"]  .site-header.is-over-hero .site-nav__link[data-nav="c
 
 
 /* -----------------------------------------------------------------------------
-   9. Site footer
+   10. Site footer
    -------------------------------------------------------------------------- */
 
 .site-footer {
@@ -1340,7 +1522,8 @@ body[data-page="story"] {
   --ambient-anchor: center 45%;
 }
 
-body[data-page="roster"] {
+body[data-page="roster"],
+body[data-page="fixtures"] {
   --ambient-photo: url("../assets/img/rathminespitch.jpg");
   --ambient-anchor: center 45%;
 }

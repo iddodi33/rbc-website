@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en-IE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Fixtures &amp; Results — Rathmines Basketball Club</title>
+  <meta name="description" content="Every 2026/27 fixture for the Rathmines Basketball Club senior squads: men's Division 4, men's Division 6 and ladies Division 3. Dates, venues and calendar links.">
+
+  <!-- PRE-LAUNCH ONLY, COMES OUT ON LAUNCH DAY. The site is on a public URL
+       and still carries placeholder copy, so nothing here should be indexed
+       yet. Paired with robots.txt at the repo root; remove both together.
+       Tracked in ROADMAP.md as "Remove noindex and robots.txt". -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Social preview. Absolute URLs are required — a relative og:image is
+       simply dropped by every scraper. Titles and descriptions are per page,
+       not one shared set, so a shared link says which page it is.
+
+       The image is the home hero on every page. It is 1600x900, and the
+       platforms want 1200x630, so they letterbox it slightly; a dedicated
+       1200x630 crop would be better and is not worth a second file until
+       there is a photograph chosen for it. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Rathmines Basketball Club">
+  <meta property="og:locale" content="en_IE">
+  <meta property="og:url" content="https://rathminesbc.ie/fixtures.html">
+  <meta property="og:title" content="Fixtures &amp; Results — Rathmines Basketball Club">
+  <meta property="og:description" content="Every 2026/27 fixture for the Rathmines Basketball Club senior squads: men's Division 4, men's Division 6 and ladies Division 3. Dates, venues and calendar links.">
+  <meta property="og:image" content="https://rathminesbc.ie/assets/img/hero-landscape-16x9.jpg">
+  <meta property="og:image:width" content="1600">
+  <meta property="og:image:height" content="900">
+  <meta property="og:image:alt" content="The Rathmines squad in a huddle before tip-off, hands in at the centre.">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fixtures &amp; Results — Rathmines Basketball Club">
+  <meta name="twitter:description" content="Every 2026/27 fixture for the Rathmines Basketball Club senior squads: men's Division 4, men's Division 6 and ladies Division 3. Dates, venues and calendar links.">
+  <meta name="twitter:image" content="https://rathminesbc.ie/assets/img/hero-landscape-16x9.jpg">
+  <meta name="twitter:image:alt" content="The Rathmines squad in a huddle before tip-off, hands in at the centre.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+
+  <!-- Load order matters: tokens, then base, then layout. -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+
+  <!-- TODO: replace with a proper favicon set. Currently reusing the club
+       mark, which is a 114x107 raster and will look soft as a favicon. -->
+  <link rel="icon" href="assets/img/logo.png">
+
+  <script src="js/nav.js" defer></script>
+</head>
+
+<body data-page="fixtures">
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ======================================================================
+       SHARED HEADER — byte-identical across all eight pages.
+       No templating engine by design. If you edit this block, edit it in
+       index.html, story.html, roster.html, fixtures.html, sponsors.html,
+       shop.html, contact.html and 404.html in the same commit. Do not
+       re-indent it.
+       ====================================================================== -->
+  <header class="site-header">
+    <div class="site-header__inner container">
+
+      <a class="brand" href="index.html">
+        <img class="brand__logo" src="assets/img/logo.png" alt="" width="114" height="107">
+        <span class="brand__name">
+          Rathmines
+          <span class="brand__name-sub">Basketball Club</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span>Menu</span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" data-nav="index" href="index.html">Home</a></li>
+          <li><a class="site-nav__link" data-nav="story" href="story.html">Our Story</a></li>
+          <li><a class="site-nav__link" data-nav="roster" href="roster.html">Roster</a></li>
+          <li><a class="site-nav__link" data-nav="fixtures" href="fixtures.html">Fixtures &amp; Results</a></li>
+          <li><a class="site-nav__link" data-nav="sponsors" href="sponsors.html">Sponsors</a></li>
+          <li><a class="site-nav__link" data-nav="shop" href="shop.html">Shop</a></li>
+          <li><a class="site-nav__link" data-nav="contact" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+  <!-- ===================== END SHARED HEADER ============================ -->
+
+  <main class="main" id="main">
+
+    <!-- ==================================================================
+         PAGE BAND — the narrow hero. Full bleed, sits under the transparent
+         header, carries the page title. Deliberately about 40% of the home
+         hero's height: this is a strip, not a second hero.
+
+         The scrim is a per-page decision, never global. `page-band--scrim`
+         is on this section only if the title measured under 4.5:1 against
+         this page's own photograph. Numbers are in DECISIONS.md.
+         ================================================================== -->
+    <section class="page-band page-band--scrim">
+
+      <div class="page-band__media">
+        <!-- Reusing the roster band photograph for now. A fixtures-specific
+             band image replaces it when one is chosen; nothing else here
+             changes with it. -->
+        <img class="page-band__img" src="assets/img/band-roster.jpg"
+             alt="Three Rathmines players in the black club jersey moving up the court
+                    against a team in red."
+             width="1600" height="500" fetchpriority="high">
+      </div>
+
+      <div class="page-band__content">
+        <div class="container">
+          <h1 class="page-band__title">Fixtures &amp; Results</h1>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==================================================================
+         FIXTURES
+         Rendered at runtime from fixtures.json by the inline script at the
+         foot of this page. No build step.
+
+         SORTED BY ROUND, NEVER BY DATE. Fifteen of the thirty-six fixtures
+         have no date at all, so a date sort would be meaningless; round is
+         the only ordering the season actually has.
+
+         STATUS IS THE LOAD-BEARING FIELD. Only a handful of dates are agreed
+         with the opponent. Everything else dated is a slot the club offered
+         and the opponent has not answered, and it is marked Provisional on
+         the row and explained in the line above each squad. A date shown as
+         settled that then moves is worse than showing no date, so nothing
+         here may present an offered slot as fixed.
+
+         Undated fixtures are all away games the opponent has not set. Their
+         time and venue are null too, and no venue is inferred from anywhere.
+
+         Home games are shown first and by default, because they are the ones
+         people can actually come to. Away games are behind a per-squad
+         toggle, which is what keeps 18 rows per squad from running away at
+         360px.
+
+         The paragraph below is the no-JS fallback. It is visible by default
+         and the script hides it only once it has rendered something, so a
+         failed fetch or a missing script leaves a real sentence rather than
+         an empty container.
+         ================================================================== -->
+    <section class="section">
+      <div class="container">
+
+        <div class="section__head">
+          <p class="eyebrow">This season</p>
+          <h2>Fixtures</h2>
+        </div>
+
+        <p class="fixtures__fallback" id="fixtures-fallback">
+          Most dates are still being agreed with the opponents. The season
+          calendar is posted on the club&rsquo;s Instagram,
+          <a href="https://www.instagram.com/rathmines_bc/"
+             target="_blank" rel="noopener">@rathmines_bc</a>.
+        </p>
+
+        <div class="fixtures" id="fixtures-mount"></div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================================
+       SHARED FOOTER — byte-identical across all eight pages. Same rule as the
+       header: edit all eight together, do not re-indent.
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="site-footer__inner container">
+
+      <!-- SPONSOR STRIP. A credit, not an advert — see DECISIONS.md.
+           Both marks point at sponsors.html and NOT at the sponsors' own
+           sites: the club controls what its sponsors page says, and an
+           outbound link here would push traffic away from the pitch.
+
+           TODO: BLACKBIRD LOGO. No logo file exists for Blackbird, so the
+           name is set as a wordmark in the display face at roughly the
+           optical weight of the Neighbourhood Threat artwork beside it.
+           Nothing has been fabricated and the photograph of the pub is NOT
+           used as a stand-in mark — it is a photograph of a building, not a
+           logo, and using it here would misrepresent their identity. Ask
+           Blackbird for artwork; ideally white on transparency like the NT
+           file, so it needs no treatment on this black bar. When it lands,
+           swap the <span> below for an <img class="sponsor-mark__img">. -->
+      <div class="site-footer__sponsors">
+        <p class="site-footer__sponsors-label">Our sponsors</p>
+
+        <a class="sponsor-mark" href="sponsors.html">
+          <img class="sponsor-mark__img"
+               src="assets/img/sponsor-neighbourhood-threat.png"
+               alt="Neighbourhood Threat Barber Shop"
+               width="1245" height="496" loading="lazy" decoding="async">
+        </a>
+
+        <a class="sponsor-mark" href="sponsors.html">
+          <span class="sponsor-mark__wordmark">Blackbird <br>Rathmines</span>
+        </a>
+      </div>
+
+      <div>
+        <img class="brand__logo" src="assets/img/logo.png" alt="Rathmines Basketball Club" width="114" height="107" loading="lazy" decoding="async">
+        <!-- TODO: confirm the tagline with Phil before launch. -->
+        <p class="site-footer__tagline">
+          Community first, basketball second. A senior club playing out of
+          Rathmines, Dublin 6.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="site-footer__heading">The club</h2>
+        <ul class="site-footer__list">
+          <li><a href="story.html">Our Story</a></li>
+          <li><a href="roster.html">Roster</a></li>
+          <li><a href="fixtures.html">Fixtures &amp; Results</a></li>
+          <li><a href="sponsors.html">Sponsors</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="site-footer__heading">Get involved</h2>
+        <ul class="site-footer__list">
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <!-- The handle is confirmed, so it is a plain outbound link on every
+               page. Phil still owns the Instagram EMBED and the rest of the
+               social links; this is only the club's own account. -->
+          <li>
+            <a href="https://www.instagram.com/rathmines_bc/"
+               target="_blank" rel="noopener">Instagram &mdash; @rathmines_bc</a>
+          </li>
+        </ul>
+      </div>
+
+      <p class="site-footer__legal">
+        <!-- TODO: confirm the registered club name and whether a governing
+             body line (Basketball Ireland / DMBB) is required here. -->
+        &copy; 2026 Rathmines Basketball Club. Dublin, Ireland.
+
+        <!-- REQUIRED BY LICENCE, NOT DECORATION. The two Rathmines street
+             photographs on the home page are Creative Commons and CC BY-SA 2.0
+             obliges us to name the photographer and the licence, visibly, on
+             the page that shows them. Both links are part of that obligation:
+             stripping either one, or moving this into a comment or into alt
+             text, puts the club out of compliance. It lives in the shared
+             footer rather than under the photographs so it survives the
+             photographs moving. Do not remove it while those files are in
+             assets/img/. -->
+        <span class="site-footer__credit">
+          Rathmines photographs by
+          <a href="https://www.flickr.com/photos/infomatique/"
+             rel="noopener">William Murphy</a>,
+          <a href="https://creativecommons.org/licenses/by-sa/2.0/"
+             rel="license noopener">CC BY-SA 2.0</a>
+        </span>
+      </p>
+
+    </div>
+  </footer>
+  <!-- ===================== END SHARED FOOTER ============================ -->
+
+  <script>
+    /* ====================================================================
+       Fixtures, rendered from fixtures.json.
+
+       Built with createElement rather than innerHTML: the JSON is our own
+       repo data, but it is still data and it is not going to be pasted into
+       markup unescaped.
+
+       Note the fetch means this needs a server — opening this page straight
+       off the filesystem will show the fallback line instead, because
+       file:// blocks the request. That is the intended failure mode.
+       ==================================================================== */
+    (function () {
+      "use strict";
+
+      var mount = document.getElementById("fixtures-mount");
+      var fallback = document.getElementById("fixtures-fallback");
+
+      if (!mount || !window.fetch) {
+        return;
+      }
+
+      fetch("fixtures.json", { cache: "no-cache" })
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error("HTTP " + response.status);
+          }
+          return response.json();
+        })
+        .then(render)
+        .catch(function () {
+          /* Leave the fallback sentence exactly where it is. */
+        });
+
+      function el(tag, className, text) {
+        var node = document.createElement(tag);
+        if (className) {
+          node.className = className;
+        }
+        if (text !== undefined && text !== null) {
+          node.appendChild(document.createTextNode(text));
+        }
+        return node;
+      }
+
+      function label(text) {
+        return el("span", "visually-hidden", text);
+      }
+
+      /* Dates are formatted by hand rather than with toLocaleDateString, and
+         parsed with Date.UTC rather than new Date(string). Passing a bare
+         "2026-11-04" to the Date constructor parses it as UTC midnight and
+         then prints it in the reader's own zone, which west of Greenwich
+         silently shows the previous day. These are match dates; being a day
+         out is the one thing they cannot be. */
+      var DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+      function formatDate(iso) {
+        var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso));
+        if (!m) {
+          return null;
+        }
+        var y = Number(m[1]), mo = Number(m[2]), d = Number(m[3]);
+        var dt = new Date(Date.UTC(y, mo - 1, d));
+        /* Rejects 2026-02-31 and friends rather than rolling them forward. */
+        if (dt.getUTCFullYear() !== y || dt.getUTCMonth() !== mo - 1 || dt.getUTCDate() !== d) {
+          return null;
+        }
+        return DAYS[dt.getUTCDay()] + " " + d + " " + MONTHS[mo - 1] + " " + y;
+      }
+
+      function formatTime(t) {
+        return /^\d{2}:\d{2}$/.test(String(t)) ? String(t) : null;
+      }
+
+      function row(fixture, divisionLabel) {
+        var isHome = fixture.home === true;
+        var dateText = fixture.date ? formatDate(fixture.date) : null;
+        var timeText = fixture.time ? formatTime(fixture.time) : null;
+
+        var li = el("li", "fixture " + (isHome ? "fixture--home" : "fixture--away"));
+
+        li.appendChild(el("span", "fixture__tag", isHome ? "Home" : "Away"));
+
+        var opponent = el("span", "fixture__opponent");
+        opponent.appendChild(label(isHome ? "At home to " : "Away to "));
+        /* Opponent links to the club's own site or social page when the
+           JSON `clubs` map has one. https only, same check as the map link. */
+        var clubUrl = CLUBS && fixture.opponent ? CLUBS[fixture.opponent] : null;
+        if (clubUrl && /^https:\/\//.test(String(clubUrl))) {
+          var ca = el("a", "fixture__club", fixture.opponent);
+          ca.href = clubUrl;
+          ca.target = "_blank";
+          ca.rel = "noopener";
+          opponent.appendChild(ca);
+        } else {
+          opponent.appendChild(document.createTextNode(fixture.opponent || "Opponent TBC"));
+        }
+        li.appendChild(opponent);
+
+        /* No date means the opponent has not set the fixture, and time and
+           venue are null with it. One honest line across the row beats two
+           cells both saying "to be confirmed", and there is nothing here to
+           infer a venue from. */
+        if (!dateText) {
+          var pending = el("span", "fixture__pending");
+          pending.appendChild(label("Status: "));
+          pending.appendChild(document.createTextNode(fixture.venueNote ? "Date to be confirmed. " + fixture.venueNote : "Date and venue to be confirmed"));
+          li.appendChild(pending);
+          return li;
+        }
+
+        /* Confirmed is agreed with the opponent. Anything else dated is a
+           slot the club offered that has not been answered, so it is marked
+           on the row itself and not only in the note above the list. */
+        var isConfirmed = fixture.status === "confirmed";
+        li.className += isConfirmed ? " fixture--confirmed" : " fixture--provisional";
+
+        /* A confirmed fixture offers itself as a calendar event in the status
+           slot; a provisional one still says so, since a date that moves is
+           worse in a calendar than on a page. */
+        var ev = isConfirmed ? icsEvent(fixture, divisionLabel) : null;
+        if (ev) {
+          /* Two ways in: Google opens a pre-filled event in one tap; the
+             .ics file is what Apple Calendar and Outlook open natively. */
+          var cal = el("span", "fixture__status fixture__cal");
+          cal.appendChild(label("Add " + (fixture.opponent || "") + " on " + dateText + " to your calendar: "));
+          var g = el("a", "fixture__cal-link", "Google");
+          g.href = googleUrl(fixture, divisionLabel);
+          g.target = "_blank";
+          g.rel = "noopener";
+          cal.appendChild(g);
+          cal.appendChild(el("span", "fixture__cal-sep", "\u00b7"));
+          cal.appendChild(icsLink("Apple / Outlook", "fixture__cal-link", [ev],
+            "rathmines" + String(fixture.date).replace(/-/g, "") + ".ics"));
+          li.appendChild(cal);
+        } else {
+          var badge = el("span", "fixture__status");
+          badge.appendChild(label("Status: "));
+          badge.appendChild(document.createTextNode(isConfirmed ? "Confirmed" : "Provisional"));
+          li.appendChild(badge);
+        }
+
+        var venue = el("span", "fixture__venue");
+        venue.appendChild(label("Venue: "));
+        /* Venue is a Google Maps search link when the JSON carries one. The
+           href is our own data, but it is still checked for the one scheme
+           we expect before it goes into an attribute. */
+        if (fixture.mapUrl && /^https:\/\/www\.google\.com\/maps\//.test(String(fixture.mapUrl))) {
+          var a = el("a", "fixture__map", fixture.venue || "Venue");
+          a.href = fixture.mapUrl;
+          a.target = "_blank";
+          a.rel = "noopener";
+          a.title = fixture.venueAddress ? fixture.venueAddress + " (opens Google Maps)" : "Opens Google Maps";
+          venue.appendChild(a);
+        } else {
+          venue.appendChild(document.createTextNode(fixture.venue || "Venue to be confirmed"));
+        }
+        li.appendChild(venue);
+
+        var date = el("span", "fixture__date");
+        date.appendChild(label("Date: "));
+        date.appendChild(document.createTextNode(dateText + (timeText ? ", " + timeText : "")));
+        li.appendChild(date);
+
+        return li;
+      }
+
+      /* By round. Never by date — fifteen fixtures have none, and the agreed
+         ones are scattered through the season, so any date ordering would
+         push the undated fixtures into an arbitrary block and imply a
+         sequence the club has not got. */
+      function byDate(a, b) {
+        var da = a.date ? String(a.date) + " " + String(a.time || "") : "9999";
+        var db = b.date ? String(b.date) + " " + String(b.time || "") : "9999";
+        return da < db ? -1 : da > db ? 1 : byRound(a, b);
+      }
+      function byRound(a, b) {
+        var ra = typeof a.round === "number" ? a.round : Infinity;
+        var rb = typeof b.round === "number" ? b.round : Infinity;
+        return ra - rb;
+      }
+
+      function countBy(fixtures, status) {
+        return fixtures.filter(function (f) { return f.status === status; }).length;
+      }
+
+      /* Counted from the data, never hardcoded. If a slot gets agreed the
+         sentence follows it without anyone remembering to edit this file. */
+      function summary(fixtures, homeCount, venueName) {
+        var confirmed = countBy(fixtures, "confirmed");
+        var offered = countBy(fixtures, "slot_offered");
+        var unset = fixtures.length - confirmed - offered;
+
+        var parts = [homeCount + " home games" + (venueName ? " at " + venueName : "") + "."];
+
+        if (confirmed) {
+          parts.push(confirmed + (confirmed === 1 ? " date is" : " dates are") +
+                     " agreed with the opponent.");
+        }
+        if (offered) {
+          parts.push(offered + (offered === 1 ? " is a slot" : " are slots") +
+                     " the club has offered and the opponent has not confirmed, so " +
+                     (offered === 1 ? "it can" : "they can") + " still move.");
+        }
+        if (unset) {
+          parts.push(unset + (unset === 1 ? " has" : " have") + " no date yet.");
+        }
+        return parts.join(" ");
+      }
+
+      function squad(division, venueName) {
+        var section = el("section", "squad-fixtures");
+        var fixtures = Array.isArray(division.fixtures) ? division.fixtures : [];
+
+        /* The division id doubles as the anchor target, so the home page's
+           "All Division 4 fixtures" buttons can land on the right squad:
+           fixtures.html#d4, #d6, #d2w. `scroll-margin-top` on
+           .squad-fixtures keeps the heading clear of the sticky header. */
+        if (division.id) {
+          section.id = String(division.id);
+        }
+
+        var titleId = "fx-" + (division.id || Math.random().toString(36).slice(2));
+        var title = el("h3", "squad-fixtures__title", division.label || "Squad");
+        title.id = titleId;
+        section.setAttribute("aria-labelledby", titleId);
+        section.appendChild(title);
+
+        if (!fixtures.length) {
+          section.appendChild(el("p", "squad-fixtures__none", "Fixtures to follow."));
+          return section;
+        }
+
+        var home = fixtures.filter(function (f) { return f.home === true; }).sort(byRound);
+        var away = fixtures.filter(function (f) { return f.home !== true; }).sort(byRound);
+
+        section.appendChild(el("p", "squad-fixtures__meta",
+          summary(fixtures, home.length, venueName)));
+
+        /* One list in date order, home and away interleaved as the season
+           runs; undated fixtures go last. The home-only toggle still works,
+           it hides the away rows in place. */
+        var list = el("ul", "fixture-list is-home-only");
+        list.id = titleId + "-list";
+        fixtures.slice().sort(byDate).forEach(function (f) { list.appendChild(row(f, division.label || "")); });
+
+        var toggle = el("button", "fixtures-toggle");
+        toggle.type = "button";
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-controls", list.id);
+        toggle.appendChild(document.createTextNode("Show all " + fixtures.length + " fixtures"));
+
+        toggle.addEventListener("click", function () {
+          var showingAll = list.classList.toggle("is-home-only") === false;
+          toggle.setAttribute("aria-expanded", showingAll ? "true" : "false");
+          toggle.textContent = showingAll
+            ? "Show home games only"
+            : "Show all " + fixtures.length + " fixtures";
+        });
+
+        var events = fixtures.filter(function (f) { return f.status === "confirmed"; })
+          .map(function (f) { return icsEvent(f, division.label || ""); })
+          .filter(Boolean);
+        var actions = el("p", "fixtures-actions");
+        actions.appendChild(toggle);
+        if (events.length && division.id) {
+          var sub = el("span", "fixtures-subscribe");
+          sub.appendChild(el("span", "fixtures-subscribe__label",
+            "Follow all " + events.length + " fixtures in your calendar:"));
+          var apple = el("a", "fixtures-subscribe__link", "Apple / Outlook");
+          apple.href = "webcal://" + feedUrl(division.id);
+          sub.appendChild(apple);
+          sub.appendChild(el("span", "fixture__cal-sep", "\u00b7"));
+          var google = el("a", "fixtures-subscribe__link", "Google");
+          /* Google's add-by-URL deep link wants the webcal:// form; the https
+             form comes back "Unable to add calendar" (seen 2026-09-19). */
+          google.href = "https://calendar.google.com/calendar/r?cid=" +
+                        encodeURIComponent("webcal://" + feedUrl(division.id));
+          google.title = "Adds the feed to Google Calendar. If that fails, paste https://" +
+                         feedUrl(division.id) + " into Google Calendar, Other calendars, From URL.";
+          google.target = "_blank";
+          google.rel = "noopener";
+          sub.appendChild(google);
+          sub.appendChild(el("span", "fixture__cal-sep", "\u00b7"));
+          sub.appendChild(icsLink("Download .ics", "fixtures-subscribe__link", events,
+            "rathmines" + String(division.id).replace(/[^a-z0-9]/g, "") + "fixtures.ics"));
+          sub.appendChild(el("span", "fixture__cal-sep", "\u00b7"));
+          var feed = el("a", "fixtures-subscribe__link", "Feed URL");
+          feed.href = "https://" + feedUrl(division.id);
+          feed.title = "The calendar feed address, for any app's add-by-URL option";
+          sub.appendChild(feed);
+          actions.appendChild(sub);
+        }
+        section.appendChild(actions);
+        section.appendChild(list);
+        return section;
+      }
+
+      /* ---- Calendar export. Each dated fixture becomes a VEVENT, 90 minutes
+         long, in Europe/Dublin time. One .ics per row, and one per squad with
+         every dated fixture. Built as Blob URLs, nothing leaves the browser. */
+      var ICS_TZ = [
+        "BEGIN:VTIMEZONE",
+        "TZID:Europe/Dublin",
+        "BEGIN:STANDARD",
+        "DTSTART:19701025T020000",
+        "RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU",
+        "TZOFFSETFROM:+0100",
+        "TZOFFSETTO:+0000",
+        "END:STANDARD",
+        "BEGIN:DAYLIGHT",
+        "DTSTART:19700329T010000",
+        "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU",
+        "TZOFFSETFROM:+0000",
+        "TZOFFSETTO:+0100",
+        "END:DAYLIGHT",
+        "END:VTIMEZONE"
+      ].join("\r\n");
+
+      function icsEscape(text) {
+        return String(text).replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,").replace(/\r?\n/g, "\\n");
+      }
+      function icsStamp(iso, time) {
+        return String(iso).replace(/-/g, "") + "T" + String(time || "00:00").replace(":", "") + "00";
+      }
+      function addMinutes(iso, time, minutes) {
+        var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso));
+        var t = /^(\d{2}):(\d{2})$/.exec(String(time || "00:00"));
+        if (!m || !t) { return null; }
+        var d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3], +t[1], +t[2] + minutes));
+        function two(n) { return (n < 10 ? "0" : "") + n; }
+        return d.getUTCFullYear() + two(d.getUTCMonth() + 1) + two(d.getUTCDate()) +
+               "T" + two(d.getUTCHours()) + two(d.getUTCMinutes()) + "00";
+      }
+      function icsEvent(fixture, divisionLabel) {
+        if (!fixture.date || !/^\d{2}:\d{2}$/.test(String(fixture.time || ""))) { return null; }
+        var isHome = fixture.home === true;
+        var title = isHome
+          ? "Rathmines BC v " + fixture.opponent
+          : fixture.opponent + " v Rathmines BC";
+        var where = fixture.venueAddress || fixture.venue || "";
+        var uid = "rbc-" + String(fixture.date) + "-" + String(fixture.opponent).toLowerCase().replace(/[^a-z0-9]+/g, "-") + "@rathminesbc.ie";
+        return [
+          "BEGIN:VEVENT",
+          "UID:" + uid,
+          "DTSTAMP:" + icsStamp(fixture.date, fixture.time) + "Z",
+          "DTSTART;TZID=Europe/Dublin:" + icsStamp(fixture.date, fixture.time),
+          "DTEND;TZID=Europe/Dublin:" + addMinutes(fixture.date, fixture.time, 90),
+          "SUMMARY:" + icsEscape(title + " (" + divisionLabel + ")"),
+          "LOCATION:" + icsEscape(where),
+          "DESCRIPTION:" + icsEscape((isHome ? "Home" : "Away") + " game, " + divisionLabel + "." +
+            (fixture.mapUrl ? " Map: " + fixture.mapUrl : "")),
+          "END:VEVENT"
+        ].join("\r\n");
+      }
+      function icsFile(events) {
+        return [
+          "BEGIN:VCALENDAR",
+          "VERSION:2.0",
+          "PRODID:-//Rathmines Basketball Club//Fixtures//EN",
+          "CALSCALE:GREGORIAN",
+          "METHOD:PUBLISH",
+          ICS_TZ,
+          events.join("\r\n"),
+          "END:VCALENDAR",
+          ""
+        ].join("\r\n");
+      }
+      function icsLink(text, className, events, filename) {
+        var a = el("a", className, text);
+        if (window.URL && window.Blob) {
+          a.href = URL.createObjectURL(new Blob([icsFile(events)], { type: "text/calendar;charset=utf-8" }));
+        } else {
+          a.href = "data:text/calendar;charset=utf-8," + encodeURIComponent(icsFile(events));
+        }
+        a.download = filename;
+        return a;
+      }
+
+      function googleUrl(fixture, divisionLabel) {
+        var isHome = fixture.home === true;
+        var title = (isHome ? "Rathmines BC v " + fixture.opponent : fixture.opponent + " v Rathmines BC") +
+                    " (" + divisionLabel + ")";
+        var q = [
+          "action=TEMPLATE",
+          "text=" + encodeURIComponent(title),
+          "dates=" + icsStamp(fixture.date, fixture.time) + "/" + addMinutes(fixture.date, fixture.time, 90),
+          "ctz=Europe%2FDublin",
+          "location=" + encodeURIComponent(fixture.venueAddress || fixture.venue || ""),
+          "details=" + encodeURIComponent((isHome ? "Home" : "Away") + " game, " + divisionLabel + "." +
+            (fixture.mapUrl ? " Map: " + fixture.mapUrl : ""))
+        ];
+        return "https://calendar.google.com/calendar/render?" + q.join("&");
+      }
+
+      /* Subscribable feeds, built by scripts/buildcalendars.js and committed
+         under /calendars/. Apple and Outlook take webcal://, Google takes the
+         https URL through its add-by-URL screen. The host is read at runtime
+         so the links work on the preview URL and on rathminesbc.ie alike. */
+      function feedUrl(divisionId) {
+        return location.host + "/calendars/rathmines" +
+               String(divisionId || "").replace(/[^a-z0-9]/g, "") + "fixtures.ics";
+      }
+
+      var CLUBS = null;
+      function render(data) {
+        CLUBS = data && data.clubs && typeof data.clubs === "object" ? data.clubs : null;
+        var divisions = (data && Array.isArray(data.divisions)) ? data.divisions : [];
+
+        if (!divisions.length) {
+          return;   /* keep the fallback sentence */
+        }
+
+        /* The season calendar file calls this `short`; the older DMBB
+           transcription called it `shortName`. */
+        var venueName = (data.homeVenue && data.homeVenue.short) || "";
+        var frag = document.createDocumentFragment();
+
+        divisions.forEach(function (division) {
+          frag.appendChild(squad(division, venueName));
+        });
+
+        mount.appendChild(frag);
+
+        if (fallback) {
+          fallback.hidden = true;
+        }
+
+        /* The squad sections do not exist until this line, and by then the
+           browser has long since tried and failed to act on a #d4 in the URL.
+           So a link in from the home page lands at the top of the page unless
+           the hash is applied again by hand, here. */
+        applyHash();
+      }
+
+      /* Only ever scrolls to a section this script just rendered, never to
+         whatever else a hash might happen to name. */
+      function applyHash() {
+        var id = String(location.hash || "").replace(/^#/, "");
+        if (!id) {
+          return;
+        }
+        var target = document.getElementById(id);
+        if (target && mount.contains(target)) {
+          target.scrollIntoView();
+        }
+      }
+    })();
+  </script>
+
+</body>
+</html>
