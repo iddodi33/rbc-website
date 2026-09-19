@@ -62,3 +62,5 @@ Format: `YYYY-MM-DD — who — what was decided — why`
 - Pre-launch — Iddo & Phil — Team & Roster covers D4 and D6, seniors only, no underage teams — confirms no safeguarding or GDPR question on publishing roster data
 - 2026-09-19 — Iddo — Corrected division from D7 to D6 throughout, actual divisions are D4 and D6 — squad was promoted from D7 to D6 for 2026/27, earlier docs used the old division
 - 2026-09-19 — Iddo — Ladies squad is Division 3, not Division 2, and all display text says “ladies” rather than “women” — the D2 line in CLAUDE.md was wrong for 2026/27; the Division 2 playoff win stays D2 because it is last season's result; the fixtures division id stays d2w because the home page script keys off it
+
+- 2026-09-19 — Iddo — Contact page carries a Google Maps iframe, the site's first third-party embed — the pinned maps.app.goo.gl shortlink does not work as an iframe src, and a static map image would need an API key and a stored file; scoped to this one section, no other embed follows from it

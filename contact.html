@@ -123,17 +123,18 @@
     </section>
 
     <!-- ===================================================================
-         PLACEHOLDER SCAFFOLD.
-         Owner: Whoever finishes their vertical first.
+         CONTACT COPY. Written 19 Sep 2026, replaces the lorem scaffold.
 
-         Real section structure and real headings; every paragraph is lorem
-         and is marked as such on the page.
+         Every contact detail below came from Iddo directly and nothing is
+         inferred. Two separate inboxes by design, men's and ladies', and the
+         men's address is also the sponsorship address. There is no contact
+         form, no phone number and no postal address, and none of the three
+         should be invented later: a wrong detail on a contact page is worse
+         than an absent one.
 
-         NOTHING HERE IS A REAL CONTACT DETAIL. No email address, no phone
-         number and no opening times have been invented — a wrong address on
-         a contact page is worse than an obviously unfinished one. The real
-         Instagram handle already ships in the shared footer on every page.
-         See DECISIONS.md for what is owed here.
+         Reply time is deliberately vague. "A few days" is what actually
+         happens; do not tighten it to 24 or 48 hours for the sake of a
+         crisper sentence.
          =================================================================== -->
 
     <section class="section">
@@ -148,14 +149,21 @@
         <div class="split">
           <div class="prose">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              Email is the way in. The men&rsquo;s club is at
+              <a href="mailto:rathminesmensbasketballclub@gmail.com">rathminesmensbasketballclub@gmail.com</a>,
+              the ladies&rsquo; club at
+              <a href="mailto:rathminesbasketballclub@gmail.com">rathminesbasketballclub@gmail.com</a>.
+              Two separate inboxes, so pick the one that matches. Sponsorship goes to the
+              men&rsquo;s address.
             </p>
             <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum.
+              Instagram is quicker:
+              <a href="https://www.instagram.com/rathmines_bc/" target="_blank" rel="noopener">@rathmines_bc</a>
+              for the men,
+              <a href="https://www.instagram.com/rathminesballerz/" target="_blank" rel="noopener">@rathminesballerz</a>
+              for the ladies. The ladies are also
+              <a href="https://www.facebook.com/rathminesbasketball/" target="_blank" rel="noopener">on Facebook</a>. There is no contact form, no phone number and no postal address. An email
+              or a DM is it.
             </p>
           </div>
         </div>
@@ -175,10 +183,40 @@
         <div class="split">
           <div class="prose">
             <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-              doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-              veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+              Home games are at St Mary&rsquo;s on Lower Rathmines Road. The league runs from
+              October to the end of March and most home fixtures are on a Friday night. The
+              photograph below is the hall, and the map beside it is the exact spot.
+              <!-- TODO: link "Friday night" to the fixtures page once it exists.
+                   Deliberately unlinked for now: the fixtures list on index.html
+                   has no id to anchor to, and Iddo is building a dedicated
+                   fixtures page. -->
             </p>
+          </div>
+        </div>
+
+        <!-- Photograph left, map right, one row from 768px, stacked below it.
+             Both are set to the photograph's own 1400x1017 ratio so the two
+             finish at the same height without cropping either. If the
+             photograph is replaced, change .venue-map--tall to match the new
+             file's ratio or they will no longer line up. -->
+        <div class="venue-pair">
+          <img class="photo" src="assets/img/contact-venue.jpg"
+               alt="A layup at the rim at St Mary&rsquo;s, shot from under the basket, with the hall&rsquo;s steel roof and blue court behind."
+               width="1400" height="1017" loading="lazy" decoding="async">
+
+          <!-- FIRST AND ONLY THIRD-PARTY EMBED ON THE SITE. Everything else
+               loads from our own origin or Google Fonts. Approved by Iddo for
+               this one section; see DECISIONS.md. The src is the embed URL
+               Google's own Share panel produced for the St Mary's pin, not the
+               maps.app.goo.gl shortlink used elsewhere, which does not work in
+               an iframe. `title` is required: without it the frame is an
+               unlabelled interactive region to a screen reader. -->
+          <div class="venue-map venue-map--tall">
+            <iframe class="venue-map__frame"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2382.881691138251!2d-6.2672038!3d53.327471599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670c1db0bb94cd%3A0x1f50377cf2665b9d!2sSt.%20Mary's%20College!5e0!3m2!1sen!2sie!4v1789851917376!5m2!1sen!2sie"
+                    title="Map showing St Mary&rsquo;s on Lower Rathmines Road"
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"></iframe>
           </div>
         </div>
 
@@ -197,13 +235,14 @@
         <div class="split">
           <div class="prose">
             <p>
-              Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed
-              quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+              Both inboxes are read by club members, not an office. Everyone has a day job,
+              so a reply takes a few days rather than the same afternoon. Nobody is ignoring
+              you.
             </p>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              Summer is the quiet stretch. Every other month is much the same: if it is about
+              playing, you will be told when the next trial is, and if it is about
+              sponsorship, one of us will come back to you directly.
             </p>
           </div>
 

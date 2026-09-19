@@ -1310,13 +1310,24 @@ body::before {
   pointer-events: none;
 
   background-color: var(--paper);
+  /* The wash is heavier on the left, where every page keeps its text, and
+     lighter on the right, where the photograph is meant to show. Below the
+     tablet breakpoint the ramp turns vertical: text-heavy top, photo below. */
   background-image:
-    linear-gradient(rgba(247, 244, 239, 0.70), rgba(247, 244, 239, 0.70)),
+    linear-gradient(to bottom, rgba(247, 244, 239, 0.92) 0%, rgba(247, 244, 239, 0.92) 40%, rgba(247, 244, 239, 0.72) 100%),
     var(--ambient-photo, none);
   background-position: var(--ambient-anchor, center);
   background-size: cover;
   background-repeat: no-repeat;
   filter: grayscale(1);
+}
+
+@media (min-width: 768px) {
+  body::before {
+    background-image:
+      linear-gradient(to right, rgba(247, 244, 239, 0.94) 0%, rgba(247, 244, 239, 0.90) 45%, rgba(247, 244, 239, 0.66) 100%),
+      var(--ambient-photo, none);
+  }
 }
 
 body[data-page="index"] {
@@ -1501,4 +1512,44 @@ body[data-page="shop"] {
 .sponsor-card--open {
   background-color: var(--accent-tint);
   border-top-color: var(--accent);
+}
+
+/* Contact, the venue pair. The photograph and the Google Maps frame side by
+   side from the tablet breakpoint, stacked below it. Same idea as .place and
+   .jersey-pair, but simpler: there is only one photograph and the map has no
+   intrinsic ratio of its own, so the map is simply told to match the
+   photograph's 1400:1017 and both columns are equal. Nothing is cropped.
+
+   Square corners, no frame, no shadow, same as .photo — Leather and Chalk does
+   not box a photograph and it does not box a map either. */
+.venue-pair {
+  display: grid;
+  gap: var(--space-5);
+  margin-block-start: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .venue-pair {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+}
+
+/* The wrapper holds the shape, the iframe fills it. Sizing the iframe directly
+   does not work: an iframe has a default 300x150 intrinsic size and ignores
+   height: auto, so the ratio has to live on a block around it. */
+.venue-map {
+  display: block;
+}
+
+.venue-map--tall {
+  aspect-ratio: 1400 / 1017;
+}
+
+.venue-map__frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
