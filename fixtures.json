@@ -1,17 +1,16 @@
 {
-  "source": "Rathmines BC season calendar 2026/27, supplied by Iddo 2026-09-05. Supersedes the earlier DMBB screenshot transcription.",
+  "source": "DMBB fixture lists, competitions 3659 (D4) and 3661 (D6), supplied by Iddo 2026-09-19. Supersedes the 2026-09-05 calendar.",
   "notes": [
-    "Division 6 is now CONFIRMED by Iddo. The earlier verified:false caveat is resolved.",
-    "status values: 'confirmed' = date agreed with the opponent. 'slot_offered' = our slot, opponent has not replied yet, the date can still move. 'awaiting_opponent_date' = away fixture, opponent has not set a date, so date, time and venue are all null.",
-    "Only five fixtures are confirmed, four in D4 and one in D6. Every other dated fixture is a slot we offered and must be shown as provisional, never as settled.",
-    "Away venues are null until the opponent sets the fixture; do not infer a venue from last season.",
+    "Dated fixtures come from the DMBB published fixture list and are shown as confirmed. 'awaiting_opponent_date' = DMBB has no date yet, so date and time are null.",
+    "venue is the short display name, venueAddress the line used for the Google Maps link in mapUrl. Addresses beyond the venue name are best-effort and unverified; the map link is a search, not a pinned place.",
     "No fixtures supplied yet for the women's D2 team."
   ],
   "homeVenue": {
     "name": "St. Mary's College C.S.Sp.",
     "short": "St Mary's College Rathmines",
     "address": "73-79 Lower Rathmines Road, Dublin 6",
-    "eircode": "D06 HP38"
+    "eircode": "D06 HP38",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38"
   },
   "divisions": [
     {
@@ -24,10 +23,12 @@
           "round": 1,
           "opponent": "Barrow Rovers",
           "home": false,
-          "date": null,
-          "time": null,
-          "venue": null,
-          "status": "awaiting_opponent_date"
+          "date": "2026-10-06",
+          "time": "20:15",
+          "venue": "St Catherine's, Marrowbone Lane",
+          "venueAddress": "St Catherine's Sports Centre, Marrowbone Lane, Dublin 8",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Catherine%27s%20Sports%20Centre%2C%20Marrowbone%20Lane%2C%20Dublin%208",
+          "status": "confirmed"
         },
         {
           "round": 2,
@@ -36,7 +37,9 @@
           "date": "2026-10-16",
           "time": "20:40",
           "venue": "St Mary's College Rathmines",
-          "status": "slot_offered"
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "status": "confirmed"
         },
         {
           "round": 3,
@@ -45,7 +48,9 @@
           "date": "2026-10-23",
           "time": "20:40",
           "venue": "St Mary's College Rathmines",
-          "status": "slot_offered"
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "status": "confirmed"
         },
         {
           "round": 4,
@@ -54,6 +59,8 @@
           "date": "2026-11-04",
           "time": "21:10",
           "venue": "Oblate Hall, Inchicore",
+          "venueAddress": "Oblate Hall, Inchicore, Dublin 8",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Oblate%20Hall%2C%20Inchicore%2C%20Dublin%208",
           "status": "confirmed"
         },
         {
@@ -63,25 +70,31 @@
           "date": "2026-11-13",
           "time": "19:10",
           "venue": "St Mary's College Rathmines",
-          "status": "slot_offered"
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "status": "confirmed"
         },
         {
           "round": 6,
           "opponent": "Glasnevin BC",
           "home": false,
-          "date": null,
-          "time": null,
-          "venue": null,
-          "status": "awaiting_opponent_date"
+          "date": "2026-11-19",
+          "time": "19:40",
+          "venue": "St Aidan's CBS, Collins Avenue",
+          "venueAddress": "St Aidan's CBS, Collins Avenue, Whitehall, Dublin 9",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Aidan%27s%20CBS%2C%20Collins%20Avenue%2C%20Whitehall%2C%20Dublin%209",
+          "status": "confirmed"
         },
         {
           "round": 7,
-          "opponent": "Ekouxian Super Pandas",
+          "opponent": "Dublin Lions",
           "home": true,
           "date": "2026-11-27",
-          "time": "20:40",
+          "time": "19:10",
           "venue": "St Mary's College Rathmines",
-          "status": "slot_offered"
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "status": "confirmed"
         },
         {
           "round": 8,
@@ -89,98 +102,98 @@
           "home": false,
           "date": "2026-12-09",
           "time": "20:45",
-          "venue": "St Laurence College, Glenageary",
+          "venue": "St Laurence College, Loughlinstown",
+          "venueAddress": "St Laurence College, Loughlinstown, Dublin 18",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Laurence%20College%2C%20Loughlinstown%2C%20Dublin%2018",
           "status": "confirmed"
         },
         {
           "round": 9,
-          "opponent": "Dublin Lions",
-          "home": true,
-          "date": "2026-12-18",
-          "time": "19:10",
-          "venue": "St Mary's College Rathmines",
-          "status": "slot_offered"
-        },
-        {
-          "round": 10,
           "opponent": "Barrow Rovers",
           "home": true,
           "date": "2027-01-08",
           "time": "20:40",
           "venue": "St Mary's College Rathmines",
-          "status": "slot_offered"
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "status": "confirmed"
         },
         {
-          "round": 11,
+          "round": 10,
           "opponent": "Ballinteer Bulls BC",
           "home": false,
           "date": "2027-01-21",
           "time": "21:05",
-          "venue": "Wesley College, Ballinteer, D16",
+          "venue": "Wesley College, Ballinteer",
+          "venueAddress": "Wesley College, Ballinteer, Dublin 16",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Wesley%20College%2C%20Ballinteer%2C%20Dublin%2016",
+          "status": "confirmed"
+        },
+        {
+          "round": 11,
+          "opponent": "UCD Marian BC",
+          "home": false,
+          "date": "2027-01-27",
+          "time": "21:10",
+          "venue": "Marian College, Ballsbridge",
+          "venueAddress": "Marian College, Lansdowne Road, Ballsbridge, Dublin 4",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Marian%20College%2C%20Lansdowne%20Road%2C%20Ballsbridge%2C%20Dublin%204",
           "status": "confirmed"
         },
         {
           "round": 12,
-          "opponent": "UCD Marian BC",
-          "home": false,
-          "date": null,
-          "time": null,
-          "venue": null,
-          "status": "awaiting_opponent_date"
-        },
-        {
-          "round": 13,
           "opponent": "Oblate BC",
           "home": true,
           "date": "2027-02-05",
           "time": "20:40",
           "venue": "St Mary's College Rathmines",
-          "status": "slot_offered"
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "status": "confirmed"
+        },
+        {
+          "round": 13,
+          "opponent": "Naas BC",
+          "home": false,
+          "date": "2027-02-11",
+          "time": "20:10",
+          "venue": "Naas CBS",
+          "venueAddress": "Naas CBS, Naas, Co. Kildare",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Naas%20CBS%2C%20Naas%2C%20Co.%20Kildare",
+          "status": "confirmed"
         },
         {
           "round": 14,
-          "opponent": "Naas BC",
-          "home": false,
-          "date": null,
-          "time": null,
-          "venue": null,
-          "status": "awaiting_opponent_date"
-        },
-        {
-          "round": 15,
           "opponent": "Glasnevin BC",
           "home": true,
           "date": "2027-02-19",
           "time": "19:10",
           "venue": "St Mary's College Rathmines",
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
           "status": "confirmed"
         },
         {
-          "round": 16,
-          "opponent": "Ekouxian Super Pandas",
-          "home": false,
-          "date": null,
-          "time": null,
-          "venue": null,
-          "status": "awaiting_opponent_date"
-        },
-        {
-          "round": 17,
+          "round": 15,
           "opponent": "Dublin Raiders",
           "home": true,
           "date": "2027-03-05",
           "time": "20:40",
           "venue": "St Mary's College Rathmines",
-          "status": "slot_offered"
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "status": "confirmed"
         },
         {
-          "round": 18,
+          "round": 16,
           "opponent": "Dublin Lions",
           "home": false,
-          "date": null,
-          "time": null,
-          "venue": null,
-          "status": "awaiting_opponent_date"
+          "date": "2027-03-11",
+          "time": "20:40",
+          "venue": "Collinstown Community College, Clondalkin",
+          "venueAddress": "Collinstown Community College, Clondalkin, Dublin 22, D22 F663",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Collinstown%20Community%20College%2C%20Clondalkin%2C%20Dublin%2022%2C%20D22%20F663",
+          "status": "confirmed"
         }
       ]
     },
@@ -192,165 +205,202 @@
       "fixtures": [
         {
           "round": 1,
-          "opponent": "Dublin Sonics",
-          "home": false,
-          "date": null,
-          "time": null,
-          "venue": null,
-          "status": "awaiting_opponent_date"
-        },
-        {
-          "round": 2,
           "opponent": "BC Lietkabelis",
           "home": true,
           "date": "2026-10-16",
           "time": "19:10",
           "venue": "St Mary's College Rathmines",
-          "status": "slot_offered"
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "status": "confirmed"
+        },
+        {
+          "round": 2,
+          "opponent": "Adamstown Grafters",
+          "home": false,
+          "date": "2026-10-23",
+          "time": "20:20",
+          "venue": "Adamstown Community Youth Centre",
+          "venueAddress": "Adamstown Community Youth Centre, Adamstown, Lucan, Co. Dublin",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Adamstown%20Community%20Youth%20Centre%2C%20Adamstown%2C%20Lucan%2C%20Co.%20Dublin",
+          "status": "confirmed"
         },
         {
           "round": 3,
-          "opponent": "Adamstown Grafters",
-          "home": false,
-          "date": null,
-          "time": null,
-          "venue": null,
-          "status": "awaiting_opponent_date"
-        },
-        {
-          "round": 4,
           "opponent": "Tolka Rovers Eclipse",
           "home": true,
           "date": "2026-11-06",
           "time": "20:40",
           "venue": "St Mary's College Rathmines",
-          "status": "slot_offered"
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "status": "confirmed"
         },
         {
-          "round": 5,
+          "round": 4,
           "opponent": "UCD Marian BC",
           "home": true,
           "date": "2026-11-13",
           "time": "20:40",
           "venue": "St Mary's College Rathmines",
-          "status": "slot_offered"
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "status": "confirmed"
+        },
+        {
+          "round": 5,
+          "opponent": "Lusk Ravens BC",
+          "home": false,
+          "date": "2026-11-19",
+          "time": "21:10",
+          "venue": "Lusk National School",
+          "venueAddress": "Lusk National School, Lusk, Co. Dublin",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Lusk%20National%20School%2C%20Lusk%2C%20Co.%20Dublin",
+          "status": "confirmed"
         },
         {
           "round": 6,
-          "opponent": "Lusk Ravens BC",
-          "home": false,
-          "date": null,
-          "time": null,
-          "venue": null,
-          "status": "awaiting_opponent_date"
-        },
-        {
-          "round": 7,
           "opponent": "Killester BC",
           "home": true,
           "date": "2026-11-27",
           "time": "19:10",
           "venue": "St Mary's College Rathmines",
-          "status": "slot_offered"
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "status": "confirmed"
+        },
+        {
+          "round": 7,
+          "opponent": "Glasnevin BC",
+          "home": false,
+          "date": "2026-12-09",
+          "time": "21:10",
+          "venue": "St Aidan's CBS, Collins Avenue",
+          "venueAddress": "St Aidan's CBS, Collins Avenue, Whitehall, Dublin 9",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Aidan%27s%20CBS%2C%20Collins%20Avenue%2C%20Whitehall%2C%20Dublin%209",
+          "status": "confirmed"
         },
         {
           "round": 8,
-          "opponent": "Glasnevin BC",
-          "home": false,
-          "date": null,
-          "time": null,
-          "venue": null,
-          "status": "awaiting_opponent_date"
-        },
-        {
-          "round": 9,
           "opponent": "Eanna BC",
           "home": true,
           "date": "2026-12-18",
           "time": "20:40",
           "venue": "St Mary's College Rathmines",
-          "status": "slot_offered"
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "status": "confirmed"
         },
         {
-          "round": 10,
+          "round": 9,
           "opponent": "Dublin Sonics",
           "home": true,
           "date": "2027-01-08",
           "time": "19:10",
           "venue": "St Mary's College Rathmines",
-          "status": "slot_offered"
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "status": "confirmed"
+        },
+        {
+          "round": 10,
+          "opponent": "BC Lietkabelis",
+          "home": false,
+          "date": "2027-01-20",
+          "time": "19:00",
+          "venue": "Balbriggan Sports Centre",
+          "venueAddress": "Balbriggan Sports Centre, Balbriggan, Co. Dublin",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Balbriggan%20Sports%20Centre%2C%20Balbriggan%2C%20Co.%20Dublin",
+          "status": "confirmed"
         },
         {
           "round": 11,
-          "opponent": "BC Lietkabelis",
-          "home": false,
-          "date": null,
-          "time": null,
-          "venue": null,
-          "status": "awaiting_opponent_date"
-        },
-        {
-          "round": 12,
           "opponent": "Adamstown Grafters",
           "home": true,
           "date": "2027-01-29",
           "time": "20:40",
           "venue": "St Mary's College Rathmines",
-          "status": "slot_offered"
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "status": "confirmed"
+        },
+        {
+          "round": 12,
+          "opponent": "Tolka Rovers Eclipse",
+          "home": false,
+          "date": "2027-02-02",
+          "time": "20:45",
+          "venue": "St Patrick's College, Drumcondra",
+          "venueAddress": "St Patrick's College, Drumcondra, Dublin 9",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Patrick%27s%20College%2C%20Drumcondra%2C%20Dublin%209",
+          "status": "confirmed"
         },
         {
           "round": 13,
-          "opponent": "Tolka Rovers Eclipse",
+          "opponent": "UCD Marian BC",
           "home": false,
-          "date": null,
-          "time": null,
-          "venue": null,
-          "status": "awaiting_opponent_date"
+          "date": "2027-02-11",
+          "time": "20:30",
+          "venue": "Stepaside Educate Together",
+          "venueAddress": "Stepaside Educate Together Secondary School, Stepaside, Dublin 18",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Stepaside%20Educate%20Together%20Secondary%20School%2C%20Stepaside%2C%20Dublin%2018",
+          "status": "confirmed"
         },
         {
           "round": 14,
-          "opponent": "UCD Marian BC",
-          "home": false,
-          "date": null,
-          "time": null,
-          "venue": null,
-          "status": "awaiting_opponent_date"
-        },
-        {
-          "round": 15,
           "opponent": "Lusk Ravens BC",
           "home": true,
           "date": "2027-02-19",
           "time": "20:40",
           "venue": "St Mary's College Rathmines",
-          "status": "slot_offered"
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "status": "confirmed"
+        },
+        {
+          "round": 15,
+          "opponent": "Killester BC",
+          "home": false,
+          "date": "2027-02-25",
+          "time": "20:45",
+          "venue": "Ard Scoil Rís, Griffith Avenue",
+          "venueAddress": "Ard Scoil Rís, Griffith Avenue, Dublin 9",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Ard%20Scoil%20R%C3%ADs%2C%20Griffith%20Avenue%2C%20Dublin%209",
+          "status": "confirmed"
         },
         {
           "round": 16,
-          "opponent": "Killester BC",
-          "home": false,
-          "date": null,
-          "time": null,
-          "venue": null,
-          "status": "awaiting_opponent_date"
-        },
-        {
-          "round": 17,
           "opponent": "Glasnevin BC",
           "home": true,
           "date": "2027-03-05",
           "time": "19:10",
           "venue": "St Mary's College Rathmines",
+          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "status": "confirmed"
+        },
+        {
+          "round": 17,
+          "opponent": "Eanna BC",
+          "home": false,
+          "date": "2027-03-12",
+          "time": "20:40",
+          "venue": "Coláiste Éanna",
+          "venueAddress": "Coláiste Éanna, Ballyroan, Rathfarnham, Dublin 16",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Col%C3%A1iste%20%C3%89anna%2C%20Ballyroan%2C%20Rathfarnham%2C%20Dublin%2016",
           "status": "confirmed"
         },
         {
           "round": 18,
-          "opponent": "Eanna BC",
+          "opponent": "Dublin Sonics",
           "home": false,
           "date": null,
           "time": null,
           "venue": null,
-          "status": "awaiting_opponent_date"
+          "venueAddress": null,
+          "mapUrl": null,
+          "status": "awaiting_opponent_date",
+          "venueNote": "DMBB lists Tyrrellstown Community Centre as the venue; date not yet set."
         }
       ]
     },

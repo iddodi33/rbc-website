@@ -646,7 +646,7 @@
         if (!dateText) {
           var pending = el("span", "fixture__pending");
           pending.appendChild(label("Status: "));
-          pending.appendChild(document.createTextNode("Date and venue to be confirmed"));
+          pending.appendChild(document.createTextNode(fixture.venueNote ? "Date to be confirmed. " + fixture.venueNote : "Date and venue to be confirmed"));
           li.appendChild(pending);
           return li;
         }
@@ -664,7 +664,19 @@
 
         var venue = el("span", "fixture__venue");
         venue.appendChild(label("Venue: "));
-        venue.appendChild(document.createTextNode(fixture.venue || "Venue to be confirmed"));
+        /* Venue is a Google Maps search link when the JSON carries one. The
+           href is our own data, but it is still checked for the one scheme
+           we expect before it goes into an attribute. */
+        if (fixture.mapUrl && /^https:\/\/www\.google\.com\/maps\//.test(String(fixture.mapUrl))) {
+          var a = el("a", "fixture__map", fixture.venue || "Venue");
+          a.href = fixture.mapUrl;
+          a.target = "_blank";
+          a.rel = "noopener";
+          a.title = fixture.venueAddress ? fixture.venueAddress + " (opens Google Maps)" : "Opens Google Maps";
+          venue.appendChild(a);
+        } else {
+          venue.appendChild(document.createTextNode(fixture.venue || "Venue to be confirmed"));
+        }
         li.appendChild(venue);
 
         var date = el("span", "fixture__date");

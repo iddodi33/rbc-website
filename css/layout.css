@@ -825,6 +825,23 @@ body[data-page="contact"]  .site-header.is-over-hero .site-nav__link[data-nav="c
   margin: 0;
   margin-block-start: var(--space-5);
   border-block-start: var(--border-hairline) solid var(--rule);
+
+  /* The list sits on the ambient photograph (body::before). Rows of small
+     muted text over a clock tower were not legible, so the list carries its
+     own paper sheet and a little side padding to read as one panel. */
+  background-color: var(--surface);
+  padding-inline: var(--space-4);
+}
+
+.fixture__map {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 0.15em;
+}
+
+.fixture__map:hover {
+  color: var(--accent);
 }
 
 /* Default view: home games only. The script toggles this class. */
