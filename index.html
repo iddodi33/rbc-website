@@ -673,9 +673,18 @@
            worse in a calendar than on a page. */
         var ev = isConfirmed ? icsEvent(fixture, divisionLabel) : null;
         if (ev) {
-          var cal = icsLink("Add to calendar", "fixture__status fixture__cal", [ev],
-            "rathmines" + String(fixture.date).replace(/-/g, "") + ".ics");
-          cal.appendChild(label(", " + (fixture.opponent || "") + " on " + dateText));
+          /* Two ways in: Google opens a pre-filled event in one tap; the
+             .ics file is what Apple Calendar and Outlook open natively. */
+          var cal = el("span", "fixture__status fixture__cal");
+          cal.appendChild(label("Add " + (fixture.opponent || "") + " on " + dateText + " to your calendar: "));
+          var g = el("a", "fixture__cal-link", "Google");
+          g.href = googleUrl(fixture, divisionLabel);
+          g.target = "_blank";
+          g.rel = "noopener";
+          cal.appendChild(g);
+          cal.appendChild(el("span", "fixture__cal-sep", "\u00b7"));
+          cal.appendChild(icsLink("Apple / Outlook", "fixture__cal-link", [ev],
+            "rathmines" + String(fixture.date).replace(/-/g, "") + ".ics"));
           li.appendChild(cal);
         } else {
           var badge = el("span", "fixture__status");
@@ -799,10 +808,24 @@
           .filter(Boolean);
         var actions = el("p", "fixtures-actions");
         actions.appendChild(toggle);
-        if (events.length) {
-          actions.appendChild(icsLink("Add all " + events.length + " fixtures to your calendar",
-            "fixtures-toggle fixtures-calendar", events,
-            "rathmines" + String(division.id || "squad").replace(/[^a-z0-9]/g, "") + "fixtures.ics"));
+        if (events.length && division.id) {
+          var sub = el("span", "fixtures-subscribe");
+          sub.appendChild(el("span", "fixtures-subscribe__label",
+            "Follow all " + events.length + " fixtures in your calendar:"));
+          var apple = el("a", "fixtures-subscribe__link", "Apple / Outlook");
+          apple.href = "webcal://" + feedUrl(division.id);
+          sub.appendChild(apple);
+          sub.appendChild(el("span", "fixture__cal-sep", "\u00b7"));
+          var google = el("a", "fixtures-subscribe__link", "Google");
+          google.href = "https://calendar.google.com/calendar/r?cid=" +
+                        encodeURIComponent("https://" + feedUrl(division.id));
+          google.target = "_blank";
+          google.rel = "noopener";
+          sub.appendChild(google);
+          sub.appendChild(el("span", "fixture__cal-sep", "\u00b7"));
+          sub.appendChild(icsLink("Download .ics", "fixtures-subscribe__link", events,
+            "rathmines" + String(division.id).replace(/[^a-z0-9]/g, "") + "fixtures.ics"));
+          actions.appendChild(sub);
         }
         section.appendChild(actions);
         section.appendChild(list);
@@ -888,6 +911,31 @@
         }
         a.download = filename;
         return a;
+      }
+
+      function googleUrl(fixture, divisionLabel) {
+        var isHome = fixture.home === true;
+        var title = (isHome ? "Rathmines BC v " + fixture.opponent : fixture.opponent + " v Rathmines BC") +
+                    " (" + divisionLabel + ")";
+        var q = [
+          "action=TEMPLATE",
+          "text=" + encodeURIComponent(title),
+          "dates=" + icsStamp(fixture.date, fixture.time) + "/" + addMinutes(fixture.date, fixture.time, 90),
+          "ctz=Europe%2FDublin",
+          "location=" + encodeURIComponent(fixture.venueAddress || fixture.venue || ""),
+          "details=" + encodeURIComponent((isHome ? "Home" : "Away") + " game, " + divisionLabel + "." +
+            (fixture.mapUrl ? " Map: " + fixture.mapUrl : ""))
+        ];
+        return "https://calendar.google.com/calendar/render?" + q.join("&");
+      }
+
+      /* Subscribable feeds, built by scripts/buildcalendars.js and committed
+         under /calendars/. Apple and Outlook take webcal://, Google takes the
+         https URL through its add-by-URL screen. The host is read at runtime
+         so the links work on the preview URL and on rathminesbc.ie alike. */
+      function feedUrl(divisionId) {
+        return location.host + "/calendars/rathmines" +
+               String(divisionId || "").replace(/[^a-z0-9]/g, "") + "fixtures.ics";
       }
 
       var CLUBS = null;

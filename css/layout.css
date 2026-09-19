@@ -971,17 +971,11 @@ body[data-page="contact"]  .site-header.is-over-hero .site-nav__link[data-nav="c
   color: var(--text-muted);        /* 6.9:1 on paper */
 }
 
-/* The calendar link takes the status slot on a confirmed row. Same caps
-   styling as the badge, underlined in accent so it reads as a link. */
+/* The calendar links take the status slot on a confirmed row, in the same
+   caps styling as the badge they replace. */
 .fixture__cal {
   color: var(--text);
-  text-decoration: underline;
-  text-decoration-color: var(--accent);
-  text-underline-offset: 0.2em;
-}
-
-.fixture__cal:hover {
-  color: var(--accent);
+  white-space: nowrap;
 }
 
 /* The toggle and the whole-squad calendar link share one line above the
@@ -994,8 +988,39 @@ body[data-page="contact"]  .site-header.is-over-hero .site-nav__link[data-nav="c
   margin: 0;
 }
 
-a.fixtures-calendar {
-  text-decoration: none;
+/* Per-row calendar pair, and the per-squad subscribe line. */
+.fixture__cal-link,
+.fixtures-subscribe__link {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 0.2em;
+}
+
+.fixture__cal-link:hover,
+.fixtures-subscribe__link:hover {
+  color: var(--accent);
+}
+
+.fixture__cal-sep {
+  margin-inline: 0.4em;
+  color: var(--text-muted);
+}
+
+.fixtures-subscribe {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  margin-block-start: var(--space-4);
+}
+
+.fixtures-subscribe__label {
+  margin-inline-end: var(--space-2);
+}
+
+.fixtures-subscribe__link {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  white-space: nowrap;
 }
 
 /* The date of an offered slot is not a fact yet, so it does not get to look

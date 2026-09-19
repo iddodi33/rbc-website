@@ -1,0 +1,177 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Rathmines Basketball Club//Fixtures//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Rathmines BC Men's Division 6
+X-WR-TIMEZONE:Europe/Dublin
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+BEGIN:VTIMEZONE
+TZID:Europe/Dublin
+BEGIN:STANDARD
+DTSTART:19701025T020000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0000
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:19700329T010000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0100
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:rbc-2026-10-16-bc-lietkabelis@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20261016T191000
+DTEND;TZID=Europe/Dublin:20261016T204000
+SUMMARY:Rathmines BC v BC Lietkabelis (Men's Division 6)
+LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
+DESCRIPTION:Home game\, Men's Division 6. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2026-10-23-adamstown-grafters@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20261023T202000
+DTEND;TZID=Europe/Dublin:20261023T215000
+SUMMARY:Adamstown Grafters v Rathmines BC (Men's Division 6)
+LOCATION:Adamstown Community Youth Centre\, Adamstown\, Lucan\, Co. Dublin
+DESCRIPTION:Away game\, Men's Division 6. Map: https://www.google.com/maps/search/?api=1&query=Adamstown%20Community%20Youth%20Centre%2C%20Adamstown%2C%20Lucan%2C%20Co.%20Dublin
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2026-11-06-tolka-rovers-eclipse@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20261106T204000
+DTEND;TZID=Europe/Dublin:20261106T221000
+SUMMARY:Rathmines BC v Tolka Rovers Eclipse (Men's Division 6)
+LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
+DESCRIPTION:Home game\, Men's Division 6. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2026-11-13-ucd-marian-bc@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20261113T204000
+DTEND;TZID=Europe/Dublin:20261113T221000
+SUMMARY:Rathmines BC v UCD Marian BC (Men's Division 6)
+LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
+DESCRIPTION:Home game\, Men's Division 6. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2026-11-19-lusk-ravens-bc@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20261119T211000
+DTEND;TZID=Europe/Dublin:20261119T224000
+SUMMARY:Lusk Ravens BC v Rathmines BC (Men's Division 6)
+LOCATION:Lusk National School\, Lusk\, Co. Dublin
+DESCRIPTION:Away game\, Men's Division 6. Map: https://www.google.com/maps/search/?api=1&query=Lusk%20National%20School%2C%20Lusk%2C%20Co.%20Dublin
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2026-11-27-killester-bc@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20261127T191000
+DTEND;TZID=Europe/Dublin:20261127T204000
+SUMMARY:Rathmines BC v Killester BC (Men's Division 6)
+LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
+DESCRIPTION:Home game\, Men's Division 6. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2026-12-09-glasnevin-bc@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20261209T211000
+DTEND;TZID=Europe/Dublin:20261209T224000
+SUMMARY:Glasnevin BC v Rathmines BC (Men's Division 6)
+LOCATION:St Aidan's CBS\, Collins Avenue\, Whitehall\, Dublin 9
+DESCRIPTION:Away game\, Men's Division 6. Map: https://www.google.com/maps/search/?api=1&query=St%20Aidan%27s%20CBS%2C%20Collins%20Avenue%2C%20Whitehall%2C%20Dublin%209
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2026-12-18-eanna-bc@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20261218T204000
+DTEND;TZID=Europe/Dublin:20261218T221000
+SUMMARY:Rathmines BC v Eanna BC (Men's Division 6)
+LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
+DESCRIPTION:Home game\, Men's Division 6. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2027-01-08-dublin-sonics@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20270108T191000
+DTEND;TZID=Europe/Dublin:20270108T204000
+SUMMARY:Rathmines BC v Dublin Sonics (Men's Division 6)
+LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
+DESCRIPTION:Home game\, Men's Division 6. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2027-01-20-bc-lietkabelis@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20270120T190000
+DTEND;TZID=Europe/Dublin:20270120T203000
+SUMMARY:BC Lietkabelis v Rathmines BC (Men's Division 6)
+LOCATION:Balbriggan Sports Centre\, Balbriggan\, Co. Dublin
+DESCRIPTION:Away game\, Men's Division 6. Map: https://www.google.com/maps/search/?api=1&query=Balbriggan%20Sports%20Centre%2C%20Balbriggan%2C%20Co.%20Dublin
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2027-01-29-adamstown-grafters@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20270129T204000
+DTEND;TZID=Europe/Dublin:20270129T221000
+SUMMARY:Rathmines BC v Adamstown Grafters (Men's Division 6)
+LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
+DESCRIPTION:Home game\, Men's Division 6. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2027-02-02-tolka-rovers-eclipse@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20270202T204500
+DTEND;TZID=Europe/Dublin:20270202T221500
+SUMMARY:Tolka Rovers Eclipse v Rathmines BC (Men's Division 6)
+LOCATION:St Patrick's College\, Drumcondra\, Dublin 9
+DESCRIPTION:Away game\, Men's Division 6. Map: https://www.google.com/maps/search/?api=1&query=St%20Patrick%27s%20College%2C%20Drumcondra%2C%20Dublin%209
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2027-02-11-ucd-marian-bc@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20270211T203000
+DTEND;TZID=Europe/Dublin:20270211T220000
+SUMMARY:UCD Marian BC v Rathmines BC (Men's Division 6)
+LOCATION:Stepaside Educate Together Secondary School\, Stepaside\, Dublin 18
+DESCRIPTION:Away game\, Men's Division 6. Map: https://www.google.com/maps/search/?api=1&query=Stepaside%20Educate%20Together%20Secondary%20School%2C%20Stepaside%2C%20Dublin%2018
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2027-02-19-lusk-ravens-bc@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20270219T204000
+DTEND;TZID=Europe/Dublin:20270219T221000
+SUMMARY:Rathmines BC v Lusk Ravens BC (Men's Division 6)
+LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
+DESCRIPTION:Home game\, Men's Division 6. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2027-02-25-killester-bc@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20270225T204500
+DTEND;TZID=Europe/Dublin:20270225T221500
+SUMMARY:Killester BC v Rathmines BC (Men's Division 6)
+LOCATION:Ard Scoil Rís\, Griffith Avenue\, Dublin 9
+DESCRIPTION:Away game\, Men's Division 6. Map: https://www.google.com/maps/search/?api=1&query=Ard%20Scoil%20R%C3%ADs%2C%20Griffith%20Avenue%2C%20Dublin%209
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2027-03-05-glasnevin-bc@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20270305T191000
+DTEND;TZID=Europe/Dublin:20270305T204000
+SUMMARY:Rathmines BC v Glasnevin BC (Men's Division 6)
+LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
+DESCRIPTION:Home game\, Men's Division 6. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2027-03-12-eanna-bc@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20270312T204000
+DTEND;TZID=Europe/Dublin:20270312T221000
+SUMMARY:Eanna BC v Rathmines BC (Men's Division 6)
+LOCATION:Coláiste Éanna\, Ballyroan\, Rathfarnham\, Dublin 16
+DESCRIPTION:Away game\, Men's Division 6. Map: https://www.google.com/maps/search/?api=1&query=Col%C3%A1iste%20%C3%89anna%2C%20Ballyroan%2C%20Rathfarnham%2C%20Dublin%2016
+END:VEVENT
+END:VCALENDAR

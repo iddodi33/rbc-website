@@ -1,0 +1,168 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Rathmines Basketball Club//Fixtures//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Rathmines BC Men's Division 4
+X-WR-TIMEZONE:Europe/Dublin
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+BEGIN:VTIMEZONE
+TZID:Europe/Dublin
+BEGIN:STANDARD
+DTSTART:19701025T020000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0000
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:19700329T010000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0100
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:rbc-2026-10-06-barrow-rovers@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20261006T201500
+DTEND;TZID=Europe/Dublin:20261006T214500
+SUMMARY:Barrow Rovers v Rathmines BC (Men's Division 4)
+LOCATION:St Catherine's Sports Centre\, Marrowbone Lane\, Dublin 8
+DESCRIPTION:Away game\, Men's Division 4. Map: https://www.google.com/maps/search/?api=1&query=St%20Catherine%27s%20Sports%20Centre%2C%20Marrowbone%20Lane%2C%20Dublin%208
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2026-10-16-ballinteer-bulls-bc@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20261016T204000
+DTEND;TZID=Europe/Dublin:20261016T221000
+SUMMARY:Rathmines BC v Ballinteer Bulls BC (Men's Division 4)
+LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
+DESCRIPTION:Home game\, Men's Division 4. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2026-10-23-ucd-marian-bc@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20261023T204000
+DTEND;TZID=Europe/Dublin:20261023T221000
+SUMMARY:Rathmines BC v UCD Marian BC (Men's Division 4)
+LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
+DESCRIPTION:Home game\, Men's Division 4. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2026-11-04-oblate-bc@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20261104T211000
+DTEND;TZID=Europe/Dublin:20261104T224000
+SUMMARY:Oblate BC v Rathmines BC (Men's Division 4)
+LOCATION:Oblate Hall\, Inchicore\, Dublin 8
+DESCRIPTION:Away game\, Men's Division 4. Map: https://www.google.com/maps/search/?api=1&query=Oblate%20Hall%2C%20Inchicore%2C%20Dublin%208
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2026-11-13-naas-bc@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20261113T191000
+DTEND;TZID=Europe/Dublin:20261113T204000
+SUMMARY:Rathmines BC v Naas BC (Men's Division 4)
+LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
+DESCRIPTION:Home game\, Men's Division 4. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2026-11-19-glasnevin-bc@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20261119T194000
+DTEND;TZID=Europe/Dublin:20261119T211000
+SUMMARY:Glasnevin BC v Rathmines BC (Men's Division 4)
+LOCATION:St Aidan's CBS\, Collins Avenue\, Whitehall\, Dublin 9
+DESCRIPTION:Away game\, Men's Division 4. Map: https://www.google.com/maps/search/?api=1&query=St%20Aidan%27s%20CBS%2C%20Collins%20Avenue%2C%20Whitehall%2C%20Dublin%209
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2026-11-27-dublin-lions@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20261127T191000
+DTEND;TZID=Europe/Dublin:20261127T204000
+SUMMARY:Rathmines BC v Dublin Lions (Men's Division 4)
+LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
+DESCRIPTION:Home game\, Men's Division 4. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2026-12-09-dublin-raiders@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20261209T204500
+DTEND;TZID=Europe/Dublin:20261209T221500
+SUMMARY:Dublin Raiders v Rathmines BC (Men's Division 4)
+LOCATION:St Laurence College\, Loughlinstown\, Dublin 18
+DESCRIPTION:Away game\, Men's Division 4. Map: https://www.google.com/maps/search/?api=1&query=St%20Laurence%20College%2C%20Loughlinstown%2C%20Dublin%2018
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2027-01-08-barrow-rovers@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20270108T204000
+DTEND;TZID=Europe/Dublin:20270108T221000
+SUMMARY:Rathmines BC v Barrow Rovers (Men's Division 4)
+LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
+DESCRIPTION:Home game\, Men's Division 4. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2027-01-21-ballinteer-bulls-bc@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20270121T210500
+DTEND;TZID=Europe/Dublin:20270121T223500
+SUMMARY:Ballinteer Bulls BC v Rathmines BC (Men's Division 4)
+LOCATION:Wesley College\, Ballinteer\, Dublin 16
+DESCRIPTION:Away game\, Men's Division 4. Map: https://www.google.com/maps/search/?api=1&query=Wesley%20College%2C%20Ballinteer%2C%20Dublin%2016
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2027-01-27-ucd-marian-bc@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20270127T211000
+DTEND;TZID=Europe/Dublin:20270127T224000
+SUMMARY:UCD Marian BC v Rathmines BC (Men's Division 4)
+LOCATION:Marian College\, Lansdowne Road\, Ballsbridge\, Dublin 4
+DESCRIPTION:Away game\, Men's Division 4. Map: https://www.google.com/maps/search/?api=1&query=Marian%20College%2C%20Lansdowne%20Road%2C%20Ballsbridge%2C%20Dublin%204
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2027-02-05-oblate-bc@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20270205T204000
+DTEND;TZID=Europe/Dublin:20270205T221000
+SUMMARY:Rathmines BC v Oblate BC (Men's Division 4)
+LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
+DESCRIPTION:Home game\, Men's Division 4. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2027-02-11-naas-bc@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20270211T201000
+DTEND;TZID=Europe/Dublin:20270211T214000
+SUMMARY:Naas BC v Rathmines BC (Men's Division 4)
+LOCATION:Naas CBS\, Naas\, Co. Kildare
+DESCRIPTION:Away game\, Men's Division 4. Map: https://www.google.com/maps/search/?api=1&query=Naas%20CBS%2C%20Naas%2C%20Co.%20Kildare
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2027-02-19-glasnevin-bc@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20270219T191000
+DTEND;TZID=Europe/Dublin:20270219T204000
+SUMMARY:Rathmines BC v Glasnevin BC (Men's Division 4)
+LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
+DESCRIPTION:Home game\, Men's Division 4. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2027-03-05-dublin-raiders@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20270305T204000
+DTEND;TZID=Europe/Dublin:20270305T221000
+SUMMARY:Rathmines BC v Dublin Raiders (Men's Division 4)
+LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
+DESCRIPTION:Home game\, Men's Division 4. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+END:VEVENT
+BEGIN:VEVENT
+UID:rbc-2027-03-11-dublin-lions@rathminesbc.ie
+DTSTAMP:20260919T183747Z
+DTSTART;TZID=Europe/Dublin:20270311T204000
+DTEND;TZID=Europe/Dublin:20270311T221000
+SUMMARY:Dublin Lions v Rathmines BC (Men's Division 4)
+LOCATION:Collinstown Community College\, Clondalkin\, Dublin 22\, D22 F663
+DESCRIPTION:Away game\, Men's Division 4. Map: https://www.google.com/maps/search/?api=1&query=Collinstown%20Community%20College%2C%20Clondalkin%2C%20Dublin%2022%2C%20D22%20F663
+END:VEVENT
+END:VCALENDAR
