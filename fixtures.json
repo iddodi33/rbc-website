@@ -2,7 +2,7 @@
   "source": "DMBB fixture lists, competitions 3659 (D4) and 3661 (D6), supplied by Iddo 2026-09-19. Supersedes the 2026-09-05 calendar.",
   "notes": [
     "Dated fixtures come from the DMBB published fixture list and are shown as confirmed. 'awaiting_opponent_date' = DMBB has no date yet, so date and time are null.",
-    "venue is the short display name, venueAddress the line used for the Google Maps link in mapUrl. Addresses beyond the venue name are best-effort and unverified; the map link is a search, not a pinned place.",
+    "venue is the short display name, venueAddress the line used for the Google Maps link in mapUrl. Away addresses beyond the venue name are best-effort and unverified and their map links are searches, not pinned places. St Mary's uses a shortlink to the pinned place, supplied by Iddo 2026-09-19.",
     "No fixtures supplied yet for the women's D2 team.",
     "clubs maps opponent name to the club's own site, or its Facebook/Instagram page where no site exists (found by web search 2026-09-19, unverified beyond the page existing). null = nothing found."
   ],
@@ -11,7 +11,7 @@
     "short": "St Mary's College Rathmines",
     "address": "73-79 Lower Rathmines Road, Dublin 6",
     "eircode": "D06 HP38",
-    "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38"
+    "mapUrl": "https://maps.app.goo.gl/93bRULk4bJoT68RW8"
   },
   "divisions": [
     {
@@ -39,7 +39,7 @@
           "time": "20:40",
           "venue": "St Mary's College Rathmines",
           "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
-          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "mapUrl": "https://maps.app.goo.gl/93bRULk4bJoT68RW8",
           "status": "confirmed"
         },
         {
@@ -50,7 +50,7 @@
           "time": "20:40",
           "venue": "St Mary's College Rathmines",
           "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
-          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "mapUrl": "https://maps.app.goo.gl/93bRULk4bJoT68RW8",
           "status": "confirmed"
         },
         {
@@ -72,7 +72,7 @@
           "time": "19:10",
           "venue": "St Mary's College Rathmines",
           "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
-          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "mapUrl": "https://maps.app.goo.gl/93bRULk4bJoT68RW8",
           "status": "confirmed"
         },
         {
@@ -94,7 +94,7 @@
           "time": "19:10",
           "venue": "St Mary's College Rathmines",
           "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
-          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "mapUrl": "https://maps.app.goo.gl/93bRULk4bJoT68RW8",
           "status": "confirmed"
         },
         {
@@ -116,7 +116,7 @@
           "time": "20:40",
           "venue": "St Mary's College Rathmines",
           "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
-          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "mapUrl": "https://maps.app.goo.gl/93bRULk4bJoT68RW8",
           "status": "confirmed"
         },
         {
@@ -149,7 +149,7 @@
           "time": "20:40",
           "venue": "St Mary's College Rathmines",
           "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
-          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "mapUrl": "https://maps.app.goo.gl/93bRULk4bJoT68RW8",
           "status": "confirmed"
         },
         {
@@ -171,7 +171,7 @@
           "time": "19:10",
           "venue": "St Mary's College Rathmines",
           "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
-          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "mapUrl": "https://maps.app.goo.gl/93bRULk4bJoT68RW8",
           "status": "confirmed"
         },
         {
@@ -182,7 +182,7 @@
           "time": "20:40",
           "venue": "St Mary's College Rathmines",
           "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
-          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "mapUrl": "https://maps.app.goo.gl/93bRULk4bJoT68RW8",
           "status": "confirmed"
         },
         {
@@ -212,7 +212,7 @@
           "time": "19:10",
           "venue": "St Mary's College Rathmines",
           "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
-          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "mapUrl": "https://maps.app.goo.gl/93bRULk4bJoT68RW8",
           "status": "confirmed"
         },
         {
@@ -234,7 +234,7 @@
           "time": "20:40",
           "venue": "St Mary's College Rathmines",
           "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
-          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "mapUrl": "https://maps.app.goo.gl/93bRULk4bJoT68RW8",
           "status": "confirmed"
         },
         {
@@ -245,7 +245,7 @@
           "time": "20:40",
           "venue": "St Mary's College Rathmines",
           "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
-          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "mapUrl": "https://maps.app.goo.gl/93bRULk4bJoT68RW8",
           "status": "confirmed"
         },
         {
@@ -267,7 +267,7 @@
           "time": "19:10",
           "venue": "St Mary's College Rathmines",
           "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
-          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "mapUrl": "https://maps.app.goo.gl/93bRULk4bJoT68RW8",
           "status": "confirmed"
         },
         {
@@ -289,7 +289,7 @@
           "time": "20:40",
           "venue": "St Mary's College Rathmines",
           "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
-          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "mapUrl": "https://maps.app.goo.gl/93bRULk4bJoT68RW8",
           "status": "confirmed"
         },
         {
@@ -300,7 +300,7 @@
           "time": "19:10",
           "venue": "St Mary's College Rathmines",
           "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
-          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "mapUrl": "https://maps.app.goo.gl/93bRULk4bJoT68RW8",
           "status": "confirmed"
         },
         {
@@ -322,7 +322,7 @@
           "time": "20:40",
           "venue": "St Mary's College Rathmines",
           "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
-          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "mapUrl": "https://maps.app.goo.gl/93bRULk4bJoT68RW8",
           "status": "confirmed"
         },
         {
@@ -355,7 +355,7 @@
           "time": "20:40",
           "venue": "St Mary's College Rathmines",
           "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
-          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "mapUrl": "https://maps.app.goo.gl/93bRULk4bJoT68RW8",
           "status": "confirmed"
         },
         {
@@ -377,7 +377,7 @@
           "time": "19:10",
           "venue": "St Mary's College Rathmines",
           "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
-          "mapUrl": "https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38",
+          "mapUrl": "https://maps.app.goo.gl/93bRULk4bJoT68RW8",
           "status": "confirmed"
         },
         {
