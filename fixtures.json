@@ -3,7 +3,8 @@
   "notes": [
     "Dated fixtures come from the DMBB published fixture list and are shown as confirmed. 'awaiting_opponent_date' = DMBB has no date yet, so date and time are null.",
     "venue is the short display name, venueAddress the line used for the Google Maps link in mapUrl. Addresses beyond the venue name are best-effort and unverified; the map link is a search, not a pinned place.",
-    "No fixtures supplied yet for the women's D2 team."
+    "No fixtures supplied yet for the women's D2 team.",
+    "clubs maps opponent name to the club's own site, or its Facebook/Instagram page where no site exists (found by web search 2026-09-19, unverified beyond the page existing). null = nothing found."
   ],
   "homeVenue": {
     "name": "St. Mary's College C.S.Sp.",
@@ -411,5 +412,22 @@
       "verified": true,
       "fixtures": []
     }
-  ]
+  ],
+  "clubs": {
+    "Barrow Rovers": "https://www.instagram.com/barrow.rovers/",
+    "Ballinteer Bulls BC": "https://www.facebook.com/ballinteerbullsbasketball/",
+    "UCD Marian BC": "https://www.ucdmarian.com/",
+    "Oblate BC": "https://oblatebasketball.com/",
+    "Naas BC": "https://www.facebook.com/naasserpents/",
+    "Glasnevin BC": "https://glasnevinbasketballclub.clubzap.com/",
+    "Dublin Lions": "https://www.facebook.com/dublinlions/",
+    "Dublin Raiders": "https://www.dublinraidersbasketball.com/",
+    "BC Lietkabelis": "https://www.lietkabelisirl.com/",
+    "Adamstown Grafters": "https://www.instagram.com/adamstowngraftersbc/",
+    "Tolka Rovers Eclipse": "https://tolkabasketball.ie/",
+    "Lusk Ravens BC": "https://luskravens.com/",
+    "Killester BC": "https://killester.com/",
+    "Eanna BC": "https://eannabasketball.ie/",
+    "Dublin Sonics": "https://www.facebook.com/dublinsonics/"
+  }
 }

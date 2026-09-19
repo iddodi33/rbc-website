@@ -636,7 +636,18 @@
 
         var opponent = el("span", "fixture__opponent");
         opponent.appendChild(label(isHome ? "At home to " : "Away to "));
-        opponent.appendChild(document.createTextNode(fixture.opponent || "Opponent TBC"));
+        /* Opponent links to the club's own site or social page when the
+           JSON `clubs` map has one. https only, same check as the map link. */
+        var clubUrl = CLUBS && fixture.opponent ? CLUBS[fixture.opponent] : null;
+        if (clubUrl && /^https:\/\//.test(String(clubUrl))) {
+          var ca = el("a", "fixture__club", fixture.opponent);
+          ca.href = clubUrl;
+          ca.target = "_blank";
+          ca.rel = "noopener";
+          opponent.appendChild(ca);
+        } else {
+          opponent.appendChild(document.createTextNode(fixture.opponent || "Opponent TBC"));
+        }
         li.appendChild(opponent);
 
         /* No date means the opponent has not set the fixture, and time and
@@ -691,6 +702,11 @@
          ones are scattered through the season, so any date ordering would
          push the undated fixtures into an arbitrary block and imply a
          sequence the club has not got. */
+      function byDate(a, b) {
+        var da = a.date ? String(a.date) + " " + String(a.time || "") : "9999";
+        var db = b.date ? String(b.date) + " " + String(b.time || "") : "9999";
+        return da < db ? -1 : da > db ? 1 : byRound(a, b);
+      }
       function byRound(a, b) {
         var ra = typeof a.round === "number" ? a.round : Infinity;
         var rb = typeof b.round === "number" ? b.round : Infinity;
@@ -746,10 +762,12 @@
         section.appendChild(el("p", "squad-fixtures__meta",
           summary(fixtures, home.length, venueName)));
 
-        /* Home first, then away, each block in round order. */
+        /* One list in date order, home and away interleaved as the season
+           runs; undated fixtures go last. The home-only toggle still works,
+           it hides the away rows in place. */
         var list = el("ul", "fixture-list is-home-only");
         list.id = titleId + "-list";
-        home.concat(away).forEach(function (f) { list.appendChild(row(f)); });
+        fixtures.slice().sort(byDate).forEach(function (f) { list.appendChild(row(f)); });
 
         var toggle = el("button", "fixtures-toggle");
         toggle.type = "button";
@@ -770,7 +788,9 @@
         return section;
       }
 
+      var CLUBS = null;
       function render(data) {
+        CLUBS = data && data.clubs && typeof data.clubs === "object" ? data.clubs : null;
         var divisions = (data && Array.isArray(data.divisions)) ? data.divisions : [];
 
         if (!divisions.length) {
