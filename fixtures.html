@@ -723,7 +723,30 @@
         }
         var target = document.getElementById(id);
         if (target && mount.contains(target)) {
+          setScrollMargin();
           target.scrollIntoView();
+        }
+      }
+
+      /* The CSS sets scroll-margin from --header-height, which is the header's
+         designed height and right nearly everywhere. It is not right when the
+         nav wraps to a second row on a narrow laptop, or when a reader's own
+         text size grows the bar: the heading then lands underneath it. So the
+         header is measured at the moment of the jump and the margin set from
+         what it actually is, plus a rem of air. The CSS value stays as the
+         fallback for every other case — a no-JS load, or an in-page anchor
+         clicked later — and this only ever overrides it upward or downward by
+         what was really measured. */
+      function setScrollMargin() {
+        var header = document.querySelector(".site-header");
+        if (!header || !header.offsetHeight) {
+          return;
+        }
+        var rem = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+        var margin = header.offsetHeight + rem;
+        var sections = mount.querySelectorAll(".squad-fixtures");
+        for (var i = 0; i < sections.length; i += 1) {
+          sections[i].style.scrollMarginBlockStart = margin + "px";
         }
       }
     })();

@@ -955,7 +955,13 @@ body[data-page="contact"]  .site-header.is-over-hero .site-nav__link[data-nav="c
 
 /* Each squad section carries its division id (d4, d6, d2w) so the home page's
    buttons can link straight to it. The header is sticky, so without this the
-   heading lands underneath it. */
+   heading lands underneath it.
+
+   This is the fallback. --header-height is the header's DESIGNED height, and
+   when the bar is taller than that — a wrapped nav, a reader's own larger text
+   — the heading still ends up behind it. So the script measures the header at
+   the moment it jumps and sets this property inline from what it really is.
+   That covers the jump in from the home page; this covers everything else. */
 .squad-fixtures {
   scroll-margin-block-start: calc(var(--header-height) + var(--border-thick));
 }
