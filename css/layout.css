@@ -971,6 +971,33 @@ body[data-page="contact"]  .site-header.is-over-hero .site-nav__link[data-nav="c
   color: var(--text-muted);        /* 6.9:1 on paper */
 }
 
+/* The calendar link takes the status slot on a confirmed row. Same caps
+   styling as the badge, underlined in accent so it reads as a link. */
+.fixture__cal {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 0.2em;
+}
+
+.fixture__cal:hover {
+  color: var(--accent);
+}
+
+/* The toggle and the whole-squad calendar link share one line above the
+   list. The link borrows the toggle's box so the pair reads as one kit. */
+.fixtures-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin: 0;
+}
+
+a.fixtures-calendar {
+  text-decoration: none;
+}
+
 /* The date of an offered slot is not a fact yet, so it does not get to look
    like one. Same muted weight as the venue beside it, never bolder. */
 .fixture--provisional .fixture__date {

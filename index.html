@@ -625,7 +625,7 @@
         return /^\d{2}:\d{2}$/.test(String(t)) ? String(t) : null;
       }
 
-      function row(fixture) {
+      function row(fixture, divisionLabel) {
         var isHome = fixture.home === true;
         var dateText = fixture.date ? formatDate(fixture.date) : null;
         var timeText = fixture.time ? formatTime(fixture.time) : null;
@@ -668,10 +668,21 @@
         var isConfirmed = fixture.status === "confirmed";
         li.className += isConfirmed ? " fixture--confirmed" : " fixture--provisional";
 
-        var badge = el("span", "fixture__status");
-        badge.appendChild(label("Status: "));
-        badge.appendChild(document.createTextNode(isConfirmed ? "Confirmed" : "Provisional"));
-        li.appendChild(badge);
+        /* A confirmed fixture offers itself as a calendar event in the status
+           slot; a provisional one still says so, since a date that moves is
+           worse in a calendar than on a page. */
+        var ev = isConfirmed ? icsEvent(fixture, divisionLabel) : null;
+        if (ev) {
+          var cal = icsLink("Add to calendar", "fixture__status fixture__cal", [ev],
+            "rathmines" + String(fixture.date).replace(/-/g, "") + ".ics");
+          cal.appendChild(label(", " + (fixture.opponent || "") + " on " + dateText));
+          li.appendChild(cal);
+        } else {
+          var badge = el("span", "fixture__status");
+          badge.appendChild(label("Status: "));
+          badge.appendChild(document.createTextNode(isConfirmed ? "Confirmed" : "Provisional"));
+          li.appendChild(badge);
+        }
 
         var venue = el("span", "fixture__venue");
         venue.appendChild(label("Venue: "));
@@ -767,7 +778,7 @@
            it hides the away rows in place. */
         var list = el("ul", "fixture-list is-home-only");
         list.id = titleId + "-list";
-        fixtures.slice().sort(byDate).forEach(function (f) { list.appendChild(row(f)); });
+        fixtures.slice().sort(byDate).forEach(function (f) { list.appendChild(row(f, division.label || "")); });
 
         var toggle = el("button", "fixtures-toggle");
         toggle.type = "button";
@@ -783,9 +794,100 @@
             : "Show all " + fixtures.length + " fixtures";
         });
 
-        section.appendChild(toggle);
+        var events = fixtures.filter(function (f) { return f.status === "confirmed"; })
+          .map(function (f) { return icsEvent(f, division.label || ""); })
+          .filter(Boolean);
+        var actions = el("p", "fixtures-actions");
+        actions.appendChild(toggle);
+        if (events.length) {
+          actions.appendChild(icsLink("Add all " + events.length + " fixtures to your calendar",
+            "fixtures-toggle fixtures-calendar", events,
+            "rathmines" + String(division.id || "squad").replace(/[^a-z0-9]/g, "") + "fixtures.ics"));
+        }
+        section.appendChild(actions);
         section.appendChild(list);
         return section;
+      }
+
+      /* ---- Calendar export. Each dated fixture becomes a VEVENT, 90 minutes
+         long, in Europe/Dublin time. One .ics per row, and one per squad with
+         every dated fixture. Built as Blob URLs, nothing leaves the browser. */
+      var ICS_TZ = [
+        "BEGIN:VTIMEZONE",
+        "TZID:Europe/Dublin",
+        "BEGIN:STANDARD",
+        "DTSTART:19701025T020000",
+        "RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU",
+        "TZOFFSETFROM:+0100",
+        "TZOFFSETTO:+0000",
+        "END:STANDARD",
+        "BEGIN:DAYLIGHT",
+        "DTSTART:19700329T010000",
+        "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU",
+        "TZOFFSETFROM:+0000",
+        "TZOFFSETTO:+0100",
+        "END:DAYLIGHT",
+        "END:VTIMEZONE"
+      ].join("\r\n");
+
+      function icsEscape(text) {
+        return String(text).replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,").replace(/\r?\n/g, "\\n");
+      }
+      function icsStamp(iso, time) {
+        return String(iso).replace(/-/g, "") + "T" + String(time || "00:00").replace(":", "") + "00";
+      }
+      function addMinutes(iso, time, minutes) {
+        var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso));
+        var t = /^(\d{2}):(\d{2})$/.exec(String(time || "00:00"));
+        if (!m || !t) { return null; }
+        var d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3], +t[1], +t[2] + minutes));
+        function two(n) { return (n < 10 ? "0" : "") + n; }
+        return d.getUTCFullYear() + two(d.getUTCMonth() + 1) + two(d.getUTCDate()) +
+               "T" + two(d.getUTCHours()) + two(d.getUTCMinutes()) + "00";
+      }
+      function icsEvent(fixture, divisionLabel) {
+        if (!fixture.date || !/^\d{2}:\d{2}$/.test(String(fixture.time || ""))) { return null; }
+        var isHome = fixture.home === true;
+        var title = isHome
+          ? "Rathmines BC v " + fixture.opponent
+          : fixture.opponent + " v Rathmines BC";
+        var where = fixture.venueAddress || fixture.venue || "";
+        var uid = "rbc-" + String(fixture.date) + "-" + String(fixture.opponent).toLowerCase().replace(/[^a-z0-9]+/g, "-") + "@rathminesbc.ie";
+        return [
+          "BEGIN:VEVENT",
+          "UID:" + uid,
+          "DTSTAMP:" + icsStamp(fixture.date, fixture.time) + "Z",
+          "DTSTART;TZID=Europe/Dublin:" + icsStamp(fixture.date, fixture.time),
+          "DTEND;TZID=Europe/Dublin:" + addMinutes(fixture.date, fixture.time, 90),
+          "SUMMARY:" + icsEscape(title + " (" + divisionLabel + ")"),
+          "LOCATION:" + icsEscape(where),
+          "DESCRIPTION:" + icsEscape((isHome ? "Home" : "Away") + " game, " + divisionLabel + "." +
+            (fixture.mapUrl ? " Map: " + fixture.mapUrl : "")),
+          "END:VEVENT"
+        ].join("\r\n");
+      }
+      function icsFile(events) {
+        return [
+          "BEGIN:VCALENDAR",
+          "VERSION:2.0",
+          "PRODID:-//Rathmines Basketball Club//Fixtures//EN",
+          "CALSCALE:GREGORIAN",
+          "METHOD:PUBLISH",
+          ICS_TZ,
+          events.join("\r\n"),
+          "END:VCALENDAR",
+          ""
+        ].join("\r\n");
+      }
+      function icsLink(text, className, events, filename) {
+        var a = el("a", className, text);
+        if (window.URL && window.Blob) {
+          a.href = URL.createObjectURL(new Blob([icsFile(events)], { type: "text/calendar;charset=utf-8" }));
+        } else {
+          a.href = "data:text/calendar;charset=utf-8," + encodeURIComponent(icsFile(events));
+        }
+        a.download = filename;
+        return a;
       }
 
       var CLUBS = null;
