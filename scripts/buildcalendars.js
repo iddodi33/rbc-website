@@ -38,9 +38,28 @@ function plus(iso, time, minutes) {
   return dt.getUTCFullYear() + two(dt.getUTCMonth() + 1) + two(dt.getUTCDate()) +
     "T" + two(dt.getUTCHours()) + two(dt.getUTCMinutes()) + "00";
 }
-const now = new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d+Z$/, "Z");
 
-function event(f, label) {
+/* DTSTAMP is derived from the fixtures, never from the clock. It used to be
+   `new Date()`, which meant every run rewrote all three files with a new
+   stamp: the calendars turned up in the diff on any rebuild, whether or not a
+   fixture had actually moved, and there was no way to tell the two apart. It
+   is now the last dated fixture in the calendar being written, at midnight
+   UTC — same fixtures in, same bytes out.
+
+   RFC 5545 wants the object's creation time in this field. Nothing reads it:
+   clients decide what has changed from the UID and the event fields, and
+   SEQUENCE is what signals a revision. Between a stamp that tracks the build
+   machine's clock and one that tracks the data, the data is the more useful.
+
+   The consequence, stated so it is not discovered later: editing a fixture in
+   the middle of the season does not move the stamp, only moving the season's
+   last dated game does. The event lines carry that change themselves. */
+function dtstamp(fixtures) {
+  const last = fixtures.map((f) => f.date).filter(Boolean).sort().pop();
+  return last.replace(/-/g, "") + "T000000Z";
+}
+
+function event(f, label, stampedAt) {
   if (f.status !== "confirmed" || !f.date || !/^\d{2}:\d{2}$/.test(f.time || "")) return null;
   const home = f.home === true;
   const title = home ? `Rathmines BC v ${f.opponent}` : `${f.opponent} v Rathmines BC`;
@@ -48,7 +67,7 @@ function event(f, label) {
   return [
     "BEGIN:VEVENT",
     "UID:" + uid,
-    "DTSTAMP:" + now,
+    "DTSTAMP:" + stampedAt,
     "DTSTART;TZID=Europe/Dublin:" + stamp(f.date, f.time),
     "DTEND;TZID=Europe/Dublin:" + plus(f.date, f.time, 90),
     "SUMMARY:" + esc(`${title} (${label})`),
@@ -59,7 +78,13 @@ function event(f, label) {
 }
 
 for (const div of data.divisions || []) {
-  const events = (div.fixtures || []).map((f) => event(f, div.label || "")).filter(Boolean);
+  /* Filtered before the stamp is taken, so it is the last game that actually
+     lands in this file and not the last one in the division. */
+  const dated = (div.fixtures || []).filter(
+    (f) => f.status === "confirmed" && f.date && /^\d{2}:\d{2}$/.test(f.time || ""));
+  if (!dated.length) continue;
+  const stampedAt = dtstamp(dated);
+  const events = dated.map((f) => event(f, div.label || "", stampedAt)).filter(Boolean);
   if (!events.length) continue;
   const name = "rathmines" + String(div.id).replace(/[^a-z0-9]/g, "") + "fixtures.ics";
   const body = [

@@ -3,7 +3,7 @@ VERSION:2.0
 PRODID:-//Rathmines Basketball Club//Fixtures//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:Rathmines BC Women's Division 3
+X-WR-CALNAME:Rathmines BC Ladies Division 3
 X-WR-TIMEZONE:Europe/Dublin
 REFRESH-INTERVAL;VALUE=DURATION:P1D
 BEGIN:VTIMEZONE
@@ -23,182 +23,182 @@ END:DAYLIGHT
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:rbc-2026-10-05-ucd-ladies-bc@rathminesbc.ie
-DTSTAMP:20260919T203131Z
+DTSTAMP:20270322T000000Z
 DTSTART;TZID=Europe/Dublin:20261005T201500
 DTEND;TZID=Europe/Dublin:20261005T214500
-SUMMARY:UCD Ladies BC v Rathmines BC (Women's Division 3)
+SUMMARY:UCD Ladies BC v Rathmines BC (Ladies Division 3)
 LOCATION:UCD Sports Centre\, Belfield\, Dublin 4
-DESCRIPTION:Away game\, Women's Division 3. Map: https://www.google.com/maps/search/?api=1&query=UCD%20Sports%20Centre%2C%20Belfield%2C%20Dublin%204
+DESCRIPTION:Away game\, Ladies Division 3. Map: https://www.google.com/maps/search/?api=1&query=UCD%20Sports%20Centre%2C%20Belfield%2C%20Dublin%204
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2026-10-15-swords-bc@rathminesbc.ie
-DTSTAMP:20260919T203131Z
+DTSTAMP:20270322T000000Z
 DTSTART;TZID=Europe/Dublin:20261015T203000
 DTEND;TZID=Europe/Dublin:20261015T220000
-SUMMARY:Swords BC v Rathmines BC (Women's Division 3)
+SUMMARY:Swords BC v Rathmines BC (Ladies Division 3)
 LOCATION:Artane Beaumont Family Recreation Centre\, Kilmore Road\, Artane\, Dublin 5
-DESCRIPTION:Away game\, Women's Division 3. Map: https://www.google.com/maps/search/?api=1&query=Artane%20Beaumont%20Family%20Recreation%20Centre%2C%20Kilmore%20Road%2C%20Artane%2C%20Dublin%205
+DESCRIPTION:Away game\, Ladies Division 3. Map: https://www.google.com/maps/search/?api=1&query=Artane%20Beaumont%20Family%20Recreation%20Centre%2C%20Kilmore%20Road%2C%20Artane%2C%20Dublin%205
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2026-10-19-ongar-chasers@rathminesbc.ie
-DTSTAMP:20260919T203131Z
+DTSTAMP:20270322T000000Z
 DTSTART;TZID=Europe/Dublin:20261019T201000
 DTEND;TZID=Europe/Dublin:20261019T214000
-SUMMARY:Ongar Chasers v Rathmines BC (Women's Division 3)
+SUMMARY:Ongar Chasers v Rathmines BC (Ladies Division 3)
 LOCATION:Luttrellstown Community Centre\, Castleknock\, Dublin 15
-DESCRIPTION:Away game\, Women's Division 3. Map: https://www.google.com/maps/search/?api=1&query=Luttrellstown%20Community%20Centre%2C%20Castleknock%2C%20Dublin%2015
+DESCRIPTION:Away game\, Ladies Division 3. Map: https://www.google.com/maps/search/?api=1&query=Luttrellstown%20Community%20Centre%2C%20Castleknock%2C%20Dublin%2015
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2026-11-03-eanna@rathminesbc.ie
-DTSTAMP:20260919T203131Z
+DTSTAMP:20270322T000000Z
 DTSTART;TZID=Europe/Dublin:20261103T204000
 DTEND;TZID=Europe/Dublin:20261103T221000
-SUMMARY:Eanna v Rathmines BC (Women's Division 3)
+SUMMARY:Eanna v Rathmines BC (Ladies Division 3)
 LOCATION:Firhouse Community Centre\, Firhouse\, Dublin 24
-DESCRIPTION:Away game\, Women's Division 3. Map: https://www.google.com/maps/search/?api=1&query=Firhouse%20Community%20Centre%2C%20Firhouse%2C%20Dublin%2024
+DESCRIPTION:Away game\, Ladies Division 3. Map: https://www.google.com/maps/search/?api=1&query=Firhouse%20Community%20Centre%2C%20Firhouse%2C%20Dublin%2024
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2026-11-09-tridents@rathminesbc.ie
-DTSTAMP:20260919T203131Z
+DTSTAMP:20270322T000000Z
 DTSTART;TZID=Europe/Dublin:20261109T204000
 DTEND;TZID=Europe/Dublin:20261109T221000
-SUMMARY:Tridents v Rathmines BC (Women's Division 3)
+SUMMARY:Tridents v Rathmines BC (Ladies Division 3)
 LOCATION:Edmund Rice College\, Carrigaline Road\, Blanchardstown\, Dublin 15
-DESCRIPTION:Away game\, Women's Division 3. Map: https://www.google.com/maps/search/?api=1&query=Edmund%20Rice%20College%2C%20Carrigaline%20Road%2C%20Blanchardstown%2C%20Dublin%2015
+DESCRIPTION:Away game\, Ladies Division 3. Map: https://www.google.com/maps/search/?api=1&query=Edmund%20Rice%20College%2C%20Carrigaline%20Road%2C%20Blanchardstown%2C%20Dublin%2015
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2026-11-26-kubs@rathminesbc.ie
-DTSTAMP:20260919T203131Z
+DTSTAMP:20270322T000000Z
 DTSTART;TZID=Europe/Dublin:20261126T210000
 DTEND;TZID=Europe/Dublin:20261126T223000
-SUMMARY:KUBS v Rathmines BC (Women's Division 3)
+SUMMARY:KUBS v Rathmines BC (Ladies Division 3)
 LOCATION:Carroll Arena\, Greendale Community School\, Kilbarrack\, Dublin 5
-DESCRIPTION:Away game\, Women's Division 3. Map: https://www.google.com/maps/search/?api=1&query=Carroll%20Arena%2C%20Greendale%20Community%20School%2C%20Kilbarrack%2C%20Dublin%205
+DESCRIPTION:Away game\, Ladies Division 3. Map: https://www.google.com/maps/search/?api=1&query=Carroll%20Arena%2C%20Greendale%20Community%20School%2C%20Kilbarrack%2C%20Dublin%205
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2026-12-01-tigers@rathminesbc.ie
-DTSTAMP:20260919T203131Z
+DTSTAMP:20270322T000000Z
 DTSTART;TZID=Europe/Dublin:20261201T201500
 DTEND;TZID=Europe/Dublin:20261201T214500
-SUMMARY:Tigers v Rathmines BC (Women's Division 3)
+SUMMARY:Tigers v Rathmines BC (Ladies Division 3)
 LOCATION:Stepping Stones Special School\, Kilcock\, Co. Kildare\, W23 HC66
-DESCRIPTION:Away game\, Women's Division 3. Map: https://www.google.com/maps/search/?api=1&query=Stepping%20Stones%20Special%20School%2C%20Kilcock%2C%20Co.%20Kildare%2C%20W23%20HC66
+DESCRIPTION:Away game\, Ladies Division 3. Map: https://www.google.com/maps/search/?api=1&query=Stepping%20Stones%20Special%20School%2C%20Kilcock%2C%20Co.%20Kildare%2C%20W23%20HC66
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2026-12-07-dublin-raiders@rathminesbc.ie
-DTSTAMP:20260919T203131Z
+DTSTAMP:20270322T000000Z
 DTSTART;TZID=Europe/Dublin:20261207T201000
 DTEND;TZID=Europe/Dublin:20261207T214000
-SUMMARY:Rathmines BC v Dublin Raiders (Women's Division 3)
+SUMMARY:Rathmines BC v Dublin Raiders (Ladies Division 3)
 LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
-DESCRIPTION:Home game\, Women's Division 3. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+DESCRIPTION:Home game\, Ladies Division 3. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2026-12-11-aer-lingus@rathminesbc.ie
-DTSTAMP:20260919T203131Z
+DTSTAMP:20270322T000000Z
 DTSTART;TZID=Europe/Dublin:20261211T191000
 DTEND;TZID=Europe/Dublin:20261211T204000
-SUMMARY:Aer Lingus v Rathmines BC (Women's Division 3)
+SUMMARY:Aer Lingus v Rathmines BC (Ladies Division 3)
 LOCATION:ALSAA Sports Complex\, Old Airport Road\, Dublin Airport\, Co. Dublin
-DESCRIPTION:Away game\, Women's Division 3. Map: https://www.google.com/maps/search/?api=1&query=ALSAA%20Sports%20Complex%2C%20Old%20Airport%20Road%2C%20Dublin%20Airport%2C%20Co.%20Dublin
+DESCRIPTION:Away game\, Ladies Division 3. Map: https://www.google.com/maps/search/?api=1&query=ALSAA%20Sports%20Complex%2C%20Old%20Airport%20Road%2C%20Dublin%20Airport%2C%20Co.%20Dublin
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2026-12-14-naas-serpents@rathminesbc.ie
-DTSTAMP:20260919T203131Z
+DTSTAMP:20270322T000000Z
 DTSTART;TZID=Europe/Dublin:20261214T203000
 DTEND;TZID=Europe/Dublin:20261214T220000
-SUMMARY:Naas Serpents v Rathmines BC (Women's Division 3)
+SUMMARY:Naas Serpents v Rathmines BC (Ladies Division 3)
 LOCATION:Naas CBS\, Naas\, Co. Kildare
-DESCRIPTION:Away game\, Women's Division 3. Map: https://www.google.com/maps/search/?api=1&query=Naas%20CBS%2C%20Naas%2C%20Co.%20Kildare
+DESCRIPTION:Away game\, Ladies Division 3. Map: https://www.google.com/maps/search/?api=1&query=Naas%20CBS%2C%20Naas%2C%20Co.%20Kildare
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2027-01-11-tigers@rathminesbc.ie
-DTSTAMP:20260919T203131Z
+DTSTAMP:20270322T000000Z
 DTSTART;TZID=Europe/Dublin:20270111T201000
 DTEND;TZID=Europe/Dublin:20270111T214000
-SUMMARY:Rathmines BC v Tigers (Women's Division 3)
+SUMMARY:Rathmines BC v Tigers (Ladies Division 3)
 LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
-DESCRIPTION:Home game\, Women's Division 3. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+DESCRIPTION:Home game\, Ladies Division 3. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2027-01-18-ongar-chasers@rathminesbc.ie
-DTSTAMP:20260919T203131Z
+DTSTAMP:20270322T000000Z
 DTSTART;TZID=Europe/Dublin:20270118T201000
 DTEND;TZID=Europe/Dublin:20270118T214000
-SUMMARY:Rathmines BC v Ongar Chasers (Women's Division 3)
+SUMMARY:Rathmines BC v Ongar Chasers (Ladies Division 3)
 LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
-DESCRIPTION:Home game\, Women's Division 3. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+DESCRIPTION:Home game\, Ladies Division 3. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2027-01-25-eanna@rathminesbc.ie
-DTSTAMP:20260919T203131Z
+DTSTAMP:20270322T000000Z
 DTSTART;TZID=Europe/Dublin:20270125T201000
 DTEND;TZID=Europe/Dublin:20270125T214000
-SUMMARY:Rathmines BC v Eanna (Women's Division 3)
+SUMMARY:Rathmines BC v Eanna (Ladies Division 3)
 LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
-DESCRIPTION:Home game\, Women's Division 3. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+DESCRIPTION:Home game\, Ladies Division 3. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2027-02-08-naas-serpents@rathminesbc.ie
-DTSTAMP:20260919T203131Z
+DTSTAMP:20270322T000000Z
 DTSTART;TZID=Europe/Dublin:20270208T201000
 DTEND;TZID=Europe/Dublin:20270208T214000
-SUMMARY:Rathmines BC v Naas Serpents (Women's Division 3)
+SUMMARY:Rathmines BC v Naas Serpents (Ladies Division 3)
 LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
-DESCRIPTION:Home game\, Women's Division 3. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+DESCRIPTION:Home game\, Ladies Division 3. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2027-02-18-dublin-raiders@rathminesbc.ie
-DTSTAMP:20260919T203131Z
+DTSTAMP:20270322T000000Z
 DTSTART;TZID=Europe/Dublin:20270218T194500
 DTEND;TZID=Europe/Dublin:20270218T211500
-SUMMARY:Dublin Raiders v Rathmines BC (Women's Division 3)
+SUMMARY:Dublin Raiders v Rathmines BC (Ladies Division 3)
 LOCATION:St Laurence College\, Loughlinstown\, Dublin 18
-DESCRIPTION:Away game\, Women's Division 3. Map: https://www.google.com/maps/search/?api=1&query=St%20Laurence%20College%2C%20Loughlinstown%2C%20Dublin%2018
+DESCRIPTION:Away game\, Ladies Division 3. Map: https://www.google.com/maps/search/?api=1&query=St%20Laurence%20College%2C%20Loughlinstown%2C%20Dublin%2018
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2027-02-22-tridents@rathminesbc.ie
-DTSTAMP:20260919T203131Z
+DTSTAMP:20270322T000000Z
 DTSTART;TZID=Europe/Dublin:20270222T201000
 DTEND;TZID=Europe/Dublin:20270222T214000
-SUMMARY:Rathmines BC v Tridents (Women's Division 3)
+SUMMARY:Rathmines BC v Tridents (Ladies Division 3)
 LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
-DESCRIPTION:Home game\, Women's Division 3. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+DESCRIPTION:Home game\, Ladies Division 3. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2027-03-01-swords-bc@rathminesbc.ie
-DTSTAMP:20260919T203131Z
+DTSTAMP:20270322T000000Z
 DTSTART;TZID=Europe/Dublin:20270301T201000
 DTEND;TZID=Europe/Dublin:20270301T214000
-SUMMARY:Rathmines BC v Swords BC (Women's Division 3)
+SUMMARY:Rathmines BC v Swords BC (Ladies Division 3)
 LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
-DESCRIPTION:Home game\, Women's Division 3. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+DESCRIPTION:Home game\, Ladies Division 3. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2027-03-08-ucd-ladies-bc@rathminesbc.ie
-DTSTAMP:20260919T203131Z
+DTSTAMP:20270322T000000Z
 DTSTART;TZID=Europe/Dublin:20270308T201000
 DTEND;TZID=Europe/Dublin:20270308T214000
-SUMMARY:Rathmines BC v UCD Ladies BC (Women's Division 3)
+SUMMARY:Rathmines BC v UCD Ladies BC (Ladies Division 3)
 LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
-DESCRIPTION:Home game\, Women's Division 3. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+DESCRIPTION:Home game\, Ladies Division 3. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2027-03-15-kubs@rathminesbc.ie
-DTSTAMP:20260919T203131Z
+DTSTAMP:20270322T000000Z
 DTSTART;TZID=Europe/Dublin:20270315T201000
 DTEND;TZID=Europe/Dublin:20270315T214000
-SUMMARY:Rathmines BC v KUBS (Women's Division 3)
+SUMMARY:Rathmines BC v KUBS (Ladies Division 3)
 LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
-DESCRIPTION:Home game\, Women's Division 3. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+DESCRIPTION:Home game\, Ladies Division 3. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
 END:VEVENT
 BEGIN:VEVENT
 UID:rbc-2027-03-22-aer-lingus@rathminesbc.ie
-DTSTAMP:20260919T203131Z
+DTSTAMP:20270322T000000Z
 DTSTART;TZID=Europe/Dublin:20270322T201000
 DTEND;TZID=Europe/Dublin:20270322T214000
-SUMMARY:Rathmines BC v Aer Lingus (Women's Division 3)
+SUMMARY:Rathmines BC v Aer Lingus (Ladies Division 3)
 LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
-DESCRIPTION:Home game\, Women's Division 3. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
+DESCRIPTION:Home game\, Ladies Division 3. Map: https://www.google.com/maps/search/?api=1&query=St%20Mary%27s%20College%2C%2073-79%20Lower%20Rathmines%20Road%2C%20Dublin%206%2C%20D06%20HP38
 END:VEVENT
 END:VCALENDAR
