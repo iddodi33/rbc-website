@@ -23,7 +23,7 @@ Leather and Chalk. Black `#141414`, paper `#F7F4EF`, accent `#C1682D`, accent ti
 | Area | Owner |
 |---|---|
 | Shell: layout, nav, design system, home, deploy config | Iddo |
-| Team & Roster (men's D4, men's D6, women's D2), Our Story | Iddo |
+| Team & Roster (men's D4, men's D6, ladies D3), Our Story | Iddo |
 | Shop, Instagram/social embed | Phil |
 | Sponsors page | Shared, ask before editing |
 
@@ -34,8 +34,8 @@ Shell is built and merged solo by Iddo before Roster or Shop branches start.
 - Never auto-email teamwear.ie. Orders go to Supabase, the buyer, and Iddo plus Phil only. Bulk ordering with teamwear.ie is manual.
 - No blog or news feed, nothing that needs ongoing content upkeep beyond social media
 - Sponsor tiers are not priced or published yet, three tiers exist internally only
-- No underage teams involved. Three senior squads, one team per division: men's D4, men's D6, women's D2. Roster data for all three is fine to publish as-is
-- Last season's record, get it right, it is the strongest fact the site has. Both men's teams were promoted: D5 to D4, and D6 to D6. Separately, the men's D4 team won the D5 playoff and the women's team won the D2 playoff. Promotion is decided on final league position; the playoff is a separate top-four knockout and does not decide promotion, so never write one as the cause of the other. The women were NOT promoted, they were in D2 last season and are in D2 now. The playoff trophies have no competition name beyond the league's own, do not invent one
+- No underage teams involved. Three senior squads, one team per division: men's D4, men's D6, ladies D3. Roster data for all three is fine to publish as-is
+- Last season's record, get it right, it is the strongest fact the site has. Both men's teams were promoted: D5 to D4, and D6 to D6. Separately, the men's D4 team won the D5 playoff and the ladies team won the D2 playoff. Promotion is decided on final league position; the playoff is a separate top-four knockout and does not decide promotion, so never write one as the cause of the other. The ladies were NOT promoted, they were in D2 last season and are in D3 now. The playoff trophies have no competition name beyond the league's own, do not invent one
 
 ## Process
 - Branch per feature, small PRs, merge daily
