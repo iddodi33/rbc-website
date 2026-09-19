@@ -817,14 +817,23 @@
           sub.appendChild(apple);
           sub.appendChild(el("span", "fixture__cal-sep", "\u00b7"));
           var google = el("a", "fixtures-subscribe__link", "Google");
+          /* Google's add-by-URL deep link wants the webcal:// form; the https
+             form comes back "Unable to add calendar" (seen 2026-09-19). */
           google.href = "https://calendar.google.com/calendar/r?cid=" +
-                        encodeURIComponent("https://" + feedUrl(division.id));
+                        encodeURIComponent("webcal://" + feedUrl(division.id));
+          google.title = "Adds the feed to Google Calendar. If that fails, paste https://" +
+                         feedUrl(division.id) + " into Google Calendar, Other calendars, From URL.";
           google.target = "_blank";
           google.rel = "noopener";
           sub.appendChild(google);
           sub.appendChild(el("span", "fixture__cal-sep", "\u00b7"));
           sub.appendChild(icsLink("Download .ics", "fixtures-subscribe__link", events,
             "rathmines" + String(division.id).replace(/[^a-z0-9]/g, "") + "fixtures.ics"));
+          sub.appendChild(el("span", "fixture__cal-sep", "\u00b7"));
+          var feed = el("a", "fixtures-subscribe__link", "Feed URL");
+          feed.href = "https://" + feedUrl(division.id);
+          feed.title = "The calendar feed address, for any app's add-by-URL option";
+          sub.appendChild(feed);
           actions.appendChild(sub);
         }
         section.appendChild(actions);
