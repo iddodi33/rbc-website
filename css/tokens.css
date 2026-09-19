@@ -42,7 +42,7 @@
   --surface:            var(--paper);
   --surface-raised:     #FFFFFF;              /* cards lifted off the paper */
   --text:               var(--black);
-  --text-muted:         rgb(20 20 20 / 0.72); /* 6.9:1 on paper */
+  --text-muted:         rgb(20 20 20 / 0.80); /* 9:1 on paper; was 0.72, raised for legibility over the ambient photo */
   --link:               var(--accent-ink);
   --rule:               rgb(20 20 20 / 0.14); /* hairlines and dividers */
   --rule-strong:        rgb(20 20 20 / 0.28);
