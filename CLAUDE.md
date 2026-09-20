@@ -3,7 +3,7 @@
 Read this file, ROADMAP.md, ARCHITECTURE.md, and DECISIONS.md at the start of every session, before writing any code.
 
 ## What this is
-The public website and merch shop for Rathmines Basketball Club (RBC), Dublin. Joint build between Iddo and Phil. Goals: drive 4-5 new sponsorships, build community pride, sell a small merch run. Community first, basketball second.
+The public website and merch shop for Rathmines Basketball Club (RBC), Dublin. Joint build between Iddo and Phil. Goals: drive 4-5 new sponsorships, build community pride, sell a small merch run. Tagline: the home of basketball in Rathmines.
 
 ## Stack
 - Static multi-page site, plain HTML/CSS/JS, no app framework
