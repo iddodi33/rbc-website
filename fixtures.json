@@ -36,12 +36,13 @@
           "round": 2,
           "opponent": "Ballinteer Bulls BC",
           "home": true,
-          "date": "2026-10-16",
-          "time": "20:40",
-          "venue": "St Mary's College Rathmines",
-          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
-          "mapUrl": "https://maps.app.goo.gl/93bRULk4bJoT68RW8",
-          "status": "confirmed"
+          "date": null,
+          "time": null,
+          "venue": null,
+          "venueAddress": null,
+          "mapUrl": null,
+          "status": "postponed",
+          "venueNote": "Postponed, new date to be confirmed."
         },
         {
           "round": 3,
@@ -209,12 +210,13 @@
           "round": 1,
           "opponent": "BC Lietkabelis",
           "home": true,
-          "date": "2026-10-16",
-          "time": "19:10",
-          "venue": "St Mary's College Rathmines",
-          "venueAddress": "St Mary's College, 73-79 Lower Rathmines Road, Dublin 6, D06 HP38",
-          "mapUrl": "https://maps.app.goo.gl/93bRULk4bJoT68RW8",
-          "status": "confirmed"
+          "date": null,
+          "time": null,
+          "venue": null,
+          "venueAddress": null,
+          "mapUrl": null,
+          "status": "postponed",
+          "venueNote": "Postponed, new date to be confirmed."
         },
         {
           "round": 2,

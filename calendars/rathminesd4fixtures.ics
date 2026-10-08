@@ -31,15 +31,6 @@ LOCATION:St Catherine's Sports Centre\, Marrowbone Lane\, Dublin 8
 DESCRIPTION:Away game\, Men's Division 4. Map: https://www.google.com/maps/search/?api=1&query=St%20Catherine%27s%20Sports%20Centre%2C%20Marrowbone%20Lane%2C%20Dublin%208
 END:VEVENT
 BEGIN:VEVENT
-UID:rbc-2026-10-16-ballinteer-bulls-bc@rathminesbc.ie
-DTSTAMP:20270311T000000Z
-DTSTART;TZID=Europe/Dublin:20261016T204000
-DTEND;TZID=Europe/Dublin:20261016T221000
-SUMMARY:Rathmines BC v Ballinteer Bulls BC (Men's Division 4)
-LOCATION:St Mary's College\, 73-79 Lower Rathmines Road\, Dublin 6\, D06 HP38
-DESCRIPTION:Home game\, Men's Division 4. Map: https://maps.app.goo.gl/93bRULk4bJoT68RW8
-END:VEVENT
-BEGIN:VEVENT
 UID:rbc-2026-10-23-ucd-marian-bc@rathminesbc.ie
 DTSTAMP:20270311T000000Z
 DTSTART;TZID=Europe/Dublin:20261023T204000
