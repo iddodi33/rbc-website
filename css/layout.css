@@ -1757,3 +1757,15 @@ body[data-page="shop"] {
   height: 100%;
   border: 0;
 }
+
+/* Squad photo above a roster grid. Portrait source, so it is held to a column
+   width instead of running the full container. */
+.team-photo {
+  margin: 0 0 var(--space-6);
+  max-width: 30rem;
+}
+.team-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
