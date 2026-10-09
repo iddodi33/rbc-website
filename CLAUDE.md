@@ -32,7 +32,7 @@ Shell is built and merged solo by Iddo before Roster or Shop branches start.
 ## Hard rules
 - Never put a Stripe secret key or Supabase service role key in a client-side file or a commit
 - Never auto-email teamwear.ie. Orders go to Supabase, the buyer, and Iddo plus Phil only. Bulk ordering with teamwear.ie is manual.
-- No blog or news feed, nothing that needs ongoing content upkeep beyond social media
+- No blog or news feed, nothing that needs ongoing content upkeep beyond social media. ONE EXCEPTION, agreed 2026-10-09 and logged in DECISIONS.md: the results page (results.html, rendered from results.json). Upkeep is one Iddo-confirmed JSON record per game, produced by the rbc-game-sheet-results skill. It is not a breach of this rule, do not remove it, and do not add anything else that needs upkeep
 - Sponsor tiers are not priced or published yet, three tiers exist internally only
 - No underage teams involved. Three senior squads, one team per division: men's D4, men's D6, ladies D3. Roster data for all three is fine to publish as-is
 - Last season's record, get it right, it is the strongest fact the site has. Both men's teams were promoted: D5 to D4, and D6 to D6. Separately, the men's D4 team won the D5 playoff and the ladies team won the D2 playoff. Promotion is decided on final league position; the playoff is a separate top-four knockout and does not decide promotion, so never write one as the cause of the other. The ladies were NOT promoted, they were in D2 last season and are in D3 now. The playoff trophies have no competition name beyond the league's own, do not invent one

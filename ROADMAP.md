@@ -8,6 +8,7 @@ The date depends on three things, none of them code: the squads finalised, both 
 - [ ] Our Story / Community page. Iddo, after shell is merged.
 - [ ] Team and Roster, D4, D6 and D3 shown as three separate rosters. Iddo, after shell is merged.
 - [ ] Next fixtures strip on the home page; full list on fixtures.html. Both built and live, rendered from `fixtures.json`. Iddo.
+- [ ] Results page: results.html rendered from results.json, newest first, expandable box score for both teams, Results link in the nav on every page. Seeded with D4 v Barrow Rovers (6 Oct). Records come from the rbc-game-sheet-results skill. Iddo.
 - [ ] Sponsors page: current sponsors (Blackbird, Neighborhood Threat Barber) shown properly, open "partner with us" contact path, no tier pricing published. Shared.
 - [ ] Shop: jersey and tee, cart-style flow (item, size, quantity, multiple items per order), Stripe Checkout, order written to Supabase, confirmation email to buyer, summary email to Iddo and Phil, manual relay to teamwear.ie for bulk fulfillment, pickup or delivery captured on the form. Phil, after shell is merged.
 - [ ] Instagram feed, RBC's own account only. Phil, after shell is merged.
@@ -17,9 +18,9 @@ The date depends on three things, none of them code: the squads finalised, both 
 - [ ] Blackbird logo artwork, ideally white on transparency like the Neighbourhood Threat file, so it needs no treatment on the black footer bar. Until it arrives the footer strip sets the name as a wordmark. Shared.
 
 ## Explicitly not in v1
-- Season record tracking (photo plus scores form)
+- Season record tracking through a photo upload and scores form on the site (the results page above replaces it for v1, fed by results.json, no upload)
 - DMBB league table for D4, D6 and D3
-- Any blog, news feed, or content requiring regular upkeep
+- Any blog, news feed, or content requiring regular upkeep, except the results page (agreed 2026-10-09, one confirmed JSON record per game)
 - Priced, published sponsor tiers or a formal pitch document
 - Automated ordering with teamwear.ie
 - Custom cart or checkout code (using Stripe Checkout instead)
