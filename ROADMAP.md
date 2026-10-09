@@ -6,9 +6,9 @@ The date depends on three things, none of them code: the squads finalised, both 
 
 - [ ] Shell: layout, nav, Leather and Chalk design system, home page, deploy pipeline. Iddo, solo, first.
 - [ ] Our Story / Community page. Iddo, after shell is merged.
-- [ ] Team and Roster, D4, D6 and D3 shown as three separate rosters. Iddo, after shell is merged.
+- [ ] Team and Roster, men's D4 and D6 rosters on roster.html. The ladies D3 roster was taken off roster.html on 2026-10-09 (the squad still appears on fixtures and results). Iddo, after shell is merged.
 - [ ] Next fixtures strip on the home page; full list on fixtures.html. Both built and live, rendered from `fixtures.json`. Iddo.
-- [ ] Results page: results.html rendered from results.json, newest first, expandable box score for both teams, Results link in the nav on every page. Seeded with D4 v Barrow Rovers (6 Oct). Records come from the rbc-game-sheet-results skill. Iddo.
+- [x] Results page: results.html rendered from results.json, newest first, expandable box score for both teams, Results link in the nav on every page. Seeded with D4 v Barrow Rovers (6 Oct). Records come from the rbc-game-sheet-results skill. Iddo.
 - [ ] Sponsors page: current sponsors (Blackbird, Neighborhood Threat Barber) shown properly, open "partner with us" contact path, no tier pricing published. Shared.
 - [ ] Shop: jersey and tee, cart-style flow (item, size, quantity, multiple items per order), Stripe Checkout, order written to Supabase, confirmation email to buyer, summary email to Iddo and Phil, manual relay to teamwear.ie for bulk fulfillment, pickup or delivery captured on the form. Phil, after shell is merged.
 - [ ] Instagram feed, RBC's own account only. Phil, after shell is merged.
