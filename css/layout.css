@@ -204,14 +204,31 @@
   border-block-end-color: var(--accent);
 }
 
+/* Eight links need about 100px more room beside the brand than seven did, and
+   the brand grows with the viewport. With these gaps the nav measured as one
+   row at 1024, 1099, 1149, 1150 and 1280px. At 768px it wraps to a second
+   row, as it already did before the Results link. */
+@media (min-width: 768px) and (max-width: 1149px) {
+  .site-nav__list {
+    column-gap: 0.625rem;
+  }
+}
+
+@media (min-width: 1150px) and (max-width: 1199px) {
+  .site-nav__list {
+    column-gap: var(--space-4);
+  }
+}
+
 /* Current page. Driven by the data-page attribute on <body> so that the
-   header markup stays byte-identical across all eight pages and the marker
+   header markup stays byte-identical across all nine pages and the marker
    works without JS. nav.js additionally sets aria-current for screen
    readers. Keep the two in step. */
 body[data-page="index"]    .site-nav__link[data-nav="index"],
 body[data-page="story"]    .site-nav__link[data-nav="story"],
 body[data-page="roster"]   .site-nav__link[data-nav="roster"],
 body[data-page="fixtures"] .site-nav__link[data-nav="fixtures"],
+body[data-page="results"]  .site-nav__link[data-nav="results"],
 body[data-page="sponsors"] .site-nav__link[data-nav="sponsors"],
 body[data-page="shop"]     .site-nav__link[data-nav="shop"],
 body[data-page="contact"]  .site-nav__link[data-nav="contact"] {
@@ -271,6 +288,7 @@ body[data-page="contact"]  .site-nav__link[data-nav="contact"] {
   .js body[data-page="story"]    .site-nav__link[data-nav="story"],
   .js body[data-page="roster"]   .site-nav__link[data-nav="roster"],
   .js body[data-page="fixtures"] .site-nav__link[data-nav="fixtures"],
+  .js body[data-page="results"]  .site-nav__link[data-nav="results"],
   .js body[data-page="sponsors"] .site-nav__link[data-nav="sponsors"],
   .js body[data-page="shop"]     .site-nav__link[data-nav="shop"],
   .js body[data-page="contact"]  .site-nav__link[data-nav="contact"] {
@@ -564,6 +582,7 @@ body[data-page="index"]    .site-header.is-over-hero .site-nav__link[data-nav="i
 body[data-page="story"]    .site-header.is-over-hero .site-nav__link[data-nav="story"],
 body[data-page="roster"]   .site-header.is-over-hero .site-nav__link[data-nav="roster"],
 body[data-page="fixtures"] .site-header.is-over-hero .site-nav__link[data-nav="fixtures"],
+body[data-page="results"]  .site-header.is-over-hero .site-nav__link[data-nav="results"],
 body[data-page="sponsors"] .site-header.is-over-hero .site-nav__link[data-nav="sponsors"],
 body[data-page="shop"]     .site-header.is-over-hero .site-nav__link[data-nav="shop"],
 body[data-page="contact"]  .site-header.is-over-hero .site-nav__link[data-nav="contact"],
@@ -1544,7 +1563,8 @@ body[data-page="story"] {
 }
 
 body[data-page="roster"],
-body[data-page="fixtures"] {
+body[data-page="fixtures"],
+body[data-page="results"] {
   --ambient-photo: url("../assets/img/rathminespitch.jpg");
   --ambient-anchor: center 45%;
 }
@@ -1768,4 +1788,307 @@ body[data-page="shop"] {
   display: block;
   width: 100%;
   height: auto;
+}
+
+
+/* -----------------------------------------------------------------------------
+   Results page
+   --------------------------------------------------------------------------
+   Rendered from results.json by the inline script in results.html. One card
+   per game, newest first. The outcome is a word (Win, Loss) and never colour
+   alone: the Win badge is filled, the Loss badge is outlined, and the left
+   edge of the card follows. Brand tokens only.
+   -------------------------------------------------------------------------- */
+
+/* The "See results" and "See fixtures" cross-links under each page heading. */
+.results__lede,
+.fixtures__lede {
+  max-width: var(--measure);
+  margin-block-end: var(--space-5);
+  color: var(--text-muted);
+}
+
+.results__fallback,
+.results__none {
+  max-width: var(--measure);
+  color: var(--text-muted);
+}
+
+/* Display values below would beat the hidden attribute, so say it again. */
+.results-filter[hidden],
+.results-list[hidden],
+.results-list__item[hidden],
+.results__none[hidden] {
+  display: none;
+}
+
+/* Filter. Hash links styled like the fixtures toggle, 44px tall. */
+.results-filter {
+  margin-block-start: var(--space-5);
+}
+
+.results-filter__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.results-filter__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: var(--space-2) var(--space-4);
+
+  border: var(--border-hairline) solid var(--rule-strong);
+  color: var(--text);
+  text-decoration: none;
+
+  font-family: var(--font-display);
+  font-size: var(--step--1);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+}
+
+.results-filter__link:hover,
+.results-filter__link[aria-current="true"] {
+  background-color: var(--black);
+  border-color: var(--black);
+  color: var(--paper);
+}
+
+.results {
+  margin-block-start: var(--space-5);
+}
+
+.results-list {
+  display: grid;
+  gap: var(--space-5);
+  max-width: var(--container-narrow);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Card */
+.result {
+  padding: var(--space-4);
+  background-color: var(--surface-raised);
+  border: var(--border-hairline) solid var(--rule);
+  border-inline-start: var(--border-thick) solid var(--black);
+  box-shadow: var(--shadow-sm);
+}
+
+.result--win {
+  border-inline-start-color: var(--accent);
+}
+
+.result__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-3);
+  margin: 0;
+
+  font-family: var(--font-display);
+  font-size: var(--step--2);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.result__tag--home {
+  color: var(--accent-ink);        /* 6.05:1 on paper */
+}
+
+.result__title {
+  margin-block-start: var(--space-2);
+  font-size: var(--step-1);
+}
+
+.result__score {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+  margin: var(--space-3) 0 0;
+}
+
+.result__outcome {
+  padding: var(--space-1) var(--space-3);
+  border: var(--border-thick) solid var(--black);
+
+  font-family: var(--font-display);
+  font-size: var(--step--1);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+}
+
+.result--win .result__outcome {
+  background-color: var(--black);
+  color: var(--paper);
+}
+
+.result--loss .result__outcome,
+.result--draw .result__outcome {
+  background-color: transparent;
+  color: var(--text);
+}
+
+.result__line {
+  font-size: var(--step-0);
+}
+
+.result__points {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: var(--weight-bold);
+  line-height: 1;
+}
+
+/* Tables, shared. Numbers are tabular so columns line up. */
+.result__quarters,
+.result__players {
+  width: 100%;
+  margin-block-start: var(--space-4);
+  border-collapse: collapse;
+  font-size: var(--step--1);
+  font-variant-numeric: tabular-nums;
+}
+
+.result__quarters th,
+.result__quarters td,
+.result__players th,
+.result__players td {
+  padding: var(--space-2);
+  border-block-end: var(--border-hairline) solid var(--rule);
+  text-align: start;
+}
+
+.result__quarters thead th,
+.result__players thead th {
+  border-block-end-color: var(--rule-strong);
+  font-family: var(--font-display);
+  font-size: var(--step--2);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+}
+
+.result__quarters tbody th {
+  font-weight: var(--weight-semibold);
+}
+
+.result__quarters {
+  table-layout: fixed;
+}
+
+.result__quarters th:first-child {
+  width: 34%;
+}
+
+.result__num {
+  text-align: end;
+}
+
+.result__quarters th.result__num,
+.result__quarters td.result__num,
+.result__players th.result__num,
+.result__players td.result__num {
+  text-align: end;
+}
+
+.result__final {
+  font-weight: var(--weight-bold);
+}
+
+.result__players tfoot th,
+.result__players tfoot td {
+  border-block-start: var(--border-thick) solid var(--black);
+  border-block-end: none;
+  font-weight: var(--weight-bold);
+}
+
+.result__players-title {
+  padding-block-end: var(--space-1);
+  text-align: start;
+  font-family: var(--font-display);
+  font-size: var(--step-0);
+  font-weight: var(--weight-bold);
+}
+
+.result__players th:first-child,
+.result__players td:first-child {
+  width: 3.5rem;
+}
+
+/* Box score disclosure. The summary is the touch target: 44px tall, full
+   width, and focusable with the global focus ring. */
+.result__box {
+  margin-block-start: var(--space-4);
+}
+
+.result__box-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 2.75rem;
+  padding: var(--space-2) var(--space-4);
+
+  border: var(--border-hairline) solid var(--rule-strong);
+  color: var(--text);
+  cursor: pointer;
+  list-style: none;
+
+  font-family: var(--font-display);
+  font-size: var(--step--1);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+}
+
+.result__box-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.result__box-toggle::after {
+  content: "+";
+  font-size: var(--step-1);
+  line-height: 1;
+}
+
+.result__box[open] > .result__box-toggle::after {
+  content: "\2212";
+}
+
+.result__box-toggle:hover {
+  background-color: var(--black);
+  border-color: var(--black);
+  color: var(--paper);
+}
+
+.result__tables {
+  display: grid;
+  gap: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .result {
+    padding: var(--space-5);
+  }
+
+  .result__tables {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+
+  .result__box-toggle {
+    max-width: 16rem;
+  }
 }

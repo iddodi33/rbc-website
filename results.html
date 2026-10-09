@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en-IE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Results - Rathmines Basketball Club</title>
+  <meta name="description" content="Final scores, quarter-by-quarter scoring and box scores for the Rathmines Basketball Club senior squads: men's Division 4, men's Division 6 and ladies Division 3.">
+
+  <!-- PRE-LAUNCH ONLY, COMES OUT ON LAUNCH DAY. The site is on a public URL
+       and still carries placeholder copy, so nothing here should be indexed
+       yet. Paired with robots.txt at the repo root; remove both together.
+       Tracked in ROADMAP.md as "Remove noindex and robots.txt". -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Social preview. Absolute URLs are required - a relative og:image is
+       simply dropped by every scraper. Titles and descriptions are per page,
+       not one shared set, so a shared link says which page it is.
+
+       The image is the home hero on every page. It is 1600x900, and the
+       platforms want 1200x630, so they letterbox it slightly; a dedicated
+       1200x630 crop would be better and is not worth a second file until
+       there is a photograph chosen for it. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Rathmines Basketball Club">
+  <meta property="og:locale" content="en_IE">
+  <meta property="og:url" content="https://rathminesbc.ie/results.html">
+  <meta property="og:title" content="Results - Rathmines Basketball Club">
+  <meta property="og:description" content="Final scores, quarter-by-quarter scoring and box scores for the Rathmines Basketball Club senior squads: men's Division 4, men's Division 6 and ladies Division 3.">
+  <meta property="og:image" content="https://rathminesbc.ie/assets/img/hero-landscape-16x9.jpg">
+  <meta property="og:image:width" content="1600">
+  <meta property="og:image:height" content="900">
+  <meta property="og:image:alt" content="The Rathmines squad in a huddle before tip-off, hands in at the centre.">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Results - Rathmines Basketball Club">
+  <meta name="twitter:description" content="Final scores, quarter-by-quarter scoring and box scores for the Rathmines Basketball Club senior squads: men's Division 4, men's Division 6 and ladies Division 3.">
+  <meta name="twitter:image" content="https://rathminesbc.ie/assets/img/hero-landscape-16x9.jpg">
+  <meta name="twitter:image:alt" content="The Rathmines squad in a huddle before tip-off, hands in at the centre.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+
+  <!-- Load order matters: tokens, then base, then layout. -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+
+  <!-- TODO: replace with a proper favicon set. Currently reusing the club
+       mark, which is a 114x107 raster and will look soft as a favicon. -->
+  <link rel="icon" href="assets/img/logo.png">
+
+  <script src="js/nav.js" defer></script>
+</head>
+
+<body data-page="results">
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ======================================================================
+       SHARED HEADER — byte-identical across all nine pages.
+       No templating engine by design. If you edit this block, edit it in
+       index.html, story.html, roster.html, fixtures.html, results.html,
+       sponsors.html, shop.html, contact.html and 404.html in the same commit.
+       Do not re-indent it.
+       ====================================================================== -->
+  <header class="site-header">
+    <div class="site-header__inner container">
+
+      <a class="brand" href="index.html">
+        <img class="brand__logo" src="assets/img/logo.png" alt="" width="114" height="107">
+        <span class="brand__name">
+          Rathmines
+          <span class="brand__name-sub">Basketball Club</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span>Menu</span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" data-nav="index" href="index.html">Home</a></li>
+          <li><a class="site-nav__link" data-nav="story" href="story.html">Our Story</a></li>
+          <li><a class="site-nav__link" data-nav="roster" href="roster.html">Roster</a></li>
+          <li><a class="site-nav__link" data-nav="fixtures" href="fixtures.html">Fixtures</a></li>
+          <li><a class="site-nav__link" data-nav="results" href="results.html">Results</a></li>
+          <li><a class="site-nav__link" data-nav="sponsors" href="sponsors.html">Sponsors</a></li>
+          <li><a class="site-nav__link" data-nav="shop" href="shop.html">Shop</a></li>
+          <li><a class="site-nav__link" data-nav="contact" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+  <!-- ===================== END SHARED HEADER ============================ -->
+
+  <main class="main" id="main">
+
+    <!-- ==================================================================
+         PAGE BAND - the narrow hero. Full bleed, sits under the transparent
+         header, carries the page title. Deliberately about 40% of the home
+         hero's height: this is a strip, not a second hero.
+
+         The scrim is a per-page decision, never global. `page-band--scrim`
+         is on this section only if the title measured under 4.5:1 against
+         this page's own photograph. Numbers are in DECISIONS.md.
+         ================================================================== -->
+    <section class="page-band page-band--scrim">
+
+      <div class="page-band__media">
+        <!-- Rathmines in black contesting a shot against a purple kit. This
+             is band-story.jpg, free since the Our Story band moved to the
+             ladies photo. -->
+        <img class="page-band__img" src="assets/img/band-story.jpg"
+             alt="A Rathmines player in black, number 6, contests a shot by a player in purple while teammates look on."
+             width="1600" height="500" fetchpriority="high">
+      </div>
+
+      <div class="page-band__content">
+        <div class="container">
+          <h1 class="page-band__title">Results</h1>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==================================================================
+         RESULTS
+         Rendered at runtime from results.json by the inline script at the
+         foot of this page. No build step. One record per game, newest
+         first, appended by hand from the rbc-game-sheet-results skill after
+         Iddo has confirmed the values. Nothing else feeds this page.
+
+         Only what the game sheet supports is published: final score,
+         points per quarter and points per player. Opponent players appear
+         by kit number and points only, never by name.
+
+         The filter is a row of hash links (#all, #d4, #d6, #d2w), the same
+         idea as the squad anchors on fixtures.html. The script reads the
+         hash and shows or hides cards. The nav is hidden in the markup and
+         the script reveals it once it has rendered, so without the script
+         there are no dead controls, just the sentence below.
+
+         The paragraph below is the no-JS fallback. It is visible by default
+         and the script hides it only once it has rendered something.
+         ================================================================== -->
+    <section class="section">
+      <div class="container">
+
+        <div class="section__head">
+          <p class="eyebrow">This season</p>
+          <h2>Results</h2>
+        </div>
+
+        <p class="results__lede">Looking for what is coming up? <a href="fixtures.html">See fixtures</a>.</p>
+
+        <nav class="results-filter" id="results-filter" aria-label="Filter results by squad" hidden>
+          <ul class="results-filter__list">
+            <li><a class="results-filter__link" href="#all" data-filter="all">All</a></li>
+            <li><a class="results-filter__link" href="#d4" data-filter="d4">Men&rsquo;s D4</a></li>
+            <li><a class="results-filter__link" href="#d6" data-filter="d6">Men&rsquo;s D6</a></li>
+            <li><a class="results-filter__link" href="#d2w" data-filter="d2w">Ladies D3</a></li>
+          </ul>
+        </nav>
+
+        <p class="results__fallback" id="results-fallback">
+          Results are posted here after each game. They are also on the
+          club&rsquo;s Instagram,
+          <a href="https://www.instagram.com/rathmines_bc/"
+             target="_blank" rel="noopener">@rathmines_bc</a>.
+        </p>
+
+        <!-- Empty until the script runs. Rendered children, newest game
+             first, one <article> per record in results.json:
+
+             <ol class="results-list" aria-live="polite">
+               <li>
+                 <article class="result result--win | result--loss"
+                          data-division="d4" aria-labelledby="result-ID">
+
+                   <header class="result__head">
+                     <p class="result__meta">
+                       <span class="result__division">Men's D4</span>
+                       <span class="result__tag">Home | Away</span>
+                       <time datetime="YYYY-MM-DD">Tue 6 Oct 2026</time>
+                     </p>
+                     <h3 id="result-ID">Rathmines BC v Opponent</h3>   (home order)
+                   </header>
+
+                   <p class="result__score">
+                     <span class="result__outcome">Win | Loss</span>   (word, not colour alone)
+                     <span>Opponent 81, Rathmines BC 60</span>
+                   </p>
+
+                   <table class="result__quarters">
+                     <caption class="visually-hidden">Score by quarter</caption>
+                     <thead> th: Team | Q1 | Q2 | Q3 | Q4 | Final </thead>
+                     <tbody>
+                       tr: Rathmines BC | n | n | n | n | total
+                       tr: Opponent     | n | n | n | n | total
+                     </tbody>
+                   </table>
+
+                   <details class="result__box">
+                     <summary>Box score</summary>        (min 44px tall)
+
+                     <table class="result__players">     Rathmines
+                       <caption>Rathmines BC</caption>
+                       <thead> th: Kit | Player | Pts </thead>
+                       <tbody> one tr per scorer </tbody>
+                       <tfoot> tr: Total | | sum </tfoot>
+                     </table>
+
+                     <table class="result__players">     Opponent, no names
+                       <caption>Opponent</caption>
+                       <thead> th: Kit | Pts </thead>
+                       <tbody> one tr per scorer </tbody>
+                       <tfoot> tr: Total | sum </tfoot>
+                     </table>
+                   </details>
+
+                 </article>
+               </li>
+             </ol>
+
+             Empty division: <p class="results__none">No results yet.</p>
+             (shown per filter, so each squad gets its own message) -->
+        <div class="results" id="results-mount"></div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================================
+       SHARED FOOTER — byte-identical across all nine pages. Same rule as the
+       header: edit all nine together, do not re-indent.
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="site-footer__inner container">
+
+      <!-- SPONSOR STRIP. A credit, not an advert — see DECISIONS.md.
+           Both marks point at sponsors.html and NOT at the sponsors' own
+           sites: the club controls what its sponsors page says, and an
+           outbound link here would push traffic away from the pitch.
+
+           TODO: BLACKBIRD LOGO. No logo file exists for Blackbird, so the
+           name is set as a wordmark in the display face at roughly the
+           optical weight of the Neighbourhood Threat artwork beside it.
+           Nothing has been fabricated and the photograph of the pub is NOT
+           used as a stand-in mark — it is a photograph of a building, not a
+           logo, and using it here would misrepresent their identity. Ask
+           Blackbird for artwork; ideally white on transparency like the NT
+           file, so it needs no treatment on this black bar. When it lands,
+           swap the <span> below for an <img class="sponsor-mark__img">. -->
+      <div class="site-footer__sponsors">
+        <p class="site-footer__sponsors-label">Our sponsors</p>
+
+        <a class="sponsor-mark" href="sponsors.html">
+          <img class="sponsor-mark__img"
+               src="assets/img/sponsor-neighbourhood-threat.png"
+               alt="Neighbourhood Threat Barber Shop"
+               width="1245" height="496" loading="lazy" decoding="async">
+        </a>
+
+        <a class="sponsor-mark" href="sponsors.html">
+          <span class="sponsor-mark__wordmark">Blackbird <br>Rathmines</span>
+        </a>
+      </div>
+
+      <div>
+        <img class="brand__logo" src="assets/img/logo.png" alt="Rathmines Basketball Club" width="114" height="107" loading="lazy" decoding="async">
+        <p class="site-footer__tagline">
+          The home of basketball in Rathmines.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="site-footer__heading">The club</h2>
+        <ul class="site-footer__list">
+          <li><a href="story.html">Our Story</a></li>
+          <li><a href="roster.html">Roster</a></li>
+          <li><a href="fixtures.html">Fixtures</a></li>
+          <li><a href="results.html">Results</a></li>
+          <li><a href="sponsors.html">Sponsors</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="site-footer__heading">Get involved</h2>
+        <ul class="site-footer__list">
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <!-- The handle is confirmed, so it is a plain outbound link on every
+               page. Phil still owns the Instagram EMBED and the rest of the
+               social links; this is only the club's own account. -->
+          <li>
+            <a href="https://www.instagram.com/rathmines_bc/"
+               target="_blank" rel="noopener">Instagram &mdash; @rathmines_bc</a>
+          </li>
+        </ul>
+      </div>
+
+      <p class="site-footer__legal">
+        <!-- TODO: confirm the registered club name and whether a governing
+             body line (Basketball Ireland / DMBB) is required here. -->
+        &copy; 2026 Rathmines Basketball Club. Dublin, Ireland.
+
+        <!-- REQUIRED BY LICENCE, NOT DECORATION. The two Rathmines street
+             photographs on the home page are Creative Commons and CC BY-SA 2.0
+             obliges us to name the photographer and the licence, visibly, on
+             the page that shows them. Both links are part of that obligation:
+             stripping either one, or moving this into a comment or into alt
+             text, puts the club out of compliance. It lives in the shared
+             footer rather than under the photographs so it survives the
+             photographs moving. Do not remove it while those files are in
+             assets/img/. -->
+        <span class="site-footer__credit">
+          Rathmines photographs by
+          <a href="https://www.flickr.com/photos/infomatique/"
+             rel="noopener">William Murphy</a>,
+          <a href="https://creativecommons.org/licenses/by-sa/2.0/"
+             rel="license noopener">CC BY-SA 2.0</a>
+        </span>
+      </p>
+
+    </div>
+  </footer>
+  <!-- ===================== END SHARED FOOTER ============================ -->
+
+  <script>
+    /* ====================================================================
+       Results, rendered from results.json.
+
+       Same pattern as fixtures.html: fetch, then build with createElement.
+       No innerHTML anywhere, the JSON is our own data but it is still data.
+       Like fixtures, this needs a server. Opened straight off the
+       filesystem the fetch is blocked and the fallback sentence stays,
+       which is the intended failure mode.
+
+       Newest game first. Filter is the URL hash: #all, #d4, #d6, #d2w.
+       ==================================================================== */
+    (function () {
+      "use strict";
+
+      var mount = document.getElementById("results-mount");
+      var fallback = document.getElementById("results-fallback");
+      var filterNav = document.getElementById("results-filter");
+
+      if (!mount || !filterNav || !window.fetch) {
+        return;
+      }
+
+      var DIVISIONS = [];
+
+      fetch("results.json", { cache: "no-cache" })
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error("HTTP " + response.status);
+          }
+          return response.json();
+        })
+        .then(render)
+        .catch(function () {
+          /* Leave the fallback sentence exactly where it is. */
+        });
+
+      function el(tag, className, text) {
+        var node = document.createElement(tag);
+        if (className) {
+          node.className = className;
+        }
+        if (text !== undefined && text !== null) {
+          node.appendChild(document.createTextNode(text));
+        }
+        return node;
+      }
+
+      /* Parsed with Date.UTC and printed by hand, never new Date("YYYY-MM-DD"),
+         for the same reason as fixtures.html: a bare date string is read as UTC
+         midnight and shown in the reader's own zone, which can be the day
+         before. */
+      var DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+      function formatDate(iso) {
+        var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso));
+        if (!m) {
+          return null;
+        }
+        var y = Number(m[1]), mo = Number(m[2]), d = Number(m[3]);
+        var dt = new Date(Date.UTC(y, mo - 1, d));
+        if (dt.getUTCFullYear() !== y || dt.getUTCMonth() !== mo - 1 || dt.getUTCDate() !== d) {
+          return null;
+        }
+        return DAYS[dt.getUTCDay()] + " " + d + " " + MONTHS[mo - 1] + " " + y;
+      }
+
+      function isCount(n) {
+        return typeof n === "number" && isFinite(n) && n >= 0 && Math.floor(n) === n;
+      }
+
+      function sumOf(rows) {
+        return rows.reduce(function (a, p) { return a + p.pts; }, 0);
+      }
+
+      function newestFirst(a, b) {
+        var ka = String(a.date || "") + " " + String(a.time || "");
+        var kb = String(b.date || "") + " " + String(b.time || "");
+        if (ka !== kb) {
+          return ka < kb ? 1 : -1;
+        }
+        return (Number(b.round) || 0) - (Number(a.round) || 0);
+      }
+
+      function labelFor(id) {
+        for (var i = 0; i < DIVISIONS.length; i += 1) {
+          if (DIVISIONS[i].id === id) {
+            return DIVISIONS[i].label || id;
+          }
+        }
+        return id;
+      }
+
+      /* A record is only drawn if every number it needs is there. A
+         half-filled record is skipped rather than shown with holes. */
+      function valid(r) {
+        function four(a) { return Array.isArray(a) && a.length === 4 && a.every(isCount); }
+        function rows(a, needName) {
+          return Array.isArray(a) && a.length > 0 && a.every(function (p) {
+            return isCount(p.pts) && isCount(p.kit) && (!needName || p.player);
+          });
+        }
+        return !!(r && r.division && r.opponent && formatDate(r.date) &&
+          r.quarters && four(r.quarters.rbc) && four(r.quarters.opponent) &&
+          r.final && isCount(r.final.rbc) && isCount(r.final.opponent) &&
+          r.boxscore && rows(r.boxscore.rbc, true) && rows(r.boxscore.opponent, false));
+      }
+
+      function cell(tag, text, className, scope) {
+        var c = el(tag, className || "", text);
+        if (scope) {
+          c.setAttribute("scope", scope);
+        }
+        return c;
+      }
+
+      function quarterTable(r, isHome) {
+        var table = el("table", "result__quarters");
+        table.appendChild(el("caption", "visually-hidden", "Score by quarter"));
+
+        var head = el("tr");
+        head.appendChild(cell("th", "Team", "", "col"));
+        ["Q1", "Q2", "Q3", "Q4"].forEach(function (q) {
+          head.appendChild(cell("th", q, "result__num", "col"));
+        });
+        head.appendChild(cell("th", "Final", "result__num", "col"));
+        var thead = el("thead");
+        thead.appendChild(head);
+        table.appendChild(thead);
+
+        var teams = [
+          { name: "Rathmines BC", q: r.quarters.rbc, total: r.final.rbc },
+          { name: r.opponent, q: r.quarters.opponent, total: r.final.opponent }
+        ];
+        if (!isHome) {
+          teams.reverse();
+        }
+        var tbody = el("tbody");
+        teams.forEach(function (t) {
+          var tr = el("tr");
+          tr.appendChild(cell("th", t.name, "", "row"));
+          t.q.forEach(function (n) {
+            tr.appendChild(cell("td", String(n), "result__num"));
+          });
+          tr.appendChild(cell("td", String(t.total), "result__num result__final"));
+          tbody.appendChild(tr);
+        });
+        table.appendChild(tbody);
+        return table;
+      }
+
+      /* Rathmines rows carry kit, player and points. Opponent rows carry kit
+         and points only; the opponent table has no name column at all. */
+      function playerTable(title, rows, withNames) {
+        var table = el("table", "result__players");
+        table.appendChild(el("caption", "result__players-title", title));
+
+        var head = el("tr");
+        head.appendChild(cell("th", "Kit", "result__num", "col"));
+        if (withNames) {
+          head.appendChild(cell("th", "Player", "", "col"));
+        }
+        head.appendChild(cell("th", "Pts", "result__num", "col"));
+        var thead = el("thead");
+        thead.appendChild(head);
+        table.appendChild(thead);
+
+        var tbody = el("tbody");
+        rows.forEach(function (p) {
+          var tr = el("tr");
+          tr.appendChild(cell("td", String(p.kit), "result__num"));
+          if (withNames) {
+            tr.appendChild(cell("td", p.player));
+          }
+          tr.appendChild(cell("td", String(p.pts), "result__num"));
+          tbody.appendChild(tr);
+        });
+        table.appendChild(tbody);
+
+        var foot = el("tr");
+        var totalLabel = cell("th", "Total", "", "row");
+        totalLabel.setAttribute("colspan", withNames ? "2" : "1");
+        foot.appendChild(totalLabel);
+        foot.appendChild(cell("td", String(sumOf(rows)), "result__num"));
+        var tfoot = el("tfoot");
+        tfoot.appendChild(foot);
+        table.appendChild(tfoot);
+        return table;
+      }
+
+      function card(r, index) {
+        var isHome = r.home === true;
+        var rbc = r.final.rbc, opp = r.final.opponent;
+        var outcome = rbc > opp ? "Win" : rbc < opp ? "Loss" : "Draw";
+        var id = "result-" + String(r.division).replace(/[^a-z0-9]/gi, "") + "-" + (r.round || index);
+
+        var li = el("li", "results-list__item");
+        li.setAttribute("data-division", String(r.division));
+
+        var article = el("article", "result result--" + outcome.toLowerCase());
+        article.setAttribute("aria-labelledby", id);
+
+        var meta = el("p", "result__meta");
+        meta.appendChild(el("span", "result__division", labelFor(r.division)));
+        meta.appendChild(el("span", "result__tag " + (isHome ? "result__tag--home" : "result__tag--away"),
+          isHome ? "Home" : "Away"));
+        var time = el("time", "result__date", formatDate(r.date));
+        time.setAttribute("datetime", String(r.date));
+        meta.appendChild(time);
+        article.appendChild(meta);
+
+        var home = isHome ? "Rathmines BC" : r.opponent;
+        var away = isHome ? r.opponent : "Rathmines BC";
+        var title = el("h3", "result__title", home + " v " + away);
+        title.id = id;
+        article.appendChild(title);
+
+        /* The word carries the outcome, so it never depends on colour. */
+        var score = el("p", "result__score");
+        score.appendChild(el("span", "result__outcome", outcome));
+        var line = el("span", "result__line");
+        line.appendChild(document.createTextNode(home + " "));
+        line.appendChild(el("span", "result__points", String(isHome ? rbc : opp)));
+        line.appendChild(document.createTextNode(", " + away + " "));
+        line.appendChild(el("span", "result__points", String(isHome ? opp : rbc)));
+        score.appendChild(line);
+        article.appendChild(score);
+
+        article.appendChild(quarterTable(r, isHome));
+
+        var details = el("details", "result__box");
+        details.appendChild(el("summary", "result__box-toggle", "Box score"));
+        var tables = el("div", "result__tables");
+        tables.appendChild(playerTable("Rathmines BC", r.boxscore.rbc, true));
+        tables.appendChild(playerTable(r.opponent, r.boxscore.opponent, false));
+        details.appendChild(tables);
+        article.appendChild(details);
+
+        li.appendChild(article);
+        return li;
+      }
+
+      var list = null;
+      var none = null;
+
+      function currentFilter() {
+        var id = String(location.hash || "").replace(/^#/, "");
+        for (var i = 0; i < DIVISIONS.length; i += 1) {
+          if (DIVISIONS[i].id === id) {
+            return id;
+          }
+        }
+        return "all";
+      }
+
+      function applyFilter() {
+        var filter = currentFilter();
+
+        var links = filterNav.querySelectorAll("[data-filter]");
+        for (var i = 0; i < links.length; i += 1) {
+          if (links[i].getAttribute("data-filter") === filter) {
+            links[i].setAttribute("aria-current", "true");
+          } else {
+            links[i].removeAttribute("aria-current");
+          }
+        }
+
+        var shown = 0;
+        var items = list.children;
+        for (var j = 0; j < items.length; j += 1) {
+          var match = filter === "all" || items[j].getAttribute("data-division") === filter;
+          items[j].hidden = !match;
+          if (match) {
+            shown += 1;
+          }
+        }
+
+        list.hidden = shown === 0;
+        none.hidden = shown !== 0;
+        none.textContent = filter === "all"
+          ? "No results yet."
+          : "No results yet for " + labelFor(filter) + ".";
+      }
+
+      function render(data) {
+        DIVISIONS = (data && Array.isArray(data.divisions)) ? data.divisions : [];
+        var records = (data && Array.isArray(data.results)) ? data.results : [];
+
+        /* Without a division list there is nothing to label a card with, so
+           keep the fallback sentence. */
+        if (!DIVISIONS.length) {
+          return;
+        }
+
+        list = el("ol", "results-list");
+        records.filter(valid).sort(newestFirst).forEach(function (r, i) {
+          list.appendChild(card(r, i));
+        });
+        none = el("p", "results__none");
+        none.setAttribute("role", "status");
+
+        mount.appendChild(list);
+        mount.appendChild(none);
+
+        if (fallback) {
+          fallback.hidden = true;
+        }
+        filterNav.hidden = false;
+
+        window.addEventListener("hashchange", applyFilter);
+        applyFilter();
+      }
+    })();
+  </script>
+
+</body>
+</html>

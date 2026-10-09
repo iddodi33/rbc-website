@@ -58,15 +58,17 @@
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- ======================================================================
-       SHARED HEADER — byte-identical across all eight pages.
+       SHARED HEADER — byte-identical across all nine pages.
        No templating engine by design. If you edit this block, edit it in
-       index.html, story.html, roster.html, fixtures.html, sponsors.html,
-       shop.html, contact.html and 404.html in the same commit. Do not
-       re-indent it.
+       index.html, story.html, roster.html, fixtures.html, results.html,
+       sponsors.html, shop.html, contact.html and 404.html in the same commit.
+       Do not re-indent it.
        ====================================================================== -->
   <header class="site-header">
     <div class="site-header__inner container">
-      <a class="brand" href="index.html"><img class="brand__logo" src="assets/img/logo.png" alt="" width="114" height="107">
+
+      <a class="brand" href="index.html">
+        <img class="brand__logo" src="assets/img/logo.png" alt="" width="114" height="107">
         <span class="brand__name">
           Rathmines
           <span class="brand__name-sub">Basketball Club</span>
@@ -84,6 +86,7 @@
           <li><a class="site-nav__link" data-nav="story" href="story.html">Our Story</a></li>
           <li><a class="site-nav__link" data-nav="roster" href="roster.html">Roster</a></li>
           <li><a class="site-nav__link" data-nav="fixtures" href="fixtures.html">Fixtures</a></li>
+          <li><a class="site-nav__link" data-nav="results" href="results.html">Results</a></li>
           <li><a class="site-nav__link" data-nav="sponsors" href="sponsors.html">Sponsors</a></li>
           <li><a class="site-nav__link" data-nav="shop" href="shop.html">Shop</a></li>
           <li><a class="site-nav__link" data-nav="contact" href="contact.html">Contact</a></li>
@@ -272,8 +275,8 @@
   </main>
 
   <!-- ======================================================================
-       SHARED FOOTER — byte-identical across all eight pages. Same rule as the
-       header: edit all eight together, do not re-indent.
+       SHARED FOOTER — byte-identical across all nine pages. Same rule as the
+       header: edit all nine together, do not re-indent.
        ====================================================================== -->
   <footer class="site-footer">
     <div class="site-footer__inner container">
@@ -294,12 +297,16 @@
            swap the <span> below for an <img class="sponsor-mark__img">. -->
       <div class="site-footer__sponsors">
         <p class="site-footer__sponsors-label">Our sponsors</p>
-        <a class="sponsor-mark" href="sponsors.html"><img class="sponsor-mark__img"
+
+        <a class="sponsor-mark" href="sponsors.html">
+          <img class="sponsor-mark__img"
                src="assets/img/sponsor-neighbourhood-threat.png"
                alt="Neighbourhood Threat Barber Shop"
                width="1245" height="496" loading="lazy" decoding="async">
         </a>
-        <a class="sponsor-mark" href="sponsors.html"><span class="sponsor-mark__wordmark">Blackbird <br>Rathmines</span>
+
+        <a class="sponsor-mark" href="sponsors.html">
+          <span class="sponsor-mark__wordmark">Blackbird <br>Rathmines</span>
         </a>
       </div>
 
@@ -315,7 +322,8 @@
         <ul class="site-footer__list">
           <li><a href="story.html">Our Story</a></li>
           <li><a href="roster.html">Roster</a></li>
-          <li><a href="fixtures.html">Fixtures &amp; Results</a></li>
+          <li><a href="fixtures.html">Fixtures</a></li>
+          <li><a href="results.html">Results</a></li>
           <li><a href="sponsors.html">Sponsors</a></li>
         </ul>
       </div>
@@ -329,7 +337,8 @@
                page. Phil still owns the Instagram EMBED and the rest of the
                social links; this is only the club's own account. -->
           <li>
-              <a href="https://www.instagram.com/rathmines_bc/" target="_blank" rel="noopener">Instagram &mdash; @rathmines_bc</a>
+            <a href="https://www.instagram.com/rathmines_bc/"
+               target="_blank" rel="noopener">Instagram &mdash; @rathmines_bc</a>
           </li>
         </ul>
       </div>
@@ -350,8 +359,10 @@
              assets/img/. -->
         <span class="site-footer__credit">
           Rathmines photographs by
-              <a href="https://www.flickr.com/photos/infomatique/" rel="noopener">William Murphy</a>,
-              <a href="https://creativecommons.org/licenses/by-sa/2.0/" rel="license noopener">CC BY-SA 2.0</a>
+          <a href="https://www.flickr.com/photos/infomatique/"
+             rel="noopener">William Murphy</a>,
+          <a href="https://creativecommons.org/licenses/by-sa/2.0/"
+             rel="license noopener">CC BY-SA 2.0</a>
         </span>
       </p>
 

@@ -1,0 +1,47 @@
+{
+  "source": "Game sheets, entered with the rbc-game-sheet-results skill and confirmed by Iddo before each record is added. Append only, one record per game. Opponent players are kit number and points only, no names. Zero scorers are omitted.",
+  "divisions": [
+    { "id": "d4",  "label": "Men's Division 4" },
+    { "id": "d6",  "label": "Men's Division 6" },
+    { "id": "d2w", "label": "Ladies Division 3" }
+  ],
+  "results": [
+    {
+      "division": "d4",
+      "round": 1,
+      "date": "2026-10-06",
+      "time": "20:15",
+      "venue": "St Catherine's, Marrowbone Lane",
+      "opponent": "Barrow Rovers",
+      "home": false,
+      "quarters": {
+        "opponent": [15, 25, 23, 18],
+        "rbc": [23, 9, 12, 16]
+      },
+      "final": { "opponent": 81, "rbc": 60 },
+      "boxscore": {
+        "rbc": [
+          { "kit": 5,  "player": "Igor Grkavac",         "pts": 14 },
+          { "kit": 17, "player": "Christian D'Virgilio", "pts": 13 },
+          { "kit": 10, "player": "Myles Carey",          "pts": 8 },
+          { "kit": 29, "player": "Liam Jury",            "pts": 7 },
+          { "kit": 19, "player": "Ante Grebesa",         "pts": 6 },
+          { "kit": 27, "player": "Lee Murphy",           "pts": 6 },
+          { "kit": 20, "player": "Daniel Zapata Lisano", "pts": 5 },
+          { "kit": 9,  "player": "Adam Halpin",          "pts": 1 }
+        ],
+        "opponent": [
+          { "kit": 34, "pts": 20 },
+          { "kit": 1,  "pts": 17 },
+          { "kit": 41, "pts": 13 },
+          { "kit": 5,  "pts": 11 },
+          { "kit": 17, "pts": 7 },
+          { "kit": 13, "pts": 6 },
+          { "kit": 25, "pts": 5 },
+          { "kit": 44, "pts": 1 },
+          { "kit": 18, "pts": 1 }
+        ]
+      }
+    }
+  ]
+}
