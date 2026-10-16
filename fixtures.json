@@ -35,14 +35,13 @@
         {
           "round": 2,
           "opponent": "Ballinteer Bulls BC",
-          "home": true,
-          "date": null,
-          "time": null,
-          "venue": null,
-          "venueAddress": null,
-          "mapUrl": null,
-          "status": "postponed",
-          "venueNote": "Postponed, new date to be confirmed."
+          "home": false,
+          "date": "2026-10-16",
+          "time": "20:35",
+          "venue": "Wesley College",
+          "venueAddress": "Wesley College, Ballinteer, Dublin 16",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Wesley%20College%2C%20Ballinteer%2C%20Dublin%2016",
+          "status": "confirmed"
         },
         {
           "round": 3,

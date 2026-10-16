@@ -42,6 +42,41 @@
           { "kit": 18, "pts": 1 }
         ]
       }
+    },
+    {
+      "division": "d4",
+      "round": 2,
+      "date": "2026-10-16",
+      "time": "20:35",
+      "venue": "Wesley College",
+      "opponent": "Ballinteer Bulls BC",
+      "home": false,
+      "quarters": {
+        "opponent": [26, 21, 16, 14],
+        "rbc": [20, 14, 10, 27]
+      },
+      "final": { "opponent": 77, "rbc": 71 },
+      "boxscore": {
+        "rbc": [
+          { "kit": 26, "player": "Gabriel Palhao",       "pts": 21 },
+          { "kit": 17, "player": "Christian D'Virgilio", "pts": 21 },
+          { "kit": 5,  "player": "Igor Grkavac",         "pts": 12 },
+          { "kit": 35, "player": "Kevin Stanton",        "pts": 6 },
+          { "kit": 29, "player": "Liam Jury",            "pts": 5 },
+          { "kit": 10, "player": "Myles Carey",          "pts": 4 },
+          { "kit": 16, "player": "Leon Faerman",         "pts": 2 }
+        ],
+        "opponent": [
+          { "kit": 4,  "pts": 30 },
+          { "kit": 27, "pts": 12 },
+          { "kit": 8,  "pts": 12 },
+          { "kit": 7,  "pts": 11 },
+          { "kit": 11, "pts": 4 },
+          { "kit": 30, "pts": 4 },
+          { "kit": 20, "pts": 2 },
+          { "kit": 13, "pts": 2 }
+        ]
+      }
     }
   ]
 }
