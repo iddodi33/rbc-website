@@ -1,0 +1,8 @@
+{
+  "name": "rbc-website",
+  "private": true,
+  "description": "Static site. The only dependency is for the D6 playbook gate (middleware.ts).",
+  "dependencies": {
+    "@vercel/functions": "^2.0.0"
+  }
+}
