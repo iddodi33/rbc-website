@@ -1,7 +1,7 @@
-// Gate for /playbook-d6/*. Runs at the edge before any static file is served,
+// Gate for /playbook-d6/*. Vercel Routing Middleware, runs before any static file is served,
 // so the page, the videos and the PDFs are all behind the same check.
 //
-// Needs two environment variables set in Netlify (never committed):
+// Needs two environment variables set in Vercel (never committed):
 //   PLAYBOOK_CODE    the shared team code
 //   PLAYBOOK_SECRET  a long random string used to sign the cookie
 // If either is missing the gate fails closed: nothing is served.
@@ -10,7 +10,7 @@
 // new sign-ins; existing cookies stay valid until they expire, so rotate both
 // when a season ends.
 
-import type { Context } from "https://edge.netlify.com";
+import { next } from "@vercel/functions";
 
 const COOKIE = "rbc_playbook";
 const BASE = "/playbook-d6";
@@ -105,9 +105,9 @@ function loginPage(error: boolean, status: number): Response {
   return new Response(html, { status, headers });
 }
 
-export default async (req: Request, context: Context): Promise<Response> => {
-  const code = Deno.env.get("PLAYBOOK_CODE");
-  const secret = Deno.env.get("PLAYBOOK_SECRET");
+export default async function middleware(req: Request): Promise<Response> {
+  const code = process.env.PLAYBOOK_CODE;
+  const secret = process.env.PLAYBOOK_SECRET;
   if (!code || !secret) {
     return new Response("Playbook is not configured.", { status: 503, headers: { "cache-control": "no-store" } });
   }
@@ -116,10 +116,7 @@ export default async (req: Request, context: Context): Promise<Response> => {
   if (url.pathname === BASE) return Response.redirect(url.origin + BASE + "/", 301);
 
   if (await hasValidCookie(req, secret)) {
-    const res = await context.next();
-    res.headers.set("cache-control", "private, no-store");
-    res.headers.set("x-robots-tag", "noindex, nofollow");
-    return res;
+    return next({ headers: { "cache-control": "private, no-store", "x-robots-tag": "noindex, nofollow" } });
   }
 
   if (req.method === "POST") {
@@ -145,6 +142,6 @@ export default async (req: Request, context: Context): Promise<Response> => {
   }
 
   return loginPage(false, 401);
-};
+}
 
-export const config = { path: ["/playbook-d6", "/playbook-d6/*"] };
+export const config = { matcher: ["/playbook-d6", "/playbook-d6/:path*"] };
