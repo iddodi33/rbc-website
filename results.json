@@ -77,6 +77,80 @@
           { "kit": 13, "pts": 2 }
         ]
       }
+    },
+    {
+      "division": "d6",
+      "round": 2,
+      "date": "2026-10-23",
+      "time": "20:20",
+      "venue": "Adamstown Community Youth Centre",
+      "opponent": "Adamstown Grafters",
+      "home": false,
+      "verified": true,
+      "quarters": {
+        "opponent": [8, 13, 9, 22],
+        "rbc": [10, 22, 19, 9]
+      },
+      "final": { "opponent": 52, "rbc": 60 },
+      "boxscore": {
+        "rbc": [
+          { "kit": 6,  "player": "Ciarán Darcy",          "pts": 21 },
+          { "kit": 20, "player": "Hugo Brandão",          "pts": 13 },
+          { "kit": 21, "player": "Fergal Dunne",          "pts": 7 },
+          { "kit": 18, "player": "Daniel Logan",          "pts": 5 },
+          { "kit": 30, "player": "Josh Ramsden",          "pts": 4 },
+          { "kit": 14, "player": "David Fennelly",        "pts": 4 },
+          { "kit": 15, "player": "Sean Dunne",            "pts": 4 },
+          { "kit": 16, "player": "Phil Ellison",          "pts": 2 }
+        ],
+        "opponent": [
+          { "kit": 23, "pts": 13 },
+          { "kit": 8,  "pts": 9 },
+          { "kit": 2,  "pts": 9 },
+          { "kit": 17, "pts": 8 },
+          { "kit": 88, "pts": 4 },
+          { "kit": 13, "pts": 4 },
+          { "kit": 25, "pts": 3 },
+          { "kit": 16, "pts": 2 }
+        ]
+      }
+    },
+    {
+      "division": "d4",
+      "round": 3,
+      "date": "2026-10-23",
+      "time": "20:40",
+      "venue": "St Mary's College Rathmines",
+      "opponent": "UCD Marian BC",
+      "home": true,
+      "verified": true,
+      "quarters": {
+        "opponent": [4, 16, 19, 16],
+        "rbc": [24, 14, 8, 14]
+      },
+      "final": { "opponent": 55, "rbc": 60 },
+      "boxscore": {
+        "rbc": [
+          { "kit": 35, "player": "Kevin Stanton",         "pts": 11 },
+          { "kit": 34, "player": "Peter",                 "pts": 11 },
+          { "kit": 5,  "player": "Igor Grkavac",          "pts": 10 },
+          { "kit": 19, "player": "Ante Grebesa",          "pts": 9 },
+          { "kit": 26, "player": "G. Vari",               "pts": 8 },
+          { "kit": 17, "player": "Christian D'Virgilio",  "pts": 7 },
+          { "kit": 10, "player": "Myles Carey",           "pts": 2 },
+          { "kit": 20, "player": "Daniel Zapata Lizano",  "pts": 2 }
+        ],
+        "opponent": [
+          { "kit": 22, "pts": 26 },
+          { "kit": 66, "pts": 11 },
+          { "kit": 95, "pts": 4 },
+          { "kit": 20, "pts": 4 },
+          { "kit": 28, "pts": 3 },
+          { "kit": 97, "pts": 3 },
+          { "kit": 24, "pts": 2 },
+          { "kit": 12, "pts": 2 }
+        ]
+      }
     }
   ]
 }
