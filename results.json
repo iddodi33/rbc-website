@@ -151,6 +151,42 @@
           { "kit": 12, "pts": 2 }
         ]
       }
+    },
+    {
+      "division": "d4",
+      "round": 4,
+      "date": "2026-11-04",
+      "time": "21:10",
+      "venue": "Oblate Hall, Inchicore",
+      "opponent": "Oblate BC",
+      "home": false,
+      "quarters": {
+        "opponent": [29, 11, 20, 20],
+        "rbc": [13, 23, 18, 21]
+      },
+      "final": { "opponent": 80, "rbc": 75 },
+      "boxscore": {
+        "rbc": [
+          { "kit": 19, "player": "Ante Grebesa",         "pts": 15 },
+          { "kit": 5,  "player": "Igor Grkavac",         "pts": 13 },
+          { "kit": 35, "player": "Kevin Stanton",        "pts": 12 },
+          { "kit": 17, "player": "Christian D'Virgilio", "pts": 11 },
+          { "kit": 26, "player": "Gabriel Palhao",       "pts": 10 },
+          { "kit": 29, "player": "Liam Jury",            "pts": 5 },
+          { "kit": 34, "player": "P. Morris",            "pts": 5 },
+          { "kit": 8,  "player": "Leon Faerman",         "pts": 2 },
+          { "kit": 10, "player": "Myles Carey",          "pts": 1 },
+          { "kit": 27, "player": "Lee Murphy",           "pts": 1 }
+        ],
+        "opponent": [
+          { "kit": 16, "pts": 30 },
+          { "kit": 10, "pts": 21 },
+          { "kit": 23, "pts": 14 },
+          { "kit": 32, "pts": 6 },
+          { "kit": 33, "pts": 6 },
+          { "kit": 20, "pts": 3 }
+        ]
+      }
     }
   ]
 }
