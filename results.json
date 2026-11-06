@@ -151,6 +151,77 @@
           { "kit": 12, "pts": 2 }
         ]
       }
+    },
+    {
+      "division": "d4",
+      "round": 4,
+      "date": "2026-11-04",
+      "time": "21:10",
+      "venue": "Oblate Hall, Inchicore",
+      "opponent": "Oblate BC",
+      "home": false,
+      "quarters": {
+        "opponent": [29, 11, 20, 20],
+        "rbc": [13, 23, 18, 21]
+      },
+      "final": { "opponent": 80, "rbc": 75 },
+      "boxscore": {
+        "rbc": [
+          { "kit": 19, "player": "Ante Grebesa",         "pts": 15 },
+          { "kit": 5,  "player": "Igor Grkavac",         "pts": 13 },
+          { "kit": 35, "player": "Kevin Stanton",        "pts": 12 },
+          { "kit": 17, "player": "Christian D'Virgilio", "pts": 11 },
+          { "kit": 26, "player": "Gabriel Palhao",       "pts": 10 },
+          { "kit": 29, "player": "Liam Jury",            "pts": 5 },
+          { "kit": 34, "player": "P. Morris",            "pts": 5 },
+          { "kit": 8,  "player": "Leon Faerman",         "pts": 2 },
+          { "kit": 10, "player": "Myles Carey",          "pts": 1 },
+          { "kit": 27, "player": "Lee Murphy",           "pts": 1 }
+        ],
+        "opponent": [
+          { "kit": 16, "pts": 30 },
+          { "kit": 10, "pts": 21 },
+          { "kit": 23, "pts": 14 },
+          { "kit": 32, "pts": 6 },
+          { "kit": 33, "pts": 6 },
+          { "kit": 20, "pts": 3 }
+        ]
+      }
+    },
+    {
+      "division": "d6",
+      "round": 3,
+      "date": "2026-11-06",
+      "time": "20:40",
+      "venue": "St Mary's College Rathmines",
+      "opponent": "Tolka Rovers Eclipse",
+      "home": true,
+      "verified": true,
+      "quarters": {
+        "opponent": [11, 3, 8, 9],
+        "rbc": [9, 5, 12, 12]
+      },
+      "final": { "opponent": 31, "rbc": 38 },
+      "boxscore": {
+        "rbc": [
+          { "kit": 21, "player": "Fergal Dunne",   "pts": 16 },
+          { "kit": 6,  "player": "Ciarán Darcy",   "pts": 8 },
+          { "kit": 18, "player": "Daniel Logan",   "pts": 6 },
+          { "kit": 15, "player": "Sean Dunne",     "pts": 4 },
+          { "kit": 14, "player": "David Fennelly", "pts": 2 },
+          { "kit": 30, "player": "Josh Ramsden",   "pts": 2 }
+        ],
+        "opponent": [
+          { "kit": 10, "pts": 10 },
+          { "kit": 41, "pts": 5 },
+          { "kit": 15, "pts": 4 },
+          { "kit": 78, "pts": 3 },
+          { "kit": 43, "pts": 3 },
+          { "kit": 2,  "pts": 2 },
+          { "kit": 40, "pts": 2 },
+          { "kit": 94, "pts": 2 }
+        ]
+      }
     }
   ]
 }
