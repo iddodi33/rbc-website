@@ -1193,6 +1193,17 @@ body[data-page="contact"]  .site-header.is-over-hero .site-nav__link[data-nav="c
   color: var(--text-muted);        /* 6.9:1 on paper */
 }
 
+/* A played row shows the score in the status slot, linked to the results
+   page. Win or Loss is spelled out as a word, never colour alone. */
+.fixture--played .fixture__status {
+  color: var(--text);
+}
+.fixture__result-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 /* The calendar links take the status slot on a confirmed row, in the same
    caps styling as the badge they replace. */
 .fixture__cal {

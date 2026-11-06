@@ -297,12 +297,32 @@
         return;
       }
 
+      /* Played games: results.json is optional here. If it fails to load the
+         page renders exactly as before, with no played state. Linked to a
+         fixture by division id and round, the same key scripts/checkresults.js
+         enforces. */
+      var RESULTS = {};
+
+      var resultsReq = fetch("results.json", { cache: "no-cache" })
+        .then(function (response) { return response.ok ? response.json() : null; })
+        .then(function (data) {
+          ((data && data.results) || []).forEach(function (r) {
+            if (r && r.final && typeof r.final.rbc === "number" && typeof r.final.opponent === "number") {
+              RESULTS[r.division + "/" + r.round] = r;
+            }
+          });
+        })
+        .catch(function () { /* no played state */ });
+
       fetch("fixtures.json", { cache: "no-cache" })
         .then(function (response) {
           if (!response.ok) {
             throw new Error("HTTP " + response.status);
           }
           return response.json();
+        })
+        .then(function (data) {
+          return resultsReq.then(function () { return data; });
         })
         .then(render)
         .catch(function () {
@@ -352,7 +372,7 @@
         return /^\d{2}:\d{2}$/.test(String(t)) ? String(t) : null;
       }
 
-      function row(fixture, divisionLabel) {
+      function row(fixture, divisionLabel, divisionId) {
         var isHome = fixture.home === true;
         var dateText = fixture.date ? formatDate(fixture.date) : null;
         var timeText = fixture.time ? formatTime(fixture.time) : null;
@@ -393,13 +413,24 @@
            slot the club offered that has not been answered, so it is marked
            on the row itself and not only in the note above the list. */
         var isConfirmed = fixture.status === "confirmed";
-        li.className += isConfirmed ? " fixture--confirmed" : " fixture--provisional";
+        var played = RESULTS[divisionId + "/" + fixture.round];
+        li.className += played ? " fixture--played" : isConfirmed ? " fixture--confirmed" : " fixture--provisional";
 
         /* A confirmed fixture offers itself as a calendar event in the status
            slot; a provisional one still says so, since a date that moves is
            worse in a calendar than on a page. */
-        var ev = isConfirmed ? icsEvent(fixture, divisionLabel) : null;
-        if (ev) {
+        var ev = isConfirmed && !played ? icsEvent(fixture, divisionLabel) : null;
+        if (played) {
+          var won = played.final.rbc > played.final.opponent;
+          var lost = played.final.rbc < played.final.opponent;
+          var pl = el("span", "fixture__status fixture__played");
+          pl.appendChild(label("Result: "));
+          var pa = el("a", "fixture__result-link",
+            (won ? "Won " : lost ? "Lost " : "Drew ") + played.final.rbc + " to " + played.final.opponent);
+          pa.href = "results.html#" + divisionId;
+          pl.appendChild(pa);
+          li.appendChild(pl);
+        } else if (ev) {
           /* Two ways in: Google opens a pre-filled event in one tap; the
              .ics file is what Apple Calendar and Outlook open natively. */
           var cal = el("span", "fixture__status fixture__cal");
@@ -522,7 +553,7 @@
            it hides the away rows in place. */
         var list = el("ul", "fixture-list is-home-only");
         list.id = titleId + "-list";
-        fixtures.slice().sort(byDate).forEach(function (f) { list.appendChild(row(f, division.label || "")); });
+        fixtures.slice().sort(byDate).forEach(function (f) { list.appendChild(row(f, division.label || "", division.id)); });
 
         var toggle = el("button", "fixtures-toggle");
         toggle.type = "button";
