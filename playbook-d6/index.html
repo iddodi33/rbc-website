@@ -20,6 +20,10 @@
     .play h2 { margin: 0 0 var(--space-2); }
     .play__lead { margin: 0 0 var(--space-4); color: var(--text-muted); max-width: 40rem; }
     .play video { display: block; width: 100%; max-width: 48rem; background: var(--black); border-radius: var(--radius-md); }
+    .play__videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: var(--space-4); max-width: 64rem; }
+    .play__videos figure { margin: 0; }
+    .play__videos video { max-width: none; }
+    .play__videos figcaption { margin-top: var(--space-2); font-size: var(--step--1); color: var(--text-muted); }
     .play__notes { max-width: 40rem; margin-top: var(--space-4); }
     .play__notes h3 { margin: var(--space-4) 0 var(--space-2); font-size: var(--step-1); }
     .play__notes ol, .play__notes ul { padding-left: 1.25rem; margin: 0; }
@@ -54,7 +58,16 @@
       <section class="play" id="purple-rain">
         <h2>Purple Rain (Flash)</h2>
         <p class="play__lead">Our continuity offence. Cut, recut and fill.</p>
-        <video controls playsinline preload="metadata" src="videos/purple-rain-flash.mp4"></video>
+        <div class="play__videos">
+          <figure>
+            <video controls playsinline preload="metadata" src="videos/purple-rain-flash.mp4"></video>
+            <figcaption>Play</figcaption>
+          </figure>
+          <figure>
+            <video controls playsinline preload="metadata" src="videos/flash-explained-web.mp4"></video>
+            <figcaption>Full walkthrough</figcaption>
+          </figure>
+        </div>
         <div class="play__notes">
           <h3>Set</h3>
           <p>1 at the top, 2 and 3 on the wings, 4 and 5 on the low blocks.</p>
@@ -110,12 +123,30 @@
 
       <section class="play" id="4-low">
         <h2>4 Low</h2>
-        <video controls playsinline preload="metadata" src="videos/4-low.mp4"></video>
+        <div class="play__videos">
+          <figure>
+            <video controls playsinline preload="metadata" src="videos/4-low.mp4"></video>
+            <figcaption>Play</figcaption>
+          </figure>
+          <figure>
+            <video controls playsinline preload="metadata" src="videos/4-low-explained-web.mp4"></video>
+            <figcaption>Full walkthrough</figcaption>
+          </figure>
+        </div>
       </section>
 
       <section class="play" id="55">
         <h2>55, two horns zone</h2>
-        <video controls playsinline preload="metadata" src="videos/55.mp4"></video>
+        <div class="play__videos">
+          <figure>
+            <video controls playsinline preload="metadata" src="videos/55.mp4"></video>
+            <figcaption>Play</figcaption>
+          </figure>
+          <figure>
+            <video controls playsinline preload="metadata" src="videos/55-explained-web.mp4"></video>
+            <figcaption>Full walkthrough</figcaption>
+          </figure>
+        </div>
         <div class="play__files">
           <a class="btn btn--secondary" href="pdf/55-two-horns-zone.pdf" target="_blank" rel="noopener">Diagram (PDF)</a>
         </div>
